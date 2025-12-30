@@ -1,0 +1,8 @@
+
+freebbn.elf
+gfx.o
+main.o
+menu.o
+sound.o
+splash.o
+utils.o
