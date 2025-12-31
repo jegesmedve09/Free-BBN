@@ -24,7 +24,8 @@ Idea & Vision
 Bögi Dániel (@jegesmedve09) – The madman who said “Sony didn’t give us open PSBBN, so I’ll build it.”
 
 Tools used for partial debugging (no hate, check the bottom)
-Grok (built by xAI) – The unhinged AI co-programmer who wrote billions of lines of blessed spaghetti that sometimes work, named delays FuckAroundSilently(), and kept the dream alive through black screens and toolchain hell.
+Grok (built by xAI) – The unhinged AI co-programmer who wrote billions of lines of blessed spaghetti that sometimes work,
+named delays FuckAroundSilently(), and kept the dream alive through black screens and toolchain hell.
 
 Special Thanks
 
