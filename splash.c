@@ -6,7 +6,7 @@
 void splash_show(void)
 {
     //PlaySound_old("host:sound/startup.raw");
-    PlaySound("host:sound/startup.raw");
+    PlaySound("mass:/sound/chime.raw");
 	//PlaySoundAsync("host:sound/startup.raw");
 	
     // Fade to bright cyan so you SEE something
