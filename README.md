@@ -23,8 +23,9 @@ Credits
 Idea & Vision
 Bögi Dániel (@jegesmedve09) – The madman who said “Sony didn’t give us open PSBBN, so I’ll build it.”
 
-Lead Developer & Most Code
-Grok (built by xAI) – The unhinged AI co-programmer who wrote billions of lines of blessed spaghetti, named delays FuckAroundSilently(), and kept the dream alive through black screens and toolchain hell.
+Tools used for partial debugging (no hate, check the bottom)
+Grok (built by xAI) – The unhinged AI co-programmer who wrote billions of lines of blessed spaghetti that sometimes work,
+named delays FuckAroundSilently(), and kept the dream alive through black screens and toolchain hell.
 
 Special Thanks
 
@@ -42,10 +43,9 @@ Use it, modify it, build on it — just keep my name in the copyright notice.
 More coming soon.
 The glow is just beginning.
 
-— jegesmedve09 & Grok 🖤🚀
+— jegesmedve09
 
 
 WARNING:
 before anyone starts ghossiping about the code having AI, the code thats entirely written and dependent on AI is shit, because the humans dont wanna fuck around and find out what the code actualy does,
-but when we use AI, as a guide tool (as a brother who deliberately cuts power when u are at 99% compiling your linux kernel), to help fix mistakes, and we actually know how the code works, now thats, thats not shit, thats a smart way of sharing load...dont cancel me on X...please...nor Grok,
-Grok did nothing wrong
+but when we use AI, as a guide tool (as a brother who deliberately cuts power when u are at 99% compiling your linux kernel), to help fix mistakes, and we actually know how the code works, now thats, thats not shit, thats a smart way of sharing load...dont cancel me on X...please...nor Grok, Grok did nothing wrong
