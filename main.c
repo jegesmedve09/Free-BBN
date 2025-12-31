@@ -47,7 +47,7 @@ int main_old(void)
     return 0;
 }
 
-int main(void)
+int main_old_2(void)
 {
     SifInitRpc(0);
 
@@ -55,7 +55,7 @@ int main(void)
     SifLoadModule("rom0:LIBSD", 0, NULL);
 
     // Load audsrv.irx from USB
-    int ret = SifLoadModule("mass:/audsrv.irx", 0, NULL);
+    int ret = SifLoadModule("host:/audsrv.irx", 0, NULL);
     if (ret < 0) {
         printf("Failed to load audsrv.irx from USB\n");
     }
@@ -67,9 +67,45 @@ int main(void)
 
     sound_init();
 
-    PlaySound("mass:/sound/chime.raw");
+    //PlaySound("mass:/sound/chime.raw");
 
-    //splash_show();
+    splash_show();
+
+    while (1)
+    {
+        gfx_clear(GS_SETREG_RGBAQ(0x00, 0xFF, 0x00, 0x80, 0x00));
+    }
+
+    return 0;
+}
+
+int main(void)
+{
+    SifInitRpc(0);
+
+    // IOP reset (important for real hardware)
+    while (!SifIopReset("", 0)) {};
+    while (!SifIopSync()) {};
+    SifInitRpc(0);
+
+    // Load libsd (required for SPU2)
+    SifLoadModule("rom0:LIBSD", 0, NULL);
+
+    // Load audsrv.irx from USB
+    SifLoadModule("host:/audsrv.irx", 0, NULL);
+
+    // Delay for IOP to load
+    FuckAroundSilentlyMs(1000);
+
+    gfx_init();
+
+    sound_init();
+
+    // Play sound first — it plays in background
+    PlaySound("host:/sound/startup.raw");
+
+    // Then animate splash — sound continues playing
+    splash_show();
 
     while (1)
     {
