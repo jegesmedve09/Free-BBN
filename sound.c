@@ -11,11 +11,15 @@
 
 #define STREAM_CHUNK 4096
 
+static int sound_thread_id = -1;
+static int sound_running = 0;
+
 void sound_init(void)
 {
     audsrv_init();
 }
 
+//void play_sound_function(const char* file_path)
 void PlaySound(const char* file_path)
 {
     FILE* fd = fopen(file_path, "rb");
