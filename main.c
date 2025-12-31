@@ -12,6 +12,7 @@
 #include "gfx.h"
 #include "sound.h"
 #include "splash.h"
+#include "utils.h"
 
 int main(void)
 {
@@ -31,6 +32,8 @@ int main(void)
     sound_init();
     
     gfx_init();
+    
+    FuckAroundSilentlyMs(1000);
     
     splash_show();
 

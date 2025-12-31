@@ -5,8 +5,10 @@
 
 void splash_show(void)
 {
+    //PlaySound_old("host:sound/startup.raw");
     PlaySound("host:sound/startup.raw");
-
+	//PlaySoundAsync("host:sound/startup.raw");
+	
     // Fade to bright cyan so you SEE something
     for (int a = 0; a < 255; a += 1) {
         u64 color = GS_SETREG_RGBAQ(a, a, a, 0x00, 0x00);
