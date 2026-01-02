@@ -1,5 +1,8 @@
 #include "gfx.h"
 #include <dmaKit.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <malloc.h>
 
 GSGLOBAL *gsGlobal;
 
@@ -18,6 +21,7 @@ void gfx_init(void)
     gsGlobal->Height = 512;
     gsGlobal->DoubleBuffering = GS_SETTING_ON;
     gsGlobal->ZBuffering = GS_SETTING_OFF;
+    gsGlobal->PrimAlphaEnable = GS_SETTING_ON;
 
     gsKit_init_screen(gsGlobal);
     gsKit_mode_switch(gsGlobal, GS_ONESHOT);
@@ -28,4 +32,28 @@ void gfx_clear(u64 color)
     gsKit_clear(gsGlobal, color);
     gsKit_queue_exec(gsGlobal);
     gsKit_sync_flip(gsGlobal);
+}
+
+void gfx_draw_line(int x1, int y1, int x2, int y2, u64 color)
+{
+    gsKit_prim_line(gsGlobal, x1, y1, x2, y2, 1, color);
+}
+
+void gfx_draw_square(int x, int y, int w, int h, u64 color)
+{
+    gsKit_prim_sprite(gsGlobal, x, y, x + w, y + h, 1, color);
+}
+
+void gfx_draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3, u64 color)
+{
+    gsKit_prim_triangle(gsGlobal, x1, y1, x2, y2, x3, y3, 1, color);
+}
+
+void gfx_flip(void)
+{
+    gsKit_sync_flip(gsGlobal);
+}
+void gfx_exec(void)
+{
+    gsKit_queue_exec(gsGlobal);
 }
