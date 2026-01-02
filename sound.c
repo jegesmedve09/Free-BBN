@@ -1,58 +1,60 @@
-
 #include <tamtypes.h>
 #include <audsrv.h>
 #include <stdio.h>
 #include <malloc.h>
-#include <kernel.h>
 #include "utils.h"
 
 #define SAMPLE_RATE 48000
 #define CHANNELS 2
+#define CHUNK_SIZE 4096
 
-#define STREAM_CHUNK 4096
-
-static int sound_thread_id = -1;
-static int sound_running = 0;
+static FILE* fd = NULL;
+static char* buffer = NULL;
+static int playing = 0;
 
 void sound_init(void)
 {
     audsrv_init();
 }
 
-//void play_sound_function(const char* file_path)
-void PlaySound(const char* file_path)
+void StartSound(const char* file_path)
 {
-    FILE* fd = fopen(file_path, "rb");
+    if (playing) return;
+
+    fd = fopen(file_path, "rb");
     if (!fd) return;
 
-    struct audsrv_fmt_t format;
-    format.bits = 16;
-    format.freq = SAMPLE_RATE;   // e.g. 48000
-    format.channels = CHANNELS;  // 1 or 2
-
+    struct audsrv_fmt_t format = {16, SAMPLE_RATE, CHANNELS};
     audsrv_set_format(&format);
     audsrv_set_volume(MAX_VOLUME);
 
-    char* buffer = memalign(64, STREAM_CHUNK);
+    buffer = memalign(64, CHUNK_SIZE);
     if (!buffer) {
         fclose(fd);
+        fd = NULL;
         return;
     }
 
-    while (1)
-    {
-        int bytes = fread(buffer, 1, STREAM_CHUNK, fd);
-        if (bytes <= 0)
-            break;
-            
-        FlushCache(0);
-        audsrv_wait_audio(bytes);        // 🔑 THIS IS REQUIRED
+    playing = 1;
+}
+
+int UpdateSound(void)
+{
+    if (!playing) return 0;
+
+    int bytes = fread(buffer, 1, CHUNK_SIZE, fd);
+    if (bytes > 0) {
+        audsrv_wait_audio(bytes);
         audsrv_play_audio(buffer, bytes);
+        return 1;
     }
 
-    // drain remaining audio
     audsrv_wait_audio(0);
-
     free(buffer);
     fclose(fd);
+    buffer = NULL;
+    fd = NULL;
+    playing = 0;
+
+    return 0;
 }

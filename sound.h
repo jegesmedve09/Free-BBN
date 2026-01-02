@@ -2,6 +2,7 @@
 #define SOUND_H
 
 void sound_init(void);
-void PlaySound(const char* file_path);
+void StartSound(const char* file_path);
+int UpdateSound(void);
 
 #endif
