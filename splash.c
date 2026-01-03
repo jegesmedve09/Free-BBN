@@ -17,12 +17,12 @@ void splash_show(void)
     }
 
     // Hold magenta 10 seconds
-    for (int i = 0; i < 640; i=i+1) {
-        u64 color = GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00);
-        gfx_draw_line(0,50,i,50,color);
-        gfx_exec();
-        gfx_flip();
-    }
+    //for (int i = 0; i < 640; i=i+1) {
+    //    u64 color = GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00);
+    //    gfx_draw_line(0,50,i,50,color);
+    //    gfx_exec();
+    //    gfx_flip();
+    //}
     
     color = GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00);
     gfx_draw_line(0, 50, 640, 50, color);
@@ -65,6 +65,16 @@ void splash_show(void)
     gfx_draw_line(110, 10, 120 ,40, color);
 	
 	
+	color = GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00);
+	gfx_draw_square(0, 0, 640 ,512, color);
+	
+	color = GS_SETREG_RGBAQ(0x60, 0x20, 0x20, 0x00, 0x00);
+	gfx_draw_square(5, 5, 16, 32, color);
+	
+	
+	color = GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00);
+	font_draw_text("A", 5, 5, color, 1);
+	//gfx_draw_square(0, 0, 50, 10, color);
 
     gfx_exec();
     gfx_flip();

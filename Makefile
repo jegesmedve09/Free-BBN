@@ -1,5 +1,5 @@
 EE_BIN = freebbn.elf
-EE_OBJS = main.o sound.o gfx.o splash.o menu.o utils.o
+EE_OBJS = main.o sound.o gfx.o splash.o menu.o utils.o font.o input.o
 
 # Force gsKit/dmaKit paths (overrides any missing auto stuff)
 EE_INCS += -I$(GSKIT)/include

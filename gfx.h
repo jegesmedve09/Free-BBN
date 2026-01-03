@@ -14,4 +14,6 @@ void gfx_draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3, u64 color
 void gfx_flip(void);
 void gfx_exec(void);
 
+void font_draw_text(const char* text, int x, int y, u64 color, int scale);
+
 #endif
