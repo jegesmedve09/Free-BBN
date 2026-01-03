@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <malloc.h>
 
+#include "font.h"
+
 GSGLOBAL *gsGlobal;
 
 void gfx_init(void)
@@ -49,6 +51,8 @@ void gfx_draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3, u64 color
     gsKit_prim_triangle(gsGlobal, x1, y1, x2, y2, x3, y3, 1, color);
 }
 
+
+
 void gfx_flip(void)
 {
     gsKit_sync_flip(gsGlobal);
@@ -56,4 +60,30 @@ void gfx_flip(void)
 void gfx_exec(void)
 {
     gsKit_queue_exec(gsGlobal);
+}
+
+
+void font_draw_char(char c, int x, int y, u64 color, int scale)
+{
+    unsigned char idx = (unsigned char)c;
+    if (idx >= 128 || font_map[idx] == NULL) return;
+
+    Rect* rects = font_map[idx];
+    for (int i = 0; rects[i].x != -1; i++) {
+        int rx = x + rects[i].x  * scale;
+        int ry = y + rects[i].y * scale;
+        int rw = rects[i].w * scale;
+        int rh = rects[i].h * scale;
+
+        gsKit_prim_sprite(gsGlobal, rx, ry, rx + rw, ry + rh, 1, color);
+    }
+}
+
+void font_draw_text(const char* text, int x, int y, u64 color, int scale)
+{
+    int pos_x = x;
+    for (int i = 0; text[i]; i++) {
+        font_draw_char(text[i], pos_x, y, color, scale);
+        pos_x += CHAR_BASE_WIDTH * scale;
+    }
 }
