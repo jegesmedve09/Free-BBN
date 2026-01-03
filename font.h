@@ -9,8 +9,8 @@ typedef struct {
 } Rect;
 
 // Base char size
-#define CHAR_BASE_WIDTH 32
-#define CHAR_HEIGHT 16
+#define CHAR_BASE_WIDTH 16
+#define CHAR_HEIGHT 32
 
 extern Rect* font_map[128];
 
