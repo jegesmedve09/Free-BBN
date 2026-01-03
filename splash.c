@@ -26,6 +26,7 @@ void splash_show(void)
     
     color = GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00);
     gfx_draw_line(0, 50, 640, 50, color);
+    gfx_exec();
     gfx_flip();
     
     //F
@@ -71,11 +72,16 @@ void splash_show(void)
 	color = GS_SETREG_RGBAQ(0x60, 0x20, 0x20, 0x00, 0x00);
 	//gfx_draw_square(5, 5, 16, 32, color);
 	
-	
-	color = GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00);
-	font_draw_text("ABFHR", 1, 1, color, 1);
-	//gfx_draw_square(0, 0, 50, 10, color);
-
     gfx_exec();
     gfx_flip();
+	
+	color = GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00);
+        
+		font_draw_text("FREEBBN", 1, 1, color, 15);
+		
+		gfx_exec();
+		gfx_flip();
+	
+	//gfx_draw_square(0, 0, 50, 10, color);
+
 }

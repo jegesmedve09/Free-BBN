@@ -69,11 +69,18 @@ void font_draw_char(char c, int x, int y, u64 color, int scale)
     if (idx >= 128 || font_map[idx] == NULL) return;
 
     Rect* rects = font_map[idx];
+
+    // Pre-calculate scaled offsets (integer only)
+    int scale_x = (CHAR_BASE_WIDTH  * scale) / FONT_SCALE_BASE;
+    int scale_y = (CHAR_BASE_HEIGHT * scale) / FONT_SCALE_BASE;
+
     for (int i = 0; rects[i].x != -1; i++) {
-        int rx = x + rects[i].x  * scale;
-        int ry = y + rects[i].y * scale;
-        int rw = rects[i].w * scale;
-        int rh = rects[i].h * scale;
+        int rx = x + (rects[i].x * scale) / FONT_SCALE_BASE;
+        int ry = y + (rects[i].y * scale) / FONT_SCALE_BASE;
+        int rw = (rects[i].w * scale) / FONT_SCALE_BASE;
+        int rh = (rects[i].h * scale) / FONT_SCALE_BASE;
+
+        if (rw <= 0 || rh <= 0) continue;
 
         gsKit_prim_sprite(gsGlobal, rx, ry, rx + rw, ry + rh, 1, color);
     }
@@ -82,8 +89,10 @@ void font_draw_char(char c, int x, int y, u64 color, int scale)
 void font_draw_text(const char* text, int x, int y, u64 color, int scale)
 {
     int pos_x = x;
+    int advance = (CHAR_BASE_WIDTH * scale) / FONT_SCALE_BASE;
+
     for (int i = 0; text[i]; i++) {
         font_draw_char(text[i], pos_x, y, color, scale);
-        pos_x += CHAR_BASE_WIDTH * scale;
+        pos_x += advance + CHAR_SPACING;
     }
 }
