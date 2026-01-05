@@ -102,6 +102,7 @@ int main(void){
 
     while (1)
     {
+		//gfx_exec();
         //gfx_flip();
     }
 

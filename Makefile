@@ -1,12 +1,12 @@
 EE_BIN = freebbn.elf
-EE_OBJS = main.o sound.o gfx.o splash.o menu.o utils.o font.o input.o
+EE_OBJS = main.o sound.o gfx.o splash.o menu.o utils.o font.o input.o settings.o
 
 # Force gsKit/dmaKit paths (overrides any missing auto stuff)
 EE_INCS += -I$(GSKIT)/include
 EE_LDFLAGS += -L$(GSKIT)/lib
 
 # Modern libs
-EE_LIBS = -lgskit -ldmakit -lpatches -lkernel -laudsrv
+EE_LIBS = -lgskit -ldmakit -lpatches -lkernel -laudsrv 
 
 # Future-proof for your plans (uncomment as you add code/headers)
 # EE_LIBS += -laudsrv          # sound

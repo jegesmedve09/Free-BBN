@@ -37,12 +37,11 @@ void splash_show(void)
 	
 	color = GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00);
         
-		font_draw_text("FREE-BBN", 5, 5, color, 5);
-		font_draw_text("ALPHA", 50, 20, color, 3);
+	font_draw_text("FREE-BBN", 5, 5, color, 5, 4);
+	font_draw_text("ALPHA", 100, 15, color, 2, 2);
 		
-		gfx_exec();
-		gfx_flip();
-	
-	//gfx_draw_square(0, 0, 50, 10, color);
+	gfx_exec();
+	gfx_flip();
+
 
 }
