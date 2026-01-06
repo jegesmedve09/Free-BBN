@@ -6,6 +6,8 @@
 
 #include "font.h"
 
+#include <kernel.h>
+
 GSGLOBAL *gsGlobal;
 
 void gfx_init(void)
@@ -62,14 +64,16 @@ void gfx_exec(void)
     gsKit_queue_exec(gsGlobal);
 }
 
-//void gfx_sync(void)
-//{
-//	gsKit_sync(gsGlobal);
-//}
-
 void gfx_reset(void)
 {
 	gsKit_queue_reset(gsGlobal->Os_Queue);
+}
+
+void gfx_before_ELF(void){
+    gsKit_queue_exec(gsGlobal);
+    gsKit_sync_flip(gsGlobal);
+	gsKit_queue_exec(gsGlobal);
+	ResetEE(0x7F);  // Most common mask – resets GS, VIFs, IPU, etc.	
 }
 
 

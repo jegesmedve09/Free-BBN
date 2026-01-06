@@ -4,7 +4,7 @@
 #include "utils.h"
 #include "settings.h"
 
-u64 color;
+static u64 color;
 
 void splash_show(void)
 {
@@ -42,6 +42,8 @@ void splash_show(void)
 		
 	gfx_exec();
 	gfx_flip();
+	
+	FuckAroundSilentlyMs(2000);
 
 
 }

@@ -1,0 +1,23 @@
+void gfx_draw_transparent_rect(int x, int y, int w, int h, u64 color)
+{
+    // color = GS_SETREG_RGBAQ(R, G, B, A, 0);  A = 0x00 (opaque) ... 0x80 (fully transparent? wait)
+    // Actually gsKit uses A = 0x80 = fully opaque, A = 0x00 = fully transparent
+
+    GS_PRIM_RECTANGLE prim;
+    prim.type = GS_PRIM_RECT;
+    prim.shading = GS_PRIM_SHADE_GOURAUD;
+    prim.mapping = DISABLE;
+    prim.fogging = DISABLE;
+    prim.blending = ENABLE;          // ← THIS IS KEY
+    prim.antialiasing = DISABLE;
+    prim.mapping = DISABLE;
+    prim.colorfix = DISABLE;
+
+    GS_VERTEX v[4];
+    v[0].x = x;      v[0].y = y;      v[0].z = 0; v[0].color = color;
+    v[1].x = x + w;  v[1].y = y;      v[1].z = 0; v[1].color = color;
+    v[2].x = x + w;  v[2].y = y + h;  v[2].z = 0; v[2].color = color;
+    v[3].x = x;      v[3].y = y + h;  v[3].z = 0; v[3].color = color;
+
+    gfx_prim_rectangle(&prim, v);
+}

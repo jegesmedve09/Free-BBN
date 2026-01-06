@@ -1,12 +1,17 @@
 EE_BIN = freebbn.elf
-EE_OBJS = main.o sound.o gfx.o splash.o menu.o utils.o font.o input.o settings.o
+EE_OBJS = main.o sound.o gfx.o utils.o font.o settings.o pad.o splash.o menu.o
+
+#poweroff_irx.c: $(PS2SDK)/iop/irx/poweroff.irx
+#	bin2c $< $@ poweroff_irx
+
+#poweroff_irx.o: poweroff_irx.c
 
 # Force gsKit/dmaKit paths (overrides any missing auto stuff)
 EE_INCS += -I$(GSKIT)/include
 EE_LDFLAGS += -L$(GSKIT)/lib
 
 # Modern libs
-EE_LIBS = -lgskit -ldmakit -lpatches -lkernel -laudsrv 
+EE_LIBS = -lgskit -ldmakit -lpatches -lkernel -laudsrv -lpad -lelf-loader -lpoweroff
 
 # Future-proof for your plans (uncomment as you add code/headers)
 # EE_LIBS += -laudsrv          # sound
@@ -15,6 +20,8 @@ EE_LIBS = -lgskit -ldmakit -lpatches -lkernel -laudsrv
 # EE_LIBS += -lps2ip -lps2netfs # networking basics
 
 EE_CFLAGS = -O2 -G0 -Wall
+
+
 
 all: $(EE_BIN)
 
