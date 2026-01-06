@@ -17,6 +17,7 @@ void gfx_sync(void);
 void gfx_reset(void);
 #define FONT_SCALE_BASE 10  // 10 = normal size (32x16)
 
+void gfx_before_ELF(void);
 //void font_draw_char(char c, int x, int y, u64 color, int scale);
 void font_draw_text(const char* text, int x, int y, u64 color, int scale, int spacing);
 
