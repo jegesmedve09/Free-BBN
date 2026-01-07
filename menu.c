@@ -30,23 +30,25 @@ void menu_exec(int item){
 	
 	if (item == 0){}
 	if (item == 1){
-		
 		gfx_clear(GS_SETREG_RGBAQ(0x60, 0x00, 0x00, 0x00, 0x00)); // Dark purple
 		gfx_exec();
 		gfx_flip();
-    
-		font_draw_text("Please Insert A Disc", 100, 200, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x00,0x00), 5, 4);
+		font_draw_text("Please Insert A Disc...PRESS O TO GO BACK", 100, 200, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x00,0x00), 5, 4);
 		gfx_exec();
 		gfx_flip();
 		
 		FuckAroundSilentlyMs(100);
 		
-		while(!disc_inserted()){}
+		while(!disc_inserted()){
+			if (get_pad_buttons(0) & PAD_CIRCLE){
+				NEEDS_REDRAW=true;
+				return;
+			}
+		}
 		
 		gfx_clear(GS_SETREG_RGBAQ(0x60, 0x00, 0x00, 0x00, 0x00)); // Dark purple
 		gfx_exec();
 		gfx_flip();
-    
 		font_draw_text("Checking Disc...", 100, 200, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x00,0x00), 5, 4);
 		gfx_exec();
 		gfx_flip();
@@ -58,7 +60,6 @@ void menu_exec(int item){
 		gfx_clear(GS_SETREG_RGBAQ(0x60, 0x00, 0x00, 0x00, 0x00)); // Dark purple
 		gfx_exec();
 		gfx_flip();
-    
 		font_draw_text("Executing... Hold down...", 100, 200, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x00,0x00), 5, 4);
 		gfx_exec();
 		gfx_flip();
@@ -66,7 +67,25 @@ void menu_exec(int item){
 		FuckAroundSilentlyMs(2000);
 		
 		disc_launch_ps2_game();
+		
+		gfx_clear(GS_SETREG_RGBAQ(0x60, 0x00, 0x00, 0x00, 0x00)); // Dark purple
+		gfx_exec();
+		gfx_flip();
+		font_draw_text("Read Error...PRESS O TO GO BACK", 100, 200, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x00,0x00), 5, 4);
+		gfx_exec();
+		gfx_flip();
+		
+		FuckAroundSilentlyMs(100);
+		
+		while(disc_inserted()){
+			if (get_pad_buttons(0) & PAD_CIRCLE){
+				NEEDS_REDRAW=true;
+				return;
+			}
+		}
+		NEEDS_REDRAW=true;
 	}
+	
 	if (item == 2){
 		gfx_clear(GS_SETREG_RGBAQ(0x60, 0x60, 0xFF, 0x00, 0x00)); // Dark purple
 		gfx_exec();
