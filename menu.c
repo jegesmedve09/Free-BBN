@@ -7,6 +7,7 @@
 #include "utils.h"
 #include "settings.h"
 #include "pad.h"
+#include "cdvd.h"
 
 static u64 color;
 
@@ -14,7 +15,7 @@ static bool NEEDS_REDRAW = true;
 
 const char* menu_items[] = {
     "Launch ELF      (in progress)",
-    "Run CO or OUO   (in progress)",
+    "Run PS2 Game OUO",
     "About",
     "Restart console (in progress)",
     "Shutdown console",
@@ -28,6 +29,44 @@ const char* menu_items[] = {
 void menu_exec(int item){
 	
 	if (item == 0){}
+	if (item == 1){
+		
+		gfx_clear(GS_SETREG_RGBAQ(0x60, 0x00, 0x00, 0x00, 0x00)); // Dark purple
+		gfx_exec();
+		gfx_flip();
+    
+		font_draw_text("Please Insert A Disc", 100, 200, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x00,0x00), 5, 4);
+		gfx_exec();
+		gfx_flip();
+		
+		FuckAroundSilentlyMs(100);
+		
+		while(!disc_inserted()){}
+		
+		gfx_clear(GS_SETREG_RGBAQ(0x60, 0x00, 0x00, 0x00, 0x00)); // Dark purple
+		gfx_exec();
+		gfx_flip();
+    
+		font_draw_text("Checking Disc...", 100, 200, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x00,0x00), 5, 4);
+		gfx_exec();
+		gfx_flip();
+		
+		FuckAroundSilentlyMs(1000);
+		
+		while(!disc_ready()){}
+		
+		gfx_clear(GS_SETREG_RGBAQ(0x60, 0x00, 0x00, 0x00, 0x00)); // Dark purple
+		gfx_exec();
+		gfx_flip();
+    
+		font_draw_text("Executing... Hold down...", 100, 200, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x00,0x00), 5, 4);
+		gfx_exec();
+		gfx_flip();
+		
+		FuckAroundSilentlyMs(2000);
+		
+		disc_launch_ps2_game();
+	}
 	if (item == 2){
 		gfx_clear(GS_SETREG_RGBAQ(0x60, 0x60, 0xFF, 0x00, 0x00)); // Dark purple
 		gfx_exec();
@@ -44,11 +83,11 @@ void menu_exec(int item){
 		font_draw_text("Press O to go bacK", 5, 60+30+30+30+100+30+100, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
 		gfx_exec();
 		gfx_flip();
-		while (!(get_pad_buttons(0) & PAD_CIRCLE)) {
-            FuckAroundSilentlyMs(1);
-        }
+		
+		while (!(get_pad_buttons(0) & PAD_CIRCLE)){}
 		NEEDS_REDRAW=true;
-		}
+	}
+		
 	if (item == 4){PowerOff();}
 }
 

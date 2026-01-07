@@ -294,3 +294,100 @@ void PowerOff(void)
 	SifExitRpc();
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <kernel.h>
+#include <sifrpc.h>
+#include <libcdvd.h>
+#include <loadfile.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <string.h>
+#include <stdio.h>
+
+#define SYSTEM_CNF_PATH "cdrom0:\\SYSTEM.CNF;1"
+#define MAX_CNF_SIZE   2048
+
+static void wait_for_disc(void)
+{
+    int type;
+
+    /* Wait for disc insertion */
+    do {
+        type = CdGetDiskType();
+        FuckAroundSilentlyMs(100);
+    } while (type == CDVD_TYPE_NODISK);
+
+    /* Wait until drive becomes ready */
+    while (!cdDiskReady(0))
+        FuckAroundSilentlyMs(100);
+}
+
+
+static int parse_boot2(char *cnf, char *out_path)
+{
+    char *p = strstr(cnf, "BOOT2");
+    if (!p)
+        return -1;
+
+    p = strchr(p, '=');
+    if (!p)
+        return -1;
+
+    p++; // skip '='
+    while (*p == ' ')
+        p++;
+
+    strcpy(out_path, p);
+
+    // Trim newline
+    char *e = strchr(out_path, '\r');
+    if (e) *e = 0;
+    e = strchr(out_path, '\n');
+    if (e) *e = 0;
+
+    return 0;
+}
+
+void launch_dvd_game(void)
+{
+    char cnf[MAX_CNF_SIZE];
+    char boot_path[256];
+    int fd;
+
+    SifInitRpc(0);
+    cdInit(CDVD_INIT_INIT);
+
+
+    wait_for_disc();
+
+    fd = open(SYSTEM_CNF_PATH, O_RDONLY);
+    if (fd < 0)
+        return;
+
+    memset(cnf, 0, sizeof(cnf));
+    read(fd, cnf, sizeof(cnf) - 1);
+    close(fd);
+
+    if (parse_boot2(cnf, boot_path) < 0)
+        return;
+
+    // BOOT2 usually looks like: cdrom0:\SLUS_203.12;1
+    FlushCache(0);
+    FlushCache(2);
+
+    LoadExecPS2(boot_path, 0, NULL);
+}
+

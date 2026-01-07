@@ -1,5 +1,5 @@
 EE_BIN = freebbn.elf
-EE_OBJS = main.o sound.o gfx.o utils.o font.o settings.o pad.o splash.o menu.o
+EE_OBJS = main.o sound.o gfx.o utils.o font.o settings.o pad.o splash.o menu.o cdvd.o
 
 #poweroff_irx.c: $(PS2SDK)/iop/irx/poweroff.irx
 #	bin2c $< $@ poweroff_irx
@@ -11,8 +11,7 @@ EE_INCS += -I$(GSKIT)/include
 EE_LDFLAGS += -L$(GSKIT)/lib
 
 # Modern libs
-EE_LIBS = -lgskit -ldmakit -lpatches -lkernel -laudsrv -lpad -lelf-loader -lpoweroff
-
+EE_LIBS = -lgskit -ldmakit -lpatches -lkernel -laudsrv -lpad -lelf-loader -lpoweroff -lcdvd
 # Future-proof for your plans (uncomment as you add code/headers)
 # EE_LIBS += -laudsrv          # sound
 # EE_LIBS += -lcdvd            # CD/DVD reading

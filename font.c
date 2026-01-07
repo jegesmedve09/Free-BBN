@@ -567,7 +567,7 @@ Rect* font_map[128] = {
     ['5']=five,
     ['6']=six,
     ['7']=seven,
-    ['8']eight,
+    ['8']=eight,
     ['9']=hitler,
     ['0']=nulla,
 };
