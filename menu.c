@@ -1,6 +1,7 @@
 #include "menu.h"
 
 #include <elf-loader.h>
+#include <kernel.h>
 
 #include "gfx.h"
 #include "sound.h"
@@ -15,9 +16,8 @@ static bool NEEDS_REDRAW = true;
 
 const char* menu_items[] = {
     "Launch ELF      (in progress)",
-    "Run PS2 Game OUO",
+    "Run PS2 Game DVD",
     "About",
-    "Restart console (in progress)",
     "Shutdown console",
     "",
     "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -28,7 +28,14 @@ const char* menu_items[] = {
 
 void menu_exec(int item){
 	
-	if (item == 0){}
+	if (item == 0){
+		
+		FlushCache(0);
+		//FlushCache(2);
+
+		LoadExecPS2("host:/BOOT.ELF", 0, NULL);
+		}
+		
 	if (item == 1){
 		gfx_clear(GS_SETREG_RGBAQ(0x60, 0x00, 0x00, 0x00, 0x00)); // Dark purple
 		gfx_exec();
@@ -93,12 +100,12 @@ void menu_exec(int item){
     
 		font_draw_text("Free-BBN "VERSION_TEXT" "VERSION_ID, 5, 5, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 10, 2);
 		font_draw_text("Created by: jegesmedue09", 5, 60, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
-		font_draw_text("Uersion text: " VERSION_TEXT, 5, 60+30, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
-		font_draw_text("Uersion number: "VERSION_ID, 5, 60+30+30, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
-		font_draw_text("Project started on: Oecember 30. 2025.", 5, 60+30+30+30, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
-		font_draw_text("ProjeKti aloitettu: JouluKuu 30. 2025.", 5, 60+30+30+30+30, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
+		font_draw_text("Version text: " VERSION_TEXT, 5, 60+30, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
+		font_draw_text("Version number: "VERSION_ID, 5, 60+30+30, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
+		font_draw_text("Project started on: December 30. 2025.", 5, 60+30+30+30, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
+		font_draw_text("Projekti aloitettu: Joulukuu 30. 2025.", 5, 60+30+30+30+30, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
 		font_draw_text("https:||www.reddit.com|r|FreeBBN|", 5, 60+30+30+30+100, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
-		font_draw_text("https:||github.com|jegesmedue09|Free-BBN", 5, 60+30+30+30+100+30, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
+		font_draw_text("https:||github.com|jegesmedve09|Free-BBN", 5, 60+30+30+30+100+30, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
 		font_draw_text("Press O to go bacK", 5, 60+30+30+30+100+30+100, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
 		gfx_exec();
 		gfx_flip();
@@ -110,7 +117,7 @@ void menu_exec(int item){
 	if (item == 4){PowerOff();}
 }
 
-#define MENU_ITEM_COUNT 10
+#define MENU_ITEM_COUNT 9
 #define MENU_START_Y    40
 #define MENU_LINE_HEIGHT 40  // Distance between lines
 static int MENU_ITEM = 0;
