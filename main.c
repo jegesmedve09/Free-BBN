@@ -45,7 +45,8 @@ void init(void){
     pad_init();
 	
     gfx_init();
-    gfx_clear(GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x80, 0x00));
+    gfx_clear(GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00));
+    gfx_exec();
     gfx_flip();
     
     
