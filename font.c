@@ -28,6 +28,13 @@ static Rect upper_C[] = {
     {1, 29, 14, 2}, //bottom line
     {-1, 0, 0, 0} //terminator
 };
+static Rect upper_D[]={
+    {1, 1, 2, 30}, //left line
+	{1, 1, 12, 2}, //top line
+	{13, 3, 2, 26}, //right
+	{1, 29, 12, 2}, //bottom line
+	{-1, 0, 0, 0} //terminator
+};
 static Rect upper_E[] = {
     {1, 1, 2, 30}, //left line
     {1, 1, 14, 2}, //top line
@@ -145,6 +152,14 @@ static Rect upper_U[]={
     {1, 29, 14, 2}, //bottom line
     {13, 1, 2, 30}, //right line
 	{-1, 0, 0 ,0} //terminator
+};
+static Rect upper_V[]={
+	{10, 16, 2, 15}, //right bottom line
+	{4, 16, 2, 15}, //left bottom line
+	{12, 1, 2, 15}, //right line
+	{2, 1, 2, 15}, //left  line
+	{4, 29, 8, 2}, //bottom line
+	{-1, 0, 0, 0} //terminator
 };
 static Rect upper_W[]={
 	{1, 1, 2, 30}, //left line
@@ -308,6 +323,12 @@ static Rect lower_U[]={
     {1, 29, 14, 2}, //bottom line
 	{-1,0,0,0} //terminator
 	
+};
+static Rect lower_V[]={
+	{10, 1+13, 2, 16}, //right bottom line
+	{4, 1+13, 2, 16}, //left bottom line
+	{4, 29, 8, 2}, //bottom line
+	{-1, 0, 0, 0} //terminator
 };
 static Rect lower_W[]={
 	{1, 16+13, 14, 2}, //bottom
@@ -494,7 +515,7 @@ Rect* font_map[128] = {
     ['A']=upper_A,//1
     ['B']=upper_B,//2
     ['C']=upper_C,//3
-    NULL,//4
+    ['D']=upper_D,//4
     ['E']=upper_E,//5
     ['F']=upper_F,//6
     ['G']=upper_G,//7
@@ -505,14 +526,14 @@ Rect* font_map[128] = {
     ['L']=upper_L,//12
     ['M']=upper_M,//13
     ['N']=upper_N,//14
-    ['O']=upper_O, //15
+    ['O']=upper_O,//15
     ['P']=upper_P,//16
     ['Q']=upper_Q,//17
     ['R']=upper_R,//18
     ['S']=upper_S,//19
     ['T']=upper_T,//20
     ['U']=upper_U,//21
-    NULL,
+    ['V']=upper_V,
     ['W']=upper_W,
     NULL,//22
     ['Y']=upper_Y,//23
@@ -539,7 +560,7 @@ Rect* font_map[128] = {
     ['s']=lower_S,
     ['t']=lower_T,
     ['u']=lower_U,
-    NULL,
+    ['v']=lower_V,
     ['w']=lower_W,
     NULL,
     ['y']=lower_Y,
