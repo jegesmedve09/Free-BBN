@@ -16,7 +16,7 @@ static u64 color;
 static bool NEEDS_REDRAW = true;
 
 const char* menu_items[] = {
-    "Exit to OSDSYS",
+    "Exit to OSDSYS / Restart",
     "Run PS2 Game DVD",
     "About",
     "Shutdown console",
