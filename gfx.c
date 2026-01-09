@@ -23,7 +23,7 @@ void gfx_init(void)
     gsGlobal->Field = GS_FIELD;
     gsGlobal->Width = 640;
     gsGlobal->Height = 512;
-    gsGlobal->DoubleBuffering = GS_SETTING_ON;
+    gsGlobal->DoubleBuffering = GS_SETTING_OFF;
     gsGlobal->ZBuffering = GS_SETTING_OFF;
     gsGlobal->PrimAlphaEnable = GS_SETTING_ON;
 
@@ -34,8 +34,6 @@ void gfx_init(void)
 void gfx_clear(u64 color)
 {
     gsKit_clear(gsGlobal, color);
-    gsKit_queue_exec(gsGlobal);
-    gsKit_sync_flip(gsGlobal);
 }
 
 void gfx_draw_line(int x1, int y1, int x2, int y2, u64 color)
@@ -68,14 +66,6 @@ void gfx_reset(void)
 {
 	gsKit_queue_reset(gsGlobal->Os_Queue);
 }
-
-void gfx_before_ELF(void){
-    gsKit_queue_exec(gsGlobal);
-    gsKit_sync_flip(gsGlobal);
-	gsKit_queue_exec(gsGlobal);
-	ResetEE(0x7F);  // Most common mask – resets GS, VIFs, IPU, etc.	
-}
-
 
 void font_draw_char(char c, int x, int y, u64 color, int scale)
 {

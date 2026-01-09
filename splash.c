@@ -11,6 +11,7 @@ void splash_show(void)
 	
     // Fade to bright cyan so you SEE something
     for (int a = 0; a < 255; a += 5) {
+		gfx_flip();
         u8 r = (u8)(a * 0x60 / 255);
 		u8 g = (u8)(a * 0x60 / 255);
 		u8 b = (u8) a;
@@ -18,22 +19,29 @@ void splash_show(void)
 		color = GS_SETREG_RGBAQ(r, g, b, 0x00, 0x00);
 
 		gfx_clear(color);
+		gfx_exec();
         //FuckAroundSilentlyMs(100);
     }
     
+    gfx_flip();
     color= GS_SETREG_RGBAQ(0x60, 0x60, 0xFF, 0x00, 0x00);
     gfx_clear(color);
+    gfx_exec();
 
     // Hold magenta 10 seconds
     for (int i = 0; i < 640; i+=5) {
+		gfx_flip();
         u64 color = GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00);
         gfx_draw_line(0,26,i,26,color);
         gfx_exec();
-        gfx_flip();
     }
     
+    gfx_flip();
     color = GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00);
     gfx_draw_line(0, 26, 640, 26, color);
+	
+	gfx_exec();
+	gfx_flip();
 	
 	color = GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00);
         
@@ -41,7 +49,7 @@ void splash_show(void)
 	font_draw_text("ALPHA", 100, 15, color, 2, 2);
 		
 	gfx_exec();
-	gfx_flip();
+	//gfx_flip();
 	
 	FuckAroundSilentlyMs(2000);
 
