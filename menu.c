@@ -2,6 +2,7 @@
 
 #include <elf-loader.h>
 #include <kernel.h>
+#include <sifrpc.h>
 
 #include "gfx.h"
 #include "sound.h"
@@ -15,7 +16,7 @@ static u64 color;
 static bool NEEDS_REDRAW = true;
 
 const char* menu_items[] = {
-    "Launch ELF      (in progress)",
+    "Exit to OSDSYS",
     "Run PS2 Game DVD",
     "About",
     "Shutdown console",
@@ -30,10 +31,11 @@ void menu_exec(int item){
 	
 	if (item == 0){
 		
+		SifInitRpc(0);
 		FlushCache(0);
-		//FlushCache(2);
+		FlushCache(2);
 
-		LoadExecPS2("host:/BOOT.ELF", 0, NULL);
+		LoadExecPS2("rom0:OSDSYS", 0, NULL);
 		}
 		
 	if (item == 1){
