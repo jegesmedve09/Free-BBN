@@ -3,6 +3,6 @@
 
 #define DEVICE "host"
 #define VERSION_TEXT "alpha"
-#define VERSION_ID "0.5"
+#define VERSION_ID "0.5.1"
 
 #endif
