@@ -168,6 +168,22 @@ static Rect upper_W[]={
 	{13, 1, 2, 30}, //right line
 	{-1, 0, 0, 0}//terminator	
 };
+static Rect upper_X[]={
+	{1, 1, 2, 4}, //top left 1
+	{3, 5, 2, 4}, //top left 2
+	{5, 9, 2, 4}, //top left 3
+	{13, 1, 2, 4},//top right 1
+	{11, 5, 2, 4}, //top right 2
+	{9, 9, 2, 4}, //top right 3
+	{7, 13, 2, 6},//middle
+	{1, 27, 2, 4},//bottom left 1
+	{3, 23, 2, 4}, //bottom left 2
+	{5, 19, 2, 4}, //bottom left 3
+	{13, 27, 2, 4}, //bottom right 1
+	{11, 23, 2, 4},//bottom right 2
+	{9, 19, 2, 4}, //bottom right 3
+	{-1, 0, 0, 0} //terminator
+};
 static Rect upper_Y[]={
     {1, 1, 2, 13}, //left line
     {13, 1, 2, 13}, //right line
@@ -336,6 +352,22 @@ static Rect lower_W[]={
     {7, 1+13, 2, 17}, //middle line
     {13, 1+13, 2, 17},//right line
 	{-1,0,0,0} //terminator
+};
+static Rect lower_X[]={
+	{1, 1+13, 2, 2}, //top left 1
+	{3, 3+13, 2, 2}, //top left 2
+	{5, 5+13, 2, 2}, //top left 3
+	{13, 1+13, 2, 2},//top right 1
+	{11, 3+13, 2, 2},//top right 2
+	{9, 5+13, 2, 2},//top right 3
+	{7, 7+13, 2, 5},//middle
+	{1, 16+13, 2, 2}, //bottom left 1
+	{3, 14+13, 2, 2}, //bottom left 2
+	{5, 12+13, 2, 2}, //bottom left 3
+	{13, 16+13, 2, 2}, //bottom right 1
+	{11, 14+13, 2, 2}, //bottom right 2
+	{9, 12+13, 2, 2}, //bottom right 3
+	{-1, 0, 0, 0}
 };
 static Rect lower_Y[]={
     {1, 1+13, 2, 9 },//left line
@@ -535,7 +567,7 @@ Rect* font_map[128] = {
     ['U']=upper_U,//21
     ['V']=upper_V,
     ['W']=upper_W,
-    NULL,//22
+    ['X']=upper_X,//22
     ['Y']=upper_Y,//23
     ['Z']=upper_Z,
     //lowercase
@@ -562,7 +594,7 @@ Rect* font_map[128] = {
     ['u']=lower_U,
     ['v']=lower_V,
     ['w']=lower_W,
-    NULL,
+    ['x']=lower_X,
     ['y']=lower_Y,
     ['z']=lower_Z,
     //special
