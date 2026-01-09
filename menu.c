@@ -116,7 +116,7 @@ void menu_exec(int item){
 		NEEDS_REDRAW=true;
 	}
 		
-	if (item == 4){PowerOff();}
+	if (item == 3){PowerOff();}
 }
 
 #define MENU_ITEM_COUNT 9
