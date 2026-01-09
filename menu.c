@@ -101,14 +101,14 @@ void menu_exec(int item){
 		gfx_flip();
     
 		font_draw_text("Free-BBN "VERSION_TEXT" "VERSION_ID, 5, 5, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 10, 2);
-		font_draw_text("Created by: jegesmedue09", 5, 60, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
+		font_draw_text("Created by: jegesmedve09", 5, 60, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
 		font_draw_text("Version text: " VERSION_TEXT, 5, 60+30, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
 		font_draw_text("Version number: "VERSION_ID, 5, 60+30+30, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
 		font_draw_text("Project started on: December 30. 2025.", 5, 60+30+30+30, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
 		font_draw_text("Projekti aloitettu: Joulukuu 30. 2025.", 5, 60+30+30+30+30, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
-		font_draw_text("https:||www.reddit.com|r|FreeBBN|", 5, 60+30+30+30+100, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
-		font_draw_text("https:||github.com|jegesmedve09|Free-BBN", 5, 60+30+30+30+100+30, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
-		font_draw_text("Press O to go bacK", 5, 60+30+30+30+100+30+100, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
+		font_draw_text("https://www.reddit.com/r/FreeBBN/", 5, 60+30+30+30+100, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
+		font_draw_text("https://github.com/jegesmedve09/Free-BBN", 5, 60+30+30+30+100+30, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
+		font_draw_text("Press O to go back", 5, 60+30+30+30+100+30+100, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
 		gfx_exec();
 		gfx_flip();
 		
@@ -121,7 +121,7 @@ void menu_exec(int item){
 
 #define MENU_ITEM_COUNT 9
 #define MENU_START_Y    40
-#define MENU_LINE_HEIGHT 40  // Distance between lines
+#define MENU_LINE_HEIGHT 20  // Distance between lines
 static int MENU_ITEM = 0;
 
 void menu_show(void){while (1){
@@ -151,7 +151,7 @@ void menu_show(void){while (1){
 			color = GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00);  // White normal
 		}
 
-		font_draw_text(menu_items[i], 20, y, color, 10, 4);
+		font_draw_text(menu_items[i], 20, y, color, 5, 4);
 	}
 		
 	gfx_exec();

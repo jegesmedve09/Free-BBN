@@ -270,15 +270,14 @@ static Rect lower_J[]={
 	{4, 12+13, 2, 6}, //left line
 	{-1, 0, 0, 0} //terminator
 };
-//
+static Rect lower_K[]={
+	{-1, 0, 0, 0} //terminator
+};
 static Rect lower_L[]={
     {1, 1, 8, 2}, //top line
     {1, 29, 14, 2}, //bottom line
 	{7, 1, 2, 30}, //middle line
 	{-1, 0, 0, 0} //terminator
-	//{4, 1, 2, 29}, //line
-	//{4, 29, 8, 2}, //bottom line
-	//{-1, 0, 0, 0} //terminator
 };
 static Rect lower_M[]={
 	{1, 1+13, 14, 2}, //top line
@@ -469,7 +468,14 @@ static Rect dot[]={
     {6, 27, 4, 4}, //dot
 	{-1, 0, 0, 0}//terminator
 };
-
+static Rect per[]={
+    {11, 1, 2, 6}, //line 1
+    {9, 7, 2, 6}, //line 2
+    {7, 13, 2, 6}, //line 3
+    {5, 19, 2, 6}, //line 4
+    {3, 25, 2, 6}, //line 5
+	{-1, 0, 0, 0} //terminator
+};
 
 //numerical
 static Rect one[]={
@@ -581,7 +587,7 @@ Rect* font_map[128] = {
     ['h']=lower_H,
     ['i']=lower_I,
     ['j']=lower_J,
-    NULL,
+    ['k']=lower_K,
     ['l']=lower_L,
     ['m']=lower_M,
     ['n']=lower_N,
@@ -612,6 +618,7 @@ Rect* font_map[128] = {
     ['!']=exclamation,
     ['$']=dollar,
     ['.']=dot,
+    ['/']=per,
     //Numerical
     ['1']=one,
     ['2']=twa,
