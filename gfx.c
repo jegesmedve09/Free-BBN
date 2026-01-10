@@ -87,7 +87,7 @@ void font_draw_char(char c, int x, int y, u64 color, int scale)
     }
 }
 
-void font_draw_text(const char* text, int x, int y, u64 color, int scale, int spacing)
+void gfx_draw_text(const char* text, int x, int y, u64 color, int scale, int spacing)
 {
     int pos_x = x;
     int advance = (CHAR_BASE_WIDTH * scale + FONT_SCALE_BASE/2)/FONT_SCALE_BASE;
