@@ -1,5 +1,5 @@
 EE_BIN = freebbn.elf
-EE_OBJS = main.o sound.o gfx.o utils.o font.o settings.o pad.o splash.o menu.o cdvd.o
+EE_OBJS = main.o sound.o gfx.o utils.o font.o settings.o pad.o splash.o menu.o cdvd.o filemgr.o
 
 #poweroff_irx.c: $(PS2SDK)/iop/irx/poweroff.irx
 #	bin2c $< $@ poweroff_irx

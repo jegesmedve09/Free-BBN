@@ -288,8 +288,8 @@ void PowerOff(void)
 	gfx_exec();
 	gfx_flip();
     
-    font_draw_text("Shutting down the console...", 100, 200, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x00,0x00), 5, 4);
-    font_draw_text("Goodbye!", 220, 250, GS_SETREG_RGBAQ(0xFF,0xA0,0xA0,0x00,0x00), 4, 3);
+    gfx_draw_text("Shutting down the console...", 100, 200, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x00,0x00), 5, 4);
+    gfx_draw_text("Goodbye!", 220, 250, GS_SETREG_RGBAQ(0xFF,0xA0,0xA0,0x00,0x00), 4, 3);
     gfx_exec();
     gfx_flip();
 
