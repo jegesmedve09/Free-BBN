@@ -22,6 +22,8 @@ void OpenFileManager(void)
 		gfx_flip();
 		gfx_clear(GS_SETREG_RGBAQ(0x60, 0x60, 0xFF, 0x00, 0x00));
 		//gfx_draw_text()
+		gfx_draw_text("File Manager", 5, 5, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00), 5, 4);
+		gfx_draw_text("Press ", 5, 5, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00), 5, 4);
 		gfx_exec();
 			
 	}

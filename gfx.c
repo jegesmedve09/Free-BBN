@@ -70,9 +70,9 @@ void gfx_reset(void)
 void font_draw_char(char c, int x, int y, u64 color, int scale)
 {
     unsigned char idx = (unsigned char)c;
-    if (idx >= 128 || font_map[idx] == NULL) return;
+    if (ascii_map[idx] == NULL) return;
 
-    Rect* rects = font_map[idx];
+    Rect* rects = ascii_map[idx];
 
     for (int i = 0; rects[i].x != -1; i++) {
         int rx = x + (rects[i].x * scale + FONT_SCALE_BASE/2) / FONT_SCALE_BASE;
@@ -87,15 +87,56 @@ void font_draw_char(char c, int x, int y, u64 color, int scale)
     }
 }
 
+void font_draw_icon(char c, int x, int y, u64 color, int scale)
+{
+	unsigned char idx = (unsigned char)c;
+    if (icon_map[idx] == NULL) return;
+
+    Rect* rects = icon_map[idx];
+
+    for (int i = 0; rects[i].x != -1; i++)
+    {
+        int rx = x + (rects[i].x * scale + FONT_SCALE_BASE/2) / FONT_SCALE_BASE;
+        int ry = y + (rects[i].y * scale + FONT_SCALE_BASE/2) / FONT_SCALE_BASE;
+        int rw = (rects[i].w * scale + FONT_SCALE_BASE/2) / FONT_SCALE_BASE;
+        int rh = (rects[i].h * scale + FONT_SCALE_BASE/2) / FONT_SCALE_BASE;
+
+        if (rw < 1) rw = 1;
+		if (rh < 1) rh = 1;
+
+        gsKit_prim_sprite(gsGlobal, rx, ry, rx + rw, ry + rh, 1, color);
+    }
+	
+}
+
 void gfx_draw_text(const char* text, int x, int y, u64 color, int scale, int spacing)
 {
     int pos_x = x;
-    int advance = (CHAR_BASE_WIDTH * scale + FONT_SCALE_BASE/2)/FONT_SCALE_BASE;
-	
-	if(advance < 1) advance=1;
-	
-    for (int i = 0; text[i]; i++) {
-        font_draw_char(text[i], pos_x, y, color, scale);
+	int advance;
+    for (int i = 0; text[i]; i++)
+    {
+		
+		if (text[i]=='\xFF')
+		{
+			advance = (ICON_BASE_WIDTH * scale + FONT_SCALE_BASE/2)/FONT_SCALE_BASE;
+			i++;
+			
+			if(!text[i])
+			{
+				break;
+			}
+			
+			if(advance < 1) advance=1;
+			font_draw_icon(text[i], pos_x, y, color, scale);
+		}
+		else
+		{
+				advance = (CHAR_BASE_WIDTH * scale + FONT_SCALE_BASE/2)/FONT_SCALE_BASE;
+				if(advance < 1) advance=1;
+				font_draw_char(text[i], pos_x, y, color, scale);
+		}
+		
         pos_x += advance + spacing;
+        
     }
 }

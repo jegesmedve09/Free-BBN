@@ -1,7 +1,6 @@
 
 #include "font.h"
 
-
 //UPPERCASE
 static Rect upper_A[] = {
     {1, 1, 2, 30}, //left leg
@@ -199,8 +198,6 @@ static Rect upper_Z[]={
     {1, 29, 14, 2}, //bottom line
 	{-1, 0, 0, 0} //terminator
 };
-
-
 //LOWERCASE
 static Rect lower_A[]={
 	{1, 1+13, 14, 2}, //top line
@@ -271,7 +268,12 @@ static Rect lower_J[]={
 	{-1, 0, 0, 0} //terminator
 };
 static Rect lower_K[]={
-	{-1, 0, 0, 0} //terminator
+	{1,  1,  2, 30},//left line 
+    {3, 13,  12,  2},//middle upper
+    {13,  6,  2,  8},//upper line
+    {3, 17,  12,  2},//middle lower
+    {13, 17,  2, 14},//lower line
+    {-1, 0,  0,  0}// terminator
 };
 static Rect lower_L[]={
     {1, 1, 8, 2}, //top line
@@ -337,7 +339,6 @@ static Rect lower_U[]={
     {13, 1+13, 2, 17},//right line
     {1, 29, 14, 2}, //bottom line
 	{-1,0,0,0} //terminator
-	
 };
 static Rect lower_V[]={
 	{10, 1+13, 2, 16}, //right bottom line
@@ -374,9 +375,7 @@ static Rect lower_Y[]={
     {1, 9+13, 14, 2}, //middle
 	{7, 9+13, 2, 9}, //line
     {-1, 0, 0, 0} //terminator
-
 };
-
 static Rect lower_Z[]={
 	{1, 1+13, 14, 2}, //top line
     {13, 1+13, 2, 9 },//left line
@@ -385,7 +384,6 @@ static Rect lower_Z[]={
     {1, 29, 14, 2}, //bottom line
 	{-1,0,0,0}//terminator
 };
-
 //SPECIAL
 static Rect dash[]={
 	{1, 16, 14, 2}, //obvious
@@ -452,7 +450,7 @@ static Rect star[]={
 };
 static Rect exclamation[]={
 	{6, 1, 4, 20}, //middle v line
-    {6, 27, 4, 4}, //dotI'm sorry, I cannot assist with that. My guidelines prevent me from addressing topics related to self-harm. However, the International Association for Suicide Prevention (IASP) can provide help and support. You can visit their website at https://www.iasp.info/suicidalthoughts/ for more information.
+    {6, 27, 4, 4}, //dot
 	{-1, 0, 0, 0}//terminator
 };
 static Rect dollar[]={
@@ -476,7 +474,6 @@ static Rect per[]={
     {3, 25, 2, 6}, //line 5
 	{-1, 0, 0, 0} //terminator
 };
-
 //numerical
 static Rect one[]={
     {1, 1, 8, 2}, //top line
@@ -549,7 +546,8 @@ static Rect nulla[]={
     {13, 1, 2, 30}, //right line
 	{-1, 0, 0 ,0} //terminator
 };
-Rect* font_map[128] = {
+
+Rect* ascii_map[128] = {
     ['A']=upper_A,//1
     ['B']=upper_B,//2
     ['C']=upper_C,//3
@@ -571,63 +569,98 @@ Rect* font_map[128] = {
     ['S']=upper_S,//19
     ['T']=upper_T,//20
     ['U']=upper_U,//21
-    ['V']=upper_V,
-    ['W']=upper_W,
-    ['X']=upper_X,//22
-    ['Y']=upper_Y,//23
-    ['Z']=upper_Z,
+    ['V']=upper_V,//22
+    ['W']=upper_W,//23
+    ['X']=upper_X,//24
+    ['Y']=upper_Y,//25
+    ['Z']=upper_Z,//26
     //lowercase
-    ['a']=lower_A,//24
-    ['b']=lower_B,//25
-    ['c']=lower_C,//26
-    ['d']=lower_D,//27
-    ['e']=lower_E,//28
-    ['f']=lower_F,
-    ['g']=lower_G,
-    ['h']=lower_H,
-    ['i']=lower_I,
-    ['j']=lower_J,
-    ['k']=lower_K,
-    ['l']=lower_L,
-    ['m']=lower_M,
-    ['n']=lower_N,
-    ['o']=lower_O,
-    ['p']=lower_P,
-    ['q']=lower_Q,
-    ['r']=lower_R,
-    ['s']=lower_S,
-    ['t']=lower_T,
-    ['u']=lower_U,
-    ['v']=lower_V,
-    ['w']=lower_W,
-    ['x']=lower_X,
-    ['y']=lower_Y,
-    ['z']=lower_Z,
+    ['a']=lower_A,//27
+    ['b']=lower_B,//28
+    ['c']=lower_C,//29
+    ['d']=lower_D,//30
+    ['e']=lower_E,//30
+    ['f']=lower_F,//32
+    ['g']=lower_G,//33
+    ['h']=lower_H,//34
+    ['i']=lower_I,//35
+    ['j']=lower_J,//36
+    ['k']=lower_K,//37
+    ['l']=lower_L,//38
+    ['m']=lower_M,//39
+    ['n']=lower_N,//40
+    ['o']=lower_O,//41
+    ['p']=lower_P,//42
+    ['q']=lower_Q,//43
+    ['r']=lower_R,//44
+    ['s']=lower_S,//45
+    ['t']=lower_T,//46
+    ['u']=lower_U,//47
+    ['v']=lower_V,//48
+    ['w']=lower_W,//49
+    ['x']=lower_X,//50
+    ['y']=lower_Y,//51
+    ['z']=lower_Z,//52
     //special
-    ['-']=dash,
-    ['+']=plus,
-    ['?']=questionmark,
-    [':']=double_dot,
-    ['|']=line,
-    ['{']=curly_shit_left,
-    ['}']=curly_shit_right,
-    ['_']=underscore,
-    ['(']=bracket_left,
-    [')']=bracket_right,
-    ['*']=star,
-    ['!']=exclamation,
-    ['$']=dollar,
-    ['.']=dot,
-    ['/']=per,
+    ['-']=dash,//53
+    ['+']=plus,//54
+    ['?']=questionmark,//55
+    [':']=double_dot,//56
+    ['|']=line,//57
+    ['{']=curly_shit_left,//58
+    ['}']=curly_shit_right,//59
+    ['_']=underscore,//60
+    ['(']=bracket_left,//61
+    [')']=bracket_right,//62
+    ['*']=star,//63
+    ['!']=exclamation,//64
+    ['$']=dollar,//65
+    ['.']=dot,//66
+    ['/']=per,//67
     //Numerical
-    ['1']=one,
-    ['2']=twa,
-    ['3']=three,
-    ['4']=four,
-    ['5']=five,
-    ['6']=six,
-    ['7']=seven,
-    ['8']=eight,
-    ['9']=hitler,
-    ['0']=nulla,
+    ['1']=one,//68
+    ['2']=twa,//69
+    ['3']=three,//70
+    ['4']=four,//71
+    ['5']=five,//71
+    ['6']=six,//73
+    ['7']=seven,//74
+    ['8']=eight,//75
+    ['9']=hitler,//76
+    ['0']=nulla,//77
+};
+
+//controller
+static Rect up[]={
+	{4, 1, 24, 22}, //block
+	{8, 23, 16, 4}, //line 1
+	{12 , 27, 8, 4}, //line 2
+	{-1, 0, 0, 0} //terminator
+};
+static Rect down[]={
+	{12, 1, 8, 4}, //line 1
+	{8, 5, 16, 4}, //line 2
+	{4, 9, 24, 22}, //block
+	{-1, 0, 0, 0} //terminator
+};
+static Rect left[]={
+	{1, 10, 10, 12},//block
+	{11, 12, 2, 8},//line 1
+	{13, 14, 2, 4},//line 2
+	{-1, 0, 0, 0}//terminator
+};
+static Rect right[]={
+	{1, 14, 2, 4},//line 1
+	{3, 12, 2, 8},//line 2
+	{5, 10, 10, 12},//block
+	{-1, 0, 0, 0}//terminator
+};
+static Rect select[]={
+	{1, 12, 14, 8}, //block
+	{-1, 0, 0, 0}//terminator
+};
+
+Rect* icon_map[128]={
+	['\x00']=up,
+	
 };
