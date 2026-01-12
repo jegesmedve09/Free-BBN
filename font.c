@@ -644,23 +644,252 @@ static Rect down[]={
 	{-1, 0, 0, 0} //terminator
 };
 static Rect left[]={
-	{1, 10, 10, 12},//block
-	{11, 12, 2, 8},//line 1
-	{13, 14, 2, 4},//line 2
+	{1, 4, 22, 24},//block//
+	{23, 8, 4, 16},//line 1
+	{27, 12, 4, 8},//line 2
 	{-1, 0, 0, 0}//terminator
 };
 static Rect right[]={
-	{1, 14, 2, 4},//line 1
-	{3, 12, 2, 8},//line 2
-	{5, 10, 10, 12},//block
+	{1, 12, 4, 8},//line 1
+	{5, 8, 4, 16},//line 2
+	{9, 4, 22, 24},//block
 	{-1, 0, 0, 0}//terminator
 };
 static Rect select[]={
-	{1, 12, 14, 8}, //block
+	{1, 7, 28, 16}, //block
+	{-1, 0, 0, 0}//terminator
+};
+static Rect start[]={
+	{1, 4, 14, 24},//block//
+	{15, 8, 8, 16},//line 1
+	{23, 12, 8, 8},//line 2
+	{-1, 0, 0, 0}//terminator
+};
+static Rect cross[]={
+	{-1, 0, 0, 0} //terminator
+};
+static Rect square[]={
+	{-1, 0, 0, 0} //terminator
+};
+static Rect circle[]={
+	{-1, 0, 0, 0} //terminator
+};
+static Rect triangle[]={
+	{-1, 0, 0, 0} //terminator
+};
+static Rect L1[]={
+	//box&tail
+	{1, 1, 28, 2}, //top line
+	{1, 1, 2, 26}, //left line
+	{28, 1, 2, 26}, //right line
+	{1, 25, 28, 2}, //bottom line
+	{5, 27, 22, 4}, //tail
+	//letter
+	{6, 5, 2, 18}, //left line
+	{6, 21, 8, 2}, //bottom line
+	//number
+	{18, 5, 5, 2}, //top
+	{21, 5, 2, 18}, //middle
+	{18, 21, 8, 2}, //bottom
+	{-1, 0, 0, 0}//terminator
+};
+static Rect L2[]={
+	//box&tail
+	{1, 1, 28, 2}, //top line
+	{1, 1, 2, 26}, //left line
+	{28, 1, 2, 26}, //right line
+	{1, 25, 28, 2}, //bottom line
+	{5, 27, 22, 4}, //tail
+	//letter
+	{6, 5, 2, 18}, //left line
+	{6, 21, 8, 2}, //bottom line
+	//number
+	{18, 5, 8, 2}, //top
+	{24, 5, 2, 10}, //right
+	{18, 13, 8, 2}, //middle
+	{18, 13, 2, 10}, //left
+	{18, 21, 8, 2}, //bottom
+	{-1, 0, 0, 0}//terminator
+};
+static Rect L3[]={
+	//box&tail
+	{1, 1, 28, 2}, //top line
+	{1, 1, 2, 26}, //left line
+	{28, 1, 2, 26}, //right line
+	{1, 25, 28, 2}, //bottom line
+	{5, 27, 22, 4}, //tail
+	//letter
+	{6, 5, 2, 18}, //left line
+	{6, 21, 8, 2}, //bottom line
+	//number
+	{18, 5, 8, 2}, //top
+	{24, 5, 2, 18}, //right
+	{18, 13, 8, 2}, //middle
+	{18, 21, 8, 2}, //bottom
+	{-1, 0, 0, 0}//terminator
+};
+static Rect R1[]={
+	//box&tail
+	{1, 1, 28, 2}, //top line
+	{1, 1, 2, 26}, //left line
+	{28, 1, 2, 26}, //right line
+	{1, 25, 28, 2}, //bottom line
+	{5, 27, 22, 4}, //tail
+	//letter
+	{6, 5, 2, 18}, //left line
+	{6, 5, 8, 2}, //top line
+	{12, 5, 2, 10}, //right line
+	{6, 13, 8, 2}, //middle line
+	{10, 13, 2, 10}, //right leg
+	//number
+	{18, 5, 5, 2}, //top
+	{21, 5, 2, 18}, //middle
+	{18, 21, 8, 2}, //bottom
+	{-1, 0, 0, 0}//terminator
+};
+static Rect R2[]={
+	//box&tail
+	{1, 1, 28, 2}, //top line
+	{1, 1, 2, 26}, //left line
+	{28, 1, 2, 26}, //right line
+	{1, 25, 28, 2}, //bottom line
+	{5, 27, 22, 4}, //tail
+	//letter
+	{6, 5, 2, 18}, //left line
+	{6, 5, 8, 2}, //top line
+	{12, 5, 2, 10}, //right line
+	{6, 13, 8, 2}, //middle line
+	{10, 13, 2, 10}, //right leg
+	//number
+	{18, 5, 8, 2}, //top
+	{24, 5, 2, 10}, //right
+	{18, 13, 8, 2}, //middle
+	{18, 13, 2, 10}, //left
+	{18, 21, 8, 2}, //bottom
+	{-1, 0, 0, 0}//terminator
+};
+static Rect R3[]={
+	//box&tail
+	{1, 1, 28, 2}, //top line
+	{1, 1, 2, 26}, //left line
+	{28, 1, 2, 26}, //right line
+	{1, 25, 28, 2}, //bottom line
+	{5, 27, 22, 4}, //tail
+	//letter
+	{6, 5, 2, 18}, //left line
+	{6, 5, 8, 2}, //top line
+	{12, 5, 2, 10}, //right line
+	{6, 13, 8, 2}, //middle line
+	{10, 13, 2, 10}, //right leg
+	//number
+	{18, 5, 8, 2}, //top
+	{24, 5, 2, 18}, //right
+	{18, 13, 8, 2}, //middle
+	{18, 21, 8, 2}, //bottom
+	{-1, 0, 0, 0}//terminator
+};
+static Rect L_up[]={
+	{-1, 0, 0, 0}//terminator
+};
+static Rect L_up_right[]={
+	{-1, 0, 0, 0}//terminator
+};
+static Rect L_right[]={
+	{-1, 0, 0, 0}//terminator
+};
+static Rect L_right_down[]={
+	{-1, 0, 0, 0}//terminator
+};
+static Rect L_down[]={
+	{-1, 0, 0, 0}//terminator
+};
+static Rect L_left_down[]={
+	{-1, 0, 0, 0}//terminator
+};
+static Rect L_left[]={
+	{-1, 0, 0, 0}//terminator
+};
+static Rect L_up_left[]={
 	{-1, 0, 0, 0}//terminator
 };
 
+static Rect R_up[]={
+	{-1, 0, 0, 0}//terminator
+};
+static Rect R_up_right[]={
+	{-1, 0, 0, 0}//terminator
+};
+static Rect R_right[]={
+	{-1, 0, 0, 0}//terminator
+};
+static Rect R_right_down[]={
+	{-1, 0, 0, 0}//terminator
+};
+static Rect R_down[]={
+	{-1, 0, 0, 0}//terminator
+};
+static Rect R_left_down[]={
+	{-1, 0, 0, 0}//terminator
+};
+static Rect R_left[]={
+	{-1, 0, 0, 0}//terminator
+};
+static Rect R_up_left[]={
+	{-1, 0, 0, 0}//terminator
+};
+
+
+//MISC
+static Rect folder[]={
+	{2, 8, 27, 20}, //block
+	{1, 10, 2, 16}, //side left
+	{28, 10, 2, 16}, //side right
+	{4, 5, 10, 5}, //top block
+	{5, 4, 8, 2}, //top block flap
+	{-1, 0, 0, 0} //terminator
+};
+static Rect file[]={
+	{5, 7, 22, 24}, //block
+	{7, 5, 20, 4},//flap 1
+	{9, 3, 18, 4},//flap 2
+	{11, 1, 16, 4},//flap 3
+	{-1, 0, 0, 0} //terminator
+};
 Rect* icon_map[128]={
 	['\x00']=up,
+	['\x01']=down,
+	['\x02']=left,
+	['\x03']=right,
+	['\x04']=select,
+	['\x05']=start,
+	['\x06']=cross,
+	['\x07']=square,
+	['\x08']=circle,
+	['\x09']=triangle,
+	['\x0A']=L1,
+	['\x0B']=L2,
+	['\x0C']=L3,
+	['\x0D']=R1,
+	['\x0E']=R2,
+	['\x0F']=R3,
+	['\x10']=L_up,
+	['\x11']=L_up_right,
+	['\x12']=L_right,
+	['\x13']=L_right_down,
+	['\x14']=L_down,
+	['\x15']=L_left_down,
+	['\x16']=L_left,
+	['\x17']=L_up_left,
+	['\x18']=R_up,
+	['\x19']=R_up_right,
+	['\x1A']=R_right,
+	['\x1B']=R_right_down,
+	['\x1C']=R_down,
+	['\x1D']=R_left_down,
+	['\x1E']=R_left,
+	['\x1F']=R_up_left,
 	
+	//MISC
+	['\x20']=folder,
+	['\x21']=file,
 };

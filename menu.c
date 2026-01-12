@@ -13,7 +13,7 @@
 #include "filemgr.h"
 
 
-#define MENU_ITEM_COUNT 11
+#define MENU_ITEM_COUNT 13
 #define MENU_START_Y    40
 #define MENU_LINE_HEIGHT 20  // Distance between lines
 static int MENU_ITEM = 0;
@@ -25,7 +25,9 @@ const char* menu_items[] = {
     "Shutdown console",
     "File Manager",
     "",
-    "\x1\x2\x3\x4\x5\x6\x7\x8\x9\x10\x11\x12\x13\x14\x15\x16",
+    "\xFF\x00\xFF\x01\xFF\x02\xFF\x03\xFF\x04\xFF\x05\xFF\x06\xFF\x07\xFF\x08\xFF\x09\xFF\x0A\xFF\x0B\xFF\x0C\xFF\x0D\xFF\x0E\xFF\x0F",
+    "\xFF\x10\xFF\x11\xFF\x12\xFF\x13\xFF\x14\xFF\x15\xFF\x16\xFF\x17\xFF\x18\xFF\x19\xFF\x1A\xFF\x1B\xFF\x1C\xFF\x1D\xFF\x1E\xFF\x1F",
+    "\xFF\x20\xFF\x21",
     "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     "abcdefghijklmnopqrstuvwxyz",
     "-*/+<>?:|{}_)(&^%$#@!~.",
@@ -137,6 +139,7 @@ void menu_show(void){while (1){
 	
 	gfx_flip();
     gfx_clear(GS_SETREG_RGBAQ(0x60, 0x60, 0xFF, 0x00, 0x00));
+    //gfx_clear(GS_SETREG_RGBAQ(0x30, 0x19, 0x34, 0x00, 0x00));
     gfx_draw_line(0, 26, 640, 26, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00));
 	gfx_draw_text("FREE-BBN", 5, 5, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00), 5, 4);
 	gfx_draw_text("ALPHA", 100, 15, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00), 2, 2);
@@ -153,10 +156,11 @@ void menu_show(void){while (1){
 		else
 		{
 			gfx_draw_text(menu_items[i], 20, y, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00), 5, 4);
+			//gfx_draw_text(menu_items[i], 20, y, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x00, 0x00), 5, 4);
 		}
 	}
 	
-	gfx_draw_text("\xFF\x01/\xFF\x01 Navigate ", 5, 450, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00), 5, 4);
+	gfx_draw_text("\xFF\x00/\xFF\x01 Navigate \xFF\x0B", 5, 450, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00), 5, 4);
 	
 	gfx_exec();
 	if(get_pad_buttons(0) & PAD_DOWN)

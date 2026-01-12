@@ -87,12 +87,11 @@ void font_draw_char(char c, int x, int y, u64 color, int scale)
     }
 }
 
-void font_draw_icon(char c, int x, int y, u64 color, int scale)
+void font_draw_icon(int c, int x, int y, u64 color, int scale)
 {
-	unsigned char idx = (unsigned char)c;
-    if (icon_map[idx] == NULL) return;
+    if (icon_map[c] == NULL) return;
 
-    Rect* rects = icon_map[idx];
+    Rect* rects = icon_map[c];
 
     for (int i = 0; rects[i].x != -1; i++)
     {
@@ -113,21 +112,18 @@ void gfx_draw_text(const char* text, int x, int y, u64 color, int scale, int spa
 {
     int pos_x = x;
 	int advance;
+    
+    
     for (int i = 0; text[i]; i++)
     {
 		
 		if (text[i]=='\xFF')
 		{
 			advance = (ICON_BASE_WIDTH * scale + FONT_SCALE_BASE/2)/FONT_SCALE_BASE;
-			i++;
-			
-			if(!text[i])
-			{
-				break;
-			}
 			
 			if(advance < 1) advance=1;
-			font_draw_icon(text[i], pos_x, y, color, scale);
+			font_draw_icon(text[i+1], pos_x, y, color, scale);
+			i++;
 		}
 		else
 		{
