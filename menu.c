@@ -27,7 +27,7 @@ const char* menu_items[] = {
     "",
     "\xFF\x00\xFF\x01\xFF\x02\xFF\x03\xFF\x04\xFF\x05\xFF\x06\xFF\x07\xFF\x08\xFF\x09\xFF\x0A\xFF\x0B\xFF\x0C\xFF\x0D\xFF\x0E\xFF\x0F",
     "\xFF\x10\xFF\x11\xFF\x12\xFF\x13\xFF\x14\xFF\x15\xFF\x16\xFF\x17\xFF\x18\xFF\x19\xFF\x1A\xFF\x1B\xFF\x1C\xFF\x1D\xFF\x1E\xFF\x1F",
-    "\xFF\x20\xFF\x21",
+    "\xFF\x20\xFF\x21\xFF\x22",
     "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     "abcdefghijklmnopqrstuvwxyz",
     "-*/+<>?:|{}_)(&^%$#@!~.",
@@ -160,7 +160,8 @@ void menu_show(void){while (1){
 		}
 	}
 	
-	gfx_draw_text("\xFF\x00/\xFF\x01 Navigate \xFF\x0B", 5, 450, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00), 5, 4);
+	gfx_draw_text("\xFF\x00/\xFF\x01 Navigate \xFF\x22", 5, 450, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00), 10, 4);
+	gfx_draw_text("\xFF\x22", 150, 150, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00), 20, 4);
 	
 	gfx_exec();
 	if(get_pad_buttons(0) & PAD_DOWN)

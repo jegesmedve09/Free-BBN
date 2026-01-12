@@ -855,6 +855,48 @@ static Rect file[]={
 	{11, 1, 16, 4},//flap 3
 	{-1, 0, 0, 0} //terminator
 };
+
+
+static Rect this_bitch[]={
+	//i wont commentate,
+	//take my word, this is a circle
+	//i hate my life, why did i start Free-BBN
+	{1, 12, 2, 8},//middle point
+	{2, 9, 2, 4},
+	{3, 8, 2, 2},
+	{4, 6, 2, 3},
+	{5, 5, 2, 2},// middle point
+	{6, 4, 3, 2},
+	{8, 3, 2, 2},
+	{9, 2, 4, 2},
+	{12, 1, 8, 2},// middle point
+	{19, 2, 4, 2},
+	{22, 3, 2, 2},
+	{23, 4, 3, 2},
+	{25, 5, 2, 2},//middle point
+	{26, 6, 2, 3},
+	{27, 8, 2, 2},
+	{28, 9, 2, 4},
+	{29, 12, 2, 8}, //middle point
+	{28, 19, 2, 4},
+	{27, 22, 2, 2},
+	{26, 23, 2, 3},
+	{25, 25, 2, 2}, //middle point
+	{23, 26, 3, 2},
+	{22, 27, 2, 2},
+	{19, 28, 4, 2},
+	{12, 29, 8, 2},//middle point
+	{9, 28, 4, 2},
+	{8, 27, 2, 2},
+	{6, 26, 3, 2},
+	{5, 25, 2, 2}, //middle point
+	{4, 23, 2, 3},
+	{3, 22, 2, 2},
+	{2, 19, 2, 4},
+	{-1, 0, 0, 0}//terminator
+};
+
+
 Rect* icon_map[128]={
 	['\x00']=up,
 	['\x01']=down,
@@ -892,4 +934,6 @@ Rect* icon_map[128]={
 	//MISC
 	['\x20']=folder,
 	['\x21']=file,
+	['\x22']=this_bitch,
 };
+
