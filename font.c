@@ -2,14 +2,14 @@
 #include "font.h"
 
 //UPPERCASE
-static Rect upper_A[] = {
+static const Rect upper_A[] = {
     {1, 1, 2, 30}, //left leg
     {13, 1, 2, 30}, //right leg
     {1, 1 ,14, 2}, //top bar
     {1, 13, 14, 2}, //middle bar
     {-1, 0, 0, 0}//terminator
 };
-static Rect upper_B[] = {
+static const Rect upper_B[] = {
     {1, 1, 2, 30}, //left line
     {1, 1, 14, 2}, //top line
     {13, 1, 2, 11}, //top right line
@@ -21,33 +21,33 @@ static Rect upper_B[] = {
     {1, 29, 14, 2}, //bottom line
     {-1, 0, 0, 0} //terminator
 };
-static Rect upper_C[] = {
+static const Rect upper_C[] = {
     {1, 1, 2, 30}, //left line
     {1, 1, 14, 2}, //top line
     {1, 29, 14, 2}, //bottom line
     {-1, 0, 0, 0} //terminator
 };
-static Rect upper_D[]={
+static const Rect upper_D[]={
     {1, 1, 2, 30}, //left line
 	{1, 1, 12, 2}, //top line
 	{13, 3, 2, 26}, //right
 	{1, 29, 12, 2}, //bottom line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect upper_E[] = {
+static const Rect upper_E[] = {
     {1, 1, 2, 30}, //left line
     {1, 1, 14, 2}, //top line
     {1, 12, 14, 2}, //middle line
     {1, 29, 14, 2}, //bottom line
     {-1, 0, 0, 0} //terminator
 };
-static Rect upper_F[] = {
+static const Rect upper_F[] = {
     {1, 1, 2, 30}, //left line
     {1, 1, 14, 2}, //top line
     {1, 12, 14, 2}, //middle line
     {-1, 0, 0, 0} //terminator
 };
-static Rect upper_G[]={
+static const Rect upper_G[]={
 	{1, 1, 2, 30}, //left line
 	{1, 1, 14, 2}, //top line	
 	{1, 29, 14, 2}, //bottom line
@@ -55,44 +55,44 @@ static Rect upper_G[]={
     {9, 12, 6, 2}, //middle line
 	{-1, 0, 0 ,0} //terminator
 };
-static Rect upper_H[]={
+static const Rect upper_H[]={
 	{1, 1, 2, 30}, //left line
     {1, 12, 14, 2}, //middle line
     {13, 1, 2, 30}, //right line
 	{-1, 0, 0, 0}//terminator
 };
-static Rect upper_I[]={
+static const Rect upper_I[]={
     {1, 1, 14, 2}, //top line
     {1, 29, 14, 2}, //bottom line
 	{7, 1, 2, 30}, //middle line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect upper_J[]={
+static const Rect upper_J[]={
     {13, 1, 2, 30}, //right line
     {1, 29, 14, 2}, //bottom line
     {1, 18, 2, 12}, //left line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect upper_K[]={
+static const Rect upper_K[]={
 	{1, 1, 2, 30}, //left line
     {1, 12, 14, 2}, //middle line
     {13, 12, 2, 19},  //right line
     {9, 1, 2, 13}, //idk what the fuck to call this
 	{-1, 0, 0, 0} //terminator
 };
-static Rect upper_L[]={
+static const Rect upper_L[]={
     {1, 1, 2, 30}, //left line
     {1, 29, 14, 2}, //bottom line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect upper_M[]={
+static const Rect upper_M[]={
 	{1, 1, 2, 30}, //left line
 	{1, 1, 14, 2}, //top line
 	{7, 1, 2, 30}, //middle line
 	{13, 1, 2, 30}, //right line
 	{-1, 0, 0, 0}//terminator	
 };
-static Rect upper_N[]={
+static const Rect upper_N[]={
 	{1, 1, 2, 30}, //left line
 	{1, 1, 8, 2}, //top line
 	{7, 1, 2, 30}, //middle line
@@ -100,21 +100,21 @@ static Rect upper_N[]={
 	{13, 1, 2, 30}, //right line
 	{-1, 0, 0, 0}//terminator	
 };
-static Rect upper_O[]={
+static const Rect upper_O[]={
     {1, 1, 2, 30}, //left line
     {1, 1, 14, 2}, //top line
     {1, 29, 14, 2}, //bottom line
     {13, 1, 2, 30}, //right line
 	{-1, 0, 0 ,0} //terminator
 };
-static Rect upper_P[] = {
+static const Rect upper_P[] = {
     {1, 1, 2, 30}, //left side
     {1, 1, 14, 2}, //top line
     {13, 1, 2, 13}, //right line
     {1, 12, 14, 2}, //middle line
     {-1, 0, 0, 0} //terminator
 };
-static Rect upper_Q[]={
+static const Rect upper_Q[]={
     {1, 1, 2, 30}, //left line
     {1, 1, 14, 2}, //top line
     {1, 29, 14, 2}, //bottom line
@@ -122,7 +122,7 @@ static Rect upper_Q[]={
     {9, 22, 2, 10},  //right line
 	{-1, 0, 0 ,0} //terminator
 };
-static Rect upper_R[] = {
+static const Rect upper_R[] = {
     {1, 1, 2, 30}, //left side
     {1, 1, 14, 2}, //top line
     {13, 1, 2, 10}, //top right line
@@ -133,7 +133,7 @@ static Rect upper_R[] = {
     {13, 15, 2, 16},  //bottom right line
     {-1, 0, 0, 0} //terminator
 };
-static Rect upper_S[]={
+static const Rect upper_S[]={
     {1, 1, 14, 2}, //top line
     {1, 1, 2, 13}, //left line
     {1, 12, 14, 2}, //middle line
@@ -141,18 +141,18 @@ static Rect upper_S[]={
     {1, 29, 14, 2}, //bottom line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect upper_T[]={
+static const Rect upper_T[]={
     {1, 1, 14, 2}, //top line
 	{7, 1, 2, 29}, //middle line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect upper_U[]={
+static const Rect upper_U[]={
     {1, 1, 2, 30}, //left line
     {1, 29, 14, 2}, //bottom line
     {13, 1, 2, 30}, //right line
 	{-1, 0, 0 ,0} //terminator
 };
-static Rect upper_V[]={
+static const Rect upper_V[]={
 	{10, 16, 2, 15}, //right bottom line
 	{4, 16, 2, 15}, //left bottom line
 	{12, 1, 2, 15}, //right line
@@ -160,14 +160,14 @@ static Rect upper_V[]={
 	{4, 29, 8, 2}, //bottom line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect upper_W[]={
+static const Rect upper_W[]={
 	{1, 1, 2, 30}, //left line
 	{1, 29, 14, 2}, //top line
 	{7, 1, 2, 30}, //middle line
 	{13, 1, 2, 30}, //right line
 	{-1, 0, 0, 0}//terminator	
 };
-static Rect upper_X[]={
+static const Rect upper_X[]={
 	{1, 1, 2, 4}, //top left 1
 	{3, 5, 2, 4}, //top left 2
 	{5, 9, 2, 4}, //top left 3
@@ -183,14 +183,14 @@ static Rect upper_X[]={
 	{9, 19, 2, 4}, //bottom right 3
 	{-1, 0, 0, 0} //terminator
 };
-static Rect upper_Y[]={
+static const Rect upper_Y[]={
     {1, 1, 2, 13}, //left line
     {13, 1, 2, 13}, //right line
     {1, 12, 14, 2}, //middle line
 	{7, 12, 2, 19}, //middle line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect upper_Z[]={
+static const Rect upper_Z[]={
     {1, 1, 14, 2}, //top line
     {13, 1, 2, 13}, //right line
     {1, 12, 14, 2}, //middle line
@@ -199,7 +199,7 @@ static Rect upper_Z[]={
 	{-1, 0, 0, 0} //terminator
 };
 //LOWERCASE
-static Rect lower_A[]={
+static const Rect lower_A[]={
 	{1, 1+13, 14, 2}, //top line
     {1, 9+13, 14, 2}, //middle
     {13, 1+13, 2, 17}, //right line
@@ -207,27 +207,27 @@ static Rect lower_A[]={
     {1, 29, 14, 2}, //bottom line
 	{-1,0,0,0} //terminator
 };
-static Rect lower_B[]={
+static const Rect lower_B[]={
 	{1, 1+13, 14, 2}, //top line
     {1, 1, 2, 29}, //left line
     {13, 1+13, 2, 17},//right line
     {1, 29, 14, 2}, //bottom line
 	{-1,0,0,0} //terminator
 };
-static Rect lower_C[]={
+static const Rect lower_C[]={
 	{1, 1+13 ,14, 2}, //top line
     {1, 1+13, 2, 17}, //left line
     {1, 29, 14, 2}, //bottom line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect lower_D[]={
+static const Rect lower_D[]={
 	{1, 1+13, 14, 2}, //top line
     {1, 1+13, 2, 17}, //left line
     {13, 1, 2, 29},//right line
     {1, 29, 14, 2}, //bottom line
 	{-1,0,0,0} //terminator
 };
-static Rect lower_E[]={
+static const Rect lower_E[]={
 	{1, 1+13, 14, 2}, //top line
     {1, 9+13, 14, 2}, //middle
     {1, 1+13, 2, 17}, //left line
@@ -235,13 +235,13 @@ static Rect lower_E[]={
     {1, 29, 14, 2}, //bottom line
 	{-1,0,0,0} //terminator
 };
-static Rect lower_F[]={
+static const Rect lower_F[]={
     {1, 1+13, 2, 17}, //left line
     {1, 9+13, 14, 2}, //middle
 	{1, 1+13, 14, 2}, //top line
 	{-1,0,0,0} //terminator
 };
-static Rect lower_G[]={
+static const Rect lower_G[]={
 	{1, 1+13, 14, 2}, //top line
     {1, 9+13, 14, 2}, //middle
     {13, 1+13, 2, 17}, //right line
@@ -249,25 +249,25 @@ static Rect lower_G[]={
     {1, 16+13, 14, 2}, //bottom line
 	{-1,0,0,0} //terminator
 };
-static Rect lower_H[]={
+static const Rect lower_H[]={
 	{1, 1, 2, 30}, //left line
 	{1, 1+13, 14, 2}, //middle line
     {13, 1+13, 2, 17}, //right line
 	{-1,0,0,0} //terminator
 };
-static Rect lower_I[]={
+static const Rect lower_I[]={
 	{7, 3+13, 2, 15}, //line
 	{7, 9, 2, 2}, //dot
 	{-1, 0, 0, 0} //terminator
 };
-static Rect lower_J[]={
+static const Rect lower_J[]={
 	{10, 3+13, 2, 15}, //line
 	{10, 9, 2, 2}, //dot
 	{4, 29, 8, 2}, //bottom line
 	{4, 12+13, 2, 6}, //left line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect lower_K[]={
+static const Rect lower_K[]={
 	{1,  1,  2, 30},//left line 
     {3, 13,  12,  2},//middle upper
     {13,  6,  2,  8},//upper line
@@ -275,52 +275,52 @@ static Rect lower_K[]={
     {13, 17,  2, 14},//lower line
     {-1, 0,  0,  0}// terminator
 };
-static Rect lower_L[]={
+static const Rect lower_L[]={
     {1, 1, 8, 2}, //top line
     {1, 29, 14, 2}, //bottom line
 	{7, 1, 2, 30}, //middle line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect lower_M[]={
+static const Rect lower_M[]={
 	{1, 1+13, 14, 2}, //top line
     {1, 1+13, 2, 17}, //left line
     {7, 1+13, 2, 17}, //middle line
     {13, 1+13, 2, 17},//right line
 	{-1,0,0,0} //terminator
 };
-static Rect lower_N[]={
+static const Rect lower_N[]={
 	{1, 1+13, 14, 2}, //top line
     {1, 1+13, 2, 17}, //left line
     {13, 1+13, 2, 17},//right line
 	{-1,0,0,0} //terminator
 };
-static Rect lower_O[]={
+static const Rect lower_O[]={
 	{1, 1+13, 14, 2}, //top line
     {1, 1+13, 2, 17}, //left line
     {13, 1+13, 2, 17},//right line
     {1, 29, 14, 2}, //bottom line
 	{-1,0,0,0} //terminator
 };
-static Rect lower_P[]={
+static const Rect lower_P[]={
 	{1, 1+13, 14, 2}, //top line
     {1, 9+13, 14, 2}, //middle
     {1, 1+13, 2, 17}, //left line
     {13, 1+13, 2, 9 },//right line
 	{-1,0,0,0} //terminator
 };
-static Rect lower_Q[]={
+static const Rect lower_Q[]={
 	{1, 1+13, 14, 2}, //top line
     {1, 9+13, 14, 2}, //middle
     {13, 1+13, 2, 17}, //right line
     {1, 1+13, 2, 9 },//left line
 	{-1,0,0,0} //terminator
 };
-static Rect lower_R[]={
+static const Rect lower_R[]={
     {1, 1+13, 2, 17}, //left line
 	{1, 1+13, 14, 2}, //top line
 	{-1,0,0,0} //terminator
 };
-static Rect lower_S[]={
+static const Rect lower_S[]={
 	{1, 1+13, 14, 2}, //top line
     {1, 1+13, 2, 9 },//left line
     {1, 9+13, 14, 2}, //middle
@@ -328,32 +328,32 @@ static Rect lower_S[]={
     {1, 29, 14, 2}, //bottom line
 	{-1,0,0,0}//terminator
 };
-static Rect lower_T[]={
+static const Rect lower_T[]={
 	{4, 1, 2, 29}, //line
 	{2, 1+13, 8, 2}, //middle line
 	{4, 29, 8, 2}, //bottom line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect lower_U[]={
+static const Rect lower_U[]={
     {1, 1+13, 2, 17}, //left line
     {13, 1+13, 2, 17},//right line
     {1, 29, 14, 2}, //bottom line
 	{-1,0,0,0} //terminator
 };
-static Rect lower_V[]={
+static const Rect lower_V[]={
 	{10, 1+13, 2, 16}, //right bottom line
 	{4, 1+13, 2, 16}, //left bottom line
 	{4, 29, 8, 2}, //bottom line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect lower_W[]={
+static const Rect lower_W[]={
 	{1, 16+13, 14, 2}, //bottom
     {1, 1+13, 2, 17}, //left line
     {7, 1+13, 2, 17}, //middle line
     {13, 1+13, 2, 17},//right line
 	{-1,0,0,0} //terminator
 };
-static Rect lower_X[]={
+static const Rect lower_X[]={
 	{1, 1+13, 2, 2}, //top left 1
 	{3, 3+13, 2, 2}, //top left 2
 	{5, 5+13, 2, 2}, //top left 3
@@ -369,14 +369,14 @@ static Rect lower_X[]={
 	{9, 12+13, 2, 2}, //bottom right 3
 	{-1, 0, 0, 0}
 };
-static Rect lower_Y[]={
+static const Rect lower_Y[]={
     {1, 1+13, 2, 9 },//left line
     {13, 1+13, 2, 9 },//right line
     {1, 9+13, 14, 2}, //middle
 	{7, 9+13, 2, 9}, //line
     {-1, 0, 0, 0} //terminator
 };
-static Rect lower_Z[]={
+static const Rect lower_Z[]={
 	{1, 1+13, 14, 2}, //top line
     {13, 1+13, 2, 9 },//left line
     {1, 9+13, 14, 2}, //middle
@@ -385,16 +385,16 @@ static Rect lower_Z[]={
 	{-1,0,0,0}//terminator
 };
 //SPECIAL
-static Rect dash[]={
+static const Rect dash[]={
 	{1, 16, 14, 2}, //obvious
 	{-1, 0, 0, 0} //terminator
 };
-static Rect plus[]={
+static const Rect plus[]={
 	{1, 16, 14, 2}, //horizontal
 	{7, 10, 2, 14}, //vertikaal
 	{-1, 0, 0, 0} //terminator
 };
-static Rect questionmark[]={
+static const Rect questionmark[]={
 	{1, 1, 14, 2}, //top line
     {13, 1, 2, 9 },//left line
     {1, 9, 14, 2}, //middle
@@ -403,57 +403,57 @@ static Rect questionmark[]={
     {6, 26, 4, 4}, //dot
 	{-1,0,0,0}//terminator
 };
-static Rect double_dot[]={
+static const Rect double_dot[]={
     {5, 12, 4, 4}, //dot
     {5, 24, 4, 4}, //dot
 	{-1,0,0,0}//terminator
 };
-static Rect line[]={
+static const Rect line[]={
 	{7, 1, 2, 29}, //line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect curly_shit_left[]={
+static const Rect curly_shit_left[]={
 	{7, 1, 2, 30}, //vertical line
 	{7, 1, 8, 2}, //top line
 	{1, 1+13, 8, 2}, //middle line,
 	{7, 29, 8, 2}, //bottom line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect curly_shit_right[]={
+static const Rect curly_shit_right[]={
 	{7, 1, 2, 30}, //vertical line
 	{1, 1, 8, 2}, //top line
 	{7, 1+13, 8, 2}, //middle line,
 	{1, 29, 8, 2}, //bottom line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect underscore[]={
+static const Rect underscore[]={
 	{1, 29, 14, 2}, //ISNT THIS FUCKING OBVIOUS
 	{-1, 0, 0, 0}
 };
-static Rect bracket_left[]={
+static const Rect bracket_left[]={
 	{7, 1, 2, 30}, //vertical line
 	{7, 1, 8, 2}, //top line
 	{7, 29, 8, 2}, //bottom line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect bracket_right[]={
+static const Rect bracket_right[]={
 	{7, 1, 2, 30}, //vertical line
 	{1, 1, 8, 2}, //top line
 	{1, 29, 8, 2}, //bottom line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect star[]={
+static const Rect star[]={
 	{4, 5, 10, 2}, //horizontal
 	{8, 1, 2, 10}, //vertikaal
 	{6, 3, 6, 6}, //block
 	{-1, 0, 0, 0} //terminator
 };
-static Rect exclamation[]={
+static const Rect exclamation[]={
 	{6, 1, 4, 20}, //middle v line
     {6, 27, 4, 4}, //dot
 	{-1, 0, 0, 0}//terminator
 };
-static Rect dollar[]={
+static const Rect dollar[]={
     {1, 1, 14, 2}, //top line
     {1, 1, 2, 13}, //left line
     {1, 12, 14, 2}, //middle h line
@@ -462,11 +462,11 @@ static Rect dollar[]={
     {1, 29, 14, 2}, //bottom line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect dot[]={
+static const Rect dot[]={
     {6, 27, 4, 4}, //dot
 	{-1, 0, 0, 0}//terminator
 };
-static Rect per[]={
+static const Rect per[]={
     {11, 1, 2, 6}, //line 1
     {9, 7, 2, 6}, //line 2
     {7, 13, 2, 6}, //line 3
@@ -475,13 +475,13 @@ static Rect per[]={
 	{-1, 0, 0, 0} //terminator
 };
 //numerical
-static Rect one[]={
+static const Rect one[]={
     {1, 1, 8, 2}, //top line
     {1, 29, 14, 2}, //bottom line
 	{7, 1, 2, 30}, //middle line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect twa[]={
+static const Rect twa[]={
     {1, 1, 14, 2}, //top line
     {13, 1, 2, 16}, //right line
     {1, 15, 14, 2}, //middle line
@@ -489,20 +489,20 @@ static Rect twa[]={
     {1, 29, 14, 2}, //bottom line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect three[] = {
+static const Rect three[] = {
     {13, 1, 2, 30}, //right line
     {1, 1, 14, 2}, //top line
     {1, 15, 14, 2}, //middle line
     {1, 29, 14, 2}, //bottom line
     {-1, 0, 0, 0} //terminator
 };
-static Rect four[]={
+static const Rect four[]={
     {1, 1, 2, 16}, //right line
     {1, 15, 14, 2}, //middle line
     {13, 1, 2, 30}, //right line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect five[]={
+static const Rect five[]={
     {1, 1, 14, 2}, //top line
     {1, 1, 2, 16}, //left line
     {1, 15, 14, 2}, //middle line
@@ -510,7 +510,7 @@ static Rect five[]={
     {1, 29, 14, 2}, //bottom line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect six[]={
+static const Rect six[]={
     {1, 1, 14, 2}, //top line
     {1, 1, 2, 29}, //left line
     {1, 15, 14, 2}, //middle line
@@ -518,12 +518,12 @@ static Rect six[]={
     {1, 29, 14, 2}, //bottom line
 	{-1, 0, 0, 0} //terminator
 };
-static Rect seven[] = {
+static const Rect seven[] = {
     {13, 1, 2, 30}, //right line
     {1, 1, 14, 2}, //top line
     {-1, 0, 0, 0} //terminator
 };
-static Rect eight[] = {
+static const Rect eight[] = {
     {13, 1, 2, 30}, //right line
     {1, 1, 2, 29}, //left line
     {1, 1, 14, 2}, //top line
@@ -531,7 +531,7 @@ static Rect eight[] = {
     {1, 29, 14, 2}, //bottom line
     {-1, 0, 0, 0} //terminator
 };
-static Rect hitler[] = {
+static const Rect hitler[] = {
     {13, 1, 2, 30}, //right line
     {1, 1, 2, 16}, //left line
     {1, 1, 14, 2}, //top line
@@ -539,7 +539,7 @@ static Rect hitler[] = {
     {1, 29, 14, 2}, //bottom line
     {-1, 0, 0, 0} //terminator
 };
-static Rect nulla[]={
+static const Rect nulla[]={
     {1, 1, 2, 30}, //left line
     {1, 1, 14, 2}, //top line
     {1, 29, 14, 2}, //bottom line
@@ -579,7 +579,7 @@ Rect* ascii_map[128] = {
     ['b']=lower_B,//28
     ['c']=lower_C,//29
     ['d']=lower_D,//30
-    ['e']=lower_E,//30
+    ['e']=lower_E,//31
     ['f']=lower_F,//32
     ['g']=lower_G,//33
     ['h']=lower_H,//34
@@ -631,53 +631,53 @@ Rect* ascii_map[128] = {
 };
 
 //controller
-static Rect up[]={
+static const Rect up[]={
 	{4, 1, 24, 22}, //block
 	{8, 23, 16, 4}, //line 1
 	{12 , 27, 8, 4}, //line 2
 	{-1, 0, 0, 0} //terminator
 };
-static Rect down[]={
+static const Rect down[]={
 	{12, 1, 8, 4}, //line 1
 	{8, 5, 16, 4}, //line 2
 	{4, 9, 24, 22}, //block
 	{-1, 0, 0, 0} //terminator
 };
-static Rect left[]={
+static const Rect left[]={
 	{1, 4, 22, 24},//block//
 	{23, 8, 4, 16},//line 1
 	{27, 12, 4, 8},//line 2
 	{-1, 0, 0, 0}//terminator
 };
-static Rect right[]={
+static const Rect right[]={
 	{1, 12, 4, 8},//line 1
 	{5, 8, 4, 16},//line 2
 	{9, 4, 22, 24},//block
 	{-1, 0, 0, 0}//terminator
 };
-static Rect select[]={
+static const Rect select[]={
 	{1, 7, 28, 16}, //block
 	{-1, 0, 0, 0}//terminator
 };
-static Rect start[]={
+static const Rect start[]={
 	{1, 4, 14, 24},//block//
 	{15, 8, 8, 16},//line 1
 	{23, 12, 8, 8},//line 2
 	{-1, 0, 0, 0}//terminator
 };
-static Rect cross[]={
+static const Rect cross[]={
 	{-1, 0, 0, 0} //terminator
 };
-static Rect square[]={
+static const Rect square[]={
 	{-1, 0, 0, 0} //terminator
 };
-static Rect circle[]={
+static const Rect circle[]={
 	{-1, 0, 0, 0} //terminator
 };
-static Rect triangle[]={
+static const Rect triangle[]={
 	{-1, 0, 0, 0} //terminator
 };
-static Rect L1[]={
+static const Rect L1[]={
 	//box&tail
 	{1, 1, 28, 2}, //top line
 	{1, 1, 2, 26}, //left line
@@ -693,7 +693,7 @@ static Rect L1[]={
 	{18, 21, 8, 2}, //bottom
 	{-1, 0, 0, 0}//terminator
 };
-static Rect L2[]={
+static const Rect L2[]={
 	//box&tail
 	{1, 1, 28, 2}, //top line
 	{1, 1, 2, 26}, //left line
@@ -711,7 +711,7 @@ static Rect L2[]={
 	{18, 21, 8, 2}, //bottom
 	{-1, 0, 0, 0}//terminator
 };
-static Rect L3[]={
+static const Rect L3[]={
 	//box&tail
 	{1, 1, 28, 2}, //top line
 	{1, 1, 2, 26}, //left line
@@ -728,7 +728,7 @@ static Rect L3[]={
 	{18, 21, 8, 2}, //bottom
 	{-1, 0, 0, 0}//terminator
 };
-static Rect R1[]={
+static const Rect R1[]={
 	//box&tail
 	{1, 1, 28, 2}, //top line
 	{1, 1, 2, 26}, //left line
@@ -747,7 +747,7 @@ static Rect R1[]={
 	{18, 21, 8, 2}, //bottom
 	{-1, 0, 0, 0}//terminator
 };
-static Rect R2[]={
+static const Rect R2[]={
 	//box&tail
 	{1, 1, 28, 2}, //top line
 	{1, 1, 2, 26}, //left line
@@ -768,7 +768,7 @@ static Rect R2[]={
 	{18, 21, 8, 2}, //bottom
 	{-1, 0, 0, 0}//terminator
 };
-static Rect R3[]={
+static const Rect R3[]={
 	//box&tail
 	{1, 1, 28, 2}, //top line
 	{1, 1, 2, 26}, //left line
@@ -788,59 +788,67 @@ static Rect R3[]={
 	{18, 21, 8, 2}, //bottom
 	{-1, 0, 0, 0}//terminator
 };
-static Rect L_up[]={
+static const Rect L[]={
+	
+	
+};
+static const Rect L_up[]={
 	{-1, 0, 0, 0}//terminator
 };
-static Rect L_up_right[]={
+static const Rect L_up_right[]={
 	{-1, 0, 0, 0}//terminator
 };
-static Rect L_right[]={
+static const Rect L_right[]={
 	{-1, 0, 0, 0}//terminator
 };
-static Rect L_right_down[]={
+static const Rect L_right_down[]={
 	{-1, 0, 0, 0}//terminator
 };
-static Rect L_down[]={
+static const Rect L_down[]={
 	{-1, 0, 0, 0}//terminator
 };
-static Rect L_left_down[]={
+static const Rect L_left_down[]={
 	{-1, 0, 0, 0}//terminator
 };
-static Rect L_left[]={
+static const Rect L_left[]={
 	{-1, 0, 0, 0}//terminator
 };
-static Rect L_up_left[]={
+static const Rect L_up_left[]={
 	{-1, 0, 0, 0}//terminator
 };
 
-static Rect R_up[]={
+
+static const Rect R[]={
+	
+};
+static const Rect R_up[]={
 	{-1, 0, 0, 0}//terminator
 };
-static Rect R_up_right[]={
+static const Rect R_up_right[]={
 	{-1, 0, 0, 0}//terminator
 };
-static Rect R_right[]={
+static const Rect R_right[]={
 	{-1, 0, 0, 0}//terminator
 };
-static Rect R_right_down[]={
+static const Rect R_right_down[]={
 	{-1, 0, 0, 0}//terminator
 };
-static Rect R_down[]={
+static const Rect R_down[]={
 	{-1, 0, 0, 0}//terminator
 };
-static Rect R_left_down[]={
+static const Rect R_left_down[]={
 	{-1, 0, 0, 0}//terminator
 };
-static Rect R_left[]={
+static const Rect R_left[]={
 	{-1, 0, 0, 0}//terminator
 };
-static Rect R_up_left[]={
+static const Rect R_up_left[]={
 	{-1, 0, 0, 0}//terminator
 };
 
 
 //MISC
-static Rect folder[]={
+static const Rect folder[]={
 	{2, 8, 27, 20}, //block
 	{1, 10, 2, 16}, //side left
 	{28, 10, 2, 16}, //side right
@@ -848,7 +856,7 @@ static Rect folder[]={
 	{5, 4, 8, 2}, //top block flap
 	{-1, 0, 0, 0} //terminator
 };
-static Rect file[]={
+static const Rect file[]={
 	{5, 7, 22, 24}, //block
 	{7, 5, 20, 4},//flap 1
 	{9, 3, 18, 4},//flap 2
@@ -857,7 +865,7 @@ static Rect file[]={
 };
 
 
-static Rect this_bitch[]={
+static const Rect this_bitch[]={
 	//i wont commentate,
 	//take my word, this is a circle
 	//i hate my life, why did i start Free-BBN
