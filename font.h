@@ -17,6 +17,6 @@ typedef struct {
 
 #define IS_ICON(c)  ((unsigned char)(c) >= 0x01 && (unsigned char)(c) <= 0x20)
 
-extern Rect* ascii_map[128];
-extern Rect* icon_map[128];
+extern const Rect* ascii_map[128];
+extern const Rect* icon_map[128];
 #endif

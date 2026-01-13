@@ -160,8 +160,8 @@ void menu_show(void){while (1){
 		}
 	}
 	
-	gfx_draw_text("\xFF\x00/\xFF\x01 Navigate \xFF\x22", 5, 450, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00), 10, 4);
-	gfx_draw_text("\xFF\x22", 150, 150, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00), 20, 4);
+	gfx_draw_text("\xFF\x00/\xFF\x01 Navigate \xFF\x10\xFF\x12\xFF\x14\xFF\x16", 5, 450, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00), 10, 4);
+	gfx_draw_text("\xFF\x10", 150, 150, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00), 20, 4);
 	
 	gfx_exec();
 	if(get_pad_buttons(0) & PAD_DOWN)
