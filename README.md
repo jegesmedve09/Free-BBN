@@ -19,7 +19,7 @@
 
 ---
 
-### About
+# About
 
 The original PSBBN was an amazing dashboard locked behind the official network/HDD adapter.
 
@@ -33,14 +33,14 @@ The original PSBBN was an amazing dashboard locked behind the official network/H
 This is **not** a patch of the original Sony binary.  
 It's a complete from-scratch homebrew recreation, **open source from day one**.
 
-### Current Status (January 2026)
+# Current Status (January 2026)
 
 - ✓ Splash screen with fade-in & hold (tested on real SCPH-50007)
 - ✓ Startup chime (when it feels like it)
 - ✓ Modular architecture ready for menus, icons, HDD browser...
 - Early alpha — but it **boots and glows** ✨
 
-### Credits
+# Credits
 
 | Role                        | Who                                                                 |
 |-----------------------------|---------------------------------------------------------------------|
@@ -49,11 +49,11 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 | Special Thanks              | PS2 homebrew scene • CosmicScale's PSBBN English patch • sacred green screen • RCA cables that revealed what HDMI tried to hide |
 
 
-### Technical information
+# Technical information
 ## Compatibility
 
-# FAT models
-| Platform        --- | Status                                                                       |
+### FAT models
+| Platform            | Status                                                                       |
 |---------------------|------------------------------------------------------------------------------|
 | SCPH-10000-00   JPN | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
 | SCPH-15000-00   JPN | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
@@ -64,6 +64,32 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 | SCPH-3900x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
 | SCPH-500xx          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
 | SCPH-5500x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+
+### SLIM models
+| Platform            | Status                                                                       |
+|---------------------|------------------------------------------------------------------------------|
+| SCPH-70000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+| SCPH-75000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+| SCPH-77000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+| SCHP-7900x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+| SCPH-9000x          | ![Partially Supported](https://img.shields.io/badge/Partially%20Supported-orange)             |
+
+### PSX models
+| Platform            | Status                                                                       |
+|---------------------|------------------------------------------------------------------------------|
+| DESR-50000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+| DESR-51000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+| DESR-57000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+| DESR-7000x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+| DESR-7100x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+| DESR-7500x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+| DESR-7700x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+
+### PSX models
+| Platform            | Status                                                                       |
+|---------------------|------------------------------------------------------------------------------|
+| PX300          | ![Unsupported](https://img.shields.io/badge/Unsupported-red)             |
+| PX300-1        | ![Unsupported](https://img.shields.io/badge/Unsupported-red)             |
 
 ### License
 
