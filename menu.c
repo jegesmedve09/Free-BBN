@@ -51,7 +51,7 @@ void menu_exec(int item)
 		
 			gfx_flip();
 			gfx_clear(GS_SETREG_RGBAQ(0x60, 0x00, 0x00, 0x00, 0x00)); // Dark purple
-			gfx_draw_text("Please Insert A Disc...PRESS O TO GO BACK", 100, 200, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x00,0x00), 5, 4);
+			gfx_draw_text("Please Insert A Disc...PRESS \xFF\x08 TO GO BACK", 100, 200, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x00,0x00), 5, 4);
 			gfx_exec();
 		
 			if (get_pad_buttons(0) & PAD_CIRCLE)
@@ -86,7 +86,7 @@ void menu_exec(int item)
 		
 			gfx_flip();
 			gfx_clear(GS_SETREG_RGBAQ(0x60, 0x00, 0x00, 0x00, 0x00)); // Dark purple
-			gfx_draw_text("Read Error...PRESS O TO GO BACK", 100, 200, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x00,0x00), 5, 4);
+			gfx_draw_text("Read Error...PRESS \xFF\x08 TO GO BACK", 100, 200, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x00,0x00), 5, 4);
 			gfx_exec();
 
 			if (get_pad_buttons(0) & PAD_CIRCLE)
@@ -114,7 +114,7 @@ void menu_exec(int item)
 		gfx_draw_text("Projekti aloitettu: Joulukuu 30. 2025.", 5, 60+30+30+30+30, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
 		gfx_draw_text("https://www.reddit.com/r/FreeBBN/", 5, 60+30+30+30+100, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
 		gfx_draw_text("https://github.com/jegesmedve09/Free-BBN", 5, 60+30+30+30+100+30, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
-		gfx_draw_text("Press O to go back", 5, 60+30+30+30+100+30+100, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
+		gfx_draw_text("Press \xFF\x08 to go back", 5, 60+30+30+30+100+30+100, GS_SETREG_RGBAQ(0x00,0x00,0x00,0x00,0x00), 5, 4);
 		gfx_exec();
 		
 
@@ -139,7 +139,6 @@ void menu_show(void){while (1){
 	
 	gfx_flip();
     gfx_clear(GS_SETREG_RGBAQ(0x60, 0x60, 0xFF, 0x00, 0x00));
-    //gfx_clear(GS_SETREG_RGBAQ(0x30, 0x19, 0x34, 0x00, 0x00));
     gfx_draw_line(0, 26, 640, 26, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00));
 	gfx_draw_text("FREE-BBN", 5, 5, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00), 5, 4);
 	gfx_draw_text("ALPHA", 100, 15, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00), 2, 2);
@@ -160,8 +159,8 @@ void menu_show(void){while (1){
 		}
 	}
 	
-	gfx_draw_text("\xFF\x00/\xFF\x01 Navigate \xFF\x10\xFF\x12\xFF\x14\xFF\x16", 5, 450, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00), 10, 4);
-	gfx_draw_text("\xFF\x10", 150, 150, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00), 20, 4);
+	gfx_draw_text("\xFF\x00/\xFF\x01 Navigate \xFF\x06 Select", 5, 470, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00), 10, 4);
+
 	
 	gfx_exec();
 	if(get_pad_buttons(0) & PAD_DOWN)
