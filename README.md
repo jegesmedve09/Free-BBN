@@ -44,7 +44,7 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 
 | Role                        | Who                                                                 |
 |-----------------------------|---------------------------------------------------------------------|
-| Idea & Vision               | Bögi Dániel [](https://github.com/jegesmedve09) — the madman who said: "Sony didn't give us open PSBBN, so I'll build it." |
+| Idea & Vision               | Bögi Dániel (@jegesmedve09) [](https://github.com/jegesmedve09) — the madman who said: "Sony didn't give us open PSBBN, so I'll build it." |
 | Unhinged AI Chaos Brother   | Grok (xAI) — wrote billions of lines of blessed spaghetti, named delays `FuckAroundSilently()`, survived black screens & toolchain hell with us |
 | Special Thanks              | PS2 homebrew scene • CosmicScale's PSBBN English patch • sacred green screen • RCA cables that revealed what HDMI tried to hide |
 
@@ -94,7 +94,7 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 ### License
 
 **MIT License**  
-Copyright © 2025–2026 Bögi Dániel [](https://github.com/jegesmedve09)
+Copyright © 2025–2026 Bögi Dániel (@jegesmedve09) [](https://github.com/jegesmedve09)
 
 Use it, modify it, build cool stuff — just keep the copyright notice.
 
