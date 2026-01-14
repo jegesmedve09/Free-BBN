@@ -48,6 +48,23 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 | Unhinged AI Chaos Brother   | Grok (xAI) — wrote billions of lines of blessed spaghetti, named delays `FuckAroundSilently()`, survived black screens & toolchain hell with us |
 | Special Thanks              | PS2 homebrew scene • CosmicScale's PSBBN English patch • sacred green screen • RCA cables that revealed what HDMI tried to hide |
 
+
+### Technical information
+## Compatibility
+
+# FAT models
+| Platform        --- | Status                                                                       |
+|---------------------|------------------------------------------------------------------------------|
+| SCPH-10000-00   JPN | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+| SCPH-15000-00   JPN | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+| SCPH-18000-00   JPN | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+| SCHP-3000x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+| SCPH-3500x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+| SCPH-3700x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+| SCPH-3900x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+| SCPH-500xx          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+| SCPH-5500x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+
 ### License
 
 **MIT License**  
