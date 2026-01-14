@@ -85,7 +85,7 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 | DESR-7500x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
 | DESR-7700x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
 
-### PSX models
+### PS2 TV models
 | Platform            | Status                                                                       |
 |---------------------|------------------------------------------------------------------------------|
 | PX300          | ![Unsupported](https://img.shields.io/badge/Unsupported-red)             |
