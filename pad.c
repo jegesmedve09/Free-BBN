@@ -66,7 +66,3 @@ u32 pad_get_pressed(int player)
     update_pad(player);
     return new_pad[player];
 }
-
-int pad_is_connected(int player) {
-    return padGetState(player, 0) == PAD_STATE_STABLE;
-}

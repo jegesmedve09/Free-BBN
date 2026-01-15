@@ -1,7 +1,6 @@
-#ifndef ELF_LOADER_H
-#define ELF_LOADER_H
+#ifndef CDVD_H
+#define CDVD_H
 
-int load_and_chain_elf(const char *path, int argc, char **argv);
+int load_elf(const char *path, int argc, char **argv);
 
 #endif
-
