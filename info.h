@@ -1,0 +1,8 @@
+#ifndef SETTINGS_H
+#define SETTINGS_H
+
+#define DEVICE "host"
+#define VERSION_TEXT "Alpha +"
+#define VERSION_ID "0.10"
+
+#endif
