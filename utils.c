@@ -359,18 +359,7 @@ static unsigned char poweroff_irx[] __attribute__((aligned(16))) = {
 	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
 };
 void PowerOff(void)
-{  
-	gfx_clear(GS_SETREG_RGBAQ(0x20, 0x00, 0x40, 0x00, 0x00)); // Dark purple
-	gfx_exec();
-	gfx_flip();
-    
-    gfx_draw_text("Shutting down the console...", 100, 200, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x00,0x00), 5, 4);
-    gfx_draw_text("Goodbye!", 220, 250, GS_SETREG_RGBAQ(0xFF,0xA0,0xA0,0x00,0x00), 4, 3);
-    gfx_exec();
-    gfx_flip();
-
-    FuckAroundSilentlyMs(1500);  // Let user read it
-	
+{  	
 	SifInitRpc(0);
 	SifIopReset("", 0);
 	while(!SifIopSync());
@@ -384,20 +373,8 @@ void PowerOff(void)
 	poweroffInit();
 	poweroffShutdown();
 
-	SifExitRpc();
-	
+	SifExitRpc();	
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

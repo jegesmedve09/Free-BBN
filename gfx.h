@@ -15,6 +15,7 @@ void gfx_flip(void);
 void gfx_exec(void);
 void gfx_reset(void);
 
+void gfx_draw_top_bar(void);
 
 #define FONT_SCALE_BASE 10  // 10 = normal size (32x16)
 void gfx_draw_text(const char* text, int x, int y, u64 color, int scale, int spacing);

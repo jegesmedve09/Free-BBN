@@ -148,3 +148,9 @@ void gfx_draw_text(const char* text, int x, int y, u64 color, int scale, int spa
         
     }
 }
+
+void gfx_draw_top_bar(void)
+{
+	gfx_draw_line(0, 26, 640, 26, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00));
+	gfx_draw_text("FreeBBN", 5, 5, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 5, 4);
+}	
