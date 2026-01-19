@@ -461,3 +461,7 @@ void launch_dvd_game(void)
     LoadExecPS2(boot_path, 0, NULL);
 }
 
+
+u8 dec_to_bcd(u8 dec) { return ((dec / 10) << 4) | (dec % 10); }
+
+u8 bcd_to_dec(u8 bcd) { return ((bcd   >> 4) & 0x0F) * 10 + (bcd   & 0x0F); }

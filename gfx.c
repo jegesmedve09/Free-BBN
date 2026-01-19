@@ -84,7 +84,7 @@ void font_draw_char(char c, int x, int y, u64 color, int scale)
     unsigned char idx = (unsigned char)c;
     if (ascii_map[idx] == NULL) return;
     
-    Rect* rects = ascii_map[idx];
+    const Rect* rects = ascii_map[idx];
     for (int i = 0; rects[i].x != -1; i++)
     {
         int rx = x + (rects[i].x * scale + FONT_SCALE_BASE/2) / FONT_SCALE_BASE;
@@ -103,7 +103,7 @@ void font_draw_icon(int c, int x, int y, u64 color, int scale)
 {
     if (icon_map[c] == NULL) return;
 
-    Rect* rects = icon_map[c];
+    const Rect* rects = icon_map[c];
 
     for (int i = 0; rects[i].x != -1; i++)
     {

@@ -3,6 +3,7 @@
 #include <sifrpc.h>
 #include <iopcontrol.h>
 #include <loadfile.h>
+#include <libcdvd.h>
 
 #include "gfx.h"
 #include "utils.h"
@@ -14,19 +15,13 @@
 #include "SUBMENU/CHANNELS/channels.h"
 #include "SUBMENU/SYSTEMSETTINGS/systemsettings.h"
 
-
-#define MAIN_MENU_ITEM_COUNT 6
-#define MAIN_MENU_START_Y    180
-#define MAIN_MENU_START_X	40
-#define MAIN_MENU_LINE_HEIGHT 40  // Distance between lines
-
 const char* main_menu_items[] = {
     "Channels         -",
     "System Settings  /",
     "Network Settings -",
     "Save Manager     -",
-    "About            -",
-    "Shutdown         -"
+    "About            +",
+    "Shutdown         +"
 };
 
 void init()
@@ -44,6 +39,8 @@ void init()
     
 	pad_init();
 	
+    sceCdInit(SCECdINIT);
+    
 	FuckAroundSilentlyMs(100);
     
     gfx_init();
@@ -79,9 +76,9 @@ int main(void)
         //gfx_flip();
         update_lava_background();
         gfx_draw_top_bar();
-        gfx_draw_text("Main Menu", 40, 100, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 10, 4);	
+        gfx_draw_text("Main Menu", 40, 60, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 10, 4);	
         
-        menu_draw(main_menu_items, MAIN_MENU_ITEM_COUNT, MAIN_MENU_START_X, MAIN_MENU_START_Y, MAIN_MENU_LINE_HEIGHT, GS_SETREG_RGBAQ(255,255,0,128,0), GS_SETREG_RGBAQ(0x60, 0x60, 0x60, 0x80, 0), 4, 10, 8);
+        menu_draw(main_menu_items, 6, 40, 100, 40, GS_SETREG_RGBAQ(255,255,0,128,0), GS_SETREG_RGBAQ(0x60, 0x60, 0x60, 0x80, 0), 4, 10, 8);
 	
 		gfx_draw_text("\xFF\x00/\xFF\x01 Navigate \xFF\x06 Select", 5, 480, GS_SETREG_RGBAQ(0x70, 0x70, 0x70, 0x80, 0x00), 5, 4);
         
