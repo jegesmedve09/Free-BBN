@@ -39,7 +39,7 @@ void init()
     
 	pad_init();
 	
-    sceCdInit(SCECdINIT);
+    //sceCdInit(SCECdINIT);
     
 	FuckAroundSilentlyMs(100);
     
@@ -82,6 +82,8 @@ int main(void)
 	
 		gfx_draw_text("\xFF\x00/\xFF\x01 Navigate \xFF\x06 Select", 5, 480, GS_SETREG_RGBAQ(0x70, 0x70, 0x70, 0x80, 0x00), 5, 4);
         
+		gfx_flip();
+		gfx_exec();
         
         if(get_pad_buttons(0) & PAD_DOWN)
 		{
@@ -110,9 +112,6 @@ int main(void)
 			
 			FuckAroundSilentlyMs(300);
 		}
-        
-		gfx_flip();
-		gfx_exec();
 		
     }
     
