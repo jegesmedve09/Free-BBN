@@ -9,6 +9,8 @@
 
 int dateandtime_show(void)
 {
+	gfx_fade_in(10);
+	
 	while (1)
 	{
 		update_lava_background();
@@ -33,6 +35,9 @@ int dateandtime_show(void)
 		gfx_exec();
 		
 		if (get_pad_pressed(0) & PAD_TRIANGLE)
-        {	return 0; }
+        {
+			gfx_fade_out(10);
+			return 0;
+		}
 	}
 }

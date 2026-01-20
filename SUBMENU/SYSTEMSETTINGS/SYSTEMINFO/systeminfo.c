@@ -107,7 +107,9 @@ int systeminfo_show(void)
     load_system_info();
 
     menu_set_selected(-1);
-
+	
+	gfx_fade_in(10);
+	
     while (1)
     {
         update_lava_background();
@@ -124,6 +126,7 @@ int systeminfo_show(void)
         if (get_pad_buttons(0) & PAD_TRIANGLE)
         {
             menu_reset_current_item();
+            gfx_fade_out(10);
             return 0;
         }
     }

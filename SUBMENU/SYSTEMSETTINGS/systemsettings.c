@@ -13,8 +13,8 @@
 #define SETTINGS_MENU_ITEM_COUNT 7
 
 const char* settings_menu_items[] = {
-    "System Info    +",
-    "Date and Time  +",
+    "System Info    + NRHW",
+    "Date and Time  P",
     "Display        -",
     "Sound          -",
     "Language       -",
@@ -25,6 +25,7 @@ const char* settings_menu_items[] = {
 
 int systemsettings_show(void)
 {
+	gfx_fade_in(10);
 	while (1)
 	{
 		update_lava_background();
@@ -53,7 +54,8 @@ int systemsettings_show(void)
 		if(get_pad_buttons(0) & PAD_TRIANGLE)
 		{
 			menu_reset_current_item();
-			FuckAroundSilentlyMs(300);
+			//FuckAroundSilentlyMs(300);
+			gfx_fade_out(10);
 			return 0;
 		}
 		
@@ -61,10 +63,12 @@ int systemsettings_show(void)
 		{
 			int item = menu_get_current_item();
 			menu_reset_current_item();
-			FuckAroundSilentlyMs(300);
+			//FuckAroundSilentlyMs(300);
+			gfx_fade_out(10);
 			if (item == 0){ systeminfo_show(); }
 			if (item == 1){ dateandtime_show(); }
-			FuckAroundSilentlyMs(300);
+			gfx_fade_in(10);
+			//FuckAroundSilentlyMs(300);
 		}
 	
 	}
