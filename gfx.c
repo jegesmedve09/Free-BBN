@@ -2,6 +2,7 @@
 #include <tamtypes.h>
 #include <gsKit.h>
 #include "font.h"
+#include "background.h"
 
 GSGLOBAL *gsGlobal;
 
@@ -154,3 +155,28 @@ void gfx_draw_top_bar(void)
 	gfx_draw_line(0, 26, 640, 26, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00));
 	gfx_draw_text("FreeBBN", 5, 5, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 5, 4);
 }	
+
+void gfx_fade_out(int speed)
+{
+	for (int i = 0; i < 128; i+=speed)
+	{
+		update_lava_background();
+		gfx_draw_top_bar();
+		gfx_draw_square(0, 27, 640, 506, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, i, 0x00));
+		gfx_flip();
+		gfx_exec();
+	}
+	
+}
+void gfx_fade_in(int speed)
+{
+	for (int i = 128; i > 0; i-=speed)
+	{
+		update_lava_background();
+		gfx_draw_top_bar();
+		gfx_draw_square(0, 27, 640, 506, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, i, 0x00));
+		gfx_flip();
+		gfx_exec();
+	}
+	
+}

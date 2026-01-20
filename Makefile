@@ -4,7 +4,9 @@ EE_OBJS = main.o gfx.o utils.o font.o pad.o info.o background.o menu.o \
           SUBMENU/CHANNELS/channels.o \
           SUBMENU/SYSTEMSETTINGS/systemsettings.o \
           SUBMENU/SYSTEMSETTINGS/SYSTEMINFO/systeminfo.o \
-          SUBMENU/SYSTEMSETTINGS/DATEANDTIME/dateandtime.o
+          SUBMENU/SYSTEMSETTINGS/DATEANDTIME/dateandtime.o \
+          SUBMENU/NETWORKSETTINGS/networksettings.o \
+          SUBMENU/SAVEMANAGER/savemanager.o
 
 #poweroff_irx.c: $(PS2SDK)/iop/irx/poweroff.irx
 #	bin2c $< $@ poweroff_irx

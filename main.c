@@ -78,7 +78,7 @@ int main(void)
         gfx_draw_top_bar();
         gfx_draw_text("Main Menu", 40, 60, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 10, 4);	
         
-        menu_draw(main_menu_items, 6, 40, 100, 40, GS_SETREG_RGBAQ(255,255,0,128,0), GS_SETREG_RGBAQ(0x60, 0x60, 0x60, 0x80, 0), 4, 10, 8);
+        menu_draw(main_menu_items, 6, 40, 120, 30, GS_SETREG_RGBAQ(255,255,0,128,0), GS_SETREG_RGBAQ(0x60, 0x60, 0x60, 0x80, 0), 4, 8, 6);
 	
 		gfx_draw_text("\xFF\x00/\xFF\x01 Navigate \xFF\x06 Select", 5, 480, GS_SETREG_RGBAQ(0x70, 0x70, 0x70, 0x80, 0x00), 5, 4);
         
@@ -104,12 +104,12 @@ int main(void)
 			menu_reset_current_item();
 			
 			FuckAroundSilentlyMs(300);
-			
+			gfx_fade_out(2);
 			if (item == 0) { channels_show(); }
 			if (item == 1) { systemsettings_show(); }
 			if (item == 4) { about_show(); }
 			if (item == 5) { PowerOff(); }
-			
+			gfx_fade_in(2);
 			FuckAroundSilentlyMs(300);
 		}
 		
