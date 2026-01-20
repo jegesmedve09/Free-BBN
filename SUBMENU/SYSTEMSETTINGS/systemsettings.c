@@ -14,7 +14,7 @@
 
 const char* settings_menu_items[] = {
     "System Info    + NRHW",
-    "Date and Time  P",
+    "Date and Time  ++",
     "Display        -",
     "Sound          -",
     "Language       -",

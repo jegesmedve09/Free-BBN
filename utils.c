@@ -464,4 +464,4 @@ void launch_dvd_game(void)
 
 u8 dec_to_bcd(u8 dec) { return ((dec / 10) << 4) | (dec % 10); }
 
-u8 bcd_to_dec(u8 bcd) { return ((bcd   >> 4) & 0x0F) * 10 + (bcd   & 0x0F); }
+u8 bcd_to_dec(u8 bcd) { return (bcd   >> 4) * 10 + (bcd   & 0x0F); }
