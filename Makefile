@@ -1,12 +1,20 @@
 EE_BIN = freebbn.elf
-EE_OBJS = main.o gfx.o utils.o font.o pad.o info.o background.o menu.o \
+EE_OBJS = main.o gfx.o utils.o font.o pad.o info.o background.o menu.o cdvd.o\
+          \
           SUBMENU/ABOUT/about.o \
+          \
           SUBMENU/CHANNELS/channels.o \
+          SUBMENU/CHANNELS/GAMESCHANNEL/gameschannel.o \
+          \
+          SUBMENU/CHANNELS/GAMESCHANNEL/RUNDISC/rundisc.o\
+          \
           SUBMENU/SYSTEMSETTINGS/systemsettings.o \
           SUBMENU/SYSTEMSETTINGS/SYSTEMINFO/systeminfo.o \
           SUBMENU/SYSTEMSETTINGS/DATEANDTIME/dateandtime.o \
+          \
           SUBMENU/NETWORKSETTINGS/networksettings.o \
-          SUBMENU/SAVEMANAGER/savemanager.o
+          \
+          SUBMENU/SAVEMANAGER/savemanager.o \
 
 #poweroff_irx.c: $(PS2SDK)/iop/irx/poweroff.irx
 #	bin2c $< $@ poweroff_irx
