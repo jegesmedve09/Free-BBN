@@ -10,7 +10,65 @@
 #define SYSTEM_CNF_PATH "cdrom0:\\SYSTEM.CNF;1"
 #define MAX_CNF_SIZE   2048
 
-int disc_inserted()
+int cdvd_tray_open(void)
+{
+    int ret, status;
+
+    ret = sceCdTrayReq(SCECdTrayOpen, &status);
+    if (ret <= 0) return -1;  // failed to send request
+
+    // Poll until command finishes
+    while (1) {
+        ret = sceCdTrayReq(SCECdTrayCheck, &status);
+        if (ret <= 0) return -2;
+
+        if (status == 0) break;   // done (tray fully open)
+        // status may be: 1=opening, 2=closing, etc. — check libcdvd docs for exact values
+
+        // Optional: SleepThread() or small delay to avoid busy-loop CPU hog
+    }
+
+    return 0;  // success
+}
+
+int cdvd_tray_close(void)
+{
+    int ret, status;
+
+    ret = sceCdTrayReq(SCECdTrayClose, &status);
+    if (ret <= 0) return -1;
+
+    while (1) {
+        ret = sceCdTrayReq(SCECdTrayCheck, &status);
+        if (ret <= 0) return -2;
+        if (status == 0) break;
+    }
+
+    return 0;
+}
+
+int cdvd_tray_is_open(void)
+{
+    int status;
+    if (sceCdTrayReq(SCECdTrayCheck, &status) > 0) {
+        return (status != 0);  // non-zero usually means open/in-motion
+    }
+    return -1;  // error
+}
+
+int cdvd_tray_toggle(void)
+{
+	if (cdvd_tray_is_open())
+	{
+		cdvd_tray_close();
+	}
+	else
+	{
+		cdvd_tray_open();
+	}
+}
+
+int cdvd_disc_inserted(void)
 {
 	int type;
 	type = CdGetDiskType();
@@ -24,7 +82,7 @@ int disc_inserted()
 	}
 }
 
-int disc_ready(){
+int cdvd_disc_ready(void){
 	if (cdDiskReady(0))
 	{
 		return 1;
@@ -35,7 +93,7 @@ int disc_ready(){
 	}
 }
 
-void disc_launch_ps2_game(void)
+void cdvd_launch_ps2_game(void)
 {
     char cnf[MAX_CNF_SIZE];
     char boot_path[256];

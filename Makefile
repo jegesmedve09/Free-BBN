@@ -1,5 +1,5 @@
 EE_BIN = freebbn.elf
-EE_OBJS = main.o gfx.o utils.o font.o pad.o info.o background.o menu.o cdvd.o\
+EE_OBJS = main.o gfx.o utils.o font.o pad.o info.o background.o menu.o cdvd.o irx.o\
           \
           SUBMENU/ABOUT/about.o \
           \
@@ -7,6 +7,7 @@ EE_OBJS = main.o gfx.o utils.o font.o pad.o info.o background.o menu.o cdvd.o\
           SUBMENU/CHANNELS/GAMESCHANNEL/gameschannel.o \
           \
           SUBMENU/CHANNELS/GAMESCHANNEL/RUNDISC/rundisc.o\
+          SUBMENU/CHANNELS/UTILITIES/utilities.o \
           \
           SUBMENU/SYSTEMSETTINGS/systemsettings.o \
           SUBMENU/SYSTEMSETTINGS/SYSTEMINFO/systeminfo.o \

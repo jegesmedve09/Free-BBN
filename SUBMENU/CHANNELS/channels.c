@@ -8,11 +8,12 @@
 #include "../../menu.h"
 
 #include "GAMESCHANNEL/gameschannel.h"
+#include "UTILITIES/utilities.h"
 
 #define CHANNELS_MENU_ITEM_COUNT 5
 
 const char* channels_menu_items[] = {
-    "Games     -",
+    "Games     /",
     "Music     -",
     "Video     -",
     "Network   -",
@@ -63,7 +64,7 @@ int channels_show(void)
 			//FuckAroundSilentlyMs(300);
 			gfx_fade_out(10);
 			if (item == 0){ gameschannel_show(); }
-			//if (item == 1){ dateandtime_show(); }
+			if (item == 4){ utilities_show(); }
 			gfx_fade_in(10);
 			//FuckAroundSilentlyMs(300);
 		}

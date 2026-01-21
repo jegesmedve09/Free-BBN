@@ -13,7 +13,7 @@
 
 const char* gameschannel_menu_items[] = {
     "Collection     -",
-    "Run Disc       -",
+    "Run Disc       + NWRH UNTS",
     "ELF Games      -"
 };
 

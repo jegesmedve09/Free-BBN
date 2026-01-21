@@ -13,8 +13,8 @@
 #define SETTINGS_MENU_ITEM_COUNT 7
 
 const char* settings_menu_items[] = {
-    "System Info    + NRHW",
-    "Date and Time  ++",
+    "System Info    + JK",
+    "Date and Time  +",
     "Display        -",
     "Sound          -",
     "Language       -",
