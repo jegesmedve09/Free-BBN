@@ -50,9 +50,9 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 
 
 # Technical information
-## Compatibility
+### Compatibility
 
-### FAT models
+#### FAT models
 | Platform            | Status                                                                       |
 |---------------------|------------------------------------------------------------------------------|
 | SCPH-10000-00   JPN | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
