@@ -10,6 +10,7 @@
 #include "pad.h"
 #include "background.h"
 #include "menu.h"
+#include "sound.h"
 
 #include "irx.h"
 
@@ -38,22 +39,27 @@ void init()
     //controller
     SifLoadModule("rom0:SIO2MAN", 0, NULL);
     SifLoadModule("rom0:PADMAN", 0, NULL);
+	FuckAroundSilentlyMs(100);
     
     SifLoadModule("rom0:MCMAN", 0, NULL);
 	SifLoadModule("rom0:MCSERV", 0, NULL);
+	FuckAroundSilentlyMs(100);
     
-	SifExecModuleBuffer(irx_usbd, irx_usbd_size, 0, NULL, NULL);
-	SifExecModuleBuffer(irx_usbmass_bd, irx_usbmass_bd_size, 0, NULL, NULL);
-    
-    //SifLoadModule("rom0:CDVDMAN", 0, NULL);
+    SifExecModuleBuffer(irx_audsrv, irx_audsrv_size, 0, NULL, NULL);
+	
+	FuckAroundSilentlyMs(100);
 	
 	pad_init();
 	
-    //sceCdInit(SCECdINIT);
+	FuckAroundSilentlyMs(100);
+	
+	//sound_init();
     
 	FuckAroundSilentlyMs(100);
     
     gfx_init();
+    
+	FuckAroundSilentlyMs(100);
     
     init_lava_background();
 }
@@ -64,6 +70,7 @@ int main(void)
     gfx_flip();
     gfx_exec();
     
+    //sound_play_async("host:/startup.wav");
     
     for (int i = 0; i < 128; i+=2)
     {

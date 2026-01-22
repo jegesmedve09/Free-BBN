@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <string.h>
 
+#include <errno.h>  // or <sys/errno.h> depending on your SDK
 
 #include "../../../gfx.h"
 #include "../../../utils.h"
@@ -21,6 +22,7 @@ int statmass = 1;
 char buffermc0[1024];
 char buffermc1[1024];
 char buffermass[1024];
+int massret = 0;
 
 int fd;
 
@@ -62,22 +64,32 @@ int utilities_show()
 	}
 	close(fd);
 	
+	//fd = open("mass:/dummy.txt", O_RDONLY);
+	//if (fd < 0)
+	//{
+	//	statmass = 0;
+	//	buffermass[5] = fd;
+	//
+	//}else
+	//{
+	//	statmass=1;
+	//	int bytes_read = read(fd, buffermass, sizeof(buffermass));
+	//	if (bytes_read > 0)
+	//	{
+	//		// Process buffer (null-terminate if string)
+	//		buffermass[bytes_read] = '\0';
+	//	}
+	//}
+	//close(fd);
 	fd = open("mass:/dummy.txt", O_RDONLY);
-	if (fd < 0)
-	{
-		statmass = 0;
-
-	}else
-	{
+	if (fd < 0) {
+		char err[80];
+		int e = errno;  // or fioGetLastError() / GetLastError() if your fio lib overrides it
+		snprintf(buffermass, sizeof(buffermass), "mass:/ open failed - errno: %d", e);
+		statmass=0;
+	} else {
 		statmass=1;
-		int bytes_read = read(fd, buffermass, sizeof(buffermass));
-		if (bytes_read > 0)
-		{
-			// Process buffer (null-terminate if string)
-			buffermass[bytes_read] = '\0';
-		}
 	}
-	close(fd);
 	
 	while(1)
 	{
@@ -122,7 +134,9 @@ int utilities_show()
         else
         {
 			gfx_draw_text("MASS FAIL", 40, 280,
-				GS_SETREG_RGBAQ(0xFF,0x80,0x80,0x60,0x00), 5, 3);			
+				GS_SETREG_RGBAQ(0xFF,0x80,0x80,0x60,0x00), 5, 3);
+			gfx_draw_text(buffermass, 40, 320,
+				GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x60,0x00), 5, 3);		
 		}
         
         
