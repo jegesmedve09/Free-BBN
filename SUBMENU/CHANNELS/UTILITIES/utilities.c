@@ -15,24 +15,64 @@
 #include "../../../pad.h"
 #include "../../../menu.h"
 
-int stats = 1;
-char buffer[1024];
+int statmc0 = 1;
+int statmc1 = 1;
+int statmass = 1;
+char buffermc0[1024];
+char buffermc1[1024];
+char buffermass[1024];
+
+int fd;
 
 int utilities_show()
 {
-	int fd = open("mc0:/dummy.txt", O_RDONLY);
+	fd = open("mc0:/dummy.txt", O_RDONLY);
 	if (fd < 0)
 	{
-		stats = 0;
+		statmc0 = 0;
 
 	}else
 	{
-		stats=1;
-		int bytes_read = read(fd, buffer, sizeof(buffer));
+		statmc0=1;
+		int bytes_read = read(fd, buffermc0, sizeof(buffermc0));
 		if (bytes_read > 0)
 		{
 			// Process buffer (null-terminate if string)
-			buffer[bytes_read] = '\0';
+			buffermc0[bytes_read] = '\0';
+		}
+	}
+	close(fd);
+	
+	fd = open("mc1:/dummy.txt", O_RDONLY);
+	if (fd < 0)
+	{
+		statmc1 = 0;
+
+	}else
+	{
+		statmc1=1;
+		int bytes_read = read(fd, buffermc1, sizeof(buffermc1));
+		if (bytes_read > 0)
+		{
+			// Process buffer (null-terminate if string)
+			buffermc1[bytes_read] = '\0';
+		}
+	}
+	close(fd);
+	
+	fd = open("mass:/dummy.txt", O_RDONLY);
+	if (fd < 0)
+	{
+		statmass = 0;
+
+	}else
+	{
+		statmass=1;
+		int bytes_read = read(fd, buffermass, sizeof(buffermass));
+		if (bytes_read > 0)
+		{
+			// Process buffer (null-terminate if string)
+			buffermass[bytes_read] = '\0';
 		}
 	}
 	close(fd);
@@ -44,16 +84,42 @@ int utilities_show()
 		
         gfx_draw_text("Utilities", 40, 60,GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00),10, 4);
         
-        if (stats == 1)
+        if (statmc0 == 1)
         {	
 			gfx_draw_text("MC0 OK", 40, 120,
 				GS_SETREG_RGBAQ(0x80,0xFF,0x80,0x60,0x00), 5, 3);
-			gfx_draw_text(buffer, 40, 160,
+			gfx_draw_text(buffermc0, 40, 160,
 				GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x60,0x00), 5, 3);
         }
         else
         {
 			gfx_draw_text("MC0 FAIL", 40, 120,
+				GS_SETREG_RGBAQ(0xFF,0x80,0x80,0x60,0x00), 5, 3);			
+		}
+        
+        if (statmc1 == 1)
+        {	
+			gfx_draw_text("MC1 OK", 40, 200,
+				GS_SETREG_RGBAQ(0x80,0xFF,0x80,0x60,0x00), 5, 3);
+			gfx_draw_text(buffermc1, 40, 240,
+				GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x60,0x00), 5, 3);
+        }
+        else
+        {
+			gfx_draw_text("MC1 FAIL", 40, 200,
+				GS_SETREG_RGBAQ(0xFF,0x80,0x80,0x60,0x00), 5, 3);			
+		}
+        
+        if (statmass == 1)
+        {	
+			gfx_draw_text("MASS OK", 40, 280,
+				GS_SETREG_RGBAQ(0x80,0xFF,0x80,0x60,0x00), 5, 3);
+			gfx_draw_text(buffermass, 40, 320,
+				GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x60,0x00), 5, 3);
+        }
+        else
+        {
+			gfx_draw_text("MASS FAIL", 40, 280,
 				GS_SETREG_RGBAQ(0xFF,0x80,0x80,0x60,0x00), 5, 3);			
 		}
         
