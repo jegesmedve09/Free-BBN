@@ -26,6 +26,8 @@ int fd;
 
 int utilities_show()
 {
+	gfx_fade_in(10);
+	
 	fd = open("mc0:/dummy.txt", O_RDONLY);
 	if (fd < 0)
 	{
@@ -124,9 +126,14 @@ int utilities_show()
 		}
         
         
-        gfx_draw_text("\xFF\x00/\xFF\x01 Navigate \xFF\x06 Select \xFF\x09 Back",5, 480,GS_SETREG_RGBAQ(0x70, 0x70, 0x70, 0x80, 0x00),5, 4);
+        gfx_draw_text("\xFF\x09 Back",5, 480,GS_SETREG_RGBAQ(0x70, 0x70, 0x70, 0x80, 0x00),5, 4);
 		gfx_flip();
 		gfx_exec();
+		
+		if (get_pad_pressed(0) & PAD_TRIANGLE) {
+            gfx_fade_out(10);
+            return 0;
+		}
 		
 	}
 }
