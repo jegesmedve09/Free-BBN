@@ -65,7 +65,7 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 | SCPH-500xx          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
 | SCPH-5500x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
 
-### SLIM models
+#### SLIM models
 | Platform            | Status                                                                       |
 |---------------------|------------------------------------------------------------------------------|
 | SCPH-70000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
@@ -74,7 +74,7 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 | SCHP-7900x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
 | SCPH-9000x          | ![Partially Supported](https://img.shields.io/badge/Partially%20Supported-orange)             |
 
-### PSX models
+#### PSX models
 | Platform            | Status                                                                       |
 |---------------------|------------------------------------------------------------------------------|
 | DESR-50000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
@@ -85,11 +85,24 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 | DESR-7500x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
 | DESR-7700x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
 
-### PS2 TV models
+#### PS2 TV models
 | Platform            | Status                                                                       |
 |---------------------|------------------------------------------------------------------------------|
 | PX300          | ![Unsupported](https://img.shields.io/badge/Unsupported-red)             |
 | PX300-1        | ![Unsupported](https://img.shields.io/badge/Unsupported-red)             |
+
+### Storage Support
+|Device           | Status                 |
+|-----------------|------------------------|
+| MemoryCard 0 (PS2) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
+| MemoryCard 1 (PS2) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
+| MemoryCard 0 (PS) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
+| MemoryCard 1 (PS) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
+| USB Mass (Single Drive + Single Partition) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
+| USB Mass (Single Drive + Multiple Partitions) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
+| USB Mass (Multiple Drives + Single Partition) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
+| USB Mass (Multiple Drives + Multiple Partitions) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
+| PS2 HDD (only FAT consoles) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
 
 ### License
 
