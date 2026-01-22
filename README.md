@@ -72,7 +72,7 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 | SCPH-75000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
 | SCPH-77000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
 | SCHP-7900x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
-| SCPH-9000x          | ![Partially Supported](https://img.shields.io/badge/Partially%20Supported-orange)             |
+| SCPH-9000x          | ![Partially Supported](https://img.shields.io/badge/Partially%20Supported-orange)  |
 
 #### PSX models
 | Platform            | Status                                                                       |
@@ -105,7 +105,7 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 | Dual MemoryCards (PlayStation) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
 | PS2 & PS Mismached MemoryCards | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
 | USB Mass (Single Drive + Single Partition) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
-| USB Mass (Single Drive + Multiple Partitions) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
+| USB Mass (Single Drive + Multiple Partitions) | ![Partially Supported](https://img.shields.io/badge/Partially%20Supported-orange) Software Specification Needed |
 | USB Mass (Multiple Drives + Single Partition) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
 | USB Mass (Multiple Drives + Multiple Partitions) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
 | PS2 HDD (only FAT consoles) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
