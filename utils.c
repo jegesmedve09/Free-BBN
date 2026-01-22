@@ -136,7 +136,7 @@ void PowerOff(void)
 	SifInitIopHeap();
 	sbv_patch_enable_lmb();
 
-	SifExecModuleBuffer(poweroff_irx, poweroff_irx_size, 0, NULL, NULL);
+	SifExecModuleBuffer(irx_poweroff, irx_poweroff_size, 0, NULL, NULL);
 	poweroffInit();
 	poweroffShutdown();
 

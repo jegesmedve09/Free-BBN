@@ -11,6 +11,8 @@
 #include "background.h"
 #include "menu.h"
 
+#include "irx.h"
+
 #include "SUBMENU/ABOUT/about.h"
 #include "SUBMENU/CHANNELS/channels.h"
 #include "SUBMENU/SYSTEMSETTINGS/systemsettings.h"
@@ -39,6 +41,9 @@ void init()
     
     SifLoadModule("rom0:MCMAN", 0, NULL);
 	SifLoadModule("rom0:MCSERV", 0, NULL);
+    
+	SifExecModuleBuffer(irx_usbd, irx_usbd_size, 0, NULL, NULL);
+	SifExecModuleBuffer(irx_usbmass_bd, irx_usbmass_bd_size, 0, NULL, NULL);
     
     //SifLoadModule("rom0:CDVDMAN", 0, NULL);
 	
