@@ -14,6 +14,9 @@
 
 #include "irx.h"
 
+#include <stdio.h>
+
+
 #include "SUBMENU/ABOUT/about.h"
 #include "SUBMENU/CHANNELS/channels.h"
 #include "SUBMENU/SYSTEMSETTINGS/systemsettings.h"
@@ -35,33 +38,56 @@ void init()
     while (!SifIopSync()) {};
     
     SifInitRpc(0);
-    
-    //controller
-    SifLoadModule("rom0:SIO2MAN", 0, NULL);
-    SifLoadModule("rom0:PADMAN", 0, NULL);
-	FuckAroundSilentlyMs(100);
-    
-    SifLoadModule("rom0:MCMAN", 0, NULL);
-	SifLoadModule("rom0:MCSERV", 0, NULL);
-	FuckAroundSilentlyMs(100);
-    
-    SifExecModuleBuffer(irx_audsrv, irx_audsrv_size, 0, NULL, NULL);
-	
-	FuckAroundSilentlyMs(100);
-	
-	pad_init();
-	
-	FuckAroundSilentlyMs(100);
-	
-	//sound_init();
-    
-	FuckAroundSilentlyMs(100);
+    SifLoadFileInit();
     
     gfx_init();
     
-	FuckAroundSilentlyMs(100);
-    
+    gfx_clear(GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00));
+    gfx_draw_text("BGFX: Lava...", 20, 20, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 5, 4);	
+    gfx_flip();
+    gfx_exec();
     init_lava_background();
+    
+    gfx_draw_text("IRX : LIBSD...", 20, 40, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 5, 4);	
+    gfx_flip();
+    gfx_exec();
+    SifLoadModule("rom0:LIBSD", 0, NULL);
+    
+    gfx_draw_text("IRX : AUDSRV...", 20, 60, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 5, 4);	
+    gfx_flip();
+    gfx_exec();
+    SifExecModuleBuffer(irx_audsrv_new, irx_audsrv_new_size, 0, NULL, NULL);
+    
+	//SifLoadModule("host:audsrv.irx", 0, NULL);
+
+    gfx_draw_text("IRX : SIO2MAN...", 20, 80, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 5, 4);	
+    gfx_flip();
+    gfx_exec();
+    SifLoadModule("rom0:SIO2MAN", 0, NULL);
+
+    gfx_draw_text("IRX : PADMAN...", 20, 100, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 5, 4);	
+    gfx_flip();
+    gfx_exec();
+    SifLoadModule("rom0:PADMAN", 0, NULL);
+    
+
+    gfx_draw_text("IRX : NCMAN...", 20, 120, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 5, 4);	
+    gfx_flip();
+    gfx_exec();
+    SifLoadModule("rom0:MCMAN", 0, NULL);
+
+    gfx_draw_text("IRX : MCSERV...", 20, 140, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 5, 4);	
+    gfx_flip();
+    gfx_exec();
+	SifLoadModule("rom0:MCSERV", 0, NULL);
+	
+    gfx_draw_text("INIT: Pad...", 20, 160, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 5, 4);	
+    gfx_flip();
+    gfx_exec();
+	pad_init();
+	
+	FuckAroundSilentlyMs(5000);
+	gfx_fade_out(10);
 }
 
 int main(void)

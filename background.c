@@ -180,7 +180,7 @@ void update_lava_background(void)
                 0x80,
                 0
             );
-            gfx_draw_square(px, py, BLOCK_SIZE, BLOCK_SIZE, color);
+            gfx_draw_square(px-2, py-2, BLOCK_SIZE+4, BLOCK_SIZE+4, color);
         }
     }
 

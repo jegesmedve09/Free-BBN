@@ -4,6 +4,17 @@
 #include <stdio.h>
 #include <malloc.h>
 #include <string.h>     // Added for memset
+
+#include <tamtypes.h>
+#include <kernel.h>
+#include <sifrpc.h>
+#include <iopcontrol.h>
+#include <loadfile.h>
+#include <audsrv.h>
+#include <stdio.h>
+#include <malloc.h>
+
+#include "gfx.h"
 #include "utils.h"
 
 #define SAMPLE_RATE 48000
@@ -66,7 +77,12 @@ static int sound_thread(void *arg) {
 }
 
 void sound_init(void) {
+    printf("Entering sound_init\n");  // If you have serial/ps2link printf
+    gfx_draw_text("Inside sound_init", 40, 100, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x80,0), 8, 2);
+    gfx_flip(); gfx_exec();
     audsrv_init();
+    gfx_draw_text("audsrv_init RETURNED!", 40, 140, GS_SETREG_RGBAQ(0x00,0xFF,0x00,0x80,0), 8, 2);
+    gfx_flip(); gfx_exec();
 }
 
 void sound_play_async(const char* file_path) {

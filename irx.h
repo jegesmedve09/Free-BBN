@@ -6,4 +6,7 @@ extern unsigned char irx_poweroff[];
 
 extern unsigned int irx_audsrv_size;
 extern unsigned char irx_audsrv[];
+
+extern unsigned int irx_audsrv_new_size;
+extern unsigned char irx_audsrv_new[];
 #endif
