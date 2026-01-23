@@ -160,8 +160,8 @@ void gfx_fade_out(int speed)
 {
 	for (int i = 0; i < 128; i+=speed)
 	{
-		//update_lava_background();
-		//gfx_draw_top_bar();
+		background_update();
+		gfx_draw_top_bar();
 		gfx_draw_square(0, 0, 640, 512, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, i, 0x00));
 		gfx_flip();
 		gfx_exec();
@@ -172,8 +172,8 @@ void gfx_fade_in(int speed)
 {
 	for (int i = 128; i > 0; i-=speed)
 	{
-		//update_lava_background();
-		//gfx_draw_top_bar();
+		background_update();
+		gfx_draw_top_bar();
 		gfx_draw_square(0, 0, 640, 512, GS_SETREG_RGBAQ(0x00, 0x00, 0x00, i, 0x00));
 		gfx_flip();
 		gfx_exec();

@@ -1,8 +1,8 @@
 #ifndef BACKGROUND_H
 #define BACKGROUND_H
 
-void init_lava_background(void);
+void background_init(void);
 
-void update_lava_background(void);
+void background_update(void);
 
 #endif

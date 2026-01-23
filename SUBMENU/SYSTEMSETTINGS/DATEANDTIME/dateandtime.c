@@ -244,7 +244,7 @@ int dateandtime_show(void)
     while (1)
     {
         load_system_info();
-        update_lava_background();
+        background_update();
         gfx_draw_top_bar();
 
         gfx_draw_text("Date and Time", 40, 60,

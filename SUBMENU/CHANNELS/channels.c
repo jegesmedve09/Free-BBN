@@ -26,7 +26,7 @@ int channels_show(void)
 	gfx_fade_in(10);
 	while (1)
 	{
-		update_lava_background();
+		background_update();
         gfx_draw_top_bar();
         
         gfx_draw_text("Channels", 40, 60,GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00),10, 4);

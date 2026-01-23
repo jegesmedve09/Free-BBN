@@ -10,7 +10,7 @@ int about_show(void)
 {	
 	for (int i = 0; i < 128; i+=2)
 	{
-		update_lava_background();
+		background_update();
         gfx_draw_text("Free-BBN "VERSION_TEXT" "VERSION_ID, 5, 5, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,i,0x00), 10, 2);
 		gfx_draw_text("Created by: jegesmedve09", 5, 60, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,i,0x00), 5, 4);
 		gfx_draw_text("Version text: " VERSION_TEXT, 5, 60+30, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,i,0x00), 5, 4);
@@ -27,7 +27,7 @@ int about_show(void)
 	
     while (1)
     {
-        update_lava_background();		
+        background_update();		
         gfx_draw_text("Free-BBN "VERSION_TEXT" "VERSION_ID, 5, 5, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x80,0x00), 10, 2);
 		gfx_draw_text("Created by: jegesmedve09", 5, 60, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x80,0x00), 5, 4);
 		gfx_draw_text("Version text: " VERSION_TEXT, 5, 60+30, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x80,0x00), 5, 4);
@@ -44,7 +44,7 @@ int about_show(void)
         {	
 			for (int i = 128; i > 0; i-=2)
 			{
-				update_lava_background();
+				background_update();
 				gfx_draw_text("Free-BBN "VERSION_TEXT" "VERSION_ID, 5, 5, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,i,0x00), 10, 2);
 				gfx_draw_text("Created by: jegesmedve09", 5, 60, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,i,0x00), 5, 4);
 				gfx_draw_text("Version text: " VERSION_TEXT, 5, 60+30, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,i,0x00), 5, 4);

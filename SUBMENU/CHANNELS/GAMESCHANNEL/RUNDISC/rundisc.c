@@ -13,7 +13,7 @@ int rundisc_show(void)
     gfx_fade_in(10);
     while (1)
     {
-        update_lava_background();
+        background_update();
         gfx_draw_top_bar();
 
         gfx_draw_text("Run Disc", 40, 60, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x80,0), 10, 4);
@@ -30,11 +30,11 @@ int rundisc_show(void)
             cdvd_launch_ps2_game();
             
             gfx_init();
-            update_lava_background();
+            background_update();
             gfx_fade_in(10);
 			
 			while (1){
-				update_lava_background();
+				background_update();
 				gfx_draw_top_bar();
 				gfx_draw_text("Run Disc", 40, 60, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x80,0), 10, 4);
 				gfx_draw_text("Failed to run disc. Is it a PS2 game?", 40, 140, GS_SETREG_RGBAQ(0xFF,0x80,0x80,0x80,0), 6, 4);

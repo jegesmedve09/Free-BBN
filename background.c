@@ -60,7 +60,7 @@ static float laplacian(float grid[LAVA_HEIGHT][LAVA_WIDTH], int x, int y)
     return sum;
 }
 
-void init_lava_background(void)
+void background_init(void)
 {
     for (int y = 0; y < LAVA_HEIGHT; y++) {
         for (int x = 0; x < LAVA_WIDTH; x++) {
@@ -85,7 +85,7 @@ void init_lava_background(void)
     }
 }
 
-void update_lava_background(void)
+void background_update(void)
 {
     frame_counter++;
 
@@ -180,7 +180,7 @@ void update_lava_background(void)
                 0x80,
                 0
             );
-            gfx_draw_square(px-2, py-2, BLOCK_SIZE+4, BLOCK_SIZE+4, color);
+            gfx_draw_square(px, py, BLOCK_SIZE, BLOCK_SIZE, color);
         }
     }
 

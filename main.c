@@ -14,7 +14,11 @@
 
 #include "irx.h"
 
+#include "logscreen.h"
+
 #include <stdio.h>
+
+#include <sbv_patches.h>
 
 
 #include "SUBMENU/ABOUT/about.h"
@@ -31,7 +35,7 @@ const char* main_menu_items[] = {
 };
 
 void init()
-{
+{	
 	SifInitRpc(0);
     
     while (!SifIopReset("", 0)) {};
@@ -39,86 +43,60 @@ void init()
     
     SifInitRpc(0);
     SifLoadFileInit();
+    sbv_patch_enable_lmb();
     
     gfx_init();
     
-    gfx_clear(GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x00, 0x00));
-    gfx_draw_text("BGFX: Lava...", 20, 20, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 5, 4);	
-    gfx_flip();
-    gfx_exec();
-    init_lava_background();
+    background_init();
     
-    gfx_draw_text("IRX : LIBSD...", 20, 40, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 5, 4);	
-    gfx_flip();
-    gfx_exec();
-    SifLoadModule("rom0:LIBSD", 0, NULL);
+    //sound
+    SifExecModuleBuffer(irx_libsd, irx_libsd_size, 0, NULL, NULL);
+    SifExecModuleBuffer(irx_audsrv, irx_audsrv_size, 0, NULL, NULL);
+    sound_init();
     
-    gfx_draw_text("IRX : AUDSRV...", 20, 60, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 5, 4);	
-    gfx_flip();
-    gfx_exec();
-    SifExecModuleBuffer(irx_audsrv_new, irx_audsrv_new_size, 0, NULL, NULL);
-    
-	//SifLoadModule("host:audsrv.irx", 0, NULL);
-
-    gfx_draw_text("IRX : SIO2MAN...", 20, 80, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 5, 4);	
-    gfx_flip();
-    gfx_exec();
+    //controller
     SifLoadModule("rom0:SIO2MAN", 0, NULL);
-
-    gfx_draw_text("IRX : PADMAN...", 20, 100, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 5, 4);	
-    gfx_flip();
-    gfx_exec();
     SifLoadModule("rom0:PADMAN", 0, NULL);
+    pad_init();
     
-
-    gfx_draw_text("IRX : NCMAN...", 20, 120, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 5, 4);	
-    gfx_flip();
-    gfx_exec();
+	//memory card
     SifLoadModule("rom0:MCMAN", 0, NULL);
-
-    gfx_draw_text("IRX : MCSERV...", 20, 140, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 5, 4);	
-    gfx_flip();
-    gfx_exec();
 	SifLoadModule("rom0:MCSERV", 0, NULL);
 	
-    gfx_draw_text("INIT: Pad...", 20, 160, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 5, 4);	
-    gfx_flip();
-    gfx_exec();
-	pad_init();
-	
-	FuckAroundSilentlyMs(5000);
-	gfx_fade_out(10);
+	FuckAroundSilentlyMs(2000);
 }
 
 int main(void)
 {
     init();
-    gfx_flip();
-    gfx_exec();
-    
-    //sound_play_async("host:/startup.wav");
+    //gfx_flip();
+    //gfx_exec();
+    sound_start("mc0:/startup.raw");
     
     for (int i = 0; i < 128; i+=2)
     {
-        update_lava_background();
+        background_update();
+        sound_update();
 		gfx_draw_text("FreeBBN", 184, 226, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, i, 0x00), 20, 4);
 		gfx_flip();
 		gfx_exec();
 	}
 	    
-    for (int i = 128; i > 0; i-=2)
+    for (int i = 128; i > 0; i-=3)
     {
-        update_lava_background();
+        background_update();
+        sound_update;
 		gfx_draw_text("FreeBBN", 184, 226, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, i, 0x00), 20, 4);
 		gfx_flip();
 		gfx_exec();
 	}
-    
+    sound_stop();
     while(1)
     {
         //gfx_flip();
-        update_lava_background();
+        background_update();
         gfx_draw_top_bar();
+        sound_update();
         gfx_draw_text("Main Menu", 40, 60, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 10, 4);	
         
         menu_draw(main_menu_items, 6, 40, 120, 30, GS_SETREG_RGBAQ(255,255,0,128,0), GS_SETREG_RGBAQ(0x60, 0x60, 0x60, 0x80, 0), 4, 8, 6);
@@ -158,6 +136,13 @@ int main(void)
 			gfx_fade_in(10);
 			
 			//FuckAroundSilentlyMs(300);
+		}
+		
+		if(get_pad_buttons(0) & PAD_START)
+		{
+			sound_stop();
+			sound_start("host:button0.raw");
+			FuckAroundSilentlyMs(300);
 		}
 		
     }

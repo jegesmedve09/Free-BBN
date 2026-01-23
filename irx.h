@@ -9,4 +9,7 @@ extern unsigned char irx_audsrv[];
 
 extern unsigned int irx_audsrv_new_size;
 extern unsigned char irx_audsrv_new[];
+
+extern unsigned int irx_libsd_size;
+extern unsigned char irx_libsd[];
 #endif

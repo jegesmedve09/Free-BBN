@@ -1,5 +1,5 @@
 EE_BIN = freebbn.elf
-EE_OBJS = main.o gfx.o utils.o font.o pad.o info.o background.o menu.o cdvd.o irx.o sound.o\
+EE_OBJS = main.o gfx.o utils.o font.o pad.o info.o background.o menu.o cdvd.o irx.o sound.o logscreen.o\
           \
           SUBMENU/ABOUT/about.o \
           \
