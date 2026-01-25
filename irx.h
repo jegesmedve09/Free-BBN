@@ -12,4 +12,10 @@ extern unsigned char irx_audsrv_new[];
 
 extern unsigned int irx_libsd_size;
 extern unsigned char irx_libsd[];
+
+extern unsigned int irx_usbd_size;
+extern unsigned char irx_usbd[];
+
+extern unsigned int irx_usbhdfsd_size;
+extern unsigned char irx_usbhdfsd[];
 #endif

@@ -5,9 +5,10 @@ EE_OBJS = main.o gfx.o utils.o font.o pad.o info.o background.o menu.o cdvd.o ir
           \
           SUBMENU/CHANNELS/channels.o \
           SUBMENU/CHANNELS/GAMESCHANNEL/gameschannel.o \
-          \
           SUBMENU/CHANNELS/GAMESCHANNEL/RUNDISC/rundisc.o\
+          \
           SUBMENU/CHANNELS/UTILITIES/utilities.o \
+          SUBMENU/CHANNELS/UTILITIES/DEVCHECK/devcheck.o\
           \
           SUBMENU/SYSTEMSETTINGS/systemsettings.o \
           SUBMENU/SYSTEMSETTINGS/SYSTEMINFO/systeminfo.o \

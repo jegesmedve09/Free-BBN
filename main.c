@@ -63,6 +63,11 @@ void init()
     SifLoadModule("rom0:MCMAN", 0, NULL);
 	SifLoadModule("rom0:MCSERV", 0, NULL);
 	
+	//USB mass
+	SifExecModuleBuffer(irx_usbd, irx_usbd_size, 0, NULL, NULL);
+	SifExecModuleBuffer(irx_usbhdfsd, irx_usbhdfsd_size, 0, NULL, NULL);
+	
+	
 	FuckAroundSilentlyMs(2000);
 }
 
@@ -71,12 +76,10 @@ int main(void)
     init();
     //gfx_flip();
     //gfx_exec();
-    sound_start("mc0:/startup.raw");
     
     for (int i = 0; i < 128; i+=2)
     {
         background_update();
-        sound_update();
 		gfx_draw_text("FreeBBN", 184, 226, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, i, 0x00), 20, 4);
 		gfx_flip();
 		gfx_exec();
@@ -85,18 +88,16 @@ int main(void)
     for (int i = 128; i > 0; i-=3)
     {
         background_update();
-        sound_update;
 		gfx_draw_text("FreeBBN", 184, 226, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, i, 0x00), 20, 4);
 		gfx_flip();
 		gfx_exec();
 	}
-    sound_stop();
+    //sound_stop();
     while(1)
     {
         //gfx_flip();
         background_update();
         gfx_draw_top_bar();
-        sound_update();
         gfx_draw_text("Main Menu", 40, 60, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 10, 4);	
         
         menu_draw(main_menu_items, 6, 40, 120, 30, GS_SETREG_RGBAQ(255,255,0,128,0), GS_SETREG_RGBAQ(0x60, 0x60, 0x60, 0x80, 0), 4, 8, 6);
@@ -105,17 +106,17 @@ int main(void)
         
 		gfx_flip();
 		gfx_exec();
-        
+		
         if(get_pad_buttons(0) & PAD_DOWN)
 		{
 			menu_increment();
-			FuckAroundSilentlyMs(200);
+			FuckAroundSilentlyMs(300);
 		}
 	
 		if(get_pad_buttons(0) & PAD_UP)
 		{
 			menu_decrement();
-			FuckAroundSilentlyMs(200);
+			FuckAroundSilentlyMs(300);
 		}
 	
 		if(get_pad_buttons(0) & PAD_CROSS)
@@ -123,8 +124,6 @@ int main(void)
 			int item = menu_get_current_item();
 			
 			menu_reset_current_item();
-			
-			//FuckAroundSilentlyMs(300);
 			
 			gfx_fade_out(10);
 			
@@ -134,15 +133,6 @@ int main(void)
 			if (item == 5) { PowerOff(); }
 			
 			gfx_fade_in(10);
-			
-			//FuckAroundSilentlyMs(300);
-		}
-		
-		if(get_pad_buttons(0) & PAD_START)
-		{
-			sound_stop();
-			sound_start("host:button0.raw");
-			FuckAroundSilentlyMs(300);
 		}
 		
     }

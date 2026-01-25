@@ -1,153 +1,67 @@
 #include <tamtypes.h>
 #include <kernel.h>
 
-#include <sifrpc.h>
-#include <loadfile.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <string.h>
-
-#include <errno.h>  // or <sys/errno.h> depending on your SDK
-
 #include "../../../gfx.h"
 #include "../../../utils.h"
 #include "../../../background.h"
 #include "../../../pad.h"
 #include "../../../menu.h"
 
-int statmc0 = 1;
-int statmc1 = 1;
-int statmass = 1;
-char buffermc0[1024];
-char buffermc1[1024];
-char buffermass[1024];
-int massret = 0;
+#include "DEVCHECK/devcheck.h"
 
-int fd;
+#define UTILITIES_MENU_ITEM_COUNT 1
 
-int utilities_show()
+const char* utilities_menu_items[] = {
+    "Device Checker",
+};
+
+
+int utilities_show(void)
 {
 	gfx_fade_in(10);
-	
-	fd = open("mc0:/dummy.txt", O_RDONLY);
-	if (fd < 0)
-	{
-		statmc0 = 0;
-
-	}else
-	{
-		statmc0=1;
-		int bytes_read = read(fd, buffermc0, sizeof(buffermc0));
-		if (bytes_read > 0)
-		{
-			// Process buffer (null-terminate if string)
-			buffermc0[bytes_read] = '\0';
-		}
-	}
-	close(fd);
-	
-	fd = open("mc1:/dummy.txt", O_RDONLY);
-	if (fd < 0)
-	{
-		statmc1 = 0;
-
-	}else
-	{
-		statmc1=1;
-		int bytes_read = read(fd, buffermc1, sizeof(buffermc1));
-		if (bytes_read > 0)
-		{
-			// Process buffer (null-terminate if string)
-			buffermc1[bytes_read] = '\0';
-		}
-	}
-	close(fd);
-	
-	//fd = open("mass:/dummy.txt", O_RDONLY);
-	//if (fd < 0)
-	//{
-	//	statmass = 0;
-	//	buffermass[5] = fd;
-	//
-	//}else
-	//{
-	//	statmass=1;
-	//	int bytes_read = read(fd, buffermass, sizeof(buffermass));
-	//	if (bytes_read > 0)
-	//	{
-	//		// Process buffer (null-terminate if string)
-	//		buffermass[bytes_read] = '\0';
-	//	}
-	//}
-	//close(fd);
-	fd = open("mass:/dummy.txt", O_RDONLY);
-	if (fd < 0) {
-		char err[80];
-		int e = errno;  // or fioGetLastError() / GetLastError() if your fio lib overrides it
-		snprintf(buffermass, sizeof(buffermass), "mass:/ open failed - errno: %d", e);
-		statmass=0;
-	} else {
-		statmass=1;
-	}
-	
-	while(1)
+	while (1)
 	{
 		background_update();
-		gfx_draw_top_bar();
-		
+        gfx_draw_top_bar();
+        
         gfx_draw_text("Utilities", 40, 60,GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00),10, 4);
+        menu_draw(utilities_menu_items, UTILITIES_MENU_ITEM_COUNT, 40, 120, 30,GS_SETREG_RGBAQ(255,255,0,128,0),GS_SETREG_RGBAQ(0x60, 0x60, 0x60, 0x80, 0),4, 8, 6);
+		gfx_draw_text("\xFF\x00/\xFF\x01 Navigate \xFF\x06 Select \xFF\x09 Back",5, 480,GS_SETREG_RGBAQ(0x70, 0x70, 0x70, 0x80, 0x00),5, 4);
         
-        if (statmc0 == 1)
-        {	
-			gfx_draw_text("MC0 OK", 40, 120,
-				GS_SETREG_RGBAQ(0x80,0xFF,0x80,0x60,0x00), 5, 3);
-			gfx_draw_text(buffermc0, 40, 160,
-				GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x60,0x00), 5, 3);
-        }
-        else
-        {
-			gfx_draw_text("MC0 FAIL", 40, 120,
-				GS_SETREG_RGBAQ(0xFF,0x80,0x80,0x60,0x00), 5, 3);			
+        gfx_flip();
+        gfx_exec();
+        
+        
+        if(get_pad_buttons(0) & PAD_DOWN)
+		{
+			menu_increment();
+			FuckAroundSilentlyMs(300);
 		}
-        
-        if (statmc1 == 1)
-        {	
-			gfx_draw_text("MC1 OK", 40, 200,
-				GS_SETREG_RGBAQ(0x80,0xFF,0x80,0x60,0x00), 5, 3);
-			gfx_draw_text(buffermc1, 40, 240,
-				GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x60,0x00), 5, 3);
-        }
-        else
-        {
-			gfx_draw_text("MC1 FAIL", 40, 200,
-				GS_SETREG_RGBAQ(0xFF,0x80,0x80,0x60,0x00), 5, 3);			
-		}
-        
-        if (statmass == 1)
-        {	
-			gfx_draw_text("MASS OK", 40, 280,
-				GS_SETREG_RGBAQ(0x80,0xFF,0x80,0x60,0x00), 5, 3);
-			gfx_draw_text(buffermass, 40, 320,
-				GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x60,0x00), 5, 3);
-        }
-        else
-        {
-			gfx_draw_text("MASS FAIL", 40, 280,
-				GS_SETREG_RGBAQ(0xFF,0x80,0x80,0x60,0x00), 5, 3);
-			gfx_draw_text(buffermass, 40, 320,
-				GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x60,0x00), 5, 3);		
-		}
-        
-        
-        gfx_draw_text("\xFF\x09 Back",5, 480,GS_SETREG_RGBAQ(0x70, 0x70, 0x70, 0x80, 0x00),5, 4);
-		gfx_flip();
-		gfx_exec();
-		
-		if (get_pad_pressed(0) & PAD_TRIANGLE) {
-            gfx_fade_out(10);
-            return 0;
+	
+		if(get_pad_buttons(0) & PAD_UP)
+		{
+			menu_decrement();
+			FuckAroundSilentlyMs(300);
 		}
 		
+		if(get_pad_buttons(0) & PAD_TRIANGLE)
+		{
+			menu_reset_current_item();
+			//FuckAroundSilentlyMs(300);
+			gfx_fade_out(10);
+			return 0;
+		}
+		
+		if(get_pad_buttons(0) & PAD_CROSS)
+		{
+			int item = menu_get_current_item();
+			menu_reset_current_item();
+			//FuckAroundSilentlyMs(300);
+			gfx_fade_out(10);
+			if (item == 0){ devcheck_show(); }
+			gfx_fade_in(10);
+			//FuckAroundSilentlyMs(300);
+		}
+	
 	}
 }

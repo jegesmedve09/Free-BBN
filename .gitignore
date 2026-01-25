@@ -6,3 +6,4 @@
 ./sound.o
 ./splash.o
 ./utils.o
+./mass.img
