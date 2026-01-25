@@ -271,7 +271,7 @@ int dateandtime_show(void)
         gfx_flip();
         gfx_exec();
 
-        u32 pad = get_pad_buttons(0);
+        u32 pad = pad_get_buttons(0);
 
         if (pad & PAD_DOWN) {
             menu_increment(); FuckAroundSilentlyMs(300);

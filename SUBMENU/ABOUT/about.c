@@ -40,7 +40,7 @@ int about_show(void)
 		gfx_flip();
 		gfx_exec();
 
-        if (get_pad_pressed(0) & PAD_TRIANGLE)
+        if (pad_get_buttons(0) & PAD_TRIANGLE)
         {	
 			for (int i = 128; i > 0; i-=2)
 			{

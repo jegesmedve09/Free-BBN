@@ -35,7 +35,7 @@ static void update_pad(int player)
     old_pad[player] = paddata[player];
 }
 
-s8 get_joy_x(int stick, int player)
+s8 pad_get_joy_x(int stick, int player)
 {
     update_pad(player);
     if (player < 0 || player >= MAX_PLAYERS) return 0;
@@ -45,7 +45,7 @@ s8 get_joy_x(int stick, int player)
     return 0;
 }
 
-s8 get_joy_y(int stick, int player)
+s8 pad_get_joy_y(int stick, int player)
 {
     update_pad(player);
     if (player < 0 || player >= MAX_PLAYERS) return 0;
@@ -55,13 +55,13 @@ s8 get_joy_y(int stick, int player)
     return 0;
 }
 
-u32 get_pad_buttons(int player)
+u32 pad_get_buttons(int player)
 {
     update_pad(player);
     return old_pad[player];
 }
 
-u32 get_pad_pressed(int player)
+u32 pad_get_pressed(int player)
 {
     update_pad(player);
     return new_pad[player];

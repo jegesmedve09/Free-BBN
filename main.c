@@ -4,6 +4,9 @@
 #include <iopcontrol.h>
 #include <loadfile.h>
 #include <libcdvd.h>
+#include <stdio.h>
+
+#include <sbv_patches.h>
 
 #include "gfx.h"
 #include "utils.h"
@@ -11,15 +14,10 @@
 #include "background.h"
 #include "menu.h"
 #include "sound.h"
-
 #include "irx.h"
+#include "filemanager.h"
 
 #include "logscreen.h"
-
-#include <stdio.h>
-
-#include <sbv_patches.h>
-
 
 #include "SUBMENU/ABOUT/about.h"
 #include "SUBMENU/CHANNELS/channels.h"
@@ -107,19 +105,19 @@ int main(void)
 		gfx_flip();
 		gfx_exec();
 		
-        if(get_pad_buttons(0) & PAD_DOWN)
+        if(pad_get_buttons(0) & PAD_DOWN)
 		{
 			menu_increment();
 			FuckAroundSilentlyMs(300);
 		}
 	
-		if(get_pad_buttons(0) & PAD_UP)
+		if(pad_get_buttons(0) & PAD_UP)
 		{
 			menu_decrement();
 			FuckAroundSilentlyMs(300);
 		}
 	
-		if(get_pad_buttons(0) & PAD_CROSS)
+		if(pad_get_buttons(0) & PAD_CROSS)
 		{			
 			int item = menu_get_current_item();
 			
@@ -129,6 +127,13 @@ int main(void)
 			
 			if (item == 0) { channels_show(); }
 			if (item == 1) { systemsettings_show(); }
+			if (item == 3)
+			{
+				const char* file_extensions[] = {
+					"None",
+				};
+				filemanager_show(file_extensions);
+			}
 			if (item == 4) { about_show(); }
 			if (item == 5) { PowerOff(); }
 			

@@ -43,10 +43,10 @@ int rundisc_show(void)
 				gfx_flip();
 				gfx_exec();
 				
-				if (get_pad_pressed(0) & PAD_TRIANGLE) {
+				if (pad_get_buttons(0) & PAD_TRIANGLE) {
 					return 0;
 				}
-				if (get_pad_pressed(0) & PAD_CROSS) {
+				if (pad_get_buttons(0) & PAD_CROSS) {
 					cdvd_tray_open();
 					break;
 				}
@@ -56,12 +56,12 @@ int rundisc_show(void)
         gfx_flip();
         gfx_exec();
 
-        if (get_pad_pressed(0) & PAD_TRIANGLE) {
+        if (pad_get_buttons(0) & PAD_TRIANGLE) {
             gfx_fade_out(10);
             return 0;
 		}
 
-        if (get_pad_pressed(0) & PAD_CROSS) {
+        if (pad_get_buttons(0) & PAD_CROSS) {
             cdvd_tray_toggle();
             return 0;
         }

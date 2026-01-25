@@ -44,7 +44,7 @@ int systeminfo_show(void)
 				  GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x80,0x00), 5, 4);	
 		gfx_flip();
 		gfx_exec();
-		if (get_pad_pressed(0) & PAD_TRIANGLE)
+		if (pad_get_buttons(0) & PAD_TRIANGLE)
 		{
 			gfx_fade_out(10);
 			return 0;

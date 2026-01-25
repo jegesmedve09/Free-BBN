@@ -32,19 +32,19 @@ int utilities_show(void)
         gfx_exec();
         
         
-        if(get_pad_buttons(0) & PAD_DOWN)
+        if(pad_get_buttons(0) & PAD_DOWN)
 		{
 			menu_increment();
 			FuckAroundSilentlyMs(300);
 		}
 	
-		if(get_pad_buttons(0) & PAD_UP)
+		if(pad_get_buttons(0) & PAD_UP)
 		{
 			menu_decrement();
 			FuckAroundSilentlyMs(300);
 		}
 		
-		if(get_pad_buttons(0) & PAD_TRIANGLE)
+		if(pad_get_buttons(0) & PAD_TRIANGLE)
 		{
 			menu_reset_current_item();
 			//FuckAroundSilentlyMs(300);
@@ -52,7 +52,7 @@ int utilities_show(void)
 			return 0;
 		}
 		
-		if(get_pad_buttons(0) & PAD_CROSS)
+		if(pad_get_buttons(0) & PAD_CROSS)
 		{
 			int item = menu_get_current_item();
 			menu_reset_current_item();

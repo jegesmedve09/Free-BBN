@@ -61,7 +61,7 @@ int devcheck_show()
 		
         gfx_draw_text("Device Checker", 40, 60,GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00),10, 4);
 			
-		char line[512];
+		char line[32];
 
 		for (int i = 0; i < sizeof(devs)/16; i++)
 		{
@@ -83,7 +83,7 @@ int devcheck_show()
 		gfx_flip();
 		gfx_exec();
 		
-		if (get_pad_pressed(0) & PAD_TRIANGLE)
+		if (pad_get_buttons(0) & PAD_TRIANGLE)
 		{
             gfx_fade_out(10);
             menu_reset_current_item();
