@@ -14,8 +14,6 @@
 #include "../../../../menu.h"
 
 
-#define DEV_OK(path) (stat(path, &(struct stat){0}) == 0) ? "OK":"FAIL"
-
 typedef struct {
     const char *label;
     const char *path;
@@ -65,7 +63,7 @@ int devcheck_show()
 
 		for (int i = 0; i < sizeof(devs)/16; i++)
 		{
-			snprintf(line, sizeof(line), "%s%s", devs[i].label, DEV_OK(devs[i].path));
+			snprintf(line, sizeof(line), "%s%d", devs[i].label, DEV_EXIST(devs[i].path));
 
 			gfx_draw_text(line, devs[i].x, devs[i].y, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 5, 3);
         }

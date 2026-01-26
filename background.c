@@ -42,12 +42,12 @@ static int frame_counter = 0;
 #define DT 1.0f
 
 //color
-u8 target_r = 0x60;
-u8 target_g = 0xFF;
-u8 target_b = 0xFF;
+u8 background_target_r = 0x60;
+u8 background_target_g = 0xFF;
+u8 background_target_b = 0xFF;
 
-float min_brightness = 0.0f;   // 0.0 = true black, 0.08–0.15 = gentle glow floor
-float brightness_multiplier = 1.8f;
+float background_min_brightness = 0.0f;   // 0.0 = true black, 0.08–0.15 = gentle glow floor
+float background_brightness_multiplier = 1.8f;
 
 // Toroidal Laplacian
 static float laplacian(float grid[LAVA_HEIGHT][LAVA_WIDTH], int x, int y)
@@ -70,11 +70,11 @@ static float laplacian(float grid[LAVA_HEIGHT][LAVA_WIDTH], int x, int y)
 
 void background_init(u8 R, u8 G, u8 B, float bright_min, float bright_mul)
 {
-	target_r = R;
-	target_g = G;
-	target_b = B;
-	min_brightness = bright_min;
-	brightness_multiplier = bright_mul;
+	background_target_r = R;
+	background_target_g = G;
+	background_target_b = B;
+	background_min_brightness = bright_min;
+	background_brightness_multiplier = bright_mul;
 	
     for (int y = 0; y < LAVA_HEIGHT; y++) {
         for (int x = 0; x < LAVA_WIDTH; x++) {
@@ -174,13 +174,13 @@ void background_update(void)
 			py += (int)(wave * 0.7f + 0.5f);
 			
 			// Apply minimum brightness floor + scale to full range
-			float t = (v * (1.0f - min_brightness) + min_brightness ) * brightness_multiplier;
+			float t = (v * (1.0f - background_min_brightness) + background_min_brightness ) * background_brightness_multiplier;
 			//if (t > 1.0f) t = 1.0f;
 
 			// Interpolate RGB from (0,0,0) → target color
-			u8 r = (u8)(target_r * t + 0.5f);
-			u8 g = (u8)(target_g * t + 0.5f);
-			u8 b = (u8)(target_b * t + 0.5f);
+			u8 r = (u8)(background_target_r * t + 0.5f);
+			u8 g = (u8)(background_target_g * t + 0.5f);
+			u8 b = (u8)(background_target_b * t + 0.5f);
 
 			u64 color = GS_SETREG_RGBAQ(r, g, b, 0x80, 0);
             

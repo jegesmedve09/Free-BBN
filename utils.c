@@ -11,8 +11,22 @@
 #include <sbv_patches.h>
 #include <stdint.h>
 #include <timer.h>
+#include <sys/stat.h>
+#include <kernel.h>
+#include <sifrpc.h>
+#include <libcdvd.h>
+#include <loadfile.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <string.h>
+#include <stdio.h>
 
 #include "irx.h"
+
+
+#define DEV_EXIST(path) (stat(path, &(struct stat){0}) == 0)
+
+
 //GLORY FOR THE ORIGINAL FUCKED UP CODE, SHALL NEVER BE DELETED NOR BY HUMAN NOR BY ANY NON-HUMAN BRAINFUCKS
 
 //void FuckAroundSilently(int frames)
@@ -145,14 +159,7 @@ void PowerOff(void)
 
 
 
-#include <kernel.h>
-#include <sifrpc.h>
-#include <libcdvd.h>
-#include <loadfile.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <string.h>
-#include <stdio.h>
+//CDVD
 
 #define SYSTEM_CNF_PATH "cdrom0:\\SYSTEM.CNF;1"
 #define MAX_CNF_SIZE   2048
@@ -171,7 +178,6 @@ static void wait_for_disc(void)
     while (!cdDiskReady(0))
         FuckAroundSilentlyMs(100);
 }
-
 
 static int parse_boot2(char *cnf, char *out_path)
 {
@@ -229,6 +235,27 @@ void launch_dvd_game(void)
 }
 
 
+
+
+//converters
+
 u8 dec_to_bcd(u8 dec) { return ((dec / 10) << 4) | (dec % 10); }
 
 u8 bcd_to_dec(u8 bcd) { return (bcd   >> 4) * 10 + (bcd   & 0x0F); }
+
+float char_to_float(const char *str, float def) {
+    if (!str || !*str) return def;
+    float val = def;
+    sscanf(str, "%f", &val);
+    return val;
+}
+
+// Convert string like "180" or "42" to unsigned 8-bit int (0-255)
+u8 char_to_u8(const char *str, u8 def) {
+    if (!str || !*str) return def;
+    int val = def;
+    sscanf(str, "%d", &val);
+    if (val < 0)   val = 0;
+    if (val > 255) val = 255;
+    return (u8)val;
+}

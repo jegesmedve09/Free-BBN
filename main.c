@@ -5,7 +5,7 @@
 #include <loadfile.h>
 #include <libcdvd.h>
 #include <stdio.h>
-
+#include <stdlib.h>
 #include <sbv_patches.h>
 
 #include "gfx.h"
@@ -16,6 +16,7 @@
 #include "sound.h"
 #include "irx.h"
 #include "filemanager.h"
+#include "settings.h"
 
 #include "logscreen.h"
 
@@ -61,12 +62,29 @@ void init()
 	SifExecModuleBuffer(irx_usbd, irx_usbd_size, 0, NULL, NULL);
 	SifExecModuleBuffer(irx_usbhdfsd, irx_usbhdfsd_size, 0, NULL, NULL);
 	
-    gfx_init();
-    
-    //char *data[];
-    
-    background_init(0x00, 0x60, 0xFF, 0.12, 1.2);
+	FuckAroundSilentlyMs(2000);
 	
+	//graphics
+    gfx_init();
+	
+	//settings
+	settings_init();
+	
+	//reading background settings
+	char **bg = settings_read_config("background");
+	if (bg && bg[0] && bg[1] && bg[2] && bg[3] && bg[4]) {
+		background_init(
+			char_to_u8  (bg[0], 0),
+			char_to_u8  (bg[1], 80),
+			char_to_u8  (bg[2], 255),
+			char_to_float(bg[3], 0.08f),
+			char_to_float(bg[4], 1.2f)
+		);
+		free(bg[0]);  // frees the buffer
+		free(bg);     // frees the array
+	} else {
+		background_init(0x00, 0x80, 0xFF, 0.12f, 1.2f);
+	}
 	
 	//FuckAroundSilentlyMs(2000);
 }
@@ -103,7 +121,7 @@ int main(void)
         menu_draw(main_menu_items, 6, 40, 120, 30, GS_SETREG_RGBAQ(255,255,0,128,0), GS_SETREG_RGBAQ(0x60, 0x60, 0x60, 0x80, 0), 4, 8, 6);
 	
 		gfx_draw_text("\xFF\x00/\xFF\x01 Navigate \xFF\x06 Select", 5, 480, GS_SETREG_RGBAQ(0x70, 0x70, 0x70, 0x80, 0x00), 5, 4);
-        
+		
 		gfx_flip();
 		gfx_exec();
 		

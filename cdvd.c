@@ -12,8 +12,9 @@
 
 int cdvd_tray_open(void)
 {
-    int ret, status;
-
+    int ret;
+    u32 status;
+    
     ret = sceCdTrayReq(SCECdTrayOpen, &status);
     if (ret <= 0) return -1;  // failed to send request
 
@@ -33,7 +34,8 @@ int cdvd_tray_open(void)
 
 int cdvd_tray_close(void)
 {
-    int ret, status;
+    int ret;
+    u32 status;
 
     ret = sceCdTrayReq(SCECdTrayClose, &status);
     if (ret <= 0) return -1;
@@ -49,7 +51,7 @@ int cdvd_tray_close(void)
 
 int cdvd_tray_is_open(void)
 {
-    int status;
+    u32 status;
     if (sceCdTrayReq(SCECdTrayCheck, &status) > 0) {
         return (status != 0);  // non-zero usually means open/in-motion
     }
@@ -66,6 +68,7 @@ int cdvd_tray_toggle(void)
 	{
 		cdvd_tray_open();
 	}
+	return 0;
 }
 
 int cdvd_disc_inserted(void)

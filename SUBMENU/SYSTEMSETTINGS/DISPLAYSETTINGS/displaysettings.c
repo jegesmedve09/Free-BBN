@@ -9,6 +9,9 @@
 #include "../../../pad.h"
 #include "../../../menu.h"
 
+#include "BACKGROUNDSETTINGS/backgroundsettings.h"
+
+
 const char* displaysettings_items[] =
 {
 	"Background",
@@ -40,7 +43,6 @@ int displaysettings_show(void)
 			FuckAroundSilentlyMs(300);
 		}
 		
-		
 		if (pad_get_buttons(0) & PAD_TRIANGLE)
 		{
 			gfx_fade_out(10);
@@ -48,6 +50,15 @@ int displaysettings_show(void)
 			return 0;
 		}
 		
+		if (pad_get_buttons(0) & PAD_CROSS)
+		{
+			gfx_fade_out(10);
+			int item = menu_get_current_item();
+			menu_reset_current_item();
+			if (item == 0) { backgroundsettings_show(); }
+			gfx_fade_in(10);
+			
+		}
 	}
 }
 

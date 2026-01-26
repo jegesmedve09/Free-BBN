@@ -1,5 +1,5 @@
 EE_BIN = freebbn.elf
-EE_OBJS = main.o gfx.o utils.o font.o pad.o info.o background.o menu.o cdvd.o irx.o sound.o logscreen.o filemanager.o \
+EE_OBJS = main.o gfx.o utils.o font.o pad.o info.o background.o menu.o cdvd.o irx.o sound.o logscreen.o filemanager.o settings.o \
           \
           SUBMENU/ABOUT/about.o \
           \
@@ -14,6 +14,8 @@ EE_OBJS = main.o gfx.o utils.o font.o pad.o info.o background.o menu.o cdvd.o ir
           SUBMENU/SYSTEMSETTINGS/SYSTEMINFO/systeminfo.o \
           SUBMENU/SYSTEMSETTINGS/DATEANDTIME/dateandtime.o \
           SUBMENU/SYSTEMSETTINGS/DISPLAYSETTINGS/displaysettings.o \
+          \
+          SUBMENU/SYSTEMSETTINGS/DISPLAYSETTINGS/BACKGROUNDSETTINGS/backgroundsettings.o \
           \
           SUBMENU/NETWORKSETTINGS/networksettings.o \
           \
