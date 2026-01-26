@@ -7,7 +7,7 @@
 
 
 #define LAVA_WIDTH 65
-#define LAVA_HEIGHT 53
+#define LAVA_HEIGHT 52
 #define VISIBLE_WIDTH 64
 #define VISIBLE_HEIGHT 52
 #define BLOCK_SIZE 10
@@ -41,6 +41,14 @@ static int frame_counter = 0;
 #define K  0.062f
 #define DT 1.0f
 
+//color
+u8 target_r = 0x60;
+u8 target_g = 0xFF;
+u8 target_b = 0xFF;
+
+float min_brightness = 0.0f;   // 0.0 = true black, 0.08–0.15 = gentle glow floor
+float brightness_multiplier = 1.8f;
+
 // Toroidal Laplacian
 static float laplacian(float grid[LAVA_HEIGHT][LAVA_WIDTH], int x, int y)
 {
@@ -60,8 +68,14 @@ static float laplacian(float grid[LAVA_HEIGHT][LAVA_WIDTH], int x, int y)
     return sum;
 }
 
-void background_init(void)
+void background_init(u8 R, u8 G, u8 B, float bright_min, float bright_mul)
 {
+	target_r = R;
+	target_g = G;
+	target_b = B;
+	min_brightness = bright_min;
+	brightness_multiplier = bright_mul;
+	
     for (int y = 0; y < LAVA_HEIGHT; y++) {
         for (int x = 0; x < LAVA_WIDTH; x++) {
             U_buf1[y][x] = 1.0f;
@@ -142,77 +156,35 @@ void background_update(void)
     offset_y = (offset_y + (int)current_vel_y + LAVA_HEIGHT) % LAVA_HEIGHT;
 
     // Clear + draw
-    gfx_clear(GS_SETREG_RGBAQ(0x00, 0x00, 0x08, 0x80, 0));
+    gfx_clear(GS_SETREG_RGBAQ(0x00, 0x00, 0x00, 0x80, 0));
 
     for (int y = 0; y < VISIBLE_HEIGHT; y++) {
         for (int x = 0; x < VISIBLE_WIDTH; x++) {
             int sample_y = (y + offset_y) % LAVA_HEIGHT;
             int sample_x = (x + offset_x) % LAVA_WIDTH;
+            
             int px = x * BLOCK_SIZE + OFFSET_START;
             int py = y * BLOCK_SIZE + OFFSET_START;
-
-            if (px < 0) px = 0;
-            if (py < 0) py = 0;
-            if (px + BLOCK_SIZE > 640) px = 640 - BLOCK_SIZE;
-            if (py + BLOCK_SIZE > 512) py = 512 - BLOCK_SIZE;
 
             float v = V_current[sample_y][sample_x];
             float wave_amp = v * 6.0f;
             float wave = sinf((float)frame_counter * 0.015f + (float)sample_x * 0.12f + (float)sample_y * 0.18f) * wave_amp;
+            
             px += (int)(wave + 0.5f);
 			py += (int)(wave * 0.7f + 0.5f);
+			
+			// Apply minimum brightness floor + scale to full range
+			float t = (v * (1.0f - min_brightness) + min_brightness ) * brightness_multiplier;
+			//if (t > 1.0f) t = 1.0f;
 
-			//if (px < 0 || py < 0 ||
-			//	px + BLOCK_SIZE > 640 ||
-			//	py + BLOCK_SIZE > 512)
-			//{
-			//	continue;
-			//}
+			// Interpolate RGB from (0,0,0) → target color
+			u8 r = (u8)(target_r * t + 0.5f);
+			u8 g = (u8)(target_g * t + 0.5f);
+			u8 b = (u8)(target_b * t + 0.5f);
 
-
-			//if (px < 0 || py < 0 || px + BLOCK_SIZE > 640 || py + BLOCK_SIZE > 512) continue;
-
-            u8 intensity = (u8)(v * 0xB0 + 0x20);
-            u64 color = GS_SETREG_RGBAQ(
-                intensity / 5,
-                intensity / 3,
-                intensity,
-                0x80,
-                0
-            );
+			u64 color = GS_SETREG_RGBAQ(r, g, b, 0x80, 0);
+            
             gfx_draw_square(px, py, BLOCK_SIZE, BLOCK_SIZE, color);
         }
-    }
-
-    // Partial last row
-    for (int x = 0; x < VISIBLE_WIDTH; x++) {
-        int sample_y = (VISIBLE_HEIGHT + offset_y) % LAVA_HEIGHT;
-        int sample_x = (x + offset_x) % LAVA_WIDTH;
-        int px = x * BLOCK_SIZE + OFFSET_START;
-        int py = VISIBLE_HEIGHT * BLOCK_SIZE + OFFSET_START;
-
-        float v = V_current[sample_y][sample_x];
-        float wave_amp = v * 6.0f;
-        float wave = sinf((float)frame_counter * 0.015f + (float)sample_x * 0.12f + (float)sample_y * 0.18f) * wave_amp;
-        px += (int)wave;
-        py += (int)(wave * 0.7f);
-
-        //if (px < 0 || py < 0 ||
-		//	px + BLOCK_SIZE > 640 ||
-		//	py + 2 > 512)
-		//{
-		//	continue;
-		//}
-
-
-        u8 intensity = (u8)(v * 0xB0 + 0x20);
-        u64 color = GS_SETREG_RGBAQ(
-            intensity / 5,
-            intensity / 3,
-            intensity,
-            0x80,
-            0
-        );
-        gfx_draw_square(px, py, BLOCK_SIZE, 2, color);
     }
 }

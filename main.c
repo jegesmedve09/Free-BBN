@@ -43,10 +43,6 @@ void init()
     SifLoadFileInit();
     sbv_patch_enable_lmb();
     
-    gfx_init();
-    
-    background_init();
-    
     //sound
     SifExecModuleBuffer(irx_libsd, irx_libsd_size, 0, NULL, NULL);
     SifExecModuleBuffer(irx_audsrv, irx_audsrv_size, 0, NULL, NULL);
@@ -65,8 +61,14 @@ void init()
 	SifExecModuleBuffer(irx_usbd, irx_usbd_size, 0, NULL, NULL);
 	SifExecModuleBuffer(irx_usbhdfsd, irx_usbhdfsd_size, 0, NULL, NULL);
 	
+    gfx_init();
+    
+    //char *data[];
+    
+    background_init(0x00, 0x60, 0xFF, 0.12, 1.2);
 	
-	FuckAroundSilentlyMs(2000);
+	
+	//FuckAroundSilentlyMs(2000);
 }
 
 int main(void)

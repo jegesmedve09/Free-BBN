@@ -9,12 +9,13 @@
 
 #include "SYSTEMINFO/systeminfo.h"
 #include "DATEANDTIME/dateandtime.h"
+#include "DISPLAYSETTINGS/displaysettings.h"
 
 #define SETTINGS_MENU_ITEM_COUNT 7
 
 const char* settings_menu_items[] = {
-    "System Info    + JK",
-    "Date and Time  +",
+    "System Info    - JK",
+    "Date and Time  ",
     "Display        -",
     "Sound          -",
     "Language       -",
@@ -53,9 +54,9 @@ int systemsettings_show(void)
 		
 		if(pad_get_buttons(0) & PAD_TRIANGLE)
 		{
+			gfx_fade_out(10);
 			menu_reset_current_item();
 			//FuckAroundSilentlyMs(300);
-			gfx_fade_out(10);
 			return 0;
 		}
 		
@@ -67,6 +68,7 @@ int systemsettings_show(void)
 			gfx_fade_out(10);
 			if (item == 0){ systeminfo_show(); }
 			if (item == 1){ dateandtime_show(); }
+			if (item == 2){ displaysettings_show(); }
 			gfx_fade_in(10);
 			//FuckAroundSilentlyMs(300);
 		}

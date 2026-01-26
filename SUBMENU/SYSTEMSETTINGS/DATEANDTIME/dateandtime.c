@@ -241,6 +241,7 @@ static void update_time(void)
 // (with PAD_LEFT/RIGHT logic already using days_in_month_func for better day wrapping)
 int dateandtime_show(void)
 {
+	gfx_fade_in(10);
     while (1)
     {
         load_system_info();
@@ -280,7 +281,8 @@ int dateandtime_show(void)
             menu_decrement(); FuckAroundSilentlyMs(300);
         }
         if (pad & PAD_TRIANGLE) {
-            menu_reset_current_item(); FuckAroundSilentlyMs(300);
+            menu_reset_current_item();
+            gfx_fade_out(10);
             return 0;
         }
 
