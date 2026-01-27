@@ -4,21 +4,38 @@
 
 static int MENU_ITEM = 0;
 int ITEM_COUNT = 0;
-void menu_draw(const char **menu_items, int MENU_ITEM_COUNT, int MENU_START_X, int MENU_START_Y, int MENU_LINE_HEIGHT, u64 SELECT_COLOR, u64 DEFAULT_COLOR, int SPACING, int SELECT_SCALE, int DEFAULT_SCALE)
+
+int line_height;
+u64 selected_color;
+u64 default_color;
+int spacing;
+int selected_scale;
+int default_scale;
+
+void menu_init(int MENU_LINE_HEIGHT, u64 SELECT_COLOR, u64 DEFAULT_COLOR, int SPACING, int SELECT_SCALE, int DEFAULT_SCALE)
+{
+	line_height = MENU_LINE_HEIGHT;
+	selected_color = SELECT_COLOR;
+	default_color = DEFAULT_COLOR;
+	selected_scale = SELECT_SCALE;
+	default_color = DEFAULT_SCALE
+	spacing = SPACING;
+}
+
+void menu_draw(const char **menu_items, int MENU_ITEM_COUNT, int MENU_START_X, int MENU_START_Y)
 {
 	ITEM_COUNT= MENU_ITEM_COUNT;
 	for (int i = 0; i < MENU_ITEM_COUNT; i++)
 	{
-		int y = MENU_START_Y + i * MENU_LINE_HEIGHT;
+		int y = MENU_START_Y + i * line_height;
 	
 		if (i == MENU_ITEM)
 		{
-			gfx_draw_text(menu_items[i], MENU_START_X, y, SELECT_COLOR, SELECT_SCALE, SPACING);
+			gfx_draw_text(menu_items[i], MENU_START_X, y, selected_color, selected_scale, spacing);
 		}
 		else
 		{
-			gfx_draw_text(menu_items[i], MENU_START_X, y, DEFAULT_COLOR, DEFAULT_SCALE, SPACING);
-		//gfx_draw_text(menu_items[i], 20, y, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x00, 0x00), 5, 4);
+			gfx_draw_text(menu_items[i], MENU_START_X, y, default_color, default_scale, spacing);
 		}
 	}
 }

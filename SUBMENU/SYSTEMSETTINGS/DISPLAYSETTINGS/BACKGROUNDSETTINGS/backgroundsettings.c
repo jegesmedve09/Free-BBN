@@ -8,6 +8,7 @@
 #include "../../../../background.h"
 #include "../../../../pad.h"
 #include "../../../../menu.h"
+#include "../../../../settings.h"
 
 static char R_str[72] = "Red: Error";
 static char G_str[72]   = "Green: Error";
@@ -26,8 +27,8 @@ int backgroundsettings_show(void)
 		snprintf(R_str, sizeof(R_str), "Red: %d", background_target_r);
 		snprintf(G_str,   sizeof(G_str),   "Green:   %d", background_target_g);
 		snprintf(B_str,  sizeof(B_str),  "Blue:  %d", background_target_b);
-		snprintf(min_str,  sizeof(min_str),  "Minumum:  %f (go negatives for fun)", background_min_brightness);
-		snprintf(mul_str,   sizeof(mul_str),   "Multiplier:   %d", background_brightness_multiplier);
+		snprintf(min_str,  sizeof(min_str),  "Minumum:  %03f (go negatives for fun)", background_min_brightness);
+		snprintf(mul_str,   sizeof(mul_str),   "Multiplier:   %03f", background_brightness_multiplier);
 		
 		backgroundsettings_info_items[0] = R_str;
 		backgroundsettings_info_items[1] = G_str;
@@ -59,6 +60,12 @@ int backgroundsettings_show(void)
 		{
 			gfx_fade_out(10);
 			menu_reset_current_item();
+			
+			char data[32] = "";
+			
+			snprintf(data, sizeof(data), "%d\n%d\n%d\n%f\n%f\n", background_target_r, background_target_g, background_target_b, background_min_brightness, background_brightness_multiplier);
+			
+			settings_save_config("background", data);
 			return 0;
 		}
 		
@@ -68,7 +75,8 @@ int backgroundsettings_show(void)
 			if (item == 0) { if (background_target_r <= 0 ){ background_target_r = 0; }else{ background_target_r -= 1; }}
 			if (item == 1) { if (background_target_g <= 0 ){ background_target_g = 0; }else{ background_target_g -= 1; }}
 			if (item == 2) { if (background_target_b <= 0 ){ background_target_b = 0; }else{ background_target_b -= 1; }}
-			if (item == 3) { if (background_min_brightness <= -1.5f ){ background_min_brightness = -1.5f; }else{ background_min_brightness -= 0.001f; }}
+			if (item == 3) { if (background_min_brightness <= -0.5f ){ background_min_brightness = -0.5f; }else{ background_min_brightness -= 0.001f; }}
+			if (item == 4) { if (background_brightness_multiplier <= -5.0f ){ background_brightness_multiplier = -5.0f; }else{ background_brightness_multiplier -= 0.01f; }}
 			FuckAroundSilentlyMs(100);
 		}
 		
@@ -78,7 +86,8 @@ int backgroundsettings_show(void)
 			if (item == 0) { if (background_target_r >= 255 ){ background_target_r = 255; }else{ background_target_r += 1; }}
 			if (item == 1) { if (background_target_g >= 255 ){ background_target_g = 255; }else{ background_target_g += 1; }}
 			if (item == 2) { if (background_target_b >= 255 ){ background_target_b = 255; }else{ background_target_b += 1; }}
-			if (item == 3) { if (background_min_brightness >= 1.5f ){ background_min_brightness = 1.5f; }else{ background_min_brightness += 0.001f; }}
+			if (item == 3) { if (background_min_brightness >= 0.5f ){ background_min_brightness = 0.5f; }else{ background_min_brightness += 0.001f; }}
+			if (item == 4) { if (background_brightness_multiplier >= 5.0f ){ background_brightness_multiplier = 5.0f; }else{ background_brightness_multiplier += 0.01f; }}
 			FuckAroundSilentlyMs(100);
 		}
 	}
