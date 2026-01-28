@@ -22,6 +22,7 @@ static char defaulted_color_B[72]="D.Blue: Error";
 static char spacing_str[72]   = "Spacing: Error";
 static char selected_scale_str[72]  = "S.Scale: Error";
 static char default_scale_str[72]  = "D.Scale: Error";
+static char max_lines_str[72]  = "Max Lines: Error";
 
 static const char *textsettings_info_items[10];
 
@@ -44,6 +45,7 @@ int textsettings_show(void)
 		snprintf(spacing_str, sizeof(spacing_str), "Spacing: %d", menu_spacing);
 		snprintf(selected_scale_str, sizeof(selected_scale_str), "S.Scale: %d", menu_selected_scale);
 		snprintf(default_scale_str, sizeof(default_scale_str), "D.Scale: %d", menu_default_scale);
+		snprintf(max_lines_str, sizeof(max_lines_str), "Max Lines: %d", menu_max_lines);
 		
 		textsettings_info_items[0] = line_height_str;
 		textsettings_info_items[1] = selected_color_R;
@@ -55,6 +57,7 @@ int textsettings_show(void)
 		textsettings_info_items[7] = spacing_str;
 		textsettings_info_items[8] = selected_scale_str;
 		textsettings_info_items[9] = default_scale_str;
+		textsettings_info_items[10] = max_lines_str;
 		
 		background_update();
 		gfx_draw_top_bar();
@@ -83,7 +86,7 @@ int textsettings_show(void)
 			
 			char data[32] = "";
 			
-			snprintf(data, sizeof(data), "%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n", menu_line_height, menu_selected_color_R, menu_selected_color_G, menu_selected_color_B, menu_default_color_R, menu_default_color_G, menu_default_color_B, menu_spacing, menu_selected_scale, menu_default_scale);
+			snprintf(data, sizeof(data), "%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n", menu_line_height, menu_selected_color_R, menu_selected_color_G, menu_selected_color_B, menu_default_color_R, menu_default_color_G, menu_default_color_B, menu_spacing, menu_selected_scale, menu_default_scale, menu_max_lines);
 			
 			settings_save_config("text", data);
 			return 0;
@@ -102,6 +105,7 @@ int textsettings_show(void)
 			if (item == 7) { if (menu_spacing <= 0 ){ menu_spacing = 0; }else{ menu_spacing -= 1; }}
 			if (item == 8) { if (menu_selected_scale <= 0 ){ menu_selected_scale = 0; }else{ menu_selected_scale -= 1; }}
 			if (item == 9) { if (menu_default_scale <= 0 ){ menu_default_scale = 0; }else{ menu_default_scale -= 1; }}
+			if (item == 10) { if (menu_max_lines <= 1 ){ menu_max_lines = 1; }else{ menu_max_lines -= 1; }}
 			FuckAroundSilentlyMs(100);
 		}
 		
@@ -118,6 +122,7 @@ int textsettings_show(void)
 			if (item == 7) { if (menu_spacing >= 100 ){ menu_spacing = 100; }else{ menu_spacing += 1; }}
 			if (item == 8) { if (menu_selected_scale >= 100 ){ menu_selected_scale = 100; }else{ menu_selected_scale += 1; }}
 			if (item == 9) { if (menu_default_scale >= 100 ){ menu_default_scale = 100; }else{ menu_default_scale += 1; }}
+			if (item == 10) { if (menu_max_lines >= 100 ){ menu_max_lines = 100; }else{ menu_max_lines += 1; }}
 			FuckAroundSilentlyMs(100);
 		}
 	}

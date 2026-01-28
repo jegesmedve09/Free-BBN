@@ -83,7 +83,7 @@ void init()
 	
 	//reading background settings
 	fd = settings_read_config("text");
-	if (fd && fd[0] && fd[1] && fd[2] && fd[3] && fd[4] && fd[5] && fd[6] && fd[7] && fd[8] && fd[9]) {
+	if (fd && fd[0] && fd[1] && fd[2] && fd[3] && fd[4] && fd[5] && fd[6] && fd[7] && fd[8] && fd[9] && fd[10]) {
 		
 		menu_init(
 			char_to_u8(fd[0], 30),
@@ -95,13 +95,14 @@ void init()
 			char_to_u8(fd[6], 128),
 			char_to_u8(fd[7], 4),
 			char_to_u8(fd[8], 8),
-			char_to_u8(fd[9], 6)
+			char_to_u8(fd[9], 6),
+			char_to_u8(fd[10], 8),3
 		);
 		
 		free(fd[0]);  // frees the buffer
 		free(fd);     // frees the array
 	} else {
-		menu_init(30, 255, 255, 0, 0x60, 0x60, 0x60, 4, 8, 6);
+		menu_init(30, 255, 255, 0, 0x60, 0x60, 0x60, 4, 8, 6, 9, 5);
 	}
 }
 

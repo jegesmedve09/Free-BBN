@@ -2,8 +2,8 @@
 #include "gfx.h"
 #include "menu.h"
 
-static int MENU_ITEM = 0;
-int ITEM_COUNT = 0;
+static int menu_item = 0;
+int item_count = 0;
 
 int menu_line_height;
 u8 menu_selected_color_R;
@@ -16,7 +16,13 @@ int menu_spacing;
 int menu_selected_scale;
 int menu_default_scale;
 
-void menu_init(int MENU_LINE_HEIGHT, int SELECT_COLOR_R, int SELECT_COLOR_G, int SELECT_COLOR_B, int DEFAULT_COLOR_R, int DEFAULT_COLOR_G, int DEFAULT_COLOR_B, int SPACING, int SELECT_SCALE, int DEFAULT_SCALE)
+int menu_fade_lines;
+
+int menu_max_lines;
+
+static int scroll_offset = 0;
+
+void menu_init(int MENU_LINE_HEIGHT, int SELECT_COLOR_R, int SELECT_COLOR_G, int SELECT_COLOR_B, int DEFAULT_COLOR_R, int DEFAULT_COLOR_G, int DEFAULT_COLOR_B, int SPACING, int SELECT_SCALE, int DEFAULT_SCALE, int MAX_LINES, int FADE_LINES)
 {
 	menu_line_height = MENU_LINE_HEIGHT;
 	menu_selected_color_R = SELECT_COLOR_R;
@@ -28,55 +34,106 @@ void menu_init(int MENU_LINE_HEIGHT, int SELECT_COLOR_R, int SELECT_COLOR_G, int
 	menu_selected_scale = SELECT_SCALE;
 	menu_default_scale = DEFAULT_SCALE;
 	menu_spacing = SPACING;
+	menu_max_lines = MAX_LINES;
+	menu_fade_lines = FADE_LINES;
 }
 
-void menu_draw(const char **menu_items, int MENU_ITEM_COUNT, int MENU_START_X, int MENU_START_Y)
+//this was 1/3 made by me, and 2/3 magical spaghetti thanx to Grok
+void menu_draw(const char **MENU_ITEMS, int MENU_ITEM_COUNT, int MENU_START_X, int MENU_START_Y)
 {
-	ITEM_COUNT= MENU_ITEM_COUNT;
-	for (int i = 0; i < MENU_ITEM_COUNT; i++)
-	{
-		int y = MENU_START_Y + i * menu_line_height;
-	
-		if (i == MENU_ITEM)
-		{
-			gfx_draw_text(menu_items[i], MENU_START_X, y, GS_SETREG_RGBAQ(menu_selected_color_R, menu_selected_color_G, menu_selected_color_B, 0x80, 0), menu_selected_scale, menu_spacing);
-		}
-		else
-		{
-			gfx_draw_text(menu_items[i], MENU_START_X, y, GS_SETREG_RGBAQ(menu_default_color_R, menu_default_color_G, menu_default_color_B, 0x80, 0), menu_default_scale, menu_spacing);
-		}
+    item_count = MENU_ITEM_COUNT;
+    if (item_count == 0) return;
+    
+    int visible_lines = menu_max_lines;
+    if (visible_lines > item_count)
+        visible_lines = item_count;
+
+    int target_top = menu_item - (visible_lines / 2);
+
+    if (target_top < 0)
+    {
+        target_top = 0;
 	}
+	
+    int last_possible_top = item_count - visible_lines;
+    if (last_possible_top < 0)
+    {
+		last_possible_top = 0;
+	}
+	
+    if (target_top > last_possible_top)
+    {
+		target_top = last_possible_top;
+	}
+	
+    scroll_offset = target_top;
+
+    bool has_content_above = (scroll_offset > 0);
+    bool has_content_below = (scroll_offset + visible_lines < item_count);
+
+    for (int i = 0; i < visible_lines; i++)
+    {
+        int item_idx = scroll_offset + i;
+        int screen_y   = MENU_START_Y + i * menu_line_height;
+
+        u8 alpha = 0x80;
+
+        if (has_content_above && i < menu_fade_lines)
+        {
+            float t = (float)(i + 1) / menu_fade_lines;
+            alpha = (u8)(0x10 + (0x80 - 0x10) * t);
+        }
+        if (has_content_below && (visible_lines - 1 - i) < menu_fade_lines)
+        {
+            float t = (float)((visible_lines - 1 - i) + 1) / menu_fade_lines;
+            alpha = (u8)(0x10 + (0x80 - 0x10) * t);
+        }
+
+        if (item_idx == menu_item)
+        {
+			alpha = 0x80;
+		}
+		
+        u64 color = (item_idx == menu_item)
+            ? GS_SETREG_RGBAQ(menu_selected_color_R,   menu_selected_color_G,   menu_selected_color_B,   alpha, 0)
+            : GS_SETREG_RGBAQ(menu_default_color_R, menu_default_color_G, menu_default_color_B, alpha, 0);
+
+        gfx_draw_text(MENU_ITEMS[item_idx], MENU_START_X, screen_y, color,
+                      (item_idx == menu_item) ? menu_selected_scale : menu_default_scale,
+                      menu_spacing);
+    }
 }
 
 
 void menu_increment()
 {
-	if(MENU_ITEM<ITEM_COUNT-1)
+	if(menu_item<item_count-1)
 	{
-		MENU_ITEM++;
+		menu_item++;
 	}
 }
 
 void menu_decrement()
 {
-	if(MENU_ITEM > 0)
+	if(menu_item > 0)
 	{
-		MENU_ITEM--;
+		menu_item--;
 	}
 }
 
 
 int menu_get_current_item()
 {
-	return MENU_ITEM;
+	return menu_item;
 }
 
 void menu_reset_current_item()
 {
-	MENU_ITEM = 0;
+	scroll_offset = 0;
+	menu_item = 0;
 }
 
 void menu_set_selected(int sel)
 {
-	MENU_ITEM = sel;
+	menu_item = sel;
 }
