@@ -10,21 +10,23 @@
 #include "../../../../menu.h"
 #include "../../../../settings.h"
 
-static char line_height_str[72] = "L.Height: Error";
+static char line_height_str[72] = "Line Height: Error";
 
-static char selected_color_R[72]="S.Red: Error";
-static char selected_color_G[72]="S.Green: Error";
-static char selected_color_B[72]="S.Blue: Error";
-static char defaulted_color_R[72]="D.Red: Error";
-static char defaulted_color_G[72]="D.Green: Error";
-static char defaulted_color_B[72]="D.Blue: Error";
+static char selected_color_R[72]="Select Red: Error";
+static char selected_color_G[72]="Select Green: Error";
+static char selected_color_B[72]="Select Blue: Error";
+static char defaulted_color_R[72]="Default Red: Error";
+static char defaulted_color_G[72]="Default Green: Error";
+static char defaulted_color_B[72]="Default Blue: Error";
 
 static char spacing_str[72]   = "Spacing: Error";
-static char selected_scale_str[72]  = "S.Scale: Error";
-static char default_scale_str[72]  = "D.Scale: Error";
+static char selected_scale_str[72]  = "Select Scale: Error";
+static char default_scale_str[72]  = "Default Scale: Error";
 static char max_lines_str[72]  = "Max Lines: Error";
 
-static const char *textsettings_info_items[10];
+static char fade_lines_str[72] = "Fade Lines: Error";
+
+static const char *textsettings_info_items[12];
 
 int textsettings_show(void)
 {
@@ -32,20 +34,22 @@ int textsettings_show(void)
 	while (1)
 	{
 		
-		snprintf(line_height_str, sizeof(line_height_str), "L.Height: %d", menu_line_height);
+		snprintf(line_height_str, sizeof(line_height_str), "Line Height: %d", menu_line_height);
 		
-		snprintf(selected_color_R, sizeof(selected_color_R), "S.Red: %d", menu_selected_color_R);
-		snprintf(selected_color_G, sizeof(selected_color_G), "S.Green: %d", menu_selected_color_G);
-		snprintf(selected_color_B, sizeof(selected_color_B), "S.Blue: %d", menu_selected_color_B);
+		snprintf(selected_color_R, sizeof(selected_color_R), "Select Red: %d", menu_selected_color_R);
+		snprintf(selected_color_G, sizeof(selected_color_G), "Select Green: %d", menu_selected_color_G);
+		snprintf(selected_color_B, sizeof(selected_color_B), "Select Blue: %d", menu_selected_color_B);
 		
-		snprintf(defaulted_color_R, sizeof(defaulted_color_R), "D.Red: %d", menu_default_color_R);
-		snprintf(defaulted_color_G, sizeof(defaulted_color_G), "D.Green: %d", menu_default_color_G);
-		snprintf(defaulted_color_B, sizeof(defaulted_color_B), "D.Blue: %d", menu_default_color_B);
+		snprintf(defaulted_color_R, sizeof(defaulted_color_R), "Default Red: %d", menu_default_color_R);
+		snprintf(defaulted_color_G, sizeof(defaulted_color_G), "Default Green: %d", menu_default_color_G);
+		snprintf(defaulted_color_B, sizeof(defaulted_color_B), "Default Blue: %d", menu_default_color_B);
 		
 		snprintf(spacing_str, sizeof(spacing_str), "Spacing: %d", menu_spacing);
-		snprintf(selected_scale_str, sizeof(selected_scale_str), "S.Scale: %d", menu_selected_scale);
-		snprintf(default_scale_str, sizeof(default_scale_str), "D.Scale: %d", menu_default_scale);
+		snprintf(selected_scale_str, sizeof(selected_scale_str), "Select Scale: %d", menu_selected_scale);
+		snprintf(default_scale_str, sizeof(default_scale_str), "Default Scale: %d", menu_default_scale);
 		snprintf(max_lines_str, sizeof(max_lines_str), "Max Lines: %d", menu_max_lines);
+		snprintf(fade_lines_str, sizeof(fade_lines_str), "Fade Lines: %d", menu_fade_lines);
+		
 		
 		textsettings_info_items[0] = line_height_str;
 		textsettings_info_items[1] = selected_color_R;
@@ -58,11 +62,12 @@ int textsettings_show(void)
 		textsettings_info_items[8] = selected_scale_str;
 		textsettings_info_items[9] = default_scale_str;
 		textsettings_info_items[10] = max_lines_str;
+		textsettings_info_items[11] = fade_lines_str;
 		
 		background_update();
 		gfx_draw_top_bar();
         gfx_draw_text("Background Settings", 40, 60, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 10, 4);	
-        menu_draw(textsettings_info_items, 10, 40, 120);
+        menu_draw(textsettings_info_items, 12, 40, 120);
         gfx_draw_text("\xFF\x00/\xFF\x01 Navigate  \xFF\x02/\xFF\x03 Change  \xFF\x09 Back", 5, 480, GS_SETREG_RGBAQ(0x70,0x70,0x70,0x80,0x00),5, 4);
 		gfx_flip();
 		gfx_exec();
@@ -84,9 +89,9 @@ int textsettings_show(void)
 			gfx_fade_out(10);
 			menu_reset_current_item();
 			
-			char data[32] = "";
+			char data[97] = "";
 			
-			snprintf(data, sizeof(data), "%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n", menu_line_height, menu_selected_color_R, menu_selected_color_G, menu_selected_color_B, menu_default_color_R, menu_default_color_G, menu_default_color_B, menu_spacing, menu_selected_scale, menu_default_scale, menu_max_lines);
+			snprintf(data, sizeof(data), "%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n", menu_line_height, menu_selected_color_R, menu_selected_color_G, menu_selected_color_B, menu_default_color_R, menu_default_color_G, menu_default_color_B, menu_spacing, menu_selected_scale, menu_default_scale, menu_max_lines, menu_fade_lines);
 			
 			settings_save_config("text", data);
 			return 0;
@@ -106,6 +111,7 @@ int textsettings_show(void)
 			if (item == 8) { if (menu_selected_scale <= 0 ){ menu_selected_scale = 0; }else{ menu_selected_scale -= 1; }}
 			if (item == 9) { if (menu_default_scale <= 0 ){ menu_default_scale = 0; }else{ menu_default_scale -= 1; }}
 			if (item == 10) { if (menu_max_lines <= 1 ){ menu_max_lines = 1; }else{ menu_max_lines -= 1; }}
+			if (item == 11) { if (menu_fade_lines <= 1 ){ menu_fade_lines = 1; }else{ menu_fade_lines -= 1; }}
 			FuckAroundSilentlyMs(100);
 		}
 		
@@ -123,6 +129,7 @@ int textsettings_show(void)
 			if (item == 8) { if (menu_selected_scale >= 100 ){ menu_selected_scale = 100; }else{ menu_selected_scale += 1; }}
 			if (item == 9) { if (menu_default_scale >= 100 ){ menu_default_scale = 100; }else{ menu_default_scale += 1; }}
 			if (item == 10) { if (menu_max_lines >= 100 ){ menu_max_lines = 100; }else{ menu_max_lines += 1; }}
+			if (item == 11) { if (menu_fade_lines >= 100 ){ menu_fade_lines = 100; }else{ menu_fade_lines += 1; }}
 			FuckAroundSilentlyMs(100);
 		}
 	}

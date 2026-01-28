@@ -83,7 +83,7 @@ void init()
 	
 	//reading background settings
 	fd = settings_read_config("text");
-	if (fd && fd[0] && fd[1] && fd[2] && fd[3] && fd[4] && fd[5] && fd[6] && fd[7] && fd[8] && fd[9] && fd[10]) {
+	if (fd && fd[0] && fd[1] && fd[2] && fd[3] && fd[4] && fd[5] && fd[6] && fd[7] && fd[8] && fd[9] && fd[10] && fd[11]) {
 		
 		menu_init(
 			char_to_u8(fd[0], 30),
@@ -96,7 +96,8 @@ void init()
 			char_to_u8(fd[7], 4),
 			char_to_u8(fd[8], 8),
 			char_to_u8(fd[9], 6),
-			char_to_u8(fd[10], 8),3
+			char_to_u8(fd[10], 8),
+			char_to_u8(fd[11], 5)
 		);
 		
 		free(fd[0]);  // frees the buffer

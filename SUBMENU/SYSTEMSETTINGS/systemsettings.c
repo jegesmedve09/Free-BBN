@@ -11,16 +11,16 @@
 #include "DATEANDTIME/dateandtime.h"
 #include "DISPLAYSETTINGS/displaysettings.h"
 
-#define SETTINGS_MENU_ITEM_COUNT 7
+#define SETTINGS_MENU_ITEM_COUNT 3
 
 const char* settings_menu_items[] = {
     "System Info    - JK",
     "Date and Time",
     "Display",
-    "Sound          -",
-    "Language       -",
-    "Char input     -",
-    "Keyboard       -"
+    //"Sound          -",
+    //"Language       -",
+    //"Char input     -",
+    //"Keyboard       -"
 };
 
 
