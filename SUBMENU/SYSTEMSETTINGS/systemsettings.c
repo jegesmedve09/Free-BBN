@@ -15,8 +15,8 @@
 
 const char* settings_menu_items[] = {
     "System Info    - JK",
-    "Date and Time  ",
-    "Display        -",
+    "Date and Time",
+    "Display",
     "Sound          -",
     "Language       -",
     "Char input     -",

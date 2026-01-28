@@ -256,10 +256,7 @@ int dateandtime_show(void)
                       GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x80,0x00),5, 4);
 
         menu_draw(dateandtime_info_items, DATEANDTIME_INFO_ITEM_COUNT,
-                  DATEANDTIME_INFO_START_X, DATEANDTIME_INFO_START_Y,
-                  DATEANDTIME_INFO_LINE_HEIGHT,
-                  GS_SETREG_RGBAQ(0xFF,0xFF,0x00,0x80,0),
-                  GS_SETREG_RGBAQ(0x90,0x90,0x90,0x80,0), 4, 10, 8);
+                  DATEANDTIME_INFO_START_X, DATEANDTIME_INFO_START_Y);
 
         gfx_draw_text(full_time_str, 350, 100,
                       GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x80,0x00),10, 4);

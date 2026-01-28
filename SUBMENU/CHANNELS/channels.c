@@ -31,7 +31,7 @@ int channels_show(void)
         gfx_draw_top_bar();
         
         gfx_draw_text("Channels", 40, 60,GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00),10, 4);
-        menu_draw(channels_menu_items, CHANNELS_MENU_ITEM_COUNT, 40, 120, 30,GS_SETREG_RGBAQ(255,255,0,128,0),GS_SETREG_RGBAQ(0x60, 0x60, 0x60, 0x80, 0),4, 8, 6);
+        menu_draw(channels_menu_items, CHANNELS_MENU_ITEM_COUNT, 40, 120);
 		gfx_draw_text("\xFF\x00/\xFF\x01 Navigate \xFF\x06 Select \xFF\x09 Back",5, 480,GS_SETREG_RGBAQ(0x70, 0x70, 0x70, 0x80, 0x00),5, 4);
         
         gfx_flip();

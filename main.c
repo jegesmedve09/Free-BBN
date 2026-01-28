@@ -29,8 +29,8 @@ const char* main_menu_items[] = {
     "System Settings  /",
     "Network Settings -",
     "Save Manager     -",
-    "About            +",
-    "Shutdown         +"
+    "About",
+    "Shutdown"
 };
 
 void init()
@@ -86,26 +86,22 @@ void init()
 	if (fd && fd[0] && fd[1] && fd[2] && fd[3] && fd[4] && fd[5] && fd[6] && fd[7] && fd[8] && fd[9]) {
 		
 		menu_init(
-				char_to_u8(fd[0], 30),
-					GS_SETREG_RGBAQ(
-						char_to_u8(fd[1], 255),
-						char_to_u8(fd[2], 255),
-						char_to_u8(fd[3], 0),
-						0x80,0x00),
-					GS_SETREG_RGBAQ(
-						char_to_u8(fd[4], 128),
-						char_to_u8(fd[5], 128),
-						char_to_u8(fd[6], 128)
-						,0x80,0x00),
-				char_to_u8(fd[7], 4),
-				char_to_u8(fd[8], 8),
-				char_to_u8(fd[9], 6)
-				);
+			char_to_u8(fd[0], 30),
+			char_to_u8(fd[1], 255),
+			char_to_u8(fd[2], 255),
+			char_to_u8(fd[3], 0),
+			char_to_u8(fd[4], 128),
+			char_to_u8(fd[5], 128),
+			char_to_u8(fd[6], 128),
+			char_to_u8(fd[7], 4),
+			char_to_u8(fd[8], 8),
+			char_to_u8(fd[9], 6)
+		);
 		
 		free(fd[0]);  // frees the buffer
 		free(fd);     // frees the array
 	} else {
-		menu_init(30, GS_SETREG_RGBAQ(0,255,255,128,0), GS_SETREG_RGBAQ(255,255,255,128,0), 4, 8, 6);
+		menu_init(30, 255, 255, 0, 0x60, 0x60, 0x60, 4, 8, 6);
 	}
 }
 

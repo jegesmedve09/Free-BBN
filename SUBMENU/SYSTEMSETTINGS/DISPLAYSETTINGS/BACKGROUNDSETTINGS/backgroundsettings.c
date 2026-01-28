@@ -25,10 +25,10 @@ int backgroundsettings_show(void)
 	{
 		
 		snprintf(R_str, sizeof(R_str), "Red: %d", background_target_r);
-		snprintf(G_str,   sizeof(G_str),   "Green:   %d", background_target_g);
-		snprintf(B_str,  sizeof(B_str),  "Blue:  %d", background_target_b);
-		snprintf(min_str,  sizeof(min_str),  "Minumum:  %03f (go negatives for fun)", background_min_brightness);
-		snprintf(mul_str,   sizeof(mul_str),   "Multiplier:   %03f", background_brightness_multiplier);
+		snprintf(G_str,   sizeof(G_str),   "Green: %d", background_target_g);
+		snprintf(B_str,  sizeof(B_str),  "Blue: %d", background_target_b);
+		snprintf(min_str,  sizeof(min_str),  "Minumum: %03f (go negatives for fun)", background_min_brightness);
+		snprintf(mul_str,   sizeof(mul_str),   "Multiplier: %03f", background_brightness_multiplier);
 		
 		backgroundsettings_info_items[0] = R_str;
 		backgroundsettings_info_items[1] = G_str;
@@ -39,7 +39,7 @@ int backgroundsettings_show(void)
 		background_update();
 		gfx_draw_top_bar();
         gfx_draw_text("Background Settings", 40, 60, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 10, 4);	
-        menu_draw(backgroundsettings_info_items, 5, 40, 120, 30, GS_SETREG_RGBAQ(255,255,0,128,0), GS_SETREG_RGBAQ(0x60, 0x60, 0x60, 0x80, 0), 4, 8, 6);
+        menu_draw(backgroundsettings_info_items, 5, 40, 120);
         gfx_draw_text("\xFF\x00/\xFF\x01 Navigate  \xFF\x02/\xFF\x03 Change  \xFF\x09 Back", 5, 480, GS_SETREG_RGBAQ(0x70,0x70,0x70,0x80,0x00),5, 4);
 		gfx_flip();
 		gfx_exec();

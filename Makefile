@@ -17,6 +17,8 @@ EE_OBJS = main.o gfx.o utils.o font.o pad.o info.o background.o menu.o cdvd.o ir
           \
           SUBMENU/SYSTEMSETTINGS/DISPLAYSETTINGS/BACKGROUNDSETTINGS/backgroundsettings.o \
           \
+          SUBMENU/SYSTEMSETTINGS/DISPLAYSETTINGS/TEXTSETTINGS/textsettings.o\
+          \
           SUBMENU/NETWORKSETTINGS/networksettings.o \
           \
           SUBMENU/SAVEMANAGER/savemanager.o \
