@@ -181,12 +181,13 @@ static void build_dir_menu(void)
 /* ---------------- MAIN ENTRY ---------------- */
 
 
-char *filemanager_show(const char **extensions)
+char *filemanager_show_asd(const char **extensions)
 {
-	DIR *d = opendir("mass:/");
+	DIR *d = opendir("mc0:/");
     if (!d) {
         while(1); // hang so we see message
     }
+    //FuckAroundSilentlyMs(1000);
     struct dirent *ent;
     int count = 0;
     while ((ent = readdir(d)) != NULL) {
@@ -194,11 +195,11 @@ char *filemanager_show(const char **extensions)
         if (count > 5) break; // limit to avoid flood
     }
     closedir(d);
-    while(1);
+    //while(1);
 }
 
 
-char *filemanager_show_old(const char **extensions)
+char *filemanager_show(const char **extensions)
 {
     char *result = NULL;
 
