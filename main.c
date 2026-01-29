@@ -26,7 +26,7 @@
 
 const char* main_menu_items[] = {
     "Channels         /",
-    "System Settings  /",
+    "System Settings",
     "Network Settings -",
     "Save Manager     -",
     "About",
@@ -162,7 +162,7 @@ int main(void)
 			
 			if (item == 0) { channels_show(); }
 			if (item == 1) { systemsettings_show(); }
-			if (item == 3) { const char* file_extensions[] = { "None" }; filemanager_show(file_extensions);	}
+			if (item == 3) { const char* file_extensions[] = {"c",NULL}; filemanager_show(file_extensions);	}
 			if (item == 4) { about_show(); }
 			if (item == 5) { PowerOff(); }
 			

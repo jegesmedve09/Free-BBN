@@ -1,256 +1,272 @@
 #include <dirent.h>
 #include <sys/stat.h>
 #include <string.h>
-#include <stdlib.h>  // for strdup
-#include <stdio.h>   // for snprintf
+#include <stdlib.h>
+#include <stdio.h>
 
 #include "gfx.h"
-#include "background.h"
-#include "utils.h"
 #include "pad.h"
+#include "background.h"
 #include "menu.h"
-// Include <gsKit.h> if not already in gfx.h
-// Assuming GS_SETREG_RGBAQ is defined in tamtypes.h or gsKit.h
+#include "utils.h"
 
-#define MAX_ENTRIES 200
-#define MAX_DEVICES 5
-#define ITEMS_PER_PAGE 15  // Adjust based on screen space (e.g., with scale=2, spacing=1, line height ~30)
-#define TEXT_SCALE 2       // Font scale for file list text
-#define TEXT_SPACING 1     // Spacing between characters
-#define TITLE_SCALE 3      // Larger for titles/paths
+#define MAX_ENTRIES 256
 
-// Define colors
-#define COLOR_WHITE GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00)
-#define COLOR_BLUE  GS_SETREG_RGBAQ(0x00, 0x00, 0xFF, 0x80, 0x00)
-#define COLOR_GRAY  GS_SETREG_RGBAQ(0x80, 0x80, 0x80, 0x80, 0x00)
-
-struct FileEntry {
+typedef struct {
     char name[128];
     int is_dir;
+} FileEntry;
+
+/* ---------------- DEVICES ---------------- */
+
+static const char *devices[] = {
+    "mc0:/",
+    "mc1:/",
+    "mc2:/",
+    "mc3:/",
+    "mc4:/",
+    "mc5:/",
+    "mc6:/",
+    "mc7:/",
+    "mass:/",
+    "mass0:/",
+    "mass1:/",
+    "mass2:/",
+    "mass3:/",
+    "mass4:/",
+    "mass5:/",
+    "mass6:/",
+    "mass7:/",
+    "cdvd:/",
+    "host:/",
 };
 
-static char current_path[1024];
-static char selected_device[32];  // e.g., "mc0:/"
+/* ---------------- STATE ---------------- */
 
-char *filemanager_show(const char **file_extensions) {
+static FileEntry entries[MAX_ENTRIES];
+static char item_strings[MAX_ENTRIES][128];
+static const char *menu_items[MAX_ENTRIES];
+
+static int entry_count = 19;
+
+static char cwd[1024];
+static char root[32];
+
+static int mode = 0; /* 0 = device select, 1 = browser */
+
+/* ---------------- UTILS ---------------- */
+
+static int ext_match(const char *name, const char **exts)
+{
+    if (!exts) return 1;
+
+    const char *dot = strrchr(name, '.');
+    if (!dot) return 0;
+    dot++;
+
+    for (int i = 0; exts[i]; i++) {
+        if (!strcasecmp(dot, exts[i]))
+            return 1;
+    }
+    return 0;
+}
+
+/* ---------------- MENU BUILDERS ---------------- */
+
+static void build_device_menu(void)
+{
+    entry_count = 0;
+    memset(entries, 0, sizeof(entries));
+    memset(menu_items, 0, sizeof(menu_items));
+
+    for (int i = 0; devices[i] && entry_count < MAX_ENTRIES; i++) {
+        DIR *d = opendir(devices[i]);
+        if (!d) continue;
+        closedir(d);
+
+        snprintf(item_strings[entry_count], sizeof(item_strings[0]),
+                 "%s", devices[i]);
+
+        menu_items[entry_count] = item_strings[entry_count];
+        entry_count++;
+    }
+
+    menu_reset_current_item();
+}
+
+static void build_dir_menu(void)
+{
+    entry_count = 0;
+    memset(entries, 0, sizeof(entries));
+    memset(menu_items, 0, sizeof(menu_items));
+
+    DIR *d = opendir(cwd);
+    if (!d) return;
+
+    /* add .. unless at root */
+    if (strcmp(cwd, root) != 0) {
+        strcpy(entries[0].name, "..");
+        entries[0].is_dir = 1;
+
+        strcpy(item_strings[0], "[DIR] ..");
+        menu_items[0] = item_strings[0];
+
+        entry_count = 1;
+    }
+
+    struct dirent *ent;
+    while ((ent = readdir(d)) && entry_count < MAX_ENTRIES) {
+        if (!strcmp(ent->d_name, ".") || !strcmp(ent->d_name, ".."))
+            continue;
+
+        FileEntry *e = &entries[entry_count];
+        strcpy(e->name, ent->d_name);
+
+        char full[1024];
+        snprintf(full, sizeof(full), "%s%s", cwd, ent->d_name);
+
+        struct stat st;
+        e->is_dir = (stat(full, &st) == 0 && S_ISDIR(st.st_mode));
+
+        if (e->is_dir)
+            snprintf(item_strings[entry_count], sizeof(item_strings[0]),
+                     "[DIR]  %s", e->name);
+        else
+            snprintf(item_strings[entry_count], sizeof(item_strings[0]),
+                     "[FILE] %s", e->name);
+
+        menu_items[entry_count] = item_strings[entry_count];
+        entry_count++;
+    }
+
+    closedir(d);
+    menu_reset_current_item();
+}
+
+/* ---------------- MAIN ENTRY ---------------- */
+
+char *filemanager_show(const char **extensions)
+{
+    char *result = NULL;
+
+    mode = 0;
+    build_device_menu();
+
     gfx_fade_in(10);
 
-    // Available devices to check
-    const char *possible_devices[] = {"mc0:/", "mc1:/", "mass:/", NULL};
-
-    // Find available devices
-    char *available_devices[MAX_DEVICES];
-    int num_devices = 0;
-    for (int i = 0; possible_devices[i]; i++) {
-        DIR *d = opendir(possible_devices[i]);
-        if (d) {
-            available_devices[num_devices++] = (char *)possible_devices[i];
-            closedir(d);
-        }
-    }
-
-    if (num_devices == 0) {
-        // No devices available – show error or exit
-        // For now, just exit
-        gfx_fade_out(10);
-        menu_reset_current_item();
-        return "";
-    }
-
-    int mode = 0;                 // 0 = device select, 1 = file browser
-    int selected = 0;
-    int page = 0;
-    u32 old_buttons = 0;
-    char *selected_file = NULL;
-
-    while (1) {
-        u32 buttons = pad_get_buttons(0);
-        u32 pressed = buttons & ~old_buttons;
-        old_buttons = buttons;
+    while (!result) {
+        u32 pressed = pad_get_buttons(0);
 
         background_update();
         gfx_draw_top_bar();
 
         if (mode == 0) {
-            // Device selection screen
-            // Draw title
-            gfx_draw_text("Select Storage Device", 50, 30, COLOR_WHITE, TITLE_SCALE, TEXT_SPACING);
-
-            int y = 80;
-            int start = page * ITEMS_PER_PAGE;
-            for (int i = start; i < start + ITEMS_PER_PAGE && i < num_devices; i++) {
-                u64 color = (i == selected) ? COLOR_BLUE : COLOR_WHITE;
-                gfx_draw_text(available_devices[i], 100, y, color, TEXT_SCALE, TEXT_SPACING);
-                y += 30;  // Adjust based on scale
+			gfx_draw_text("Select Device", 40, 60, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 10, 4);
+			gfx_draw_text("\xFF\x00/\xFF\x01 Navigate \xFF\x06 Select \xFF\x09 Back",5, 480,GS_SETREG_RGBAQ(0x70, 0x70, 0x70, 0x80, 0x00),5, 4);
+            menu_draw(menu_items, entry_count, 40, 120);
+            
+            if (pressed & PAD_UP){
+				menu_decrement();
+				FuckAroundSilentlyMs(300);
             }
+            
+            if (pressed & PAD_DOWN){
+				menu_increment();
+				FuckAroundSilentlyMs(300);
+			}
 
-            // Instructions
-            gfx_draw_text("Up/Down: Navigate   X: Select   Triangle: Exit", 50, 420, COLOR_GRAY, TEXT_SCALE, TEXT_SPACING);
-
-            if (pressed & PAD_UP && selected > 0) selected--;
-            if (pressed & PAD_DOWN && selected < num_devices - 1) selected++;
-            if (pressed & PAD_CROSS) {
-                strcpy(selected_device, available_devices[selected]);
-                strcpy(current_path, selected_device);
+            if (pressed & PAD_CROSS && entry_count > 0) {
+                int sel = menu_get_current_item();
+                strcpy(root, menu_items[sel]);
+                strcpy(cwd, root);
                 mode = 1;
-                selected = 0;
-                page = 0;
+                build_dir_menu();
+				FuckAroundSilentlyMs(300);
             }
-            if (pressed & PAD_TRIANGLE) {
+
+            if (pressed & PAD_TRIANGLE)
                 break;
+        }
+        else {
+            gfx_draw_text(cwd, 40, 60,
+                GS_SETREG_RGBAQ(255,255,255,0x80,0), 10, 4);
+
+            menu_draw(menu_items, entry_count, 40, 120);
+
+            if (pressed & PAD_UP){
+				menu_decrement();
+				FuckAroundSilentlyMs(300);
             }
+            
+            if (pressed & PAD_DOWN){
+				menu_increment();
+				FuckAroundSilentlyMs(300);
+			}
+			
+            if (pressed & PAD_CROSS && entry_count > 0) {
+                int sel = menu_get_current_item();
+                FileEntry *e = &entries[sel];
 
-        } else {
-            // File browser mode
-            static struct FileEntry entries[MAX_ENTRIES];
-            static int num_entries = 0;
-            static int need_refresh = 1;
+                if (e->is_dir) {
+                    if (!strcmp(e->name, "..")) {
+                        size_t len = strlen(cwd);
 
-            if (need_refresh) {
-                num_entries = 0;
-                DIR *dir = opendir(current_path);
-                if (dir) {
-                    struct dirent *ent;
+						/* remove trailing slash */
+						if (len > 0 && cwd[len - 1] == '/')
+							cwd[len - 1] = 0;
 
-                    // Add ".." if not at root
-                    char *last_slash = strrchr(current_path, '/');
-                    int at_root = (last_slash - current_path == (int)strlen(selected_device) - 1);
-                    if (!at_root) {
-                        strcpy(entries[num_entries].name, "..");
-                        entries[num_entries].is_dir = 1;
-                        num_entries++;
-                    }
+						char *p = strrchr(cwd, '/');
 
-                    while ((ent = readdir(dir)) != NULL) {
-                        if (strcmp(ent->d_name, ".") == 0 || strcmp(ent->d_name, "..") == 0) continue;
-                        if (num_entries >= MAX_ENTRIES) break;
-
-                        strcpy(entries[num_entries].name, ent->d_name);
-
-                        char full[1024];
-                        snprintf(full, sizeof(full), "%s%s", current_path, ent->d_name);
-                        struct stat st;
-                        if (stat(full, &st) == 0) {
-                            entries[num_entries].is_dir = S_ISDIR(st.st_mode);
-                        } else {
-                            entries[num_entries].is_dir = 0;
-                        }
-                        num_entries++;
-                    }
-                    closedir(dir);
-                }
-                need_refresh = 0;
-            }
-
-            // Draw current path
-            gfx_draw_text(current_path, 50, 30, COLOR_WHITE, TITLE_SCALE, TEXT_SPACING);
-
-            // Draw list
-            int y = 80;
-            int start = page * ITEMS_PER_PAGE;
-            for (int i = start; i < start + ITEMS_PER_PAGE && i < num_entries; i++) {
-                u64 color = (i == selected) ? COLOR_BLUE : COLOR_WHITE;
-                char line[256];
-                if (entries[i].is_dir) {
-                    snprintf(line, sizeof(line), "[DIR] %s", entries[i].name);
-                } else {
-                    strcpy(line, entries[i].name);
-                }
-                gfx_draw_text(line, 80, y, color, TEXT_SCALE, TEXT_SPACING);
-                y += 25;  // Adjust line spacing based on font size
-            }
-
-            // Page info & instructions
-            gfx_draw_text("Up/Down: Navigate   X: Enter/Select   Triangle: Back", 50, 420, COLOR_GRAY, TEXT_SCALE, TEXT_SPACING);
-
-            // Input handling
-            if (pressed & PAD_UP && selected > 0) {
-                selected--;
-                if (selected < start) page--;
-            }
-            if (pressed & PAD_DOWN && selected < num_entries - 1) {
-                selected++;
-                if (selected >= start + ITEMS_PER_PAGE) page++;
-            }
-            if (pressed & PAD_LEFT && page > 0) page--;
-            if (pressed & PAD_RIGHT && (page + 1) * ITEMS_PER_PAGE < num_entries) page++;
-
-            if (pressed & PAD_CROSS && num_entries > 0) {
-                if (strcmp(entries[selected].name, "..") == 0) {
-                    // Go parent
-                    char *last = strrchr(current_path, '/');
-                    if (last) {
-                        if (last == current_path + strlen(current_path) - 1) last--;
-                        while (last > current_path && *last != '/') last--;
-                        if (last >= current_path + strlen(selected_device) - 1) {
-                            last[1] = '\0';  // Keep trailing /
-                        } else {
-                            strcpy(current_path, selected_device);
-                        }
-                    }
-                    need_refresh = 1;
-                    selected = 0;
-                    page = 0;
-                } else {
-                    char full[1024];
-                    snprintf(full, sizeof(full), "%s%s", current_path, entries[selected].name);
-
-                    if (entries[selected].is_dir) {
-                        strcat(current_path, entries[selected].name);
-                        strcat(current_path, "/");
-                        need_refresh = 1;
-                        selected = 0;
-                        page = 0;
+						if (p && strlen(cwd) > strlen(root))
+							p[1] = 0;
+						else
+							strcpy(cwd, root);
                     } else {
-                        // Check extension match
-                        int match = (file_extensions == NULL);
-                        if (!match) {
-                            const char *dot = strrchr(entries[selected].name, '.');
-                            if (dot) {
-                                dot++;
-                                for (int k = 0; file_extensions[k]; k++) {
-                                    const char *e = file_extensions[k];
-                                    if (*e == '.') e++;
-                                    if (strcasecmp(dot, e) == 0) {
-                                        match = 1;
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                        if (match) {
-                            selected_file = strdup(full);
-                            break;
-                        }
-                        // No match – ignore or beep (add sound later)
+                        strcat(cwd, e->name);
+                        strcat(cwd, "/");
                     }
-                }
+                    build_dir_menu();
+                }else {
+					if (ext_match(e->name, extensions)) {
+						// Make sure cwd ends with '/'
+						char full[1024];
+						snprintf(full, sizeof(full), "%s%s", cwd, e->name);
+						result = strdup(full);
+						printf("Selected file: %s\n", result); // optional debug
+					}else{
+						background_update();
+						gfx_draw_top_bar();
+						gfx_draw_text("Unsupported extension", 40, 60,
+						GS_SETREG_RGBAQ(255,255,255,0x80,0), 10, 4);
+						gfx_flip();
+						gfx_exec();
+						FuckAroundSilentlyMs(2000);
+					}
+				}
+
+				FuckAroundSilentlyMs(300);
             }
 
             if (pressed & PAD_TRIANGLE) {
-                // Check if at root
-                char *last = strrchr(current_path, '/');
-                int at_root = (last - current_path == (int)strlen(selected_device) - 1);
-                if (at_root) {
+                if (!strcmp(cwd, root)) {
                     mode = 0;
-                    selected = 0;
-                    page = 0;
+                    build_device_menu();
                 } else {
-                    // Go parent (same as ..)
-                    char *last_slash = strrchr(current_path, '/');
-                    if (last_slash) {
-                        if (last_slash == current_path + strlen(current_path) - 1) last_slash--;
-                        while (last_slash > current_path && *last_slash != '/') last_slash--;
-                        if (last_slash >= current_path + strlen(selected_device) - 1) {
-                            last_slash[1] = '\0';
-                        } else {
-                            strcpy(current_path, selected_device);
-                        }
-                    }
-                    need_refresh = 1;
-                    selected = 0;
-                    page = 0;
+					size_t len = strlen(cwd);
+
+					/* remove trailing slash */
+					if (len > 0 && cwd[len - 1] == '/')
+						cwd[len - 1] = 0;
+
+					char *p = strrchr(cwd, '/');
+
+					if (p && strlen(cwd) > strlen(root))
+						p[1] = 0;
+					else
+						strcpy(cwd, root);
+                    build_dir_menu();
                 }
+				FuckAroundSilentlyMs(300);
             }
         }
 
@@ -260,5 +276,6 @@ char *filemanager_show(const char **file_extensions) {
 
     gfx_fade_out(10);
     menu_reset_current_item();
-    return selected_file ? selected_file : "";
+
+    return result ? result : "";
 }

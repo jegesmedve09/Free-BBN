@@ -10,7 +10,7 @@
 #include "GAMESCHANNEL/gameschannel.h"
 #include "UTILITIES/utilities.h"
 
-#define CHANNELS_MENU_ITEM_COUNT 14
+#define CHANNELS_MENU_ITEM_COUNT 6
 
 const char* channels_menu_items[] = {
     "Games     /",
@@ -18,15 +18,7 @@ const char* channels_menu_items[] = {
     "Video     -",
     "Pictures  -",
     "Network   -",
-    "Utilities",
-    "other1",
-    "other2",
-    "other3",
-    "other4",
-    "other5",
-    "other6",
-    "other7",
-    "other8"
+    "Utilities"
 };
 
 
