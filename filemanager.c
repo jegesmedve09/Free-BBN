@@ -10,6 +10,8 @@
 #include "menu.h"
 #include "utils.h"
 
+#include <errno.h>
+
 #define MAX_ENTRIES 256
 
 typedef struct {
@@ -100,22 +102,46 @@ static void build_dir_menu(void)
     memset(entries, 0, sizeof(entries));
     memset(menu_items, 0, sizeof(menu_items));
 
-    DIR *d = opendir(cwd);
-    if (!d) return;
+    printf("build_dir_menu: Starting on %s\n", cwd);  // Debug
+
+    DIR *d = NULL;
+    int retries = 0;
+    const int max_retries = 8;  // ~8-16 sec total
+
+    while (!d && retries < max_retries) {
+        printf("opendir attempt %d on %s\n", retries + 1, cwd);
+        d = opendir(cwd);
+        if (!d) {
+            printf("opendir failed: %s (errno %d)\n", strerror(errno), errno);
+            FuckAroundSilentlyMs(1500);  // 1.5 sec settle time
+        }
+        retries++;
+    }
+
+    if (!d) {
+        // UI feedback: "USB directory not ready - try replug or back out"
+        printf("Giving up on opendir after %d tries\n", max_retries);
+        gfx_draw_text("USB dir failed - replug?", 40, 200, GS_SETREG_RGBAQ(0xFF,0x00,0x00,0x80,0), 10, 4);
+        // Don't crash - just return empty menu or back to device select
+        menu_reset_current_item();
+        return;
+    }
+
+    printf("opendir succeeded after %d tries\n", retries);
 
     /* add .. unless at root */
     if (strcmp(cwd, root) != 0) {
         strcpy(entries[0].name, "..");
         entries[0].is_dir = 1;
-
         strcpy(item_strings[0], "[DIR] ..");
         menu_items[0] = item_strings[0];
-
         entry_count = 1;
     }
 
     struct dirent *ent;
-    while ((ent = readdir(d)) && entry_count < MAX_ENTRIES) {
+    int read_retries = 0;
+    while ((ent = readdir(d)) != NULL) {
+        if (read_retries > 20) break;  // Safety against infinite loop
         if (!strcmp(ent->d_name, ".") || !strcmp(ent->d_name, ".."))
             continue;
 
@@ -126,26 +152,53 @@ static void build_dir_menu(void)
         snprintf(full, sizeof(full), "%s%s", cwd, ent->d_name);
 
         struct stat st;
-        e->is_dir = (stat(full, &st) == 0 && S_ISDIR(st.st_mode));
+        if (stat(full, &st) != 0) {
+            // Stat failed? Skip or assume file
+            e->is_dir = 0;
+        } else {
+            e->is_dir = S_ISDIR(st.st_mode);
+        }
 
         if (e->is_dir)
-            snprintf(item_strings[entry_count], sizeof(item_strings[0]),
-                     "[DIR]  %s", e->name);
+            snprintf(item_strings[entry_count], sizeof(item_strings[0]), "[DIR] %s", e->name);
         else
-            snprintf(item_strings[entry_count], sizeof(item_strings[0]),
-                     "[FILE] %s", e->name);
+            snprintf(item_strings[entry_count], sizeof(item_strings[0]), "[FILE] %s", e->name);
 
         menu_items[entry_count] = item_strings[entry_count];
         entry_count++;
+
+        if (entry_count >= MAX_ENTRIES) break;
+
+        // Tiny delay per entry to avoid flooding IOP
+        FuckAroundSilentlyMs(10);
     }
 
     closedir(d);
+    printf("build_dir_menu done: %d entries\n", entry_count);
     menu_reset_current_item();
 }
 
 /* ---------------- MAIN ENTRY ---------------- */
 
+
 char *filemanager_show(const char **extensions)
+{
+	DIR *d = opendir("mass:/");
+    if (!d) {
+        while(1); // hang so we see message
+    }
+    struct dirent *ent;
+    int count = 0;
+    while ((ent = readdir(d)) != NULL) {
+        count++;
+        if (count > 5) break; // limit to avoid flood
+    }
+    closedir(d);
+    while(1);
+}
+
+
+char *filemanager_show_old(const char **extensions)
 {
     char *result = NULL;
 
@@ -269,6 +322,7 @@ char *filemanager_show(const char **extensions)
 				FuckAroundSilentlyMs(300);
             }
         }
+			gfx_draw_text("\xFF\x00/\xFF\x01 Navigate \xFF\x06 Select \xFF\x09 Back",5, 480,GS_SETREG_RGBAQ(0x70, 0x70, 0x70, 0x80, 0x00),5, 4);
 
         gfx_flip();
         gfx_exec();
