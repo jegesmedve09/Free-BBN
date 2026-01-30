@@ -162,7 +162,18 @@ int main(void)
 			
 			if (item == 0) { channels_show(); }
 			if (item == 1) { systemsettings_show(); }
-			if (item == 3) { const char* file_extensions[] = {"c",NULL}; filemanager_show(file_extensions);	}
+			if (item == 3)
+			{
+				
+				const char* file_extensions[] = {"elf", "ELF" ,NULL};
+				char* boot_path = filemanager_show(file_extensions);
+				FlushCache(0);
+				FlushCache(2);
+				if (boot_path != "")
+				{
+					LoadExecPS2(boot_path, 0, NULL);
+				}
+			}
 			if (item == 4) { about_show(); }
 			if (item == 5) { PowerOff(); }
 			
