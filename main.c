@@ -8,8 +8,6 @@
 #include <stdlib.h>
 #include <sbv_patches.h>
 
-#include <audsrv.h>
-
 #include "gfx.h"
 #include "utils.h"
 #include "pad.h"
@@ -60,14 +58,16 @@ void init()
 	SifExecModuleBuffer(irx_usbd, irx_usbd_size, 0, NULL, NULL);
 	SifExecModuleBuffer(irx_usbhdfsd, irx_usbhdfsd_size, 0, NULL, NULL);
 	//Sound
-	SifLoadModule("rom0:LIBSD", 0, NULL);
+	SifExecModuleBuffer(irx_libsd, irx_libsd_size, 0, NULL, NULL);
 	SifExecModuleBuffer(irx_audsrv, irx_audsrv_size, 0, NULL, NULL);
 	
 	FuckAroundSilentlyMs(2000);
 	
 	//sound
-	audsrv_init();
+	sound_init();
 	    
+	//FuckAroundSilentlyMs(2000);
+	
 	//graphics
     gfx_init();
     
@@ -115,18 +115,21 @@ void init()
 	} else {
 		menu_init(30, 255, 255, 0, 0x60, 0x60, 0x60, 4, 8, 6, 9, 5);
 	}
+	
 }
 
 int main(void)
 {
     init();
     
+	sound_stream_start("mass:/startup.raw");
     for (int i = 0; i < 128; i+=2)
     {
         background_update();
 		gfx_draw_text("FreeBBN", 184, 226, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, i, 0x00), 20, 4);
 		gfx_flip();
 		gfx_exec();
+		sound_stream_update();
 	}
 	    
     for (int i = 128; i > 0; i-=3)
@@ -135,8 +138,11 @@ int main(void)
 		gfx_draw_text("FreeBBN", 184, 226, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, i, 0x00), 20, 4);
 		gfx_flip();
 		gfx_exec();
+		sound_stream_update();
 	}
-
+	
+	sound_stream_stop();
+	
     while(1)
     {
         background_update();
