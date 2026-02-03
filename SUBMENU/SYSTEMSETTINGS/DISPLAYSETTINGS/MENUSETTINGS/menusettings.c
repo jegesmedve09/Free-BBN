@@ -26,9 +26,9 @@ static char max_lines_str[72]  = "Max Lines: Error";
 
 static char fade_lines_str[72] = "Fade Lines: Error";
 
-static const char *textsettings_info_items[12];
+static const char *menusettings_info_items[12];
 
-int textsettings_show(void)
+int menusettings_show(void)
 {
 	gfx_fade_in(10);
 	while (1)
@@ -51,23 +51,23 @@ int textsettings_show(void)
 		snprintf(fade_lines_str, sizeof(fade_lines_str), "Fade Lines: %d", menu_fade_lines);
 		
 		
-		textsettings_info_items[0] = line_height_str;
-		textsettings_info_items[1] = selected_color_R;
-		textsettings_info_items[2] = selected_color_G;
-		textsettings_info_items[3] = selected_color_B;
-		textsettings_info_items[4] = defaulted_color_R;
-		textsettings_info_items[5] = defaulted_color_G;
-		textsettings_info_items[6] = defaulted_color_B;
-		textsettings_info_items[7] = spacing_str;
-		textsettings_info_items[8] = selected_scale_str;
-		textsettings_info_items[9] = default_scale_str;
-		textsettings_info_items[10] = max_lines_str;
-		textsettings_info_items[11] = fade_lines_str;
+		menusettings_info_items[0] = line_height_str;
+		menusettings_info_items[1] = selected_color_R;
+		menusettings_info_items[2] = selected_color_G;
+		menusettings_info_items[3] = selected_color_B;
+		menusettings_info_items[4] = defaulted_color_R;
+		menusettings_info_items[5] = defaulted_color_G;
+		menusettings_info_items[6] = defaulted_color_B;
+		menusettings_info_items[7] = spacing_str;
+		menusettings_info_items[8] = selected_scale_str;
+		menusettings_info_items[9] = default_scale_str;
+		menusettings_info_items[10] = max_lines_str;
+		menusettings_info_items[11] = fade_lines_str;
 		
 		background_update();
 		gfx_draw_top_bar();
         gfx_draw_text("Background Settings", 40, 60, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 10, 4);	
-        menu_draw(textsettings_info_items, 12, 40, 120);
+        menu_draw(menusettings_info_items, 12, 40, 120);
         gfx_draw_text("\xFF\x00/\xFF\x01 Navigate  \xFF\x02/\xFF\x03 Change  \xFF\x09 Back", 5, 480, GS_SETREG_RGBAQ(0x70,0x70,0x70,0x80,0x00),5, 4);
 		gfx_flip();
 		gfx_exec();

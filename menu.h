@@ -22,5 +22,6 @@ void menu_decrement(void);
 void menu_reset_current_item(void);
 void menu_set_selected(int sel);
 int menu_get_current_item(void);
+int menu_get_offset(void);
 
 #endif

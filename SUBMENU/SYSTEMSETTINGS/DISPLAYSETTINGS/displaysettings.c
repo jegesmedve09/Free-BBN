@@ -10,13 +10,13 @@
 #include "../../../menu.h"
 
 #include "BACKGROUNDSETTINGS/backgroundsettings.h"
-#include "TEXTSETTINGS/textsettings.h"
+#include "MENUSETTINGS/menusettings.h"
 
 
 const char* displaysettings_items[] =
 {
 	"Background",
-	"Text"
+	"Menu"
 };
 
 int displaysettings_show(void)
@@ -57,7 +57,7 @@ int displaysettings_show(void)
 			int item = menu_get_current_item();
 			menu_reset_current_item();
 			if (item == 0) { backgroundsettings_show(); }
-			if (item == 1) { textsettings_show(); }
+			if (item == 1) { menusettings_show(); }
 			gfx_fade_in(10);
 			
 		}

@@ -127,6 +127,11 @@ int menu_get_current_item()
 	return menu_item;
 }
 
+int menu_get_offset()
+{
+	return scroll_offset;
+}
+
 void menu_reset_current_item()
 {
 	scroll_offset = 0;

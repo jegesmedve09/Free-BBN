@@ -22,7 +22,7 @@
 #include <stdio.h>
 
 #include "irx.h"
-
+#include "background.h"
 
 #define DEV_EXIST(path) (stat(path, &(struct stat){0}) == 0)
 

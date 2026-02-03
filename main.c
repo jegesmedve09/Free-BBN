@@ -8,6 +8,8 @@
 #include <stdlib.h>
 #include <sbv_patches.h>
 
+#include <audsrv.h>
+
 #include "gfx.h"
 #include "utils.h"
 #include "pad.h"
@@ -23,6 +25,7 @@
 #include "SUBMENU/ABOUT/about.h"
 #include "SUBMENU/CHANNELS/channels.h"
 #include "SUBMENU/SYSTEMSETTINGS/systemsettings.h"
+#include "SUBMENU/SAVEMANAGER/savemanager.h"
 
 const char* main_menu_items[] = {
     "Channels         /",
@@ -56,11 +59,18 @@ void init()
 	//USB mass
 	SifExecModuleBuffer(irx_usbd, irx_usbd_size, 0, NULL, NULL);
 	SifExecModuleBuffer(irx_usbhdfsd, irx_usbhdfsd_size, 0, NULL, NULL);
+	//Sound
+	SifLoadModule("rom0:LIBSD", 0, NULL);
+	SifExecModuleBuffer(irx_audsrv, irx_audsrv_size, 0, NULL, NULL);
 	
 	FuckAroundSilentlyMs(2000);
 	
+	//sound
+	audsrv_init();
+	    
 	//graphics
     gfx_init();
+    
 	//settings
 	settings_init();
 	
@@ -162,18 +172,7 @@ int main(void)
 			
 			if (item == 0) { channels_show(); }
 			if (item == 1) { systemsettings_show(); }
-			if (item == 3)
-			{
-				
-				const char* file_extensions[] = {"elf", "ELF" ,NULL};
-				char* boot_path = filemanager_show(file_extensions);
-				FlushCache(0);
-				FlushCache(2);
-				if (boot_path != "")
-				{
-					LoadExecPS2(boot_path, 0, NULL);
-				}
-			}
+			if (item == 3) { savemanager_show(); }
 			if (item == 4) { about_show(); }
 			if (item == 5) { PowerOff(); }
 			
