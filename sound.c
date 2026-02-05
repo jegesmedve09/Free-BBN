@@ -20,40 +20,56 @@ static volatile size_t ring_available = 0;  // how many bytes ready in ring
 
 static void *ring_buffer_stack = NULL;
 
+#define AUDIO_RING_SIZE (131072)
+
+// Helper to write to circular buffer (efficient memcpy)
+static void ring_write(const u8 *src, size_t len) {
+    if (len == 0) return;
+    size_t space_to_end = AUDIO_RING_SIZE - ring_write_pos;
+    if (len <= space_to_end) {
+        memcpy(ring_buffer + ring_write_pos, src, len);
+        ring_write_pos += len;
+    } else {
+        memcpy(ring_buffer + ring_write_pos, src, space_to_end);
+        memcpy(ring_buffer, src + space_to_end, len - space_to_end);
+        ring_write_pos = len - space_to_end;
+    }
+    ring_available += len;
+}
+
+// Helper to read from circular buffer
+static void ring_read(u8 *dest, size_t len) {
+    if (len == 0) return;
+    size_t space_to_end = AUDIO_RING_SIZE - ring_read_pos;
+    if (len <= space_to_end) {
+        memcpy(dest, ring_buffer + ring_read_pos, len);
+        ring_read_pos += len;
+    } else {
+        memcpy(dest, ring_buffer + ring_read_pos, space_to_end);
+        memcpy(dest + space_to_end, ring_buffer, len - space_to_end);
+        ring_read_pos = len - space_to_end;
+    }
+    ring_available -= len;
+}
+
+
 static void read_thread_func(void *arg) {
     (void)arg;
-
-    u8 buf[8192];  // read chunk size
-
+    u8 buf[16384];  // Larger chunk for fewer syscalls
     while (read_thread_running) {
-        if (ring_available < AUDIO_RING_SIZE) {  // room to write
-            int read = fread(buf, 1, sizeof(buf), music_file);
-            if (read <= 0) {
-                read_thread_running = 0;
-                break;
-            }
-
-            // Write to ring
-            size_t space = AUDIO_RING_SIZE - ring_available;
-            size_t to_write = read < space ? read : space;
-
-            for (size_t i = 0; i < to_write; i++) {
-                ring_buffer[ring_write_pos] = buf[i];
-                ring_write_pos = (ring_write_pos + 1) % AUDIO_RING_SIZE;
-            }
-
-            ring_available += to_write;
-
-            if (to_write < read) {
-                // ring full — wait a bit
-                SleepThread();
-            }
-        } else {
-            // ring full — wait
+        size_t space = AUDIO_RING_SIZE - ring_available;
+        if (space == 0) {
             SleepThread();
+            continue;
         }
+        size_t want_read = (space < sizeof(buf)) ? space : sizeof(buf);
+        int read = fread(buf, 1, want_read, music_file);
+        if (read <= 0) {
+            read_thread_running = 0;
+            break;
+        }
+        ring_write(buf, read);
     }
-
     ExitDeleteThread();
 }
 
@@ -116,22 +132,19 @@ void sound_stream_update(void) {
         return;
     }
 
-    // Feed small amount to audsrv per frame
-    const int FEED_SIZE = 4096;  // small for smooth
+    int free = audsrv_available();  // Free bytes in IOP buffer
+    if (free <= 0) return;
 
-    if (ring_available >= FEED_SIZE && audsrv_queued() < 16384) {
-        u8 chunk[FEED_SIZE];
+    size_t to_feed = (ring_available < (size_t)free) ? ring_available : (size_t)free;
+    const size_t MAX_CHUNK = 8192;  // Tune: larger = smoother, but more bursty
+    if (to_feed > MAX_CHUNK) to_feed = MAX_CHUNK;
 
-        for (int i = 0; i < FEED_SIZE; i++) {
-            chunk[i] = ring_buffer[ring_read_pos];
-            ring_read_pos = (ring_read_pos + 1) % AUDIO_RING_SIZE;
-        }
+    u8 chunk[MAX_CHUNK];
+    ring_read(chunk, to_feed);
 
-        ring_available -= FEED_SIZE;
+    audsrv_play_audio((char *)chunk, to_feed);  // No wait_audio - we checked!
 
-        audsrv_wait_audio(FEED_SIZE);
-        audsrv_play_audio(chunk, FEED_SIZE);
-    }
+    WakeupThread(read_thread_id);  // Wake reader if it was sleeping
 }
 
 void sound_stream_stop(void) {
