@@ -57,13 +57,8 @@ void init()
 	//USB mass
 	SifExecModuleBuffer(irx_usbd, irx_usbd_size, 0, NULL, NULL);
 	SifExecModuleBuffer(irx_usbhdfsd, irx_usbhdfsd_size, 0, NULL, NULL);
-	//Sound
-	//SifExecModuleBuffer(irx_libsd, irx_libsd_size, 0, NULL, NULL);
-	//SifExecModuleBuffer(irx_audsrv, irx_audsrv_size, 0, NULL, NULL);
 	
 	FuckAroundSilentlyMs(2000);
-	    
-	//FuckAroundSilentlyMs(2000);
 	
 	//graphics
     gfx_init();
@@ -73,7 +68,7 @@ void init()
 	
 	char **fd;
 	char *buffer = NULL;
-	//reading background settings
+	
 	fd = settings_read_config("background", &buffer);
 	if (fd && fd[0] && fd[1] && fd[2] && fd[3] && fd[4]) {
 		background_init(
@@ -89,7 +84,6 @@ void init()
 	}
 	free(buffer);
 	
-	//reading background settings
 	fd = settings_read_config("menu", &buffer);
 	if (fd && fd[0] && fd[1] && fd[2] && fd[3] && fd[4] && fd[5] && fd[6] && fd[7] && fd[8] && fd[9] && fd[10] && fd[11]) {
 		
@@ -119,14 +113,12 @@ int main(void)
 {
     init();
     
-	sound_stream_start("mass:/startup.raw");
     for (int i = 0; i < 128; i+=2)
     {
         background_update();
 		gfx_draw_text("FreeBBN", 184, 226, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, i, 0x00), 20, 4);
 		gfx_flip();
 		gfx_exec();
-		sound_stream_update();
 	}
 	    
     for (int i = 128; i > 0; i-=3)
@@ -135,10 +127,7 @@ int main(void)
 		gfx_draw_text("FreeBBN", 184, 226, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, i, 0x00), 20, 4);
 		gfx_flip();
 		gfx_exec();
-		sound_stream_update();
 	}
-	
-	sound_stream_stop();
 	
     while(1)
     {
