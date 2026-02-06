@@ -58,8 +58,8 @@ void init()
 	SifExecModuleBuffer(irx_usbd, irx_usbd_size, 0, NULL, NULL);
 	SifExecModuleBuffer(irx_usbhdfsd, irx_usbhdfsd_size, 0, NULL, NULL);
 	//Sound
-	SifExecModuleBuffer(irx_libsd, irx_libsd_size, 0, NULL, NULL);
-	SifExecModuleBuffer(irx_audsrv, irx_audsrv_size, 0, NULL, NULL);
+	//SifExecModuleBuffer(irx_libsd, irx_libsd_size, 0, NULL, NULL);
+	//SifExecModuleBuffer(irx_audsrv, irx_audsrv_size, 0, NULL, NULL);
 	
 	FuckAroundSilentlyMs(2000);
 	
