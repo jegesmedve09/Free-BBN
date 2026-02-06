@@ -45,12 +45,12 @@ int settings_save_config(const char *filename,const char *data)
 	
 	int fd = open(path, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (fd < 0) {return 0;}
-	if ( ( write(fd, data, strlen(data)) ) != strlen(data) ) {return 0;}
+	if ( ( write(fd, data, strlen(data)) ) != strlen(data) ) {close(fd); return 0;}
 	close(fd);
 	return 1;
 }
 
-char **settings_read_config(const char *fn)
+char **settings_read_config(const char *fn, char **out_buffer)
 {
     if (!fn || !*fn || !savepath || !*savepath) return NULL;
 
@@ -87,5 +87,6 @@ char **settings_read_config(const char *fn)
     }
     lines[i] = NULL;
 
+	*out_buffer = buf;
     return lines;
 }

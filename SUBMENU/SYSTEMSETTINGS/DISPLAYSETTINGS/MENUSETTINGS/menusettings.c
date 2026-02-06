@@ -93,7 +93,7 @@ int menusettings_show(void)
 			
 			snprintf(data, sizeof(data), "%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n", menu_line_height, menu_selected_color_R, menu_selected_color_G, menu_selected_color_B, menu_default_color_R, menu_default_color_G, menu_default_color_B, menu_spacing, menu_selected_scale, menu_default_scale, menu_max_lines, menu_fade_lines);
 			
-			settings_save_config("text", data);
+			settings_save_config("menu", data);
 			return 0;
 		}
 		

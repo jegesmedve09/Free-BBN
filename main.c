@@ -62,9 +62,6 @@ void init()
 	//SifExecModuleBuffer(irx_audsrv, irx_audsrv_size, 0, NULL, NULL);
 	
 	FuckAroundSilentlyMs(2000);
-	
-	//sound
-	sound_init();
 	    
 	//FuckAroundSilentlyMs(2000);
 	
@@ -75,8 +72,9 @@ void init()
 	settings_init();
 	
 	char **fd;
+	char *buffer = NULL;
 	//reading background settings
-	fd = settings_read_config("background");
+	fd = settings_read_config("background", &buffer);
 	if (fd && fd[0] && fd[1] && fd[2] && fd[3] && fd[4]) {
 		background_init(
 			char_to_u8  (fd[0], 0),
@@ -85,14 +83,14 @@ void init()
 			char_to_float(fd[3], 0.08f),
 			char_to_float(fd[4], 1.2f)
 		);
-		free(fd[0]);  // frees the buffer
 		free(fd);     // frees the array
 	} else {
 		background_init(0x00, 0x80, 0xFF, 0.12f, 1.2f);
 	}
+	free(buffer);
 	
 	//reading background settings
-	fd = settings_read_config("text");
+	fd = settings_read_config("menu", &buffer);
 	if (fd && fd[0] && fd[1] && fd[2] && fd[3] && fd[4] && fd[5] && fd[6] && fd[7] && fd[8] && fd[9] && fd[10] && fd[11]) {
 		
 		menu_init(
@@ -109,12 +107,11 @@ void init()
 			char_to_u8(fd[10], 8),
 			char_to_u8(fd[11], 5)
 		);
-		
-		free(fd[0]);  // frees the buffer
 		free(fd);     // frees the array
 	} else {
 		menu_init(30, 255, 255, 0, 0x60, 0x60, 0x60, 4, 8, 6, 9, 5);
 	}
+	free(buffer);
 	
 }
 
