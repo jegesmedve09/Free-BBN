@@ -34,8 +34,8 @@
 
 void pad_init(void);
 
-s8 get_joy_x(int stick, int player);
-s8 get_joy_y(int stick, int player);
+s8 pad_get_joy_x(int stick, int player);
+s8 pad_get_joy_y(int stick, int player);
 
 u32 pad_get_buttons(int player);
 u32 pad_get_pressed(int player);

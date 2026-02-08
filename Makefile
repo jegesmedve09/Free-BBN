@@ -1,27 +1,30 @@
 EE_BIN = freebbn.elf
 EE_OBJS = main.o gfx.o utils.o font.o pad.o info.o background.o menu.o cdvd.o irx.o sound.o logscreen.o filemanager.o settings.o \
-          \
-          SUBMENU/ABOUT/about.o \
-          \
-          SUBMENU/CHANNELS/channels.o \
-          SUBMENU/CHANNELS/GAMESCHANNEL/gameschannel.o \
-          SUBMENU/CHANNELS/GAMESCHANNEL/RUNDISC/rundisc.o\
-          \
-          SUBMENU/CHANNELS/UTILITIES/utilities.o \
-          SUBMENU/CHANNELS/UTILITIES/DEVCHECK/devcheck.o\
-          \
-          SUBMENU/SYSTEMSETTINGS/systemsettings.o \
-          SUBMENU/SYSTEMSETTINGS/SYSTEMINFO/systeminfo.o \
-          SUBMENU/SYSTEMSETTINGS/DATEANDTIME/dateandtime.o \
-          SUBMENU/SYSTEMSETTINGS/DISPLAYSETTINGS/displaysettings.o \
-          \
-          SUBMENU/SYSTEMSETTINGS/DISPLAYSETTINGS/BACKGROUNDSETTINGS/backgroundsettings.o \
-          \
-          SUBMENU/SYSTEMSETTINGS/DISPLAYSETTINGS/MENUSETTINGS/menusettings.o\
-          \
-          SUBMENU/NETWORKSETTINGS/networksettings.o \
-          \
-          SUBMENU/SAVEMANAGER/savemanager.o \
+            \
+            SUBMENU/ABOUT/about.o \
+            \
+            SUBMENU/CHANNELS/channels.o \
+            \
+            SUBMENU/CHANNELS/GAMESCHANNEL/gameschannel.o \
+            SUBMENU/CHANNELS/GAMESCHANNEL/RUNDISC/rundisc.o\
+            \
+            SUBMENU/CHANNELS/PICTURES/pictures.o \
+            \
+            SUBMENU/CHANNELS/UTILITIES/utilities.o \
+            SUBMENU/CHANNELS/UTILITIES/DEVCHECK/devcheck.o\
+            \
+            SUBMENU/SYSTEMSETTINGS/systemsettings.o \
+            SUBMENU/SYSTEMSETTINGS/SYSTEMINFO/systeminfo.o \
+            SUBMENU/SYSTEMSETTINGS/DATEANDTIME/dateandtime.o \
+            SUBMENU/SYSTEMSETTINGS/DISPLAYSETTINGS/displaysettings.o \
+            \
+            SUBMENU/SYSTEMSETTINGS/DISPLAYSETTINGS/BACKGROUNDSETTINGS/backgroundsettings.o \
+            \
+            SUBMENU/SYSTEMSETTINGS/DISPLAYSETTINGS/MENUSETTINGS/menusettings.o\
+            \
+            SUBMENU/NETWORKSETTINGS/networksettings.o \
+            \
+            SUBMENU/SAVEMANAGER/savemanager.o \
 
 #poweroff_irx.c: $(PS2SDK)/iop/irx/poweroff.irx
 #	bin2c $< $@ poweroff_irx
@@ -33,7 +36,7 @@ EE_INCS += -I$(GSKIT)/include
 EE_LDFLAGS += -L$(GSKIT)/lib
 
 # Modern libs
-EE_LIBS = -lgskit -ldmakit -lpatches -lkernel -lpoweroff -lpad -laudsrv -lcdvd
+EE_LIBS = -lgskit -ldmakit -lpatches -lkernel -lpoweroff -lpad -laudsrv -lcdvd #-lfileXio
 # Future-proof for your plans (uncomment as you add code/headers)
 # EE_LIBS += -laudsrv          # sound
 # EE_LIBS += -lcdvd            # CD/DVD reading

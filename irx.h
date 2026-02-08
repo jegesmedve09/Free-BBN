@@ -18,4 +18,10 @@ extern unsigned char irx_usbd[];
 
 extern unsigned int irx_usbhdfsd_size;
 extern unsigned char irx_usbhdfsd[];
+
+extern unsigned int irx_iomanx_size;
+extern unsigned char irx_iomanx[];
+
+extern unsigned int irx_filexio_size;
+extern unsigned char irx_filexio[];
 #endif

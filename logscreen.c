@@ -29,6 +29,8 @@ void logscreen_draw(void) {
         int line_y = ypos + i * lineheight;
         gfx_draw_text(log_lines[i], xpos, line_y, charcolor, charscale, charspacing);
     }
+    gfx_flip();
+    gfx_exec();
 }
 
 void logscreen_add(const char* msg) {
