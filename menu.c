@@ -142,3 +142,49 @@ void menu_set_selected(int sel)
 {
 	menu_item = sel;
 }
+
+
+
+
+
+// ==================== GRID MENU ====================
+
+static int menu_columns = 1;   // will be set when drawing
+
+void menu_grid_draw(const char** items, int num_items, int columns, int start_x, int start_y)
+{
+    if (columns < 1) columns = 1;
+    menu_columns = columns;
+
+    // You can adjust these values:
+    int column_width = 50;        // <--- horizontal spacing between columns
+    int line_height = 40;          // <--- vertical spacing (tune this)
+
+    for (int i = 0; i < num_items; i++)
+    {
+        int row = i / columns;
+        int col = i % columns;
+
+        int x = start_x + col * column_width;
+        int y = start_y + row * line_height;
+
+        u64 color = (i == menu_item) ? 
+                    GS_SETREG_RGBAQ(255, 255, 100, 128, 0) :   // selected color
+                    GS_SETREG_RGBAQ(180, 180, 180, 128, 0);    // normal color
+
+        gfx_draw_text(items[i], x, y, color, 10, 4);   // adjust size & style as you like
+    }
+}
+
+// Simple & reliable movement (row-major)
+void menu_grid_move(int delta)
+{
+    menu_item += delta;
+    if (menu_item >= item_count) menu_item = 0;
+    if (menu_item < 0) menu_item = item_count - 1;
+}
+
+void menu_grid_right() { menu_item++; }
+void menu_grid_left()  { menu_item--; }
+void menu_grid_down()  { menu_item += menu_columns; }
+void menu_grid_up()    { menu_item -= menu_columns; }

@@ -54,9 +54,11 @@ void init()
 	//memory card
     SifLoadModule("rom0:MCMAN", 0, NULL);
 	SifLoadModule("rom0:MCSERV", 0, NULL);
-	//USB mass
+	
+	//USB I/O
 	SifExecModuleBuffer(irx_iomanx, irx_iomanx_size, 0, NULL, NULL);
-	SifExecModuleBuffer(irx_filexio, irx_filexio_size, 0, NULL, NULL);
+	
+	//USB Mass
 	SifExecModuleBuffer(irx_usbd, irx_usbd_size, 0, NULL, NULL);
 	SifExecModuleBuffer(irx_usbhdfsd, irx_usbhdfsd_size, 0, NULL, NULL);
 	
@@ -166,7 +168,8 @@ int main(void)
 			
 			if (item == 0) { channels_show(); }
 			if (item == 1) { systemsettings_show(); }
-			if (item == 3) { const char *items[1]={"elf"}; filemanager_show(items); }
+			if (item == 2) { const char *args[1] = {"elf"}; filemanager_show(args); }
+			if (item == 3) { filemanager_show(NULL);}
 			if (item == 4) { about_show(); }
 			if (item == 5) { PowerOff(); }
 			

@@ -24,4 +24,18 @@ void menu_set_selected(int sel);
 int menu_get_current_item(void);
 int menu_get_offset(void);
 
+
+
+
+// Grid menu functions
+void menu_grid_draw(const char** items, int num_items, int columns, int start_x, int start_y);
+void menu_grid_move(int delta);           // internal, don't call directly
+void menu_grid_right();
+void menu_grid_left();
+void menu_grid_down();
+void menu_grid_up();
+
+
+
+
 #endif
