@@ -17,7 +17,7 @@
 #define MAX_ENTRIES 256
 
 typedef struct {
-    char name[16];
+    char name[128];
     bool is_dir;
     u64 size;
 } FileEntry;
@@ -34,6 +34,9 @@ static const char *devices[] = {
 static FileEntry entries[MAX_ENTRIES];
 static char item_strings[MAX_ENTRIES][128];
 static const char *menu_items[MAX_ENTRIES];
+static char *copy_string="";
+static char *copy_name="";
+
 static int entry_count = 0;
 static char cwd[1024];
 static char root[32];
@@ -142,8 +145,8 @@ char *filemanager_show(const char **extensions) {
         background_update();
         gfx_draw_top_bar();
         if (entry_count == 0 && mode == 1) {
-            const char *msg = is_usb ? "USB dir failed - replug?" : "Dir failed - check device?";
-            gfx_draw_text(msg, 40, 200, GS_SETREG_RGBAQ(0xFF,0x00,0x00,0x80,0), 10, 4);
+            const char *msg = is_usb ? "USB dir failed - replug? Empty?" : "Empty Device";
+            gfx_draw_text(msg, 40, 100, GS_SETREG_RGBAQ(0xFF,0x00,0x00,0x80,0), 10, 4);
         }
         if (mode == 0) {
             gfx_draw_text("Select Device", 40, 60, GS_SETREG_RGBAQ(0xFF, 0xFF, 0xFF, 0x80, 0x00), 10, 4);
@@ -234,17 +237,18 @@ char *filemanager_show(const char **extensions) {
 				//this is actually human wrote
 				gfx_fade_out(20);
 				gfx_fade_in(20);
+				menu_reset_current_item();
 				while (1)
 				{
 					background_update();
 					gfx_draw_top_bar();
 					gfx_draw_text(file_path, 40, 60, GS_SETREG_RGBAQ(0xFF,0xFF,0x00,0x80,0), 10, 4);
-					const char *file_option_items[5]=
+					const char *file_option_items[6]=
 					{
-						"Copy", "Delete", "Move", "Rename", "New Directory"
+						"Copy", "Paste", "Delete", "Move", "Rename", "New Directory"
 						
 					};
-					menu_draw(file_option_items, 5, 40, 120);
+					menu_draw(file_option_items, 6, 40, 120);
 					gfx_flip();
 					gfx_exec();
 					
@@ -262,9 +266,29 @@ char *filemanager_show(const char **extensions) {
 					
 					if (pad_get_buttons(0) & PAD_CROSS)
 					{
+						if (menu_get_current_item() == 0)
+						{
+							strcpy(copy_string, file_path);
+							strcopy(copy_name, e->name);
+							break;
+						}
+						
 						if (menu_get_current_item() == 1)
 						{
-							remove(file_path);
+							if (strlen(copy_string) > 0)
+							{	
+								char path[2048];
+								snprintf(path, sizeof(path), "%s%s",cwd, copy_name);
+								strcpy(copy_string, pat
+							}
+							
+						}
+						
+						if (menu_get_current_item() == 2)
+						{
+							if (!e->is_dir){
+								remove(file_path);
+							}
 							rmdir(file_path);
 							build_dir_menu();
 							menu_reset_current_item();
