@@ -9,4 +9,7 @@ int cdvd_tray_open(void);
 int cdvd_tray_close(void);
 int cdvd_tray_is_open(void);
 int cdvd_tray_toggle(void);
+
+void cdvd_run_elf(const char *filename);
 #endif
+

@@ -57,7 +57,7 @@ void init()
 	
 	//USB I/O
 	SifExecModuleBuffer(irx_iomanx, irx_iomanx_size, 0, NULL, NULL);
-	
+	SifExecModuleBuffer(irx_filexio, irx_filexio_size, 0, NULL, NULL);
 	//USB Mass
 	SifExecModuleBuffer(irx_usbd, irx_usbd_size, 0, NULL, NULL);
 	SifExecModuleBuffer(irx_usbhdfsd, irx_usbhdfsd_size, 0, NULL, NULL);

@@ -3,18 +3,23 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
+
 #include "gfx.h"
 #include "pad.h"
+#include "cdvd.h"
 #include "background.h"
 #include "menu.h"
 #include "utils.h"
+#include "textinput.h"
 #include <errno.h>
 
 #define MAX_ENTRIES 256
 
 typedef struct {
-    char name[128];
-    int is_dir;
+    char name[16];
+    bool is_dir;
+    u64 size;
 } FileEntry;
 
 /* Devices list */
@@ -89,7 +94,7 @@ static void build_dir_menu(void) {
     if (strcmp(cwd, root) != 0) {
         strcpy(entries[0].name, "..");
         entries[0].is_dir = 1;
-        strcpy(item_strings[0], "[DIR] ..");
+        strcpy(item_strings[0], "DIR   ..");
         menu_items[0] = item_strings[0];
         entry_count = 1;
     }
@@ -103,10 +108,20 @@ static void build_dir_menu(void) {
         snprintf(full, sizeof(full), "%s%s", cwd, ent->d_name);
         struct stat st;
         e->is_dir = (stat(full, &st) == 0 && S_ISDIR(st.st_mode));
+        e->size = st.st_size;
         if (e->is_dir)
-            snprintf(item_strings[entry_count], sizeof(item_strings[0]), "[DIR] %s", e->name);
+        {
+            snprintf(item_strings[entry_count], sizeof(item_strings[0]), "DIR   %s", e->name);
+        }
         else
-            snprintf(item_strings[entry_count], sizeof(item_strings[0]), "[FILE] %s", e->name);
+        {
+            char size[16];
+            if      (e->size >= 1024LL * 1024 * 1024) { snprintf(size, sizeof(size), "%.2f GB", (double)e->size / (1024.0 * 1024 * 1024)); }
+            else if (e->size >= 1024LL * 1024)        { snprintf(size, sizeof(size), "%.2f MB", (double)e->size / (1024.0 * 1024)); }
+            else if (e->size >= 1024LL)               { snprintf(size, sizeof(size), "%.2f kB", (double)e->size / (1024.0)); }
+            else    { snprintf(size, sizeof(size), "%d B", e->size); }
+            snprintf(item_strings[entry_count], sizeof(item_strings[0]), "FILE   %s   %s", e->name, size);
+        }   
         menu_items[entry_count] = item_strings[entry_count];
         entry_count++;
         FuckAroundSilentlyMs(10); /* Avoid IOP flood */
@@ -177,98 +192,95 @@ char *filemanager_show(const char **extensions) {
                         strcat(cwd, "/");
                     }
                     build_dir_menu();
-                } else {
-                    if (manager_mode) {
+                }
+                else if (manager_mode)
+                {
+					static const char *elf_extensions[] = {"elf","ELF","Elf","eLf","elF","ELf","eLF","ElF", NULL};
+					if (ext_match(e->name, elf_extensions))
+					{
+                        char full[1024];
+                        snprintf(full, sizeof(full), "%s%s", cwd, e->name);
+                        cdvd_run_elf(full);
+					}
+				}
+                else
+                {
+                    if (ext_match(e->name, extensions)) {
                         char full[1024];
                         snprintf(full, sizeof(full), "%s%s", cwd, e->name);
                         result = strdup(full);
-                        
-                        //this is actually human wrote
-                        gfx_fade_out(20);
-                        gfx_fade_in(20);
-                        while (1)
-						{
+                        break;
+                    } else {
+						for (int i = 0; i < 100; i++){
 							background_update();
 							gfx_draw_top_bar();
-							gfx_draw_text(result, 40, 60, GS_SETREG_RGBAQ(0xFF,0xFF,0x00,0x80,0), 10, 4);
-							const char *file_option_items[4]=
-							{
-								"Copy", "Delete", "Move", "Rename", "New Directory"
-								
-							};
-							menu_draw(file_option_items, 4, 40, 120);
+							gfx_draw_text("Unsupported extension", 40, 60, GS_SETREG_RGBAQ(0xFF,0x00,0x00,0x80,0), 10, 4);
 							gfx_flip();
 							gfx_exec();
-							
-							if(pad_get_buttons(0) & PAD_DOWN)
-							{
-								menu_increment();
-								FuckAroundSilentlyMs(300);
-							}
-						
-							if(pad_get_buttons(0) & PAD_UP)
-							{
-								menu_decrement();
-								FuckAroundSilentlyMs(300);
-							}
-							
-							if (pad_get_buttons(0) & PAD_CROSS)
-							{
-								while (1)
-								{
-									const char *items[30]={
-										"Q","W","E","R","T","Y","U","I","O","P",
-										"A","S","D","F","G","H","J","K","L","BCK",
-										"Z","X","C","V","B","N","M",".","/",":",};
-									menu_grid_draw(items, 30, 10, 40, 120);
-									gfx_flip();
-									gfx_exec();
-									
-									if (pad_get_buttons(0) & PAD_LEFT)
-									{
-										menu_grid_left(); FuckAroundSilentlyMs(300);
-									}
-									
-									if (pad_get_buttons(0) & PAD_RIGHT)
-									{
-										menu_grid_right(); FuckAroundSilentlyMs(300);
-									}
-									
-									if (pad_get_buttons(0) & PAD_UP)
-									{
-										menu_grid_up(); FuckAroundSilentlyMs(300);
-									}
-									
-									if (pad_get_buttons(0) & PAD_DOWN)
-									{
-										menu_grid_down(); FuckAroundSilentlyMs(300);
-									}
-								}
-							}
-							
-							if (pad_get_buttons(0) & PAD_TRIANGLE)
-							{
-								gfx_fade_out(20);
-								gfx_fade_in(20);
-								break;
-							}
 						}
-                    } else {
-                        if (ext_match(e->name, extensions)) {
-                            char full[1024];
-                            snprintf(full, sizeof(full), "%s%s", cwd, e->name);
-                            result = strdup(full);
-                            break;
-                        } else {
-							for (int i = 0; i < 100; i++){
-								background_update();
-								gfx_draw_top_bar();
-								gfx_draw_text("Unsupported extension", 40, 60, GS_SETREG_RGBAQ(0xFF,0x00,0x00,0x80,0), 10, 4);
-								gfx_flip();
-								gfx_exec();
-							}
-                        }
-                    }
+                   }
+                }
+				FuckAroundSilentlyMs(300);
+            }
+            
+            if (pressed & PAD_R2 && manager_mode)
+            {
+				int sel = menu_get_current_item();
+                FileEntry *e = &entries[sel];
+                
+				char file_path[1024];
+				snprintf(file_path, sizeof(file_path), "%s%s", cwd, e->name);
+				
+				//this is actually human wrote
+				gfx_fade_out(20);
+				gfx_fade_in(20);
+				while (1)
+				{
+					background_update();
+					gfx_draw_top_bar();
+					gfx_draw_text(file_path, 40, 60, GS_SETREG_RGBAQ(0xFF,0xFF,0x00,0x80,0), 10, 4);
+					const char *file_option_items[5]=
+					{
+						"Copy", "Delete", "Move", "Rename", "New Directory"
+						
+					};
+					menu_draw(file_option_items, 5, 40, 120);
+					gfx_flip();
+					gfx_exec();
+					
+					if(pad_get_buttons(0) & PAD_DOWN)
+					{
+						menu_increment();
+						FuckAroundSilentlyMs(300);
+					}
+				
+					if(pad_get_buttons(0) & PAD_UP)
+					{
+						menu_decrement();
+						FuckAroundSilentlyMs(300);
+					}
+					
+					if (pad_get_buttons(0) & PAD_CROSS)
+					{
+						if (menu_get_current_item() == 1)
+						{
+							remove(file_path);
+							rmdir(file_path);
+							build_dir_menu();
+							menu_reset_current_item();
+							gfx_fade_out(20);
+							break;
+						}
+						
+					}
+					
+					if (pad_get_buttons(0) & PAD_TRIANGLE)
+					{
+						gfx_fade_out(20);
+						gfx_fade_in(20);
+						break;
+					}
+
                 }
                 FuckAroundSilentlyMs(300);
             }

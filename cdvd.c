@@ -161,3 +161,14 @@ void cdvd_launch_ps2_game(void)
     LoadExecPS2(boot_path, 0, NULL);
 }
 
+void cdvd_run_elf(const char *filename)
+{
+	
+    SifExitRpc();          // Stop RPC
+    SifInitRpc(0);         // Re-init SIF
+	FlushCache(0);
+    FlushCache(2);
+
+    LoadExecPS2(filename, 0, NULL);
+	
+}

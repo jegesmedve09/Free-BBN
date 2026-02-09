@@ -153,6 +153,7 @@ static int menu_columns = 1;   // will be set when drawing
 
 void menu_grid_draw(const char** items, int num_items, int columns, int start_x, int start_y)
 {
+	item_count = num_items;
     if (columns < 1) columns = 1;
     menu_columns = columns;
 
@@ -184,7 +185,7 @@ void menu_grid_move(int delta)
     if (menu_item < 0) menu_item = item_count - 1;
 }
 
-void menu_grid_right() { menu_item++; }
-void menu_grid_left()  { menu_item--; }
-void menu_grid_down()  { menu_item += menu_columns; }
-void menu_grid_up()    { menu_item -= menu_columns; }
+void menu_grid_right() { if ( menu_item >= item_count-1 ){ menu_item = item_count-1; }else{ menu_item++; } }
+void menu_grid_left()  { if ( menu_item <= 0 )         { menu_item = 0; }else{ menu_item--; } }
+void menu_grid_down()  { if ( menu_item >= item_count-1) { menu_item = item_count-1; }else{ menu_item += menu_columns; } }
+void menu_grid_up()    { if ( menu_item <= 0 )         { menu_item = 0; }else{ menu_item -= menu_columns; } }
