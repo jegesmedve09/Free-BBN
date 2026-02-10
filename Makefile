@@ -9,6 +9,7 @@ EE_OBJS = main.o gfx.o utils.o font.o pad.o info.o background.o menu.o cdvd.o ir
             SUBMENU/CHANNELS/GAMESCHANNEL/RUNDISC/rundisc.o\
             \
             SUBMENU/CHANNELS/PICTURES/pictures.o \
+            SUBMENU/CHANNELS/PICTURES/image_handler.o \
             \
             SUBMENU/CHANNELS/UTILITIES/utilities.o \
             SUBMENU/CHANNELS/UTILITIES/DEVCHECK/devcheck.o\

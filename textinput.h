@@ -1,6 +1,7 @@
 #ifndef TEXTINPUT_H
 #define TEXTINPUT_H
 
-const char *textinput_get_text(const char *msg);
+// textinput.h
+bool textinput_get_text(char *buffer, size_t bufsize, const char *title);
 
 #endif

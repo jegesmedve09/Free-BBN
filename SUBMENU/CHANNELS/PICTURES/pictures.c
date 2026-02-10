@@ -2,19 +2,33 @@
 #include <tamtypes.h>
 #include <kernel.h>
 
+#include <stdlib.h>
+
 #include "../../../gfx.h"
 #include "../../../utils.h"
 #include "../../../background.h"
 #include "../../../pad.h"
 #include "../../../menu.h"
+#include "../../../filemanager.h"
+#include "../../../settings.h"
+
+#include "image_handler.h"
 
 const char* pictures_menu_items[] = {
     "Open file",
-    "Slideshow (manual)",
-    "Slideshow (automatic)",
-    "Open Camera",
+    "Slideshow (manual) -",
+    "Slideshow (automatic) -",
+    "Open Camera -",
 };
 
+
+void show_image(int w, int h, char *data)
+{
+	
+	
+	
+	
+}
 
 int pictures_show(void)
 {
@@ -53,17 +67,25 @@ int pictures_show(void)
 			return 0;
 		}
 		
-		//if(pad_get_buttons(0) & PAD_CROSS)
-		//{
-		//	int item = menu_get_current_item();
-		//	menu_reset_current_item();
-		//	//FuckAroundSilentlyMs(300);
-		//	gfx_fade_out(10);
-		//	if (item == 0){ }
-		//	if (item == 1){ rundisc_show(); }
-		//	gfx_fade_in(10);
-		//	//FuckAroundSilentlyMs(300);
-		//}
+		if(pad_get_buttons(0) & PAD_CROSS)
+		{
+			char *file_path;
+			int item = menu_get_current_item();
+			menu_reset_current_item();
+			gfx_fade_out(10);
+			if (item == 1)
+			{
+				const char *args[1] = {"ppm"};
+				file_path = filemanager_show(args);
+				
+				char *buffer = NULL;
+				int width;
+				int height;
+				char *data;
+				image_load(file_path, &buffer, data, width, height);
+				free(buffer);
+			}
+		}
 	
 	}
 }

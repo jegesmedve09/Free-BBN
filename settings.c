@@ -90,3 +90,41 @@ char **settings_read_config(const char *fn, char **out_buffer)
 	*out_buffer = buf;
     return lines;
 }
+
+
+char *settings_read_file(const char *path, char **out_buffer)
+{
+    if (!path || !*path || !out_buffer)
+        return NULL;
+
+    int fd = open(path, O_RDONLY);
+    if (fd < 0)
+        return NULL;
+
+    struct stat st;
+    if (fstat(fd, &st) < 0 || st.st_size <= 0) {
+        close(fd);
+        return NULL;
+    }
+
+    size_t size = st.st_size;
+
+    void *buf = malloc(size + 1);
+    if (!buf) {
+        close(fd);
+        return NULL;
+    }
+
+    ssize_t rd = read(fd, buf, size);
+    close(fd);
+
+    if (rd != (ssize_t)size) {
+        free(buf);
+        return NULL;
+    }
+
+    ((char *)buf)[size] = 0; // safe NUL terminator
+
+    *out_buffer = buf;
+    return buf;
+}

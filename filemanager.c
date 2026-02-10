@@ -34,8 +34,8 @@ static const char *devices[] = {
 static FileEntry entries[MAX_ENTRIES];
 static char item_strings[MAX_ENTRIES][128];
 static const char *menu_items[MAX_ENTRIES];
-static char *copy_string="";
-static char *copy_name="";
+static char copy_string[2048] = {0};
+static char copy_name[128] = {0};
 
 static int entry_count = 0;
 static char cwd[1024];
@@ -133,6 +133,45 @@ static void build_dir_menu(void) {
     menu_reset_current_item();
 }
 
+
+int copy_file(const char *src, const char *dst)
+{
+    FILE *in = fopen(src, "rb");
+    if (!in) return -1;
+
+    FILE *out = fopen(dst, "wb");
+    if (!out) {
+        fclose(in);
+        return -1;
+    }
+
+    char *buffer = malloc(32 * 1024);  // 32KB buffer - good balance for PS2
+    if (!buffer) {
+        fclose(in);
+        fclose(out);
+        return -1;
+    }
+
+    size_t bytes;
+    while ((bytes = fread(buffer, 1, 32*1024, in)) > 0) {
+        if (fwrite(buffer, 1, bytes, out) != bytes) {
+            free(buffer);
+            fclose(in);
+            fclose(out);
+            return -1;
+        }
+        // Small yield so IOP doesn't completely freeze
+        FuckAroundSilentlyMs(1);
+    }
+
+    free(buffer);
+    fclose(in);
+    fclose(out);
+    return 0;
+}
+
+
+
 /* Main function */
 char *filemanager_show(const char **extensions) {
     char *result = NULL;
@@ -226,88 +265,155 @@ char *filemanager_show(const char **extensions) {
 				FuckAroundSilentlyMs(300);
             }
             
-            if (pressed & PAD_R2 && manager_mode)
-            {
-				int sel = menu_get_current_item();
-                FileEntry *e = &entries[sel];
-                
-				char file_path[1024];
-				snprintf(file_path, sizeof(file_path), "%s%s", cwd, e->name);
-				
-				//this is actually human wrote
-				gfx_fade_out(20);
-				gfx_fade_in(20);
-				menu_reset_current_item();
-				while (1)
+				if (pressed & PAD_R2 && manager_mode && entry_count > 0)
 				{
-					background_update();
-					gfx_draw_top_bar();
-					gfx_draw_text(file_path, 40, 60, GS_SETREG_RGBAQ(0xFF,0xFF,0x00,0x80,0), 10, 4);
-					const char *file_option_items[6]=
-					{
-						"Copy", "Paste", "Delete", "Move", "Rename", "New Directory"
-						
+					int sel = menu_get_current_item();
+					FileEntry *e = &entries[sel];
+
+					char file_path[1024];
+					snprintf(file_path, sizeof(file_path), "%s%s", cwd, e->name);
+
+					// Simple "Cut" support
+					static bool is_cut = false;
+
+					gfx_fade_out(15);
+					menu_reset_current_item();
+
+					const char *file_option_items[] = {
+						"Copy",
+						"Cut",
+						"Paste",
+						"Delete",
+						"Rename",
+						"New Directory"
 					};
-					menu_draw(file_option_items, 6, 40, 120);
-					gfx_flip();
-					gfx_exec();
-					
-					if(pad_get_buttons(0) & PAD_DOWN)
+
+					int option_count = 6;
+					int option = 0;
+
+					while (1)
 					{
-						menu_increment();
-						FuckAroundSilentlyMs(300);
-					}
-				
-					if(pad_get_buttons(0) & PAD_UP)
-					{
-						menu_decrement();
-						FuckAroundSilentlyMs(300);
-					}
-					
-					if (pad_get_buttons(0) & PAD_CROSS)
-					{
-						if (menu_get_current_item() == 0)
-						{
-							strcpy(copy_string, file_path);
-							strcopy(copy_name, e->name);
-							break;
+						u32 btn = pad_get_buttons(0);
+
+						background_update();
+						gfx_draw_top_bar();
+						gfx_draw_text(file_path, 40, 60, GS_SETREG_RGBAQ(0xFF,0xFF,0x00,0x80,0), 10, 4);
+						menu_draw(file_option_items, option_count, 40, 120);
+
+						// Navigation
+						if (btn & PAD_UP) {
+							option = (option - 1 + option_count) % option_count;
+							FuckAroundSilentlyMs(200);
 						}
-						
-						if (menu_get_current_item() == 1)
-						{
-							if (strlen(copy_string) > 0)
-							{	
-								char path[2048];
-								snprintf(path, sizeof(path), "%s%s",cwd, copy_name);
-								strcpy(copy_string, pat
-							}
-							
+						if (btn & PAD_DOWN) {
+							option = (option + 1) % option_count;
+							FuckAroundSilentlyMs(200);
 						}
-						
-						if (menu_get_current_item() == 2)
+
+						if (btn & PAD_CROSS)
 						{
-							if (!e->is_dir){
-								remove(file_path);
+							if (option == 0) // Copy
+							{
+								strcpy(copy_string, file_path);
+								strcpy(copy_name, e->name);
+								is_cut = false;
+								gfx_draw_text("File copied!", 40, 220, GS_SETREG_RGBAQ(0x00,0xFF,0x00,0xFF,0), 10, 4);
 							}
-							rmdir(file_path);
+							else if (option == 1) // Cut
+							{
+								strcpy(copy_string, file_path);
+								strcpy(copy_name, e->name);
+								is_cut = true;
+								gfx_draw_text("File cut!", 40, 220, GS_SETREG_RGBAQ(0xFF,0xFF,0x00,0xFF,0), 10, 4);
+							}
+							else if (option == 2) // Paste
+							{
+								if (strlen(copy_string) > 0)
+								{
+									char dst[2048];
+									snprintf(dst, sizeof(dst), "%s%s", cwd, copy_name);
+
+									if (copy_file(copy_string, dst) == 0)
+									{
+										gfx_draw_text("Paste OK!", 40, 220, GS_SETREG_RGBAQ(0x00,0xFF,0x00,0xFF,0), 10, 4);
+										if (is_cut)
+										{
+											remove(copy_string);        // delete source
+											is_cut = false;
+										}
+									}
+									else
+									{
+										gfx_draw_text("Paste failed!", 40, 220, GS_SETREG_RGBAQ(0xFF,0x00,0x00,0xFF,0), 10, 4);
+									}
+								}
+							}
+							else if (option == 3) // Delete
+							{
+								if (e->is_dir)
+									rmdir(file_path);
+								else
+									remove(file_path);
+
+								gfx_draw_text("Deleted", 40, 220, GS_SETREG_RGBAQ(0xFF,0x80,0x00,0xFF,0), 10, 4);
+							}
+							else if (option == 4) // Rename
+							{
+								char newname[128] = {0};
+								if (textinput_get_text(newname, sizeof(newname), "New name:"))
+								{
+									if (newname[0] != '\0')
+									{
+										char newpath[2048];
+										snprintf(newpath, sizeof(newpath), "%s%s", cwd, newname);
+
+										if (rename(file_path, newpath) == 0)
+											gfx_draw_text("Renamed!", 40, 220, GS_SETREG_RGBAQ(0x00,0xFF,0x00,0xFF,0), 10, 4);
+										else
+											gfx_draw_text("Rename failed", 40, 220, GS_SETREG_RGBAQ(0xFF,0x00,0x00,0xFF,0), 10, 4);
+									}
+								}
+							}
+							else if (option == 5) // New Directory
+							{
+								char dirname[128] = {0};
+								if (textinput_get_text(dirname, sizeof(dirname), "Folder name:"))
+								{
+									if (dirname[0] != '\0')
+									{
+										char newpath[2048];
+										snprintf(newpath, sizeof(newpath), "%s%s", cwd, dirname);
+
+										if (mkdir(newpath, 0777) == 0)
+											gfx_draw_text("Folder created!", 40, 220, GS_SETREG_RGBAQ(0x00,0xFF,0x00,0xFF,0), 10, 4);
+										else
+										{
+											char msg[160];
+											snprintf(msg, sizeof(msg), "Failed: %s", strerror(errno));
+											gfx_draw_text(msg, 40, 220, GS_SETREG_RGBAQ(0xFF,0x40,0x40,0xFF,0), 10, 4);
+										}
+									}
+								}
+							}
+
+							FuckAroundSilentlyMs(1200);
 							build_dir_menu();
-							menu_reset_current_item();
-							gfx_fade_out(20);
-							break;
+							break; // exit submenu
 						}
-						
-					}
-					
-					if (pad_get_buttons(0) & PAD_TRIANGLE)
-					{
-						gfx_fade_out(20);
-						gfx_fade_in(20);
-						break;
+
+						if (btn & PAD_TRIANGLE)
+						{
+							break; // cancel submenu
+						}
+
+						gfx_flip();
+						gfx_exec();
+						FuckAroundSilentlyMs(16); // ~60fps
 					}
 
-                }
-                FuckAroundSilentlyMs(300);
-            }
+					gfx_fade_in(15);
+					FuckAroundSilentlyMs(200);
+				}
             if (pressed & PAD_TRIANGLE) {
                 if (!strcmp(cwd, root)) {
                     mode = 0;

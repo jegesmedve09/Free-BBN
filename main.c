@@ -168,7 +168,7 @@ int main(void)
 			
 			if (item == 0) { channels_show(); }
 			if (item == 1) { systemsettings_show(); }
-			if (item == 2) { const char *args[1] = {"elf"}; filemanager_show(args); }
+			if (item == 2) { }
 			if (item == 3) { filemanager_show(NULL);}
 			if (item == 4) { about_show(); }
 			if (item == 5) { PowerOff(); }

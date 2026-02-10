@@ -10,8 +10,7 @@
 #include "utils.h"
 
 
-char *text = "";
-char *full_text;
+char text[2048] = "";
 bool upper = false;
 
 static void add_char_to_text(char character)
