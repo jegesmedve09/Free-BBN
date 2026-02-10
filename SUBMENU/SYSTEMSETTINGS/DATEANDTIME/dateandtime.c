@@ -290,7 +290,7 @@ int dateandtime_show(void) {
             else if (item == 6) {
                 u8 current = configIsDaylightSavingEnabled();
                 configSetDaylightSavingEnabled(!current); // toggle
-                changed = 1; //// reload display
+                changed = 1; // reload display
             }
         }
         if (pad & PAD_RIGHT) {
