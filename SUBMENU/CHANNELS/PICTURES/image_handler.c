@@ -21,7 +21,7 @@ static char *pXm_skip(char *p)
     return p;
 }
 
-void image_load(char *filepath, char **out_buffer, char *rgb, int *w, int *h)
+void image_load(char *filepath, char **out_buffer, char *rgb, int w, int h)
 {
 	char *buffer = NULL;
 	fd = settings_read_file(filepath, &buffer);
