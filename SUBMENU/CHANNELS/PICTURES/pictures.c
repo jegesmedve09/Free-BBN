@@ -22,28 +22,17 @@ const char* pictures_menu_items[] = {
 };
 
 
-void show_image(int *w, int *h, char *data)
-{
-	int pos = 0;
-	gfx_fade_in(20);
-	//while (1)
-	//{
-		for (int i=0; i < *h; i++)
-		{
-			for (int j=0; j < *w; j++)
-			{
-				gfx_draw_square(j, i, 1, 1, GS_SETREG_RGBAQ(data[pos],data[+1],data[pos+2], 0x80, 0x00));
-
-				pos+=3;
-				
-			}
-		}
-		gfx_flip();
-		gfx_exec();
-	while(1){}
-	
-	
-	
+void show_image(int *w, int *h, char *data) {
+    int pos = 0;
+    gfx_fade_in(20);
+    for (int i = 0; i < *h; i++) {
+        for (int j = 0; j < *w; j++) {
+            gfx_draw_square(j, i, 1, 1, GS_SETREG_RGBAQ(data[pos], data[pos+1], data[pos+2], 128, 0x00));
+            pos += 3;
+        }
+    }
+    gfx_flip();
+    gfx_exec();
 }
 
 int pictures_show(void)
@@ -89,18 +78,18 @@ int pictures_show(void)
 			int item = menu_get_current_item();
 			menu_reset_current_item();
 			gfx_fade_out(10);
-			if (item == 0)
-			{
+			if (item == 0) {
 				const char *args[1] = {"ppm", NULL};
 				file_path = filemanager_show(args);
-				
-				char *buffer = NULL;
-				int width[64];
-				int height[64];
 				char data[1024*1024];
-				image_load(file_path, &buffer, data, *width, *height);
-				show_image(width, height, data);
-				free(buffer);
+				int width = 0, height = 0;
+				image_load(file_path, data, &width, &height);
+				show_image(&width, &height, data);
+				// Replace while(1){} with input loop to exit
+				while (1) {
+					if (pad_get_buttons(0) & PAD_TRIANGLE) break;
+					// Add gfx_exec() or whatever to poll pads
+				}
 			}
 		}
 	
