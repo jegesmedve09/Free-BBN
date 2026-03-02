@@ -100,10 +100,10 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 | MemoryCard 0 (PlayStation 2) (8 MB+) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 | MemoryCard 1 (PlayStation 2) (8 MB+) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 | Dual MemoryCards (Playstation 2) (8 MB +) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
-| MemoryCard 0 (PlayStation) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
-| MemoryCard 1 (PlayStation) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
-| Dual MemoryCards (PlayStation) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
-| PS2 & PS Mismached MemoryCards | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
+| MemoryCard 0 (PlayStation) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
+| MemoryCard 1 (PlayStation) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
+| Dual MemoryCards (PlayStation) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
+| PS2 & PS Mismached MemoryCards | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 | USB Mass (Single Drive + Single Partition) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 | USB Mass (Single Drive + Multiple Partitions) | ![Partially Supported](https://img.shields.io/badge/Partially%20Supported-orange) Software Specification Needed |
 | USB Mass (Multiple Drives + Single Partition) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
