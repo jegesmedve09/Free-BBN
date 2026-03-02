@@ -97,7 +97,7 @@ static void build_dir_menu(void) {
     if (strcmp(cwd, root) != 0) {
         strcpy(entries[0].name, "..");
         entries[0].is_dir = 1;
-        strcpy(item_strings[0], "DIR   ..");
+        strcpy(item_strings[0], "\xFF\x22 ..");
         menu_items[0] = item_strings[0];
         entry_count = 1;
     }
@@ -114,7 +114,7 @@ static void build_dir_menu(void) {
         e->size = st.st_size;
         if (e->is_dir)
         {
-            snprintf(item_strings[entry_count], sizeof(item_strings[0]), "DIR   %s", e->name);
+            snprintf(item_strings[entry_count], sizeof(item_strings[0]), "\xFF\x22 %s", e->name);
         }
         else
         {
@@ -123,7 +123,7 @@ static void build_dir_menu(void) {
             else if (e->size >= 1024LL * 1024)        { snprintf(size, sizeof(size), "%.2f MB", (double)e->size / (1024.0 * 1024)); }
             else if (e->size >= 1024LL)               { snprintf(size, sizeof(size), "%.2f kB", (double)e->size / (1024.0)); }
             else    { snprintf(size, sizeof(size), "%d B", e->size); }
-            snprintf(item_strings[entry_count], sizeof(item_strings[0]), "FILE   %s   %s", e->name, size);
+            snprintf(item_strings[entry_count], sizeof(item_strings[0]), "\xFF\x23 %s   %s", size, e->name);
         }   
         menu_items[entry_count] = item_strings[entry_count];
         entry_count++;
