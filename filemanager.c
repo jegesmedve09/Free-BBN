@@ -303,10 +303,12 @@ char *filemanager_show(const char **extensions) {
 						// Navigation
 						if (btn & PAD_UP) {
 							option = (option - 1 + option_count) % option_count;
+							menu_decrement();
 							FuckAroundSilentlyMs(200);
 						}
 						if (btn & PAD_DOWN) {
 							option = (option + 1) % option_count;
+							menu_increment();
 							FuckAroundSilentlyMs(200);
 						}
 
