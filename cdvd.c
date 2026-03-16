@@ -7,23 +7,37 @@
 #include <string.h>
 #include <stdio.h>
 
+#include "utils.h"
+
 #define SYSTEM_CNF_PATH "cdrom0:\\SYSTEM.CNF;1"
 #define MAX_CNF_SIZE   2048
+
+int cdvd_init(void)
+{
+    cdInit(CDVD_INIT_INIT);
+}
+
 
 int cdvd_tray_open(void)
 {
     int ret;
     u32 status;
     
+    sceCdStop();
+    
     ret = sceCdTrayReq(SCECdTrayOpen, &status);
     if (ret <= 0) return -1;  // failed to send request
 
     // Poll until command finishes
     while (1) {
-        ret = sceCdTrayReq(SCECdTrayCheck, &status);
-        if (ret <= 0) return -2;
+        
+        if (sceCdStatus() == SCECdStatShellOpen) break;
+        FuckAroundSilentlyMs(100);
+        
+        //ret = sceCdTrayReq(SCECdTrayCheck, &status);
+        //if (ret <= 0) return -2;
 
-        if (status == 0) break;   // done (tray fully open)
+        //if (status == 0) break;   // done (tray fully open)
         // status may be: 1=opening, 2=closing, etc. — check libcdvd docs for exact values
 
         // Optional: SleepThread() or small delay to avoid busy-loop CPU hog
@@ -41,9 +55,12 @@ int cdvd_tray_close(void)
     if (ret <= 0) return -1;
 
     while (1) {
-        ret = sceCdTrayReq(SCECdTrayCheck, &status);
-        if (ret <= 0) return -2;
-        if (status == 0) break;
+		
+		if (sceCdStatus() != SCECdStatShellOpen) break;
+		FuckAroundSilentlyMs(100);
+        //ret = sceCdTrayReq(SCECdTrayCheck, &status);
+        //if (ret <= 0) return -2;
+        //if (status == 0) break;
     }
 
     return 0;
@@ -51,10 +68,13 @@ int cdvd_tray_close(void)
 
 int cdvd_tray_is_open(void)
 {
-    u32 status;
-    if (sceCdTrayReq(SCECdTrayCheck, &status) > 0) {
-        return (status != 0);  // non-zero usually means open/in-motion
+    if (sceCdStatus() == SCECdStatShellOpen) {
+        return 1;  // non-zero usually means open/in-motion
     }
+    else
+    {
+		return 0;
+	}
     return -1;  // error
 }
 
@@ -103,7 +123,6 @@ void cdvd_launch_ps2_game(void)
     int fd;
 
     SifInitRpc(0);
-    cdInit(CDVD_INIT_INIT);
 
     fd = open(SYSTEM_CNF_PATH, O_RDONLY);
     

@@ -1,6 +1,8 @@
 #ifndef CDVD_H
 #define CDVD_H
 
+int cdvd_init(void);
+
 int cdvd_disc_inserted(void);
 int cdvd_disc_ready(void);
 void cdvd_launch_ps2_game(void);

@@ -31,12 +31,18 @@ void image_load(char *filepath, char *rgb, int *w, int *h) {
         fd += 2;
         fd = pXm_skip(fd);
         *w = atoi(fd);
+        //if (*w <=0) { free(buffer); return; }
+        
         while (*fd > ' ') fd++;
         fd = pXm_skip(fd);
         *h = atoi(fd);
+        //if (*h <=0){ free(buffer); return; }
+        
         while (*fd > ' ') fd++;
         fd = pXm_skip(fd);
         int max = atoi(fd);
+        //if (max != 255) { free(buffer); return; }
+        
         while (*fd > ' ') fd++;
         fd = pXm_skip(fd);  // Skip to data
 
@@ -46,7 +52,11 @@ void image_load(char *filepath, char *rgb, int *w, int *h) {
         }
 
         // Copy pixel data
-        memcpy(rgb, fd, (*w) * (*h) * 3);
+        //if (rgb)
+        //{
+		//	if ( (*w) * (*h) *3 > 1024*1024*2 ) { free(buffer); return; }
+			memcpy(rgb, fd, (*w) * (*h) * 3);
+		//}
     }
     free(buffer);
 }

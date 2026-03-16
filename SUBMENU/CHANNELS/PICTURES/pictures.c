@@ -78,18 +78,52 @@ int pictures_show(void)
 			int item = menu_get_current_item();
 			menu_reset_current_item();
 			gfx_fade_out(10);
+			
+			char data[1024*1024];
+			
 			if (item == 0) {
 				const char *args[1] = {"ppm", NULL};
 				file_path = filemanager_show(args);
-				char data[1024*1024];
+				
+				if (!file_path)
+				{
+					gfx_fade_in(10);
+					continue;
+				}
+				
+				char *data = NULL;
 				int width = 0, height = 0;
+				
+				image_load(file_path, NULL, &width, &height);
+				
+				if(width <= 0 || height <=0 || width > 1024 || height > 1024)
+				{
+					free(file_path);
+					continue;
+				}
+				
+				size_t size_needed = (size_t)width * height * 3;
+				data = malloc(size_needed);
+				if (!data) {
+					// out of memory error
+					free(file_path);
+					gfx_fade_in(10);
+					continue;
+				}
+				
 				image_load(file_path, data, &width, &height);
+				
 				show_image(&width, &height, data);
+				
 				// Replace while(1){} with input loop to exit
 				while (1) {
-					if (pad_get_buttons(0) & PAD_TRIANGLE) break;
+					if (pad_get_buttons(0) & PAD_TRIANGLE) { FuckAroundSilentlyMs(300); gfx_fade_out(10); break; }
 					// Add gfx_exec() or whatever to poll pads
 				}
+				gfx_fade_out(10);
+				free(data);
+				free(file_path);
+				gfx_fade_in(10);
 			}
 		}
 	

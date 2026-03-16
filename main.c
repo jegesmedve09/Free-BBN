@@ -9,6 +9,7 @@
 #include <sbv_patches.h>
 
 #include "gfx.h"
+#include "cdvd.h"
 #include "utils.h"
 #include "pad.h"
 #include "background.h"
@@ -47,10 +48,12 @@ void init()
     SifExecModuleBuffer(irx_libsd, irx_libsd_size, 0, NULL, NULL);
     SifExecModuleBuffer(irx_audsrv, irx_audsrv_size, 0, NULL, NULL);
     sound_init();
+    
     //controller
     SifLoadModule("rom0:SIO2MAN", 0, NULL);
     SifLoadModule("rom0:PADMAN", 0, NULL);
     pad_init();
+	
 	//memory card
     SifLoadModule("rom0:MCMAN", 0, NULL);
 	SifLoadModule("rom0:MCSERV", 0, NULL);
@@ -58,6 +61,7 @@ void init()
 	//USB I/O
 	SifExecModuleBuffer(irx_iomanx, irx_iomanx_size, 0, NULL, NULL);
 	SifExecModuleBuffer(irx_filexio, irx_filexio_size, 0, NULL, NULL);
+	
 	//USB Mass
 	SifExecModuleBuffer(irx_usbd, irx_usbd_size, 0, NULL, NULL);
 	SifExecModuleBuffer(irx_usbhdfsd, irx_usbhdfsd_size, 0, NULL, NULL);
@@ -69,6 +73,9 @@ void init()
     
 	//settings
 	settings_init();
+	
+	//cdvd
+	cdvd_init();
 	
 	char **fd;
 	char *buffer = NULL;
