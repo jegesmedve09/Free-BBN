@@ -30,7 +30,7 @@ const char* main_menu_items[] = {
     "Channels         /",
     "System Settings",
     "Network Settings -",
-    "Schrodinger*s Save Manager -",
+    "Schrodinger's Save Manager /",
     "About",
     "Shutdown"
 };

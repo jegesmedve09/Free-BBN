@@ -466,6 +466,14 @@ static const Rect dot[]={
     {6, 27, 4, 4}, //dot
 	{-1, 0, 0, 0}//terminator
 };
+static const Rect comma[]={
+    {6, 23, 4, 10}, //dot -2
+	{-1, 0, 0, 0}//terminator
+};
+static const Rect upcomma[]={
+    {6, 0, 4, 10}, //dot
+	{-1, 0, 0, 0}//terminator
+};
 static const Rect per[]={
     {11, 1, 2, 6}, //line 1
     {9, 7, 2, 6}, //line 2
@@ -616,6 +624,8 @@ const Rect* ascii_map[128] = {
     ['!']=exclamation,//64
     ['$']=dollar,//65
     ['.']=dot,//66
+    [',']=comma,
+    ['\'']=upcomma,
     ['/']=per,//67
     //Numerical
     ['1']=one,//68

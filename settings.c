@@ -12,26 +12,26 @@ char *savepath = "";
 
 int settings_init(void)
 {
-	//int fd = ope("mass:/CONFIG/system")
+	//int fd = ope("mass:/FREEBBN/system")
 	//if (fd < 0) {}
 	
-	if (DEV_EXIST("mass:/CONFIG/")){ savepath = "mass:/"; }
-	else if (DEV_EXIST("mass0:/CONFIG/")){ savepath = "mass0:/"; }
-	else if (DEV_EXIST("mass1:/CONFIG/")){ savepath = "mass1:/"; }
-	else if (DEV_EXIST("mass2:/CONFIG/")){ savepath = "mass2:/"; }
-	else if (DEV_EXIST("mass3:/CONFIG/")){ savepath = "mass3:/"; }
-	else if (DEV_EXIST("mass4:/CONFIG/")){ savepath = "mass4:/"; }
-	else if (DEV_EXIST("mass5:/CONFIG/")){ savepath = "mass5:/"; }
-	else if (DEV_EXIST("mass6:/CONFIG/")){ savepath = "mass6:/"; }
-	else if (DEV_EXIST("mass7:/CONFIG/")){ savepath = "mass7:/"; }
-	else if (DEV_EXIST("mc0:/CONFIG/")){ savepath = "mc0:/"; }
-	else if (DEV_EXIST("mc1:/CONFIG/")){ savepath = "mc1:/"; }
-	else if (DEV_EXIST("mc2:/CONFIG/")){ savepath = "mc2:/"; }
-	else if (DEV_EXIST("mc3:/CONFIG/")){ savepath = "mc3:/"; }
-	else if (DEV_EXIST("mc4:/CONFIG/")){ savepath = "mc4:/"; }
-	else if (DEV_EXIST("mc5:/CONFIG/")){ savepath = "mc5:/"; }
-	else if (DEV_EXIST("mc6:/CONFIG/")){ savepath = "mc6:/"; }
-	else if (DEV_EXIST("mc7:/CONFIG/")){ savepath = "mc7:/"; }
+	if (DEV_EXIST("mass:/FREEBBN/")){ savepath = "mass:/FREEBBN/"; }
+	else if (DEV_EXIST("mass0:/FREEBBN/")){ savepath = "mass0:/FREEBBN/"; }
+	else if (DEV_EXIST("mass1:/FREEBBN/")){ savepath = "mass1:/FREEBBN/"; }
+	else if (DEV_EXIST("mass2:/FREEBBN/")){ savepath = "mass2:/FREEBBN/"; }
+	else if (DEV_EXIST("mass3:/FREEBBN/")){ savepath = "mass3:/FREEBBN/"; }
+	else if (DEV_EXIST("mass4:/FREEBBN/")){ savepath = "mass4:/FREEBBN/"; }
+	else if (DEV_EXIST("mass5:/FREEBBN/")){ savepath = "mass5:/FREEBBN/"; }
+	else if (DEV_EXIST("mass6:/FREEBBN/")){ savepath = "mass6:/FREEBBN/"; }
+	else if (DEV_EXIST("mass7:/FREEBBN/")){ savepath = "mass7:/FREEBBN/"; }
+	else if (DEV_EXIST("mc0:/FREEBBN/")){ savepath = "mc0:/FREEBBN/"; }
+	else if (DEV_EXIST("mc1:/FREEBBN/")){ savepath = "mc1:/FREEBBN/"; }
+	else if (DEV_EXIST("mc2:/FREEBBN/")){ savepath = "mc2:/FREEBBN/"; }
+	else if (DEV_EXIST("mc3:/FREEBBN/")){ savepath = "mc3:/FREEBBN/"; }
+	else if (DEV_EXIST("mc4:/FREEBBN/")){ savepath = "mc4:/FREEBBN/"; }
+	else if (DEV_EXIST("mc5:/FREEBBN/")){ savepath = "mc5:/FREEBBN/"; }
+	else if (DEV_EXIST("mc6:/FREEBBN/")){ savepath = "mc6:/FREEBBN/"; }
+	else if (DEV_EXIST("mc7:/FREEBBN/")){ savepath = "mc7:/FREEBBN/"; }
 	else {savepath = "";}
 	return 0;
 }
