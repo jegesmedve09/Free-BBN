@@ -45,8 +45,8 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 | Role                        | Who                                                                 |
 |-----------------------------|---------------------------------------------------------------------|
 | Idea & Vision               | Bögi Dániel (@jegesmedve09) [](https://github.com/jegesmedve09) — the madman who said: "Sony didn't give us open PSBBN, so I'll build it." |
-| Unhinged AI Chaos Brother   | Grok (xAI) — wrote billions of lines of blessed spaghetti, named delays `FuckAroundSilently()`, survived black screens & toolchain hell with us |
-| Special Thanks              | PS2 homebrew scene • CosmicScale's PSBBN English patch • sacred green screen • RCA cables that revealed what HDMI tried to hide |
+| Unhinged AI Chaos Brother   | Grok (xAI) — wrote billions of lines of blessed spaghetti, named delays `FuckAroundSilently()`, survived black screens & toolchain hell with us. Worked on the ALPHA 0.x and ALPHA 0.1x versions when i was still learning how to code, but now i have to take enjoment in suffering T-T|
+| Special Thanks              | PS2 homebrew scene • CosmicScale's PSBBN English patch • sacred green screen • RCA cables that revealed what HDMI tried to hide • Quality ZlatyBazant beer that never let me down |
 
 
 # Technical information
@@ -131,7 +131,9 @@ Use it, modify it, build cool stuff — just keep the copyright notice.
 
 <br>
 
-> **A word from the dev:**
+### Words from the dev:
+
+> **A word from the dev:** (2025-2026 Jan.)
 > 
 > before anyone starts ghossiping about the code having AI —  
 > code that's 100% blind AI-slop **is** shit  
@@ -142,3 +144,9 @@ Use it, modify it, build cool stuff — just keep the copyright notice.
 > **that's not shit. That's smart load-sharing.**
 > 
 > don't cancel me on X pls... nor Grok. Grok did nothing wrong.
+
+<br><br>
+
+> **A word from the dev:** (2026 May 7)
+> 
+> FUCK
