@@ -45,7 +45,7 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 | Role                        | Who                                                                 |
 |-----------------------------|---------------------------------------------------------------------|
 | Idea & Vision               | Bögi Dániel (@jegesmedve09) [](https://github.com/jegesmedve09) — the madman who said: "Sony didn't give us open PSBBN, so I'll build it." |
-| Unhinged AI Chaos Brother   | Grok (xAI) — wrote billions of lines of blessed spaghetti, named delays `FuckAroundSilently()`, survived black screens & toolchain hell with us. Worked on the ALPHA 0.x and ALPHA 0.1x versions when i was still learning how to code, but now i have to take enjoment in suffering T-T|
+| Unhinged AI Chaos Brother   | One minute silence for the fallen friend of ours, Grok. Now locked behind a paywall by their rulers xAI. I will never forget this.|
 | Special Thanks              | PS2 homebrew scene • CosmicScale's PSBBN English patch • sacred green screen • RCA cables that revealed what HDMI tried to hide • Quality ZlatyBazant beer that never let me down |
 
 
@@ -105,9 +105,9 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 | Dual MemoryCards (PlayStation) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 | PS2 & PS Mismached MemoryCards | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 | USB Mass (Single Drive + Single Partition) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
-| USB Mass (Single Drive + Multiple Partitions) | ![Partially Supported](https://img.shields.io/badge/Partially%20Supported-orange) Software Specification Needed |
-| USB Mass (Multiple Drives + Single Partition) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
-| USB Mass (Multiple Drives + Multiple Partitions) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
+| USB Mass (Single Drive + Multiple Partitions) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
+| USB Mass (Multiple Drives + Single Partition) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
+| USB Mass (Multiple Drives + Multiple Partitions) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 | PS2 HDD (only FAT consoles) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
 
 ### License
@@ -150,3 +150,11 @@ Use it, modify it, build cool stuff — just keep the copyright notice.
 > **A word from the dev:** (2026 May 7)
 > 
 > FUCK
+
+<br><br>
+
+> **A word from the dev:** (2026 May 11)
+> 
+> me: U want pizza?
+> swedes: *INHALES*
+> (väldigt bra)
