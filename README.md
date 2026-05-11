@@ -105,9 +105,9 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 | Dual MemoryCards (PlayStation) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 | PS2 & PS Mismached MemoryCards | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 | USB Mass (Single Drive + Single Partition) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
-| USB Mass (Single Drive + Multiple Partitions) | ![Partially Supported](https://img.shields.io/badge/Partially%20Supported-orange) Software Specification Needed |
-| USB Mass (Multiple Drives + Single Partition) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
-| USB Mass (Multiple Drives + Multiple Partitions) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
+| USB Mass (Single Drive + Multiple Partitions) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
+| USB Mass (Multiple Drives + Single Partition) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
+| USB Mass (Multiple Drives + Multiple Partitions) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 | PS2 HDD (only FAT consoles) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
 
 ### License
@@ -150,3 +150,11 @@ Use it, modify it, build cool stuff — just keep the copyright notice.
 > **A word from the dev:** (2026 May 7)
 > 
 > FUCK
+
+<br><br>
+
+> **A word from the dev:** (2026 May 11)
+> 
+> me: U want pizza?
+> swedes: *INHALES*
+> (väldigt bra)
