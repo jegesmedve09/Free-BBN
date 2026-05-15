@@ -146,10 +146,6 @@ int main()
     int (*loader_entry)(int, char**) = (int(*)(int, char**))LOADER_BASE;
     loader_entry(1, argv);
 	
-	gsKit_clear(gsGlobal, GS_SETREG_RGBAQ(0xFF,0,0,80,0));
-	gsKit_queue_exec(gsGlobal);
-	gsKit_sync_flip(gsGlobal);
-	
 	while (1) {}
 	
 	return 0;
