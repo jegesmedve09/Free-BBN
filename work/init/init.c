@@ -98,7 +98,7 @@ int main()
 
     gsKit_mode_switch(gsGlobal, GS_ONESHOT);
  
-	gsKit_clear(gsGlobal, GS_SETREG_RGBAQ(0,0,0xFF,80,0));
+	gsKit_clear(gsGlobal, GS_SETREG_RGBAQ(0,0xFF,0xFF,80,0));
 	gsKit_queue_exec(gsGlobal);
 	gsKit_sync_flip(gsGlobal);
 	
@@ -143,8 +143,10 @@ int main()
     argv[1] = NULL;
 
     // Call the loader
-    int (*loader_entry)(int, char**) = (int(*)(int, char**))LOADER_BASE;
-    loader_entry(1, argv);
+    //int (*loader_entry)(int, char**) = (int(*)(int, char**))LOADER_BASE;
+    //loader_entry(1, argv);
+	
+	ExecPS2((void*)LOADER_BASE, NULL, 1, argv);
 	
 	while (1) {}
 	

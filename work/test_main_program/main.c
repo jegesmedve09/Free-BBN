@@ -21,32 +21,52 @@ void ReconnectIOP(void)
     // Re-establish EE<->IOP link WITHOUT resetting IOP
     // (modules are already loaded and running on IOP side)
     SifInitRpc(0);
-    SifLoadFileInit();   // re-register EE-side load file client
+    SifLoadFileInit();
 
-    // Re-init EE-side pad client (IOP PADMAN is still running)
     padInit(0);
 
-    // Re-init EE-side audsrv client (IOP audsrv is still running)
     audsrv_init();
-
-    // gsKit is 100% EE/GS hardware — just re-init it normally
+    
     dmaKit_init(D_CTRL_RELE_OFF, D_CTRL_MFD_OFF, D_CTRL_STS_UNSPEC,
                 D_CTRL_STD_OFF, D_CTRL_RCYC_8, 1 << DMA_CHANNEL_GIF);
     dmaKit_chan_init(DMA_CHANNEL_GIF);
 
     gsGlobal = gsKit_init_global();
-    // ... set your mode/width/height etc. as normal
+
+    gsGlobal->Mode         = GS_MODE_PAL;
+    gsGlobal->Interlace    = GS_INTERLACED;
+    gsGlobal->Field        = GS_FIELD;
+    gsGlobal->Width        = 640;
+    gsGlobal->Height       = 512;
+    gsGlobal->DoubleBuffering = GS_SETTING_OFF;
+    gsGlobal->ZBuffering   = GS_SETTING_OFF;
+
+    // === The important transparency settings ===
+    gsGlobal->PrimAlphaEnable = GS_SETTING_ON;
+    
     gsKit_init_screen(gsGlobal);
+
+    // Normal "over" blending - most common and intuitive
+    gsKit_set_primalpha(gsGlobal,
+        GS_SETREG_ALPHA(0, 1, 0, 1, 0),   // A = As, B = 1-As
+        0);
+
+    gsKit_mode_switch(gsGlobal, GS_ONESHOT);
+ 
+	gsKit_clear(gsGlobal, GS_SETREG_RGBAQ(0,0,0xFF,80,0));
+	gsKit_queue_exec(gsGlobal);
+	gsKit_sync_flip(gsGlobal);
 }
 
 
 
 int main()
 {
-	
 	ReconnectIOP();
 	
-	while (1) {	gsKit_clear(gsGlobal, GS_SETREG_RGBAQ(0,0,0xFF,80,0));
-	gsKit_queue_exec(gsGlobal);
-	gsKit_sync_flip(gsGlobal);}
+	while (1) {
+		gsKit_clear(gsGlobal, GS_SETREG_RGBAQ(0,0,0xFF,80,0));
+		gsKit_queue_exec(gsGlobal);
+		gsKit_sync_flip(gsGlobal);
+	}
 }

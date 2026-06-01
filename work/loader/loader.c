@@ -33,7 +33,7 @@ int main(int argc, char **argv)
     FlushCache(0);
     FlushCache(2);
 
-    ExecPS2((void *)exec.epc, (void *)exec.gp, 0, NULL);
+    ExecPS2((void *)exec.epc, (void *)exec.gp, argc, argv);
 
     return -1;
 }
