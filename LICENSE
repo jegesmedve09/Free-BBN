@@ -1,4 +1,4 @@
-MIT License
+Variables Clause License (MIT + Commons Clause)
 
 Copyright (c) 2025 Bögi Dániel (jegesmedve09)
 
@@ -19,3 +19,18 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+COMMONS CLAUSE AMENDMENT TO MIT LICENSE
+
+The license granted above is hereby amended to include the following condition:
+
+The Software is not sold. 
+
+"Sell" means any sale, license, sub-license, lease, or other distribution 
+for fee, royalty, or other compensation of the Software or any product or 
+service that is derived from or includes the Software. 
+
+For the avoidance of doubt, the "Software" includes any source code, 
+binaries, or assets distributed under this license agreement.
