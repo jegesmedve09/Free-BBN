@@ -1,16 +1,44 @@
-Variables Clause License (MIT + Commons Clause)
+Custom Source-Available License
 
 Copyright (c) 2025-2026 Bögi Dániel (jegesmedve09)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+in the Software, including the rights to use, copy, modify, merge, and fork
+the Software for personal, educational, or internal non-commercial purposes,
+subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. ATTRIBUTION: The above copyright notice and this permission notice shall 
+   be included in all copies, forks, or substantial portions of the Software,
+   visible to the user of the Software, and must be clearly visible to the
+   end-user within the Software's primary interface or menus.
+
+2. NO COMMERCIAL SELLING: You may not sell, rent, lease, license, sublicense,
+   or otherwise distribute the Software, or any product or service derived 
+   from it, for a fee, royalty, or any other commercial compensation.
+
+3. NO HARDWARE EMBEDDING: You are strictly prohibited from shipping, manufacturing,
+   pre-installing, or distributing the Software embedded onto any hardware device,
+   physical product, or consumer electronics appliance, unless you obtain explicit,
+   prior written permission from the copyright holder, Bögi Dániel (jegesmedve09).
+   
+   EXCEPTION: This does not apply to individuals selling their personal, used,
+   pre-owned or second-hand hardware that happens to have the Software installed,
+   provided the sale is a one-time transaction and not part of a commercial bulk
+   distribution, or manufacturing business.
+
+4. ACCEPTABLE USE AND ETHICS: You may not use, modify or distribute this Software
+   to generate, promote, or facilitate hate speech, unlawful discrimination or
+   harassment against individuals or groups based on race, skin color, gender,
+   sexual orientation, gender identity, nationality or behavior.
+
+5. TERMINATION: Any violation of the terms, conditions, or restrictions listed
+   in this license immediately and automatically terminates your permission to
+   use, modify, or distribute the Software.
+
+6. LICENSING: The Software is free to use for hobbyists under our strict license.
+   If you want to use this commercially or put it on a hardware device, you must
+   buy a Commercial License from me.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -19,18 +47,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-COMMONS CLAUSE AMENDMENT TO MIT LICENSE
-
-The license granted above is hereby amended to include the following condition:
-
-The Software is not sold. 
-
-"Sell" means any sale, license, sub-license, lease, or other distribution 
-for fee, royalty, or other compensation of the Software or any product or 
-service that is derived from or includes the Software. 
-
-For the avoidance of doubt, the "Software" includes any source code, 
-binaries, or assets distributed under this license agreement.
