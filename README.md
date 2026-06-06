@@ -112,10 +112,10 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 
 ### License
 
-**MIT License**  
+**Custom License**  
 Copyright © 2025–2026 Bögi Dániel (@jegesmedve09) [](https://github.com/jegesmedve09)
 
-Use it, modify it, build cool stuff — just keep the copyright notice.
+Read LICENSE file for more information.
 
 ---
 
@@ -158,3 +158,9 @@ Use it, modify it, build cool stuff — just keep the copyright notice.
 > me: U want pizza?
 > swedes: *INHALES*
 > (väldigt bra)
+
+<br><br>
+
+> **A word from the dev:** (2026 Jun 6)
+> 
+> meow~ :3
