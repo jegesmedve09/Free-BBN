@@ -113,8 +113,8 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 | PS2 HDD (only FAT consoles) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
 
 ### IMPORTANT
-##Images/Pictures are not made, nor are my property:
-#The curse Wallpaper:
+<h1>Images/Pictures are not made, nor are my property:</h1>
+The curse Wallpaper:
 @shadydaone Instagram
 
 
