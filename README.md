@@ -23,6 +23,8 @@
 
 The original PSBBN was an amazing dashboard locked behind the official network/HDD adapter.
 
+WARNING: Some files contain Eastereggs, current files containing easter eggs: 1
+
 **Free-BBN** brings back that **iconic blue glow**, flowing waves, smooth menu animations — but now for **every PS2 owner**:
 
 - Fat models
@@ -109,6 +111,12 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 | USB Mass (Multiple Drives + Single Partition) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 | USB Mass (Multiple Drives + Multiple Partitions) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 | PS2 HDD (only FAT consoles) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
+
+### IMPORTANT
+##Images/Pictures are not made, nor are my property:
+#The curse Wallpaper:
+@shadydaone Instagram
+
 
 ### License
 
