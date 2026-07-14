@@ -23,6 +23,9 @@ GSGLOBAL *gsGlobal;
 #define WORKPATH_ADDRESS 0x01EFFC00
 
 #define DEV_EXIST(path) (stat(path, &(struct stat){0}) == 0)
+#define DEBUG_MARKER ((volatile unsigned char*)0x01EFFB00)
+
+#define RELPATH_ADDRESS 0x01EFFA00
 
 void FuckAroundSilentlyMs(int miliseconds)
 {
@@ -108,45 +111,18 @@ int main()
 	memcpy((void*)LOADER_BASE, loader, size_loader);
 	FlushCache(0);
 	FlushCache(2);
+    
+static char relative_path[] = "main.elf";
+	static char *argv[2];
+    argv[0] = relative_path;   // e.g. "main.fbnx" or "games/game.elf"
+    argv[1] = NULL;    
 	
-	char *savepath = "";
-	
-	//checking for FREEBBN directory
-	if 		(DEV_EXIST("mass:/FREEBBN/"))  { savepath = "mass:/FREEBBN/"; }
-	else if (DEV_EXIST("mass0:/FREEBBN/")) { savepath = "mass0:/FREEBBN/"; }
-	else if (DEV_EXIST("mass1:/FREEBBN/")) { savepath = "mass1:/FREEBBN/"; }
-	else if (DEV_EXIST("mass2:/FREEBBN/")) { savepath = "mass2:/FREEBBN/"; }
-	else if (DEV_EXIST("mass3:/FREEBBN/")) { savepath = "mass3:/FREEBBN/"; }
-	else if (DEV_EXIST("mass4:/FREEBBN/")) { savepath = "mass4:/FREEBBN/"; }
-	else if (DEV_EXIST("mass5:/FREEBBN/")) { savepath = "mass5:/FREEBBN/"; }
-	else if (DEV_EXIST("mass6:/FREEBBN/")) { savepath = "mass6:/FREEBBN/"; }
-	else if (DEV_EXIST("mass7:/FREEBBN/")) { savepath = "mass7:/FREEBBN/"; }
-	else if (DEV_EXIST("mc0:/FREEBBN/"))   { savepath = "mc0:/FREEBBN/"; }
-	else if (DEV_EXIST("mc1:/FREEBBN/"))   { savepath = "mc1:/FREEBBN/"; }
-	else if (DEV_EXIST("mc2:/FREEBBN/"))   { savepath = "mc2:/FREEBBN/"; }
-	else if (DEV_EXIST("mc3:/FREEBBN/"))   { savepath = "mc3:/FREEBBN/"; }
-	else if (DEV_EXIST("mc4:/FREEBBN/"))   { savepath = "mc4:/FREEBBN/"; }
-	else if (DEV_EXIST("mc5:/FREEBBN/"))   { savepath = "mc5:/FREEBBN/"; }
-	else if (DEV_EXIST("mc6:/FREEBBN/"))   { savepath = "mc6:/FREEBBN/"; }
-	else if (DEV_EXIST("mc7:/FREEBBN/"))   { savepath = "mc7:/FREEBBN/"; }
-	else {savepath = "host:/";}
-	//return 0;
-	
-	
-	strcpy((char*)WORKPATH_ADDRESS, savepath);
-	
-	const char *relative_path="main.elf";
-	
-	
-	char *argv[2];
-    argv[0] = (char*)relative_path;   // e.g. "main.fbnx" or "games/game.elf"
-    argv[1] = NULL;
+    static const char savepath[] = "host:";
+    strcpy((char*)WORKPATH_ADDRESS, savepath);
+    strcpy((char*)RELPATH_ADDRESS, "main.elf");
 
-    // Call the loader
-    //int (*loader_entry)(int, char**) = (int(*)(int, char**))LOADER_BASE;
-    //loader_entry(1, argv);
-	
-	ExecPS2((void*)LOADER_BASE, NULL, 1, argv);
+    *DEBUG_MARKER = 0x11;
+    ExecPS2((void*)LOADER_BASE, NULL, 1, argv);   // argv can stay, we just won't trus
 	
 	while (1) {}
 	

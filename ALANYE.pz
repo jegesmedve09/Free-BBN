@@ -1,0 +1,137 @@
+import tkinter as tk
+from PIL import Image, ImageTk
+
+# ==========================
+# Settings
+# ==========================
+
+FONT_SHEET = "font.png"
+
+CHAR_WIDTH = 16
+CHAR_HEIGHT = 32
+
+SHEET_WIDTH = 512
+SHEET_HEIGHT = 512
+
+COLUMNS = SHEET_WIDTH // CHAR_WIDTH
+ROWS = SHEET_HEIGHT // CHAR_HEIGHT
+TOTAL_CHARS = COLUMNS * ROWS
+
+SCALE = 2  # Preview scale (2 = double size)
+
+# ==========================
+
+sheet = Image.open(FONT_SHEET).convert("RGBA")
+
+def reload_image():
+    global sheet
+    sheet = Image.open(FONT_SHEET).convert("RGBA")
+
+
+def get_char(index):
+    """Returns one character image."""
+    if index < 1 or index > TOTAL_CHARS:
+        return Image.new("RGBA", (CHAR_WIDTH, CHAR_HEIGHT), (255, 0, 0, 120))
+
+    index -= 1
+
+    col = index % COLUMNS
+    row = index // COLUMNS
+
+    x = col * CHAR_WIDTH
+    y = row * CHAR_HEIGHT
+
+    return sheet.crop((x, y, x + CHAR_WIDTH, y + CHAR_HEIGHT))
+
+
+def render():
+    text = textbox.get("1.0", "end").strip()
+
+    if not text:
+        canvas.delete("all")
+        return
+
+    lines = []
+
+    max_width = 1
+
+    for line in text.splitlines():
+        nums = []
+
+        for part in line.split(","):
+            part = part.strip()
+
+            if not part:
+                continue
+
+            try:
+                nums.append(int(part))
+            except:
+                pass
+
+        lines.append(nums)
+        max_width = max(max_width, len(nums))
+
+    img = Image.new(
+        "RGBA",
+        (
+            max_width * CHAR_WIDTH,
+            max(len(lines), 1) * CHAR_HEIGHT
+        ),
+        (0, 0, 0, 0)
+    )
+
+    for y, nums in enumerate(lines):
+        for x, n in enumerate(nums):
+            img.paste(get_char(n), (x * CHAR_WIDTH, y * CHAR_HEIGHT))
+
+    preview = img.resize(
+        (img.width * SCALE, img.height * SCALE),
+        Image.NEAREST
+    )
+
+    global preview_img
+    preview_img = ImageTk.PhotoImage(preview)
+
+    canvas.config(
+        width=preview.width,
+        height=preview.height
+    )
+
+    canvas.delete("all")
+    canvas.create_image(0, 0, anchor="nw", image=preview_img)
+
+    global last_image
+    last_image = img
+
+
+def update(event=None):
+    reload_image()
+    render()
+
+
+def save(event=None):
+    if last_image is not None:
+        last_image.save("output.png")
+        print("Saved output.png")
+
+
+root = tk.Tk()
+root.title("Bitmap Font Writer")
+
+canvas = tk.Canvas(root, bg="white")
+canvas.pack(padx=10, pady=10)
+
+textbox = tk.Text(root, height=5, font=("Consolas", 12))
+textbox.pack(fill="x", padx=10, pady=10)
+
+textbox.bind("<KeyRelease>", update)
+root.bind("<Control-s>", save)
+
+preview_img = None
+last_image = None
+
+textbox.insert("1.0", "001,026,034,102")
+render()
+
+root.mainloop()
