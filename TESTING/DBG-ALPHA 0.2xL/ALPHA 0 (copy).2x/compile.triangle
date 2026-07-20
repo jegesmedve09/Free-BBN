@@ -1,0 +1,63 @@
+default_path=$(pwd)
+echo Default Path: $default_path
+
+if [ $1 = "help" ]; then
+    echo "use $0 clean to clean only"
+    echo "use $0 to clean and build"
+    exit
+fi
+
+echo Cleaning up...
+
+echo Cleaning INIT
+cd init
+make clean
+cd ..
+echo Cleaning INIT OK
+
+echo Cleaning loader...
+cd loader
+make clean
+cd ..
+echo Cleaning loader OK
+
+echo Cleaning BUILD...
+cd BUILD
+rm -r *
+cd ..
+echo Cleaning BUILD OK
+
+
+if [ $1 = "clean" ]; then
+    echo Cleaning OK
+    exit
+fi
+
+
+echo Compiling Loader...
+cd loader
+make
+cd ..
+echo Compiling Loader OK
+
+echo Compiling INIT...
+cp loader/loader_bin.c init/loader_bin.c
+cd init
+make
+cd ..
+echo Compiling INIT OK
+
+
+
+
+echo Compiling TEST MAIN...
+cd main/TESTING
+make
+cd ../..
+echo Compiling TEST MAIN OK
+
+echo Generating Build
+cp init/init.elf BUILD/init.elf
+cp main/TESTING/main.elf BUILD/main.elf
+cp -r ASSETS/* BUILD/
+echo Generating Build OK

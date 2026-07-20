@@ -1,0 +1,1847 @@
+Archive member included to satisfy reference by file (symbol)
+
+/usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
+                              loader.o (strncpy)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(FlushCache.o)
+                              loader.o (FlushCache)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o)
+                              loader.o (sceSifInitRpc)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadFileInit.o)
+                              loader.o (SifLoadFileInit)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadElf.o)
+                              loader.o (SifLoadElf)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(__iop_control_internals.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o) (_iop_reboot_count)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DIntr.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o) (DIntr)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EIntr.o)
+                              loader.o (EIntr)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitSys.o)
+                              loader.o (_InitSys)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitSys.o) (InitThread)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iWakeupThread.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o) (iWakeupThread)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitSys.o) (InitExecPS2)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd_common.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd.o) (PatchIsNeeded)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(osdsrc_bin.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd.o) (osdsrc)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitSys.o) (InitTLBFunctions)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbsrc_bin.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o) (tlbsrc)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(alarm.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitSys.o) (InitAlarm)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(srcfile_bin.o)
+                              alarm.o (symbol from plugin) (srcfile)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(eenull_bin.o)
+                              alarm.o (symbol from plugin) (eenull)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_exit_internals.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o) (_kExecArg)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(Exit.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o) (Exit)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ExecPS2.o)
+                              loader.o (ExecPS2)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopy.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd.o) (kCopy)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(setup_syscalls.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd.o) (setup)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(KExit.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(Exit.o) (KExit)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ExecPS2.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ExecPS2.o) (_ExecPS2)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateThread.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o) (CreateThread)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(StartThread.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o) (StartThread)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ChangeThreadPriority.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o) (ChangeThreadPriority)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RotateThreadReadyQueue.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o) (RotateThreadReadyQueue)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetThreadId.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o) (GetThreadId)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iGetThreadId.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iWakeupThread.o) (_iGetThreadId)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WakeupThread.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o) (WakeupThread)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iWakeupThread.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iWakeupThread.o) (_iWakeupThread)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SuspendThread.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o) (SuspendThread)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateSema.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o) (CreateSema)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DeleteSema.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o) (DeleteSema)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iSignalSema.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o) (iSignalSema)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WaitSema.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o) (WaitSema)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetOsdConfigParam.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd_common.o) (SetOsdConfigParam)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetOsdConfigParam.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd_common.o) (GetOsdConfigParam)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SetTLBEntry.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o) (_SetTLBEntry)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetReg.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o) (sceSifSetReg)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetReg.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o) (sceSifGetReg)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetMemorySize.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o) (GetMemorySize)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitTLB.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o) (_InitTLB)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSendCmd.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o) (sceSifSendCmd)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSendCmd.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o) (isceSifSendCmd)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o) (sceSifInitCmd)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifAddCmdHandler.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o) (sceSifAddCmdHandler)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetSreg.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o) (sceSifGetSreg)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_fpacket.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o) (_rpc_get_fpacket)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifBindRpc.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadFileInit.o) (sceSifBindRpc)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifLoadElfPart.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadElf.o) (_SifLoadElfPart)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EnableDmac.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o) (EnableDmac)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DisableDmac.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o) (DisableDmac)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_init_timer.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitSys.o) (_ps2sdk_init_timer)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(TerminateLibrary.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(Exit.o) (TerminateLibrary)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetArg.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ExecPS2.o) (SetArg)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopyBytes.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetArg.o) (kCopyBytes)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(AddDmacHandler.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o) (AddDmacHandler)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RemoveDmacHandler.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o) (RemoveDmacHandler)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_EnableDmac.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EnableDmac.o) (_EnableDmac)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_DisableDmac.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DisableDmac.o) (_DisableDmac)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDChain.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o) (sceSifSetDChain)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(strlen.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetArg.o) (strlen)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(memset.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o) (memset)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifSendCmd.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSendCmd.o) (_SifSendCmd)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifCmdIntHandler.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o) (_SifCmdIntHandler)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_packet.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifBindRpc.o) (_rpc_get_packet)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifCallRpc.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifLoadElfPart.o) (sceSifCallRpc)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_deinit_timer.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(TerminateLibrary.o) (_ps2sdk_deinit_timer)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDma.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifSendCmd.o) (sceSifSetDma)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDma.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifSendCmd.o) (isceSifSetDma)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDChain.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifCmdIntHandler.o) (isceSifSetDChain)
+/usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifWriteBackDCache.o)
+                              /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifSendCmd.o) (sceSifWriteBackDCache)
+
+Discarded input sections
+
+ .reginfo       0x00000000       0x18 loader.o
+ .MIPS.abiflags
+                0x00000000       0x18 loader.o
+ .reginfo       0x00000000       0x18 /tmp/ccTm9uRI.ltrans0.ltrans.o
+ .MIPS.abiflags
+                0x00000000       0x18 /tmp/ccTm9uRI.ltrans0.ltrans.o
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(FlushCache.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(FlushCache.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadFileInit.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadFileInit.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadElf.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadElf.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(__iop_control_internals.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(__iop_control_internals.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DIntr.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DIntr.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EIntr.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EIntr.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitSys.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitSys.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iWakeupThread.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iWakeupThread.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd_common.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd_common.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(osdsrc_bin.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(osdsrc_bin.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbsrc_bin.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbsrc_bin.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(srcfile_bin.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(srcfile_bin.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(eenull_bin.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(eenull_bin.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_exit_internals.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_exit_internals.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(Exit.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(Exit.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ExecPS2.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ExecPS2.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopy.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopy.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(setup_syscalls.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(setup_syscalls.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(KExit.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(KExit.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ExecPS2.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ExecPS2.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateThread.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateThread.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(StartThread.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(StartThread.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ChangeThreadPriority.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ChangeThreadPriority.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RotateThreadReadyQueue.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RotateThreadReadyQueue.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetThreadId.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetThreadId.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iGetThreadId.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iGetThreadId.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WakeupThread.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WakeupThread.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iWakeupThread.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iWakeupThread.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SuspendThread.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SuspendThread.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateSema.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateSema.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DeleteSema.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DeleteSema.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iSignalSema.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iSignalSema.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WaitSema.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WaitSema.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetOsdConfigParam.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetOsdConfigParam.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetOsdConfigParam.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetOsdConfigParam.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SetTLBEntry.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SetTLBEntry.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetReg.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetReg.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetReg.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetReg.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetMemorySize.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetMemorySize.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitTLB.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitTLB.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSendCmd.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSendCmd.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSendCmd.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSendCmd.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifAddCmdHandler.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifAddCmdHandler.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetSreg.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetSreg.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_fpacket.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_fpacket.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifBindRpc.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifBindRpc.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifLoadElfPart.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifLoadElfPart.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EnableDmac.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EnableDmac.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DisableDmac.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DisableDmac.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_init_timer.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_init_timer.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(TerminateLibrary.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(TerminateLibrary.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetArg.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetArg.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopyBytes.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopyBytes.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(AddDmacHandler.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(AddDmacHandler.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RemoveDmacHandler.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RemoveDmacHandler.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_EnableDmac.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_EnableDmac.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_DisableDmac.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_DisableDmac.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDChain.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDChain.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(strlen.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(strlen.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(memset.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(memset.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifSendCmd.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifSendCmd.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifCmdIntHandler.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifCmdIntHandler.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_packet.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_packet.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifCallRpc.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifCallRpc.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_deinit_timer.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_deinit_timer.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDma.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDma.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDma.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDma.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDChain.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDChain.o)
+ .reginfo       0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifWriteBackDCache.o)
+ .MIPS.abiflags
+                0x00000000       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifWriteBackDCache.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD crt0.o
+LOAD loader.o
+START GROUP
+LOAD /tmp/ccTm9uRI.ltrans0.ltrans.o
+LOAD /tmp/ccP4H7bh.debug.temp.o
+LOAD /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a
+LOAD /usr/local/ps2dev/ps2sdk/ee/lib/libcdvd.a
+LOAD /usr/local/ps2dev/ps2sdk/ee/lib/libcglue.a
+LOAD /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libpthread.a
+LOAD /usr/local/ps2dev/ps2sdk/ee/lib/libpthreadglue.a
+LOAD /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a
+LOAD /usr/local/ps2dev/ee/bin/../lib/gcc/mips64r5900el-ps2-elf/15.2.0/libgcc.a
+END GROUP
+                0x01f00000                        . = 0x1f00000
+                0x01f07ff0                        _gp = (. + 0x7ff0)
+
+.text           0x01f00000     0x2440
+ *(.text.start)
+ .text.start    0x01f00000       0x5c crt0.o
+                0x01f00000                _start
+ *(.text*)
+ .text          0x01f0005c        0x0 crt0.o
+ *fill*         0x01f0005c        0x4 
+ .text          0x01f00060       0x38 loader.o
+                0x01f00060                FuckAroundSilentlyMs
+                0x01f00090                _exit
+ .text.startup  0x01f00098      0x1d8 loader.o
+                0x01f00098                main
+ .text          0x01f00270       0xd8 /tmp/ccTm9uRI.ltrans0.ltrans.o
+                0x01f00270                InitAlarm
+ .text          0x01f00348       0xc8 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
+                0x01f00348                strncpy
+ .text          0x01f00410       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(FlushCache.o)
+                0x01f00410                FlushCache
+ .text          0x01f00420      0x458 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o)
+                0x01f006b8                sceSifInitRpc
+                0x01f00850                sceSifExitRpc
+ .text          0x01f00878      0x130 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadFileInit.o)
+                0x01f00878                SifLoadFileInit
+ .text          0x01f009a8       0x30 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadElf.o)
+                0x01f009a8                SifLoadElf
+ .text          0x01f009d8        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(__iop_control_internals.o)
+ .text          0x01f009d8       0x40 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DIntr.o)
+                0x01f009d8                DIntr
+ .text          0x01f00a18       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EIntr.o)
+                0x01f00a18                EIntr
+ .text          0x01f00a30       0x38 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitSys.o)
+                0x01f00a30                _InitSys
+ .text          0x01f00a68      0x1a0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o)
+                0x01f00b30                InitThread
+ .text          0x01f00c08       0xa0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iWakeupThread.o)
+                0x01f00c08                iWakeupThread
+ .text          0x01f00ca8       0x90 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd.o)
+                0x01f00ca8                InitExecPS2
+ .text          0x01f00d38       0x58 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd_common.o)
+                0x01f00d38                PatchIsNeeded
+ .text          0x01f00d90        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(osdsrc_bin.o)
+ .text          0x01f00d90      0x290 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o)
+                0x01f00d90                InitTLBFunctions
+                0x01f00e48                InitTLB
+ .text          0x01f01020        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbsrc_bin.o)
+ .text          0x01f01020        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(srcfile_bin.o)
+ .text          0x01f01020        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(eenull_bin.o)
+ .text          0x01f01020        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_exit_internals.o)
+ .text          0x01f01020       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(Exit.o)
+                0x01f01020                Exit
+ .text          0x01f01040       0x70 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ExecPS2.o)
+                0x01f01040                ExecPS2
+ .text          0x01f010b0       0x50 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopy.o)
+                0x01f010b0                kCopy
+ .text          0x01f01100       0x3c /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(setup_syscalls.o)
+                0x01f01100                setup
+                0x01f01114                Copy
+                0x01f01128                GetEntryAddress
+ *fill*         0x01f0113c        0x4 
+ .text          0x01f01140       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(KExit.o)
+                0x01f01140                KExit
+ .text          0x01f01150       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ExecPS2.o)
+                0x01f01150                _ExecPS2
+ .text          0x01f01160       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateThread.o)
+                0x01f01160                CreateThread
+ .text          0x01f01170       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(StartThread.o)
+                0x01f01170                StartThread
+ .text          0x01f01180       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ChangeThreadPriority.o)
+                0x01f01180                ChangeThreadPriority
+ .text          0x01f01190       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RotateThreadReadyQueue.o)
+                0x01f01190                RotateThreadReadyQueue
+ .text          0x01f011a0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetThreadId.o)
+                0x01f011a0                GetThreadId
+ .text          0x01f011b0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iGetThreadId.o)
+                0x01f011b0                _iGetThreadId
+ .text          0x01f011c0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WakeupThread.o)
+                0x01f011c0                WakeupThread
+ .text          0x01f011d0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iWakeupThread.o)
+                0x01f011d0                _iWakeupThread
+ .text          0x01f011e0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SuspendThread.o)
+                0x01f011e0                SuspendThread
+ .text          0x01f011f0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateSema.o)
+                0x01f011f0                CreateSema
+ .text          0x01f01200       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DeleteSema.o)
+                0x01f01200                DeleteSema
+ .text          0x01f01210       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iSignalSema.o)
+                0x01f01210                iSignalSema
+ .text          0x01f01220       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WaitSema.o)
+                0x01f01220                WaitSema
+ .text          0x01f01230       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetOsdConfigParam.o)
+                0x01f01230                SetOsdConfigParam
+ .text          0x01f01240       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetOsdConfigParam.o)
+                0x01f01240                GetOsdConfigParam
+ .text          0x01f01250       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SetTLBEntry.o)
+                0x01f01250                _SetTLBEntry
+ .text          0x01f01260       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetReg.o)
+                0x01f01260                sceSifSetReg
+ .text          0x01f01270       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetReg.o)
+                0x01f01270                sceSifGetReg
+ .text          0x01f01280       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetMemorySize.o)
+                0x01f01280                GetMemorySize
+ .text          0x01f01290       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitTLB.o)
+                0x01f01290                _InitTLB
+ .text          0x01f012a0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSendCmd.o)
+                0x01f012a0                sceSifSendCmd
+ .text          0x01f012c0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSendCmd.o)
+                0x01f012c0                isceSifSendCmd
+ .text          0x01f012e0      0x318 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o)
+                0x01f01310                sceSifInitCmd
+                0x01f015c0                sceSifExitCmd
+ .text          0x01f015f8       0x58 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifAddCmdHandler.o)
+                0x01f015f8                sceSifAddCmdHandler
+ .text          0x01f01650       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetSreg.o)
+                0x01f01650                sceSifGetSreg
+ .text          0x01f01668       0x30 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_fpacket.o)
+                0x01f01668                _rpc_get_fpacket
+ .text          0x01f01698      0x178 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifBindRpc.o)
+                0x01f01698                sceSifBindRpc
+ .text          0x01f01810       0xf0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifLoadElfPart.o)
+                0x01f01810                _SifLoadElfPart
+ .text          0x01f01900       0x78 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EnableDmac.o)
+                0x01f01900                EnableDmac
+ .text          0x01f01978       0x78 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DisableDmac.o)
+                0x01f01978                DisableDmac
+ .text          0x01f019f0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_init_timer.o)
+                0x01f019f0                _ps2sdk_init_timer
+ .text          0x01f01a10       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(TerminateLibrary.o)
+                0x01f01a10                TerminateLibrary
+ .text          0x01f01a30      0x120 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetArg.o)
+                0x01f01a30                SetArg
+ .text          0x01f01b50       0x30 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopyBytes.o)
+                0x01f01b50                kCopyBytes
+ .text          0x01f01b80       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(AddDmacHandler.o)
+                0x01f01b80                AddDmacHandler
+ .text          0x01f01b90       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RemoveDmacHandler.o)
+                0x01f01b90                RemoveDmacHandler
+ .text          0x01f01ba0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_EnableDmac.o)
+                0x01f01ba0                _EnableDmac
+ .text          0x01f01bb0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_DisableDmac.o)
+                0x01f01bb0                _DisableDmac
+ .text          0x01f01bc0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDChain.o)
+                0x01f01bc0                sceSifSetDChain
+ .text          0x01f01bd0      0x138 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(strlen.o)
+                0x01f01bd0                strlen
+ .text          0x01f01d08       0xc0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(memset.o)
+                0x01f01d08                memset
+ .text          0x01f01dc8      0x140 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifSendCmd.o)
+                0x01f01dc8                _SifSendCmd
+ .text          0x01f01f08      0x108 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifCmdIntHandler.o)
+                0x01f01f08                _SifCmdIntHandler
+ .text          0x01f02010       0xd0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_packet.o)
+                0x01f02010                _rpc_get_packet
+ .text          0x01f020e0      0x260 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifCallRpc.o)
+                0x01f020e0                sceSifCallRpc
+ .text          0x01f02340       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_deinit_timer.o)
+                0x01f02340                _ps2sdk_deinit_timer
+ .text          0x01f02360       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDma.o)
+                0x01f02360                sceSifSetDma
+ .text          0x01f02370       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDma.o)
+                0x01f02370                isceSifSetDma
+ .text          0x01f02380       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDChain.o)
+                0x01f02380                isceSifSetDChain
+ .text          0x01f02390       0xb0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifWriteBackDCache.o)
+                0x01f02390                sceSifWriteBackDCache
+
+.rodata         0x01f02440      0x310
+ *(.rodata*)
+ .rodata.str1.8
+                0x01f02440       0x19 loader.o
+                                  0x8 (size before relaxing)
+ *fill*         0x01f02459        0x7 
+ .rodata        0x01f02460       0x40 /tmp/ccTm9uRI.ltrans0.ltrans.o
+ .rodata.str1.8
+                0x01f024a0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o)
+                                 0x10 (size before relaxing)
+ .rodata        0x01f024a0      0x2b0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o)
+ .rodata.str1.8
+                0x01f02750        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ExecPS2.o)
+                                  0x1 (size before relaxing)
+
+.MIPS.abiflags  0x01f02750       0x18
+ .MIPS.abiflags
+                0x01f02750       0x18 crt0.o
+
+.data           0x01f02780     0x1138
+ *(.data*)
+ .data          0x01f02780        0x0 crt0.o
+ .data          0x01f02780        0x8 loader.o
+ .data          0x01f02788        0x0 /tmp/ccTm9uRI.ltrans0.ltrans.o
+ .data          0x01f02788        0x0 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
+ .data          0x01f02788        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(FlushCache.o)
+ *fill*         0x01f02788       0x38 
+ .data          0x01f027c0       0x40 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o)
+                0x01f027c0                _sif_rpc_data
+ .data          0x01f02800        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadFileInit.o)
+ .data          0x01f02800        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadElf.o)
+ .data          0x01f02800        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(__iop_control_internals.o)
+ .data          0x01f02800        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DIntr.o)
+ .data          0x01f02800        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EIntr.o)
+ .data          0x01f02800        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitSys.o)
+ .data          0x01f02800        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o)
+ .data          0x01f02800        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iWakeupThread.o)
+ .data          0x01f02800        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd.o)
+ .data          0x01f02800        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd_common.o)
+ .data          0x01f02800      0x42c /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(osdsrc_bin.o)
+                0x01f02800                osdsrc
+                0x01f02c28                size_osdsrc
+ *fill*         0x01f02c2c        0x4 
+ .data          0x01f02c30       0x1c /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o)
+ *fill*         0x01f02c4c        0x4 
+ .data          0x01f02c50      0x408 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbsrc_bin.o)
+                0x01f02c50                tlbsrc
+                0x01f03054                size_tlbsrc
+ *fill*         0x01f03058        0x8 
+ .data          0x01f03060      0x814 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(srcfile_bin.o)
+                0x01f03060                srcfile
+                0x01f03870                size_srcfile
+ *fill*         0x01f03874        0xc 
+ .data          0x01f03880       0x2c /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(eenull_bin.o)
+                0x01f03880                eenull
+                0x01f038a8                size_eenull
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_exit_internals.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(Exit.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ExecPS2.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopy.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(setup_syscalls.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(KExit.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ExecPS2.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateThread.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(StartThread.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ChangeThreadPriority.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RotateThreadReadyQueue.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetThreadId.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iGetThreadId.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WakeupThread.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iWakeupThread.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SuspendThread.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateSema.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DeleteSema.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iSignalSema.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WaitSema.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetOsdConfigParam.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetOsdConfigParam.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SetTLBEntry.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetReg.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetReg.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetMemorySize.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitTLB.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSendCmd.o)
+ .data          0x01f038ac        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSendCmd.o)
+ .data          0x01f038ac        0x4 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o)
+ .data          0x01f038b0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifAddCmdHandler.o)
+ .data          0x01f038b0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetSreg.o)
+ .data          0x01f038b0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_fpacket.o)
+ .data          0x01f038b0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifBindRpc.o)
+ .data          0x01f038b0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifLoadElfPart.o)
+ .data          0x01f038b0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EnableDmac.o)
+ .data          0x01f038b0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DisableDmac.o)
+ .data          0x01f038b0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_init_timer.o)
+ .data          0x01f038b0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(TerminateLibrary.o)
+ .data          0x01f038b0        0x8 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetArg.o)
+                0x01f038b0                SysEntry
+ .data          0x01f038b8        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopyBytes.o)
+ .data          0x01f038b8        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(AddDmacHandler.o)
+ .data          0x01f038b8        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RemoveDmacHandler.o)
+ .data          0x01f038b8        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_EnableDmac.o)
+ .data          0x01f038b8        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_DisableDmac.o)
+ .data          0x01f038b8        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDChain.o)
+ .data          0x01f038b8        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(strlen.o)
+ .data          0x01f038b8        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(memset.o)
+ .data          0x01f038b8        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifSendCmd.o)
+ .data          0x01f038b8        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifCmdIntHandler.o)
+ .data          0x01f038b8        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_packet.o)
+ .data          0x01f038b8        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifCallRpc.o)
+ .data          0x01f038b8        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_deinit_timer.o)
+ .data          0x01f038b8        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDma.o)
+ .data          0x01f038b8        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDma.o)
+ .data          0x01f038b8        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDChain.o)
+ .data          0x01f038b8        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifWriteBackDCache.o)
+                0x01f038c0                        _fbss = ALIGN (0x10)
+
+.bss            0x01f038c0     0x2400
+ *(.bss*)
+ .bss           0x01f038c0        0x0 crt0.o
+ .bss           0x01f038c0        0x0 loader.o
+ .bss           0x01f038c0        0x0 /tmp/ccTm9uRI.ltrans0.ltrans.o
+ .bss           0x01f038c0        0x0 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
+ .bss           0x01f038c0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(FlushCache.o)
+ .bss           0x01f038c0     0x1840 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o)
+ .bss           0x01f05100       0x34 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadFileInit.o)
+                0x01f05100                _lf_init
+                0x01f05108                _lf_cd
+ .bss           0x01f05134        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadElf.o)
+ .bss           0x01f05134        0x4 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(__iop_control_internals.o)
+                0x01f05134                _iop_reboot_count
+ .bss           0x01f05138        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DIntr.o)
+ .bss           0x01f05138        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EIntr.o)
+ .bss           0x01f05138        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitSys.o)
+ *fill*         0x01f05138        0x8 
+ .bss           0x01f05140      0x810 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o)
+                0x01f05140                topArg
+                0x01f05548                topSema
+                0x01f0554c                topId
+                0x01f05550                stack
+ .bss           0x01f05950        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iWakeupThread.o)
+ .bss           0x01f05950        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd.o)
+ .bss           0x01f05950        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd_common.o)
+ .bss           0x01f05950        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(osdsrc_bin.o)
+ .bss           0x01f05950        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o)
+ .bss           0x01f05950        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbsrc_bin.o)
+ .bss           0x01f05950        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(srcfile_bin.o)
+ .bss           0x01f05950        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(eenull_bin.o)
+ .bss           0x01f05950        0x4 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_exit_internals.o)
+                0x01f05950                _kExecArg
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(Exit.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ExecPS2.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopy.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(setup_syscalls.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(KExit.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ExecPS2.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateThread.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(StartThread.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ChangeThreadPriority.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RotateThreadReadyQueue.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetThreadId.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iGetThreadId.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WakeupThread.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iWakeupThread.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SuspendThread.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateSema.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DeleteSema.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iSignalSema.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WaitSema.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetOsdConfigParam.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetOsdConfigParam.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SetTLBEntry.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetReg.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetReg.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetMemorySize.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitTLB.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSendCmd.o)
+ .bss           0x01f05954        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSendCmd.o)
+ *fill*         0x01f05954       0x2c 
+ .bss           0x01f05980      0x340 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o)
+                0x01f05980                _sif_cmd_data
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifAddCmdHandler.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetSreg.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_fpacket.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifBindRpc.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifLoadElfPart.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EnableDmac.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DisableDmac.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_init_timer.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(TerminateLibrary.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetArg.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopyBytes.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(AddDmacHandler.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RemoveDmacHandler.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_EnableDmac.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_DisableDmac.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDChain.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(strlen.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(memset.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifSendCmd.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifCmdIntHandler.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_packet.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifCallRpc.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_deinit_timer.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDma.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDma.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDChain.o)
+ .bss           0x01f05cc0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifWriteBackDCache.o)
+ *(COMMON)
+                0x01f05cc0                        _end = ALIGN (0x10)
+                0x01f05cc0                        _stack_start = _end
+                0x01f09cc0                        _stack_end = (_end + 0x4000)
+                0x02000000                        . = 0x2000000
+                0x00000001                        ASSERT ((_stack_end <= 0x2000000), Loader exceeds 1 MB!)
+OUTPUT(loader.elf elf32-littlemips)
+
+.reginfo        0x00000000       0x18
+ .reginfo       0x00000000       0x18 crt0.o
+
+.pdr            0x00000000      0xaa0
+ .pdr           0x00000000        0x0 crt0.o
+ .pdr           0x00000000       0x60 loader.o
+ .pdr           0x00000060       0x20 /tmp/ccTm9uRI.ltrans0.ltrans.o
+ .pdr           0x00000080       0x20 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
+ .pdr           0x000000a0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(FlushCache.o)
+ .pdr           0x000000c0       0xc0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o)
+ .pdr           0x00000180       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadFileInit.o)
+ .pdr           0x000001a0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadElf.o)
+ .pdr           0x000001c0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(__iop_control_internals.o)
+ .pdr           0x000001c0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DIntr.o)
+ .pdr           0x000001e0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EIntr.o)
+ .pdr           0x00000200       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitSys.o)
+ .pdr           0x00000220       0x40 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o)
+ .pdr           0x00000260       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iWakeupThread.o)
+ .pdr           0x00000280       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd.o)
+ .pdr           0x000002a0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd_common.o)
+ .pdr           0x000002c0        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(osdsrc_bin.o)
+ .pdr           0x000002c0       0x40 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o)
+ .pdr           0x00000300        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbsrc_bin.o)
+ .pdr           0x00000300        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(srcfile_bin.o)
+ .pdr           0x00000300        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(eenull_bin.o)
+ .pdr           0x00000300        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_exit_internals.o)
+ .pdr           0x00000300       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(Exit.o)
+ .pdr           0x00000320       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ExecPS2.o)
+ .pdr           0x00000340       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopy.o)
+ .pdr           0x00000360       0x60 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(setup_syscalls.o)
+ .pdr           0x000003c0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(KExit.o)
+ .pdr           0x000003e0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ExecPS2.o)
+ .pdr           0x00000400       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateThread.o)
+ .pdr           0x00000420       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(StartThread.o)
+ .pdr           0x00000440       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ChangeThreadPriority.o)
+ .pdr           0x00000460       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RotateThreadReadyQueue.o)
+ .pdr           0x00000480       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetThreadId.o)
+ .pdr           0x000004a0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iGetThreadId.o)
+ .pdr           0x000004c0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WakeupThread.o)
+ .pdr           0x000004e0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iWakeupThread.o)
+ .pdr           0x00000500       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SuspendThread.o)
+ .pdr           0x00000520       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateSema.o)
+ .pdr           0x00000540       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DeleteSema.o)
+ .pdr           0x00000560       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iSignalSema.o)
+ .pdr           0x00000580       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WaitSema.o)
+ .pdr           0x000005a0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetOsdConfigParam.o)
+ .pdr           0x000005c0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetOsdConfigParam.o)
+ .pdr           0x000005e0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SetTLBEntry.o)
+ .pdr           0x00000600       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetReg.o)
+ .pdr           0x00000620       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetReg.o)
+ .pdr           0x00000640       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetMemorySize.o)
+ .pdr           0x00000660       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitTLB.o)
+ .pdr           0x00000680       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSendCmd.o)
+ .pdr           0x000006a0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSendCmd.o)
+ .pdr           0x000006c0       0x80 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o)
+ .pdr           0x00000740       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifAddCmdHandler.o)
+ .pdr           0x00000760       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetSreg.o)
+ .pdr           0x00000780       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_fpacket.o)
+ .pdr           0x000007a0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifBindRpc.o)
+ .pdr           0x000007c0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifLoadElfPart.o)
+ .pdr           0x000007e0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EnableDmac.o)
+ .pdr           0x00000800       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DisableDmac.o)
+ .pdr           0x00000820       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_init_timer.o)
+ .pdr           0x00000840       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(TerminateLibrary.o)
+ .pdr           0x00000860       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetArg.o)
+ .pdr           0x00000880       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopyBytes.o)
+ .pdr           0x000008a0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(AddDmacHandler.o)
+ .pdr           0x000008c0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RemoveDmacHandler.o)
+ .pdr           0x000008e0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_EnableDmac.o)
+ .pdr           0x00000900       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_DisableDmac.o)
+ .pdr           0x00000920       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDChain.o)
+ .pdr           0x00000940       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(strlen.o)
+ .pdr           0x00000960       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(memset.o)
+ .pdr           0x00000980       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifSendCmd.o)
+ .pdr           0x000009a0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifCmdIntHandler.o)
+ .pdr           0x000009c0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_packet.o)
+ .pdr           0x000009e0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifCallRpc.o)
+ .pdr           0x00000a00       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_deinit_timer.o)
+ .pdr           0x00000a20       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDma.o)
+ .pdr           0x00000a40       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDma.o)
+ .pdr           0x00000a60       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDChain.o)
+ .pdr           0x00000a80       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifWriteBackDCache.o)
+
+.gnu.attributes
+                0x00000000        0x0
+ .gnu.attributes
+                0x00000000       0x10 crt0.o
+ .gnu.attributes
+                0x00000010       0x10 loader.o
+ .gnu.attributes
+                0x00000020       0x10 /tmp/ccTm9uRI.ltrans0.ltrans.o
+ .gnu.attributes
+                0x00000030       0x10 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
+ .gnu.attributes
+                0x00000040       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(FlushCache.o)
+ .gnu.attributes
+                0x00000050       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o)
+ .gnu.attributes
+                0x00000060       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadFileInit.o)
+ .gnu.attributes
+                0x00000070       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadElf.o)
+ .gnu.attributes
+                0x00000080       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(__iop_control_internals.o)
+ .gnu.attributes
+                0x00000090       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DIntr.o)
+ .gnu.attributes
+                0x000000a0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EIntr.o)
+ .gnu.attributes
+                0x000000b0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitSys.o)
+ .gnu.attributes
+                0x000000c0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o)
+ .gnu.attributes
+                0x000000d0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iWakeupThread.o)
+ .gnu.attributes
+                0x000000e0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd.o)
+ .gnu.attributes
+                0x000000f0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd_common.o)
+ .gnu.attributes
+                0x00000100       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(osdsrc_bin.o)
+ .gnu.attributes
+                0x00000110       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o)
+ .gnu.attributes
+                0x00000120       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbsrc_bin.o)
+ .gnu.attributes
+                0x00000130       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(srcfile_bin.o)
+ .gnu.attributes
+                0x00000140       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(eenull_bin.o)
+ .gnu.attributes
+                0x00000150       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_exit_internals.o)
+ .gnu.attributes
+                0x00000160       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(Exit.o)
+ .gnu.attributes
+                0x00000170       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ExecPS2.o)
+ .gnu.attributes
+                0x00000180       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopy.o)
+ .gnu.attributes
+                0x00000190       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(setup_syscalls.o)
+ .gnu.attributes
+                0x000001a0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(KExit.o)
+ .gnu.attributes
+                0x000001b0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ExecPS2.o)
+ .gnu.attributes
+                0x000001c0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateThread.o)
+ .gnu.attributes
+                0x000001d0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(StartThread.o)
+ .gnu.attributes
+                0x000001e0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ChangeThreadPriority.o)
+ .gnu.attributes
+                0x000001f0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RotateThreadReadyQueue.o)
+ .gnu.attributes
+                0x00000200       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetThreadId.o)
+ .gnu.attributes
+                0x00000210       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iGetThreadId.o)
+ .gnu.attributes
+                0x00000220       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WakeupThread.o)
+ .gnu.attributes
+                0x00000230       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iWakeupThread.o)
+ .gnu.attributes
+                0x00000240       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SuspendThread.o)
+ .gnu.attributes
+                0x00000250       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateSema.o)
+ .gnu.attributes
+                0x00000260       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DeleteSema.o)
+ .gnu.attributes
+                0x00000270       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iSignalSema.o)
+ .gnu.attributes
+                0x00000280       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WaitSema.o)
+ .gnu.attributes
+                0x00000290       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetOsdConfigParam.o)
+ .gnu.attributes
+                0x000002a0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetOsdConfigParam.o)
+ .gnu.attributes
+                0x000002b0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SetTLBEntry.o)
+ .gnu.attributes
+                0x000002c0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetReg.o)
+ .gnu.attributes
+                0x000002d0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetReg.o)
+ .gnu.attributes
+                0x000002e0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetMemorySize.o)
+ .gnu.attributes
+                0x000002f0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitTLB.o)
+ .gnu.attributes
+                0x00000300       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSendCmd.o)
+ .gnu.attributes
+                0x00000310       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSendCmd.o)
+ .gnu.attributes
+                0x00000320       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o)
+ .gnu.attributes
+                0x00000330       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifAddCmdHandler.o)
+ .gnu.attributes
+                0x00000340       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetSreg.o)
+ .gnu.attributes
+                0x00000350       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_fpacket.o)
+ .gnu.attributes
+                0x00000360       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifBindRpc.o)
+ .gnu.attributes
+                0x00000370       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifLoadElfPart.o)
+ .gnu.attributes
+                0x00000380       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EnableDmac.o)
+ .gnu.attributes
+                0x00000390       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DisableDmac.o)
+ .gnu.attributes
+                0x000003a0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_init_timer.o)
+ .gnu.attributes
+                0x000003b0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(TerminateLibrary.o)
+ .gnu.attributes
+                0x000003c0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetArg.o)
+ .gnu.attributes
+                0x000003d0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopyBytes.o)
+ .gnu.attributes
+                0x000003e0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(AddDmacHandler.o)
+ .gnu.attributes
+                0x000003f0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RemoveDmacHandler.o)
+ .gnu.attributes
+                0x00000400       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_EnableDmac.o)
+ .gnu.attributes
+                0x00000410       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_DisableDmac.o)
+ .gnu.attributes
+                0x00000420       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDChain.o)
+ .gnu.attributes
+                0x00000430       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(strlen.o)
+ .gnu.attributes
+                0x00000440       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(memset.o)
+ .gnu.attributes
+                0x00000450       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifSendCmd.o)
+ .gnu.attributes
+                0x00000460       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifCmdIntHandler.o)
+ .gnu.attributes
+                0x00000470       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_packet.o)
+ .gnu.attributes
+                0x00000480       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifCallRpc.o)
+ .gnu.attributes
+                0x00000490       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_deinit_timer.o)
+ .gnu.attributes
+                0x000004a0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDma.o)
+ .gnu.attributes
+                0x000004b0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDma.o)
+ .gnu.attributes
+                0x000004c0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDChain.o)
+ .gnu.attributes
+                0x000004d0       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifWriteBackDCache.o)
+
+.mdebug.abiN32  0x00000000        0x0
+ .mdebug.abiN32
+                0x00000000        0x0 loader.o
+ .mdebug.abiN32
+                0x00000000        0x0 /tmp/ccTm9uRI.ltrans0.ltrans.o
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadFileInit.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadElf.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(__iop_control_internals.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DIntr.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EIntr.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitSys.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iWakeupThread.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd_common.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(osdsrc_bin.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbsrc_bin.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(srcfile_bin.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(eenull_bin.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_exit_internals.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(Exit.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ExecPS2.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopy.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSendCmd.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSendCmd.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifAddCmdHandler.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetSreg.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_fpacket.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifBindRpc.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifLoadElfPart.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EnableDmac.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DisableDmac.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_init_timer.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(TerminateLibrary.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetArg.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopyBytes.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifSendCmd.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifCmdIntHandler.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_packet.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifCallRpc.o)
+ .mdebug.abiN32
+                0x00000000        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_deinit_timer.o)
+
+.comment        0x00000000       0x12
+ .comment       0x00000000       0x12 loader.o
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /tmp/ccTm9uRI.ltrans0.ltrans.o
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /tmp/ccP4H7bh.debug.temp.o
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadFileInit.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadElf.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(__iop_control_internals.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DIntr.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EIntr.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitSys.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iWakeupThread.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd_common.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(osdsrc_bin.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbsrc_bin.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(srcfile_bin.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(eenull_bin.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_exit_internals.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(Exit.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ExecPS2.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopy.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSendCmd.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSendCmd.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifAddCmdHandler.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetSreg.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_fpacket.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifBindRpc.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifLoadElfPart.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EnableDmac.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DisableDmac.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_init_timer.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(TerminateLibrary.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetArg.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopyBytes.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifSendCmd.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifCmdIntHandler.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_packet.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifCallRpc.o)
+                                 0x13 (size before relaxing)
+ .comment       0x00000012        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_deinit_timer.o)
+                                 0x13 (size before relaxing)
+
+.debug_info     0x00000000     0x7ac2
+ .debug_info    0x00000000      0x132 /tmp/ccTm9uRI.ltrans0.ltrans.o
+ .debug_info    0x00000132      0x1d4 /tmp/ccP4H7bh.debug.temp.o
+                0x00000132                alarm.c.bc100763
+ .debug_info    0x00000306      0x153 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
+ .debug_info    0x00000459       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(FlushCache.o)
+ .debug_info    0x0000048e      0xf67 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o)
+ .debug_info    0x000013f5      0x53d /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadFileInit.o)
+ .debug_info    0x00001932      0x1fa /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadElf.o)
+ .debug_info    0x00001b2c       0x93 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(__iop_control_internals.o)
+ .debug_info    0x00001bbf       0xb6 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DIntr.o)
+ .debug_info    0x00001c75       0xa6 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EIntr.o)
+ .debug_info    0x00001d1b      0x10d /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitSys.o)
+ .debug_info    0x00001e28      0x4f4 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o)
+ .debug_info    0x0000231c      0x204 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iWakeupThread.o)
+ .debug_info    0x00002520      0x26e /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd.o)
+ .debug_info    0x0000278e      0x1e0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd_common.o)
+ .debug_info    0x0000296e       0x64 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(osdsrc_bin.o)
+ .debug_info    0x000029d2      0x595 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o)
+ .debug_info    0x00002f67       0x64 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbsrc_bin.o)
+ .debug_info    0x00002fcb       0x64 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(srcfile_bin.o)
+ .debug_info    0x0000302f       0x63 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(eenull_bin.o)
+ .debug_info    0x00003092       0xa7 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_exit_internals.o)
+ .debug_info    0x00003139       0xfe /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(Exit.o)
+ .debug_info    0x00003237      0x1e3 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ExecPS2.o)
+ .debug_info    0x0000341a      0x132 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopy.o)
+ .debug_info    0x0000354c       0x51 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(setup_syscalls.o)
+ .debug_info    0x0000359d       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(KExit.o)
+ .debug_info    0x000035d2       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ExecPS2.o)
+ .debug_info    0x00003607       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateThread.o)
+ .debug_info    0x0000363c       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(StartThread.o)
+ .debug_info    0x00003671       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ChangeThreadPriority.o)
+ .debug_info    0x000036a6       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RotateThreadReadyQueue.o)
+ .debug_info    0x000036db       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetThreadId.o)
+ .debug_info    0x00003710       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iGetThreadId.o)
+ .debug_info    0x00003745       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WakeupThread.o)
+ .debug_info    0x0000377a       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iWakeupThread.o)
+ .debug_info    0x000037af       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SuspendThread.o)
+ .debug_info    0x000037e4       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateSema.o)
+ .debug_info    0x00003819       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DeleteSema.o)
+ .debug_info    0x0000384e       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iSignalSema.o)
+ .debug_info    0x00003883       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WaitSema.o)
+ .debug_info    0x000038b8       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetOsdConfigParam.o)
+ .debug_info    0x000038ed       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetOsdConfigParam.o)
+ .debug_info    0x00003922       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SetTLBEntry.o)
+ .debug_info    0x00003957       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetReg.o)
+ .debug_info    0x0000398c       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetReg.o)
+ .debug_info    0x000039c1       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetMemorySize.o)
+ .debug_info    0x000039f6       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitTLB.o)
+ .debug_info    0x00003a2b      0x1a4 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSendCmd.o)
+ .debug_info    0x00003bcf      0x1a4 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSendCmd.o)
+ .debug_info    0x00003d73      0x92c /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o)
+ .debug_info    0x0000469f      0x22a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifAddCmdHandler.o)
+ .debug_info    0x000048c9      0x202 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetSreg.o)
+ .debug_info    0x00004acb      0x188 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_fpacket.o)
+ .debug_info    0x00004c53      0x91f /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifBindRpc.o)
+ .debug_info    0x00005572      0x583 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifLoadElfPart.o)
+ .debug_info    0x00005af5      0x153 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EnableDmac.o)
+ .debug_info    0x00005c48      0x153 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DisableDmac.o)
+ .debug_info    0x00005d9b       0xb4 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_init_timer.o)
+ .debug_info    0x00005e4f       0xca /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(TerminateLibrary.o)
+ .debug_info    0x00005f19      0x2b3 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetArg.o)
+ .debug_info    0x000061cc      0x137 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopyBytes.o)
+ .debug_info    0x00006303       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(AddDmacHandler.o)
+ .debug_info    0x00006338       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RemoveDmacHandler.o)
+ .debug_info    0x0000636d       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_EnableDmac.o)
+ .debug_info    0x000063a2       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_DisableDmac.o)
+ .debug_info    0x000063d7       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDChain.o)
+ .debug_info    0x0000640c       0x34 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(strlen.o)
+ .debug_info    0x00006440       0x34 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(memset.o)
+ .debug_info    0x00006474      0x43a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifSendCmd.o)
+ .debug_info    0x000068ae      0x36d /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifCmdIntHandler.o)
+ .debug_info    0x00006c1b      0x2d7 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_packet.o)
+ .debug_info    0x00006ef2      0xa48 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifCallRpc.o)
+ .debug_info    0x0000793a       0xb4 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_deinit_timer.o)
+ .debug_info    0x000079ee       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDma.o)
+ .debug_info    0x00007a23       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDma.o)
+ .debug_info    0x00007a58       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDChain.o)
+ .debug_info    0x00007a8d       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifWriteBackDCache.o)
+
+.debug_abbrev   0x00000000     0x31c3
+ .debug_abbrev  0x00000000       0x81 /tmp/ccTm9uRI.ltrans0.ltrans.o
+ .debug_abbrev  0x00000081      0x104 /tmp/ccP4H7bh.debug.temp.o
+ .debug_abbrev  0x00000185       0xa3 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
+ .debug_abbrev  0x00000228       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(FlushCache.o)
+ .debug_abbrev  0x00000249      0x37d /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o)
+ .debug_abbrev  0x000005c6      0x1ba /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadFileInit.o)
+ .debug_abbrev  0x00000780      0x11d /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadElf.o)
+ .debug_abbrev  0x0000089d       0x39 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(__iop_control_internals.o)
+ .debug_abbrev  0x000008d6       0x5a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DIntr.o)
+ .debug_abbrev  0x00000930       0x5c /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EIntr.o)
+ .debug_abbrev  0x0000098c       0x98 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitSys.o)
+ .debug_abbrev  0x00000a24      0x1d1 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o)
+ .debug_abbrev  0x00000bf5      0x14a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iWakeupThread.o)
+ .debug_abbrev  0x00000d3f      0x157 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd.o)
+ .debug_abbrev  0x00000e96       0xe2 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd_common.o)
+ .debug_abbrev  0x00000f78       0x56 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(osdsrc_bin.o)
+ .debug_abbrev  0x00000fce      0x21a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o)
+ .debug_abbrev  0x000011e8       0x56 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbsrc_bin.o)
+ .debug_abbrev  0x0000123e       0x56 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(srcfile_bin.o)
+ .debug_abbrev  0x00001294       0x56 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(eenull_bin.o)
+ .debug_abbrev  0x000012ea       0x4f /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_exit_internals.o)
+ .debug_abbrev  0x00001339       0xbe /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(Exit.o)
+ .debug_abbrev  0x000013f7      0x121 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ExecPS2.o)
+ .debug_abbrev  0x00001518       0xdd /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopy.o)
+ .debug_abbrev  0x000015f5       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(setup_syscalls.o)
+ .debug_abbrev  0x00001616       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(KExit.o)
+ .debug_abbrev  0x00001637       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ExecPS2.o)
+ .debug_abbrev  0x00001658       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateThread.o)
+ .debug_abbrev  0x00001679       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(StartThread.o)
+ .debug_abbrev  0x0000169a       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ChangeThreadPriority.o)
+ .debug_abbrev  0x000016bb       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RotateThreadReadyQueue.o)
+ .debug_abbrev  0x000016dc       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetThreadId.o)
+ .debug_abbrev  0x000016fd       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iGetThreadId.o)
+ .debug_abbrev  0x0000171e       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WakeupThread.o)
+ .debug_abbrev  0x0000173f       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iWakeupThread.o)
+ .debug_abbrev  0x00001760       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SuspendThread.o)
+ .debug_abbrev  0x00001781       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateSema.o)
+ .debug_abbrev  0x000017a2       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DeleteSema.o)
+ .debug_abbrev  0x000017c3       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iSignalSema.o)
+ .debug_abbrev  0x000017e4       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WaitSema.o)
+ .debug_abbrev  0x00001805       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetOsdConfigParam.o)
+ .debug_abbrev  0x00001826       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetOsdConfigParam.o)
+ .debug_abbrev  0x00001847       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SetTLBEntry.o)
+ .debug_abbrev  0x00001868       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetReg.o)
+ .debug_abbrev  0x00001889       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetReg.o)
+ .debug_abbrev  0x000018aa       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetMemorySize.o)
+ .debug_abbrev  0x000018cb       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitTLB.o)
+ .debug_abbrev  0x000018ec       0xad /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSendCmd.o)
+ .debug_abbrev  0x00001999       0xad /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSendCmd.o)
+ .debug_abbrev  0x00001a46      0x352 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o)
+ .debug_abbrev  0x00001d98      0x101 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifAddCmdHandler.o)
+ .debug_abbrev  0x00001e99       0xe1 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetSreg.o)
+ .debug_abbrev  0x00001f7a       0xc2 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_fpacket.o)
+ .debug_abbrev  0x0000203c      0x23f /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifBindRpc.o)
+ .debug_abbrev  0x0000227b      0x1a7 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifLoadElfPart.o)
+ .debug_abbrev  0x00002422       0xd4 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EnableDmac.o)
+ .debug_abbrev  0x000024f6       0xd4 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DisableDmac.o)
+ .debug_abbrev  0x000025ca       0x65 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_init_timer.o)
+ .debug_abbrev  0x0000262f       0x83 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(TerminateLibrary.o)
+ .debug_abbrev  0x000026b2      0x17f /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetArg.o)
+ .debug_abbrev  0x00002831       0xcc /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopyBytes.o)
+ .debug_abbrev  0x000028fd       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(AddDmacHandler.o)
+ .debug_abbrev  0x0000291e       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RemoveDmacHandler.o)
+ .debug_abbrev  0x0000293f       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_EnableDmac.o)
+ .debug_abbrev  0x00002960       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_DisableDmac.o)
+ .debug_abbrev  0x00002981       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDChain.o)
+ .debug_abbrev  0x000029a2       0x1f /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(strlen.o)
+ .debug_abbrev  0x000029c1       0x1f /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(memset.o)
+ .debug_abbrev  0x000029e0      0x1b1 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifSendCmd.o)
+ .debug_abbrev  0x00002b91      0x1bc /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifCmdIntHandler.o)
+ .debug_abbrev  0x00002d4d      0x139 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_packet.o)
+ .debug_abbrev  0x00002e86      0x254 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifCallRpc.o)
+ .debug_abbrev  0x000030da       0x65 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_deinit_timer.o)
+ .debug_abbrev  0x0000313f       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDma.o)
+ .debug_abbrev  0x00003160       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDma.o)
+ .debug_abbrev  0x00003181       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDChain.o)
+ .debug_abbrev  0x000031a2       0x21 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifWriteBackDCache.o)
+
+.debug_loclists
+                0x00000000       0x17
+ .debug_loclists
+                0x00000000       0x17 /tmp/ccTm9uRI.ltrans0.ltrans.o
+
+.debug_aranges  0x00000000      0x950
+ .debug_aranges
+                0x00000000       0x20 /tmp/ccTm9uRI.ltrans0.ltrans.o
+ .debug_aranges
+                0x00000020       0x20 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
+ .debug_aranges
+                0x00000040       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(FlushCache.o)
+ .debug_aranges
+                0x00000060       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o)
+ .debug_aranges
+                0x00000080       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadFileInit.o)
+ .debug_aranges
+                0x000000a0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadElf.o)
+ .debug_aranges
+                0x000000c0       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(__iop_control_internals.o)
+ .debug_aranges
+                0x000000d8       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DIntr.o)
+ .debug_aranges
+                0x000000f8       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EIntr.o)
+ .debug_aranges
+                0x00000118       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitSys.o)
+ .debug_aranges
+                0x00000138       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o)
+ .debug_aranges
+                0x00000158       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iWakeupThread.o)
+ .debug_aranges
+                0x00000178       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd.o)
+ .debug_aranges
+                0x00000198       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd_common.o)
+ .debug_aranges
+                0x000001b8       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(osdsrc_bin.o)
+ .debug_aranges
+                0x000001d0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o)
+ .debug_aranges
+                0x000001f0       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbsrc_bin.o)
+ .debug_aranges
+                0x00000208       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(srcfile_bin.o)
+ .debug_aranges
+                0x00000220       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(eenull_bin.o)
+ .debug_aranges
+                0x00000238       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_exit_internals.o)
+ .debug_aranges
+                0x00000250       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(Exit.o)
+ .debug_aranges
+                0x00000270       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ExecPS2.o)
+ .debug_aranges
+                0x00000290       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopy.o)
+ .debug_aranges
+                0x000002b0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(setup_syscalls.o)
+ .debug_aranges
+                0x000002d0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(KExit.o)
+ .debug_aranges
+                0x000002f0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ExecPS2.o)
+ .debug_aranges
+                0x00000310       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateThread.o)
+ .debug_aranges
+                0x00000330       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(StartThread.o)
+ .debug_aranges
+                0x00000350       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ChangeThreadPriority.o)
+ .debug_aranges
+                0x00000370       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RotateThreadReadyQueue.o)
+ .debug_aranges
+                0x00000390       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetThreadId.o)
+ .debug_aranges
+                0x000003b0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iGetThreadId.o)
+ .debug_aranges
+                0x000003d0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WakeupThread.o)
+ .debug_aranges
+                0x000003f0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iWakeupThread.o)
+ .debug_aranges
+                0x00000410       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SuspendThread.o)
+ .debug_aranges
+                0x00000430       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateSema.o)
+ .debug_aranges
+                0x00000450       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DeleteSema.o)
+ .debug_aranges
+                0x00000470       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iSignalSema.o)
+ .debug_aranges
+                0x00000490       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WaitSema.o)
+ .debug_aranges
+                0x000004b0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetOsdConfigParam.o)
+ .debug_aranges
+                0x000004d0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetOsdConfigParam.o)
+ .debug_aranges
+                0x000004f0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SetTLBEntry.o)
+ .debug_aranges
+                0x00000510       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetReg.o)
+ .debug_aranges
+                0x00000530       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetReg.o)
+ .debug_aranges
+                0x00000550       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetMemorySize.o)
+ .debug_aranges
+                0x00000570       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitTLB.o)
+ .debug_aranges
+                0x00000590       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSendCmd.o)
+ .debug_aranges
+                0x000005b0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSendCmd.o)
+ .debug_aranges
+                0x000005d0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o)
+ .debug_aranges
+                0x000005f0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifAddCmdHandler.o)
+ .debug_aranges
+                0x00000610       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetSreg.o)
+ .debug_aranges
+                0x00000630       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_fpacket.o)
+ .debug_aranges
+                0x00000650       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifBindRpc.o)
+ .debug_aranges
+                0x00000670       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifLoadElfPart.o)
+ .debug_aranges
+                0x00000690       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EnableDmac.o)
+ .debug_aranges
+                0x000006b0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DisableDmac.o)
+ .debug_aranges
+                0x000006d0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_init_timer.o)
+ .debug_aranges
+                0x000006f0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(TerminateLibrary.o)
+ .debug_aranges
+                0x00000710       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetArg.o)
+ .debug_aranges
+                0x00000730       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopyBytes.o)
+ .debug_aranges
+                0x00000750       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(AddDmacHandler.o)
+ .debug_aranges
+                0x00000770       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RemoveDmacHandler.o)
+ .debug_aranges
+                0x00000790       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_EnableDmac.o)
+ .debug_aranges
+                0x000007b0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_DisableDmac.o)
+ .debug_aranges
+                0x000007d0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDChain.o)
+ .debug_aranges
+                0x000007f0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(strlen.o)
+ .debug_aranges
+                0x00000810       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(memset.o)
+ .debug_aranges
+                0x00000830       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifSendCmd.o)
+ .debug_aranges
+                0x00000850       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifCmdIntHandler.o)
+ .debug_aranges
+                0x00000870       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_packet.o)
+ .debug_aranges
+                0x00000890       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifCallRpc.o)
+ .debug_aranges
+                0x000008b0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_deinit_timer.o)
+ .debug_aranges
+                0x000008d0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDma.o)
+ .debug_aranges
+                0x000008f0       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDma.o)
+ .debug_aranges
+                0x00000910       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDChain.o)
+ .debug_aranges
+                0x00000930       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifWriteBackDCache.o)
+
+.debug_rnglists
+                0x00000000       0x17
+ .debug_rnglists
+                0x00000000       0x17 /tmp/ccTm9uRI.ltrans0.ltrans.o
+
+.debug_line     0x00000000     0x347b
+ .debug_line    0x00000000       0xf7 /tmp/ccTm9uRI.ltrans0.ltrans.o
+ .debug_line    0x000000f7       0x7d /tmp/ccP4H7bh.debug.temp.o
+ .debug_line    0x00000174      0x1d4 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
+ .debug_line    0x00000348       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(FlushCache.o)
+ .debug_line    0x00000382      0x4a1 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o)
+ .debug_line    0x00000823      0x1c5 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadFileInit.o)
+ .debug_line    0x000009e8       0xbb /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadElf.o)
+ .debug_line    0x00000aa3       0x31 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(__iop_control_internals.o)
+ .debug_line    0x00000ad4       0x71 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DIntr.o)
+ .debug_line    0x00000b45       0x4a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EIntr.o)
+ .debug_line    0x00000b8f       0x75 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitSys.o)
+ .debug_line    0x00000c04      0x1eb /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o)
+ .debug_line    0x00000def      0x10f /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iWakeupThread.o)
+ .debug_line    0x00000efe       0xd5 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd.o)
+ .debug_line    0x00000fd3       0xd9 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd_common.o)
+ .debug_line    0x000010ac       0x31 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(osdsrc_bin.o)
+ .debug_line    0x000010dd      0x283 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o)
+ .debug_line    0x00001360       0x31 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbsrc_bin.o)
+ .debug_line    0x00001391       0x32 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(srcfile_bin.o)
+ .debug_line    0x000013c3       0x31 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(eenull_bin.o)
+ .debug_line    0x000013f4       0x2b /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_exit_internals.o)
+ .debug_line    0x0000141f       0x9b /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(Exit.o)
+ .debug_line    0x000014ba       0xc9 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ExecPS2.o)
+ .debug_line    0x00001583       0xc4 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopy.o)
+ .debug_line    0x00001647       0x4c /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(setup_syscalls.o)
+ .debug_line    0x00001693       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(KExit.o)
+ .debug_line    0x000016cd       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ExecPS2.o)
+ .debug_line    0x00001707       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateThread.o)
+ .debug_line    0x00001741       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(StartThread.o)
+ .debug_line    0x0000177b       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ChangeThreadPriority.o)
+ .debug_line    0x000017b5       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RotateThreadReadyQueue.o)
+ .debug_line    0x000017ef       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetThreadId.o)
+ .debug_line    0x00001829       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iGetThreadId.o)
+ .debug_line    0x00001863       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WakeupThread.o)
+ .debug_line    0x0000189d       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iWakeupThread.o)
+ .debug_line    0x000018d7       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SuspendThread.o)
+ .debug_line    0x00001911       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateSema.o)
+ .debug_line    0x0000194b       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DeleteSema.o)
+ .debug_line    0x00001985       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iSignalSema.o)
+ .debug_line    0x000019bf       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WaitSema.o)
+ .debug_line    0x000019f9       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetOsdConfigParam.o)
+ .debug_line    0x00001a33       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetOsdConfigParam.o)
+ .debug_line    0x00001a6d       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SetTLBEntry.o)
+ .debug_line    0x00001aa7       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetReg.o)
+ .debug_line    0x00001ae1       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetReg.o)
+ .debug_line    0x00001b1b       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetMemorySize.o)
+ .debug_line    0x00001b55       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitTLB.o)
+ .debug_line    0x00001b8f       0x4c /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSendCmd.o)
+ .debug_line    0x00001bdb       0x4c /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSendCmd.o)
+ .debug_line    0x00001c27      0x32e /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o)
+ .debug_line    0x00001f55       0xc4 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifAddCmdHandler.o)
+ .debug_line    0x00002019       0x9a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetSreg.o)
+ .debug_line    0x000020b3       0xa0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_fpacket.o)
+ .debug_line    0x00002153      0x241 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifBindRpc.o)
+ .debug_line    0x00002394      0x173 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifLoadElfPart.o)
+ .debug_line    0x00002507       0xde /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EnableDmac.o)
+ .debug_line    0x000025e5       0xde /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DisableDmac.o)
+ .debug_line    0x000026c3       0x4d /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_init_timer.o)
+ .debug_line    0x00002710       0x70 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(TerminateLibrary.o)
+ .debug_line    0x00002780      0x1ba /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetArg.o)
+ .debug_line    0x0000293a       0xb9 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopyBytes.o)
+ .debug_line    0x000029f3       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(AddDmacHandler.o)
+ .debug_line    0x00002a2d       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RemoveDmacHandler.o)
+ .debug_line    0x00002a67       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_EnableDmac.o)
+ .debug_line    0x00002aa1       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_DisableDmac.o)
+ .debug_line    0x00002adb       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDChain.o)
+ .debug_line    0x00002b15       0x7b /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(strlen.o)
+ .debug_line    0x00002b90       0x6a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(memset.o)
+ .debug_line    0x00002bfa      0x1a1 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifSendCmd.o)
+ .debug_line    0x00002d9b      0x15b /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifCmdIntHandler.o)
+ .debug_line    0x00002ef6      0x181 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_packet.o)
+ .debug_line    0x00003077      0x2a5 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifCallRpc.o)
+ .debug_line    0x0000331c       0x4d /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_deinit_timer.o)
+ .debug_line    0x00003369       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDma.o)
+ .debug_line    0x000033a3       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDma.o)
+ .debug_line    0x000033dd       0x3a /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDChain.o)
+ .debug_line    0x00003417       0x64 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifWriteBackDCache.o)
+
+.debug_str      0x00000000     0x145c
+ .debug_str     0x00000000        0x0 /tmp/ccTm9uRI.ltrans0.ltrans.o
+                                0x109 (size before relaxing)
+ .debug_str     0x00000000        0x0 /tmp/ccP4H7bh.debug.temp.o
+                                0x1ed (size before relaxing)
+ .debug_str     0x00000000     0x145c /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
+                                0x1ec (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(FlushCache.o)
+                                 0x50 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o)
+                                0x620 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadFileInit.o)
+                                0x464 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadElf.o)
+                                0x26e (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(__iop_control_internals.o)
+                                0x168 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DIntr.o)
+                                0x136 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EIntr.o)
+                                0x136 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitSys.o)
+                                0x1a1 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o)
+                                0x2fc (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iWakeupThread.o)
+                                0x1eb (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd.o)
+                                0x1c5 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd_common.o)
+                                0x1ed (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(osdsrc_bin.o)
+                                 0xd4 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o)
+                                0x2de (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbsrc_bin.o)
+                                 0xd4 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(srcfile_bin.o)
+                                 0xd7 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(eenull_bin.o)
+                                 0xd4 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_exit_internals.o)
+                                0x15a (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(Exit.o)
+                                0x176 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ExecPS2.o)
+                                0x197 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopy.o)
+                                0x14c (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(setup_syscalls.o)
+                                 0x68 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(KExit.o)
+                                 0x4b (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ExecPS2.o)
+                                 0x4e (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateThread.o)
+                                 0x52 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(StartThread.o)
+                                 0x51 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ChangeThreadPriority.o)
+                                 0x5a (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RotateThreadReadyQueue.o)
+                                 0x5c (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetThreadId.o)
+                                 0x51 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iGetThreadId.o)
+                                 0x53 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WakeupThread.o)
+                                 0x52 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_iWakeupThread.o)
+                                 0x54 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SuspendThread.o)
+                                 0x53 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(CreateSema.o)
+                                 0x50 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DeleteSema.o)
+                                 0x50 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iSignalSema.o)
+                                 0x51 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(WaitSema.o)
+                                 0x4e (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetOsdConfigParam.o)
+                                 0x57 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetOsdConfigParam.o)
+                                 0x57 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SetTLBEntry.o)
+                                 0x52 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetReg.o)
+                                 0x52 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetReg.o)
+                                 0x52 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(GetMemorySize.o)
+                                 0x53 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitTLB.o)
+                                 0x4e (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSendCmd.o)
+                                0x184 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSendCmd.o)
+                                0x185 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o)
+                                0x4a7 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifAddCmdHandler.o)
+                                0x23c (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetSreg.o)
+                                0x23b (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_fpacket.o)
+                                0x1d6 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifBindRpc.o)
+                                0x59f (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifLoadElfPart.o)
+                                0x2e6 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EnableDmac.o)
+                                0x158 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DisableDmac.o)
+                                0x15a (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_init_timer.o)
+                                0x17c (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(TerminateLibrary.o)
+                                0x181 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetArg.o)
+                                0x1ca (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopyBytes.o)
+                                0x151 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(AddDmacHandler.o)
+                                 0x54 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(RemoveDmacHandler.o)
+                                 0x57 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_EnableDmac.o)
+                                 0x51 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_DisableDmac.o)
+                                 0x52 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDChain.o)
+                                 0x55 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(strlen.o)
+                                 0x4c (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(memset.o)
+                                 0x4c (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifSendCmd.o)
+                                0x2df (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifCmdIntHandler.o)
+                                0x2a9 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_packet.o)
+                                0x244 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifCallRpc.o)
+                                0x5d7 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_deinit_timer.o)
+                                0x180 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSetDma.o)
+                                 0x52 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDma.o)
+                                 0x53 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSetDChain.o)
+                                 0x56 (size before relaxing)
+ .debug_str     0x0000145c        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifWriteBackDCache.o)
+                                 0x5b (size before relaxing)
+
+.debug_frame    0x00000000      0x7b8
+ .debug_frame   0x00000000       0x34 /tmp/ccTm9uRI.ltrans0.ltrans.o
+ .debug_frame   0x00000034       0x20 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
+ .debug_frame   0x00000054       0xd4 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o)
+ .debug_frame   0x00000128       0x44 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadFileInit.o)
+ .debug_frame   0x0000016c       0x2c /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadElf.o)
+ .debug_frame   0x00000198       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DIntr.o)
+ .debug_frame   0x000001b8       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EIntr.o)
+ .debug_frame   0x000001d8       0x2c /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitSys.o)
+ .debug_frame   0x00000204       0x60 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o)
+ .debug_frame   0x00000264       0x38 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iWakeupThread.o)
+ .debug_frame   0x0000029c       0x34 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd.o)
+ .debug_frame   0x000002d0       0x2c /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd_common.o)
+ .debug_frame   0x000002fc       0x70 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o)
+ .debug_frame   0x0000036c       0x28 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(Exit.o)
+ .debug_frame   0x00000394       0x38 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ExecPS2.o)
+ .debug_frame   0x000003cc       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopy.o)
+ .debug_frame   0x000003ec       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSendCmd.o)
+ .debug_frame   0x0000040c       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSendCmd.o)
+ .debug_frame   0x0000042c       0x90 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o)
+ .debug_frame   0x000004bc       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifAddCmdHandler.o)
+ .debug_frame   0x000004dc       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetSreg.o)
+ .debug_frame   0x000004fc       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_fpacket.o)
+ .debug_frame   0x0000051c       0x34 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifBindRpc.o)
+ .debug_frame   0x00000550       0x40 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifLoadElfPart.o)
+ .debug_frame   0x00000590       0x34 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EnableDmac.o)
+ .debug_frame   0x000005c4       0x34 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DisableDmac.o)
+ .debug_frame   0x000005f8       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_init_timer.o)
+ .debug_frame   0x00000618       0x2c /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(TerminateLibrary.o)
+ .debug_frame   0x00000644       0x44 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetArg.o)
+ .debug_frame   0x00000688       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopyBytes.o)
+ .debug_frame   0x000006a8       0x44 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifSendCmd.o)
+ .debug_frame   0x000006ec       0x30 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifCmdIntHandler.o)
+ .debug_frame   0x0000071c       0x38 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_packet.o)
+ .debug_frame   0x00000754       0x44 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifCallRpc.o)
+ .debug_frame   0x00000798       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_ps2sdk_deinit_timer.o)
+
+.debug_loc      0x00000000     0x2607
+ .debug_loc     0x00000000      0x1de /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
+ .debug_loc     0x000001de      0x519 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o)
+ .debug_loc     0x000006f7       0x42 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadFileInit.o)
+ .debug_loc     0x00000739       0x8f /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifLoadElf.o)
+ .debug_loc     0x000007c8       0x51 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DIntr.o)
+ .debug_loc     0x00000819       0x28 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EIntr.o)
+ .debug_loc     0x00000841       0x2c /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_InitSys.o)
+ .debug_loc     0x0000086d       0xd6 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o)
+ .debug_loc     0x00000943       0xac /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(iWakeupThread.o)
+ .debug_loc     0x000009ef       0x2c /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd.o)
+ .debug_loc     0x00000a1b       0x2c /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd_common.o)
+ .debug_loc     0x00000a47      0x301 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o)
+ .debug_loc     0x00000d48       0x43 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(Exit.o)
+ .debug_loc     0x00000d8b      0x126 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(ExecPS2.o)
+ .debug_loc     0x00000eb1       0xc0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopy.o)
+ .debug_loc     0x00000f71      0x143 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifSendCmd.o)
+ .debug_loc     0x000010b4      0x143 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(isceSifSendCmd.o)
+ .debug_loc     0x000011f7      0x15d /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o)
+ .debug_loc     0x00001354       0x4c /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifAddCmdHandler.o)
+ .debug_loc     0x000013a0       0x2b /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifGetSreg.o)
+ .debug_loc     0x000013cb       0x24 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_fpacket.o)
+ .debug_loc     0x000013ef      0x19e /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifBindRpc.o)
+ .debug_loc     0x0000158d      0x135 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifLoadElfPart.o)
+ .debug_loc     0x000016c2      0x108 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EnableDmac.o)
+ .debug_loc     0x000017ca      0x108 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(DisableDmac.o)
+ .debug_loc     0x000018d2       0x2c /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(TerminateLibrary.o)
+ .debug_loc     0x000018fe      0x188 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SetArg.o)
+ .debug_loc     0x00001a86       0xeb /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(kCopyBytes.o)
+ .debug_loc     0x00001b71      0x41e /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifSendCmd.o)
+ .debug_loc     0x00001f8f      0x152 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_SifCmdIntHandler.o)
+ .debug_loc     0x000020e1      0x19d /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_packet.o)
+ .debug_loc     0x0000227e      0x389 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifCallRpc.o)
+
+.debug_ranges   0x00000000      0x140
+ .debug_ranges  0x00000000       0x58 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(SifRpcMain.o)
+ .debug_ranges  0x00000058       0x10 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(EIntr.o)
+ .debug_ranges  0x00000068       0x28 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o)
+ .debug_ranges  0x00000090       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(libosd.o)
+ .debug_ranges  0x000000a8       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(tlbfunc.o)
+ .debug_ranges  0x000000c0       0x18 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sif_cmd_main.o)
+ .debug_ranges  0x000000d8       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifBindRpc.o)
+ .debug_ranges  0x000000f8       0x28 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_rpc_get_packet.o)
+ .debug_ranges  0x00000120       0x20 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifCallRpc.o)

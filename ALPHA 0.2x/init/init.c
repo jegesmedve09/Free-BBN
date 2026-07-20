@@ -10,22 +10,31 @@
 #include <stdlib.h>
 #include <sbv_patches.h>
 #include <gsKit.h>
+#include <libpad.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 #include <sys/stat.h>
 
 #include "irx.c"
 #include "loader_bin.c"
 
+#define LOADER_BASE         0x01F00000
+#define WORKPATH_ADDRESS    0x01EFFC00
+#define PORTABLE_ADDRESS    0x01EFF800
 
-GSGLOBAL *gsGlobal;
+#define SHARED_BASE_ADDR    0x01EFF7F0
 
-#define LOADER_BASE 0x01F00000
-#define WORKPATH_ADDRESS 0x01EFFC00
+#define INTERLACED          (SHARED_BASE_ADDR + 0x00)
+#define PAL_NTSC            (SHARED_BASE_ADDR + 0x01)
+#define PRIM_ALPHA          (SHARED_BASE_ADDR + 0x02)
+#define HAS_TO_BE_TRUE      (SHARED_BASE_ADDR + 0x03)
+#define GS_WIDTH            (SHARED_BASE_ADDR + 0x04)
+#define GS_HEIGHT           (SHARED_BASE_ADDR + 0x08)
+#define SIGNATURE_SPACE     (SHARED_BASE_ADDR + 0x0C)
+#define SIGNATURE           0x4741597E
 
 #define DEV_EXIST(path) (stat(path, &(struct stat){0}) == 0)
-#define DEBUG_MARKER ((volatile unsigned char*)0x01EFFB00)
-
-#define RELPATH_ADDRESS 0x01EFFA00
 
 void FuckAroundSilentlyMs(int miliseconds)
 {
@@ -40,10 +49,60 @@ void FuckAroundSilentlyMs(int miliseconds)
             break;
     }
 }
+char savepath[1024];
+char **read_config(const char *fn, char **out_buffer)
+{
+    if (!fn || !*fn || !*savepath) return NULL;
 
-int main()
-{	
-	SifInitRpc(0);
+    char p[1024];
+    snprintf(p, sizeof(p), "%sCONFIG/%s", savepath, fn);
+
+    int fd = open(p, O_RDONLY);
+    if (fd < 0) return NULL;
+
+    struct stat st;
+    if (fstat(fd, &st) < 0 || st.st_size <= 0) { close(fd); return NULL; }
+
+    size_t sz = st.st_size;
+    char *buf = malloc(sz + 1);
+    if (!buf) { close(fd); return NULL; }
+
+    if (read(fd, buf, sz) != (int)sz) { close(fd); free(buf); return NULL; }
+    close(fd);
+    buf[sz] = '\0';
+
+    int n = 0;
+    for (char *q = buf; *q; q++) if (*q == '\n') n++;
+    if (buf[sz-1] != '\n') n++;
+    n = n ? n : 1;
+
+    char **lines = malloc((n + 1) * sizeof(char*));
+    if (!lines) { free(buf); return NULL; }
+
+    int i = 0;
+    char *t = strtok(buf, "\n\r");
+    while (t && i < n) {
+        lines[i++] = t;
+        t = strtok(NULL, "\n\r");
+    }
+    lines[i] = NULL;
+
+	*out_buffer = buf;
+    return lines;
+}
+
+int str_to_int(const char *str, int def) {
+    if (!str || !*str) return def;
+    int val = def;
+    sscanf(str, "%d", &val);
+    if (val < 0) val = 0;
+    // Removed the 255 limit so higher numbers can pass through safely
+    return val;
+}
+
+void init()
+{
+    SifInitRpc(0);
     while (!SifIopReset("", 0)) {};
     while (!SifIopSync()) {};
     SifInitRpc(0);
@@ -51,14 +110,17 @@ int main()
     sbv_patch_enable_lmb();
     
     //sound
-    SifExecModuleBuffer(irx_libsd, irx_libsd_size, 0, NULL, NULL);
-    SifExecModuleBuffer(irx_audsrv, irx_audsrv_size, 0, NULL, NULL);
+	SifExecModuleBuffer(irx_freesd, irx_freesd_size, 0, NULL, NULL);
+	SifExecModuleBuffer(irx_audsrv, irx_audsrv_size, 0, NULL, NULL);
     audsrv_init();
     
     //controller
     SifLoadModule("rom0:SIO2MAN", 0, NULL);
     SifLoadModule("rom0:PADMAN", 0, NULL);
+    static char padBuf[2][256] __attribute__((aligned(64)));
     padInit(0);
+	padPortOpen(0, 0, padBuf[0]);
+	padPortOpen(1, 0, padBuf[1]);
     
 	//memory card
     SifLoadModule("rom0:MCMAN", 0, NULL);
@@ -71,60 +133,152 @@ int main()
 	//USB Mass
 	SifExecModuleBuffer(irx_usbd, irx_usbd_size, 0, NULL, NULL);
 	SifExecModuleBuffer(irx_usbhdfsd, irx_usbhdfsd_size, 0, NULL, NULL);
-	
+
 	FuckAroundSilentlyMs(2000);
-	
+
+    
+	char **fd;
+	char *settingsBuffer = NULL;    
+
+	fd = read_config("init.gs.config", &settingsBuffer);
+
 	//graphics
+    GSGLOBAL *gsGlobal;
     dmaKit_init(D_CTRL_RELE_OFF, D_CTRL_MFD_OFF, D_CTRL_STS_UNSPEC,
                 D_CTRL_STD_OFF, D_CTRL_RCYC_8, 1 << DMA_CHANNEL_GIF);
     dmaKit_chan_init(DMA_CHANNEL_GIF);
 
     gsGlobal = gsKit_init_global();
-
-    gsGlobal->Mode         = GS_MODE_PAL;
-    gsGlobal->Interlace    = GS_INTERLACED;
-    gsGlobal->Field        = GS_FIELD;
-    gsGlobal->Width        = 640;
-    gsGlobal->Height       = 512;
+    
+    gsGlobal->Field = GS_FIELD;
     gsGlobal->DoubleBuffering = GS_SETTING_OFF;
     gsGlobal->ZBuffering   = GS_SETTING_OFF;
-
-    // === The important transparency settings ===
-    gsGlobal->PrimAlphaEnable = GS_SETTING_ON;
     
+    if(fd)
+    {
+        if ( fd[1] && strcmp(fd[1], "VIDEO=NTSC") == 0 )
+        { 
+            gsGlobal->Mode = GS_MODE_NTSC;
+            *(volatile u8 *)(PAL_NTSC) = 1;
+        }
+        else
+        { 
+            gsGlobal->Mode = GS_MODE_PAL;
+            *(volatile u8 *)(PAL_NTSC) = 0;
+        }
+        
+        if ( fd[0] && strcmp( fd[0], "INTERLACING=DISABLE" ) == 0 )
+        {
+            gsGlobal->Interlace = GS_NONINTERLACED;
+            *(volatile u8 *)(INTERLACED) = 0;
+        }
+        else
+        {
+            gsGlobal->Interlace = GS_INTERLACED;
+            *(volatile u8 *)(INTERLACED) = 1;
+        }
+
+        if ( fd[3] && fd[4] )
+        {
+            gsGlobal->Width = str_to_int(fd[3],640);
+            *(volatile u32 *)(GS_WIDTH) = (str_to_int(fd[3], 640));
+            gsGlobal->Height = str_to_int(fd[4],480);
+            *(volatile u32 *)(GS_HEIGHT) = (str_to_int(fd[4], 480));
+        }
+        else
+        {
+            gsGlobal->Width = 640;
+            gsGlobal->Height = 480;
+        }
+
+        if ( fd[2] && strcmp( fd[2], "PRIMALPHA=DISABLE" ) == 0 )
+        {
+            gsGlobal->PrimAlphaEnable = GS_SETTING_OFF;
+            *(volatile u8 *)(PRIM_ALPHA) = 0;
+        }
+        else
+        {
+            gsGlobal->PrimAlphaEnable = GS_SETTING_ON;
+            *(volatile u8 *)(PRIM_ALPHA) = 1;
+        }
+    }
+    else
+    {
+        gsGlobal->Mode = GS_MODE_PAL;
+        gsGlobal->Interlace = GS_INTERLACED;
+        gsGlobal->Width = 640;
+        gsGlobal->Height = 480;
+        gsGlobal->PrimAlphaEnable = GS_SETTING_ON;
+        *(volatile u8 *)(PAL_NTSC)    = 0;
+        *(volatile u8 *)(INTERLACED)  = 1;
+        *(volatile u8 *)(PRIM_ALPHA)  = 1;
+        *(volatile u32 *)(GS_WIDTH)   = 640;
+        *(volatile u32 *)(GS_HEIGHT)  = 480;
+
+    }
+
+	free(settingsBuffer);     
+
     gsKit_init_screen(gsGlobal);
 
-    // Normal "over" blending - most common and intuitive
-    gsKit_set_primalpha(gsGlobal,
-        GS_SETREG_ALPHA(0, 1, 0, 1, 0),   // A = As, B = 1-As
-        0);
-
+    gsKit_set_primalpha(gsGlobal, GS_SETREG_ALPHA(0, 1, 0, 1, 0), 0);
     gsKit_mode_switch(gsGlobal, GS_ONESHOT);
+
  
-	gsKit_clear(gsGlobal, GS_SETREG_RGBAQ(0,0xFF,0xFF,80,0));
+	gsKit_clear(gsGlobal, GS_SETREG_RGBAQ(0xFF,0xFF,0xFF,0x80,0));
 	gsKit_queue_exec(gsGlobal);
 	gsKit_sync_flip(gsGlobal);
-	
-	
-	
+
 	//loader
 	memcpy((void*)LOADER_BASE, loader, size_loader);
 	FlushCache(0);
 	FlushCache(2);
-    
-static char relative_path[] = "main.elf";
-	static char *argv[2];
-    argv[0] = relative_path;   // e.g. "main.fbnx" or "games/game.elf"
-    argv[1] = NULL;    
-	
-    static const char savepath[] = "host:";
-    strcpy((char*)WORKPATH_ADDRESS, savepath);
-    strcpy((char*)RELPATH_ADDRESS, "main.elf");
+}
 
-    *DEBUG_MARKER = 0x11;
-    ExecPS2((void*)LOADER_BASE, NULL, 1, argv);   // argv can stay, we just won't trus
-	
-	while (1) {}
+int main(int argc, char **argv)
+{	
+    if (argc > 0 && argv[0] != NULL) 
+    {
+        strncpy(savepath, argv[0], sizeof(savepath) - 1);
+        savepath[sizeof(savepath) - 1] = '\0';
+
+        char *slash = strrchr(savepath, '/');
+        if (!slash)
+        {
+            slash = strrchr(savepath, '\\');
+        }
+
+        if (slash != NULL)
+        {
+            *(slash + 1) = '\0'; 
+        }
+        else
+        {
+            strcpy(savepath, "host:/");
+        }
+    } 
+    else 
+    {
+        // Fallback if argv is completely missing
+        strcpy(savepath, "host:/");
+    }
+
+    init();
+    
+    strcpy((char*)PORTABLE_ADDRESS, savepath);    
+
+    static const char relativepath[1024] = "main.elf";
+    strcpy((char*)WORKPATH_ADDRESS, relativepath);  
+
+    padPortClose(0,0);
+    padPortClose(1,0);
+    audsrv_stop_audio();
+    audsrv_set_volume(0);
+
+    *(volatile u32 *)(SIGNATURE_SPACE) = SIGNATURE;
+    *(volatile u8 *)(HAS_TO_BE_TRUE) = 0x01;
+
+    ExecPS2((void*)LOADER_BASE, NULL, 0, NULL);
 	
 	return 0;
 	

@@ -119,7 +119,7 @@ def save(event=None):
 root = tk.Tk()
 root.title("Bitmap Font Writer")
 
-canvas = tk.Canvas(root, bg="white")
+canvas = tk.Canvas(root, bg="black")
 canvas.pack(padx=10, pady=10)
 
 textbox = tk.Text(root, height=5, font=("Consolas", 12))
