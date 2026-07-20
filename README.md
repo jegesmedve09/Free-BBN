@@ -112,10 +112,13 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 | USB Mass (Multiple Drives + Multiple Partitions) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 | PS2 HDD (only FAT consoles) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
 
-### IMPORTANT
-<h1>Images/Pictures are not made, nor are my property:</h1>
-The curse Wallpaper:
-@shadydaone Instagram
+### Intellectual Property & Assets
+The "Curse" wallpaper/artwork featured in the free hobbyist version of this software is the property of **@shadydaone** on Instagram.
+It is utilized within this non-commercial homebrew project with the creator's explicit permission. 
+
+- **Artist Profile:** [@shadydaone on Instagram](https://instagram.com/shadydaone)
+- *Note: This asset is strictly excluded from the software's codebase copyright and will not be included in any commercial licensing.*
+
 
 
 ### License
