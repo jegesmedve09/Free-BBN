@@ -1,6 +1,11 @@
 Custom Source-Available License
 
-Copyright (c) 2025-2026 Bögi Dániel (jegesmedve09)
+Copyright (c) 2025-2026 Bögi Dániel (jegesmedve09) All Rights Reserved.
+This copyright applies strictly to the original source code, programming, logic, 
+and software architecture. All trademarked characters, fan art, and third-party 
+intellectual property included within this repository are the property of their 
+respective owners, are used here strictly for non-commercial/fan expression, 
+and are explicitly excluded from this copyright claim.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -38,7 +43,8 @@ subject to the following conditions:
 
 6. LICENSING: The Software is free to use for hobbyists under our strict license.
    If you want to use this commercially or put it on a hardware device, you must
-   buy a Commercial License from me.
+   buy a Commercial License from me only for the bare bones system, any copyrighted
+   materials will NOT be shipped with the licensed version.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
