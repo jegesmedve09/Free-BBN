@@ -64,6 +64,6 @@ echo Compiling SETUP MAIN OK
 
 echo Generating Build
 cp init/init.elf BUILD/init.elf
-cp main/setup/main.elf BUILD/main.elf
+cp main/TESTING/main.elf BUILD/main.elf
 cp -r ASSETS/* BUILD/
 echo Generating Build OK

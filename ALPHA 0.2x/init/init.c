@@ -19,6 +19,10 @@
 #include "irx.c"
 #include "loader_bin.c"
 
+#define NEWLIB_PORT_AWARE
+#include <fileXio_rpc.h>
+#include <io_common.h>
+
 #define LOADER_BASE         0x01F00000
 #define WORKPATH_ADDRESS    0x01EFFC00
 #define PORTABLE_ADDRESS    0x01EFF800
@@ -35,6 +39,8 @@
 #define SIGNATURE           0x4741597E
 
 #define DEV_EXIST(path) (stat(path, &(struct stat){0}) == 0)
+
+#define GS_BGCOLOR ((volatile u64*)0x120000e0)
 
 void FuckAroundSilentlyMs(int miliseconds)
 {
@@ -54,7 +60,7 @@ char **read_config(const char *fn, char **out_buffer)
 {
     if (!fn || !*fn || !*savepath) return NULL;
 
-    char p[1024];
+    char p[1088];
     snprintf(p, sizeof(p), "%sCONFIG/%s", savepath, fn);
 
     int fd = open(p, O_RDONLY);
@@ -100,7 +106,30 @@ int str_to_int(const char *str, int def) {
     return val;
 }
 
-void init()
+int mount_hdd_from_argv(const char *argv0, char *out_dir, size_t out_size)
+{
+    if (strncmp(argv0, "hdd", 3) != 0) return 0; // not an HDD launch
+
+    const char *pfsMarker = strstr(argv0, ":pfs:");
+    if (!pfsMarker) return -1; // unexpected format
+
+    size_t devLen = pfsMarker - argv0; // e.g. "hdd0:+freebbn"
+    char blockdev[64];
+    if (devLen >= sizeof(blockdev)) return -1;
+    memcpy(blockdev, argv0, devLen);
+    blockdev[devLen] = '\0';
+
+    if (fileXioMount("pfs0:", blockdev, FIO_MT_RDWR) < 0)
+        return -1;
+
+    snprintf(out_dir, out_size, "pfs0:%s", pfsMarker + 5); // skip ":pfs:"
+    char *slash = strrchr(out_dir, '/');
+    if (slash) *(slash + 1) = '\0';
+
+    return 1;
+}
+
+void init(const char *argv0)
 {
     SifInitRpc(0);
     while (!SifIopReset("", 0)) {};
@@ -134,14 +163,39 @@ void init()
 	SifExecModuleBuffer(irx_usbd, irx_usbd_size, 0, NULL, NULL);
 	SifExecModuleBuffer(irx_usbhdfsd, irx_usbhdfsd_size, 0, NULL, NULL);
 
-	FuckAroundSilentlyMs(2000);
+    //HDD
+    SifExecModuleBuffer(irx_ps2dev9, irx_ps2dev9_size, 0, NULL, NULL);
+    SifExecModuleBuffer(irx_ps2atad, irx_ps2atad_size, 0, NULL, NULL);
+    SifExecModuleBuffer(irx_ps2hdd,  irx_ps2hdd_size,  0, NULL, NULL);    
+    SifExecModuleBuffer(irx_ps2fs, irx_ps2fs_size, 0, NULL, NULL);
+    SifExecModuleBuffer(irx_loadfile, irx_loadfile_size, 0, NULL, NULL);
 
-    
+    // then separately, wrap the mount call itself:
+    *GS_BGCOLOR = 0x800080; // purple - about to mount
+    if (strncmp(argv0, "hdd", 3) == 0) {
+        int r = mount_hdd_from_argv(argv0, savepath, sizeof(savepath));
+        *GS_BGCOLOR = (r > 0) ? 0x0000FF : 0xFF0000; // blue = mounted ok, red = mount failed
+        FuckAroundSilentlyMs(3000); // hold it so you can actually see it
+    }
+    else
+    {
+        strncpy(savepath, argv0, sizeof(savepath) - 1);
+        savepath[sizeof(savepath) - 1] = '\0';
+
+        char *slash = strrchr(savepath, '/');
+        if (!slash) slash = strrchr(savepath, '\\');
+
+        if (slash != NULL) *(slash + 1) = '\0';
+        else strcpy(savepath, "host:/");
+    }
+    FuckAroundSilentlyMs(5000);
+    *GS_BGCOLOR = 0x00FF7F; // spring green - about to call read_config
 	char **fd;
 	char *settingsBuffer = NULL;    
 
 	fd = read_config("init.gs.config", &settingsBuffer);
-
+    *GS_BGCOLOR = 0xFF69B4; // pink - read_config returned
+    FuckAroundSilentlyMs(5000);
 	//graphics
     GSGLOBAL *gsGlobal;
     dmaKit_init(D_CTRL_RELE_OFF, D_CTRL_MFD_OFF, D_CTRL_STS_UNSPEC,
@@ -237,33 +291,9 @@ void init()
 
 int main(int argc, char **argv)
 {	
-    if (argc > 0 && argv[0] != NULL) 
-    {
-        strncpy(savepath, argv[0], sizeof(savepath) - 1);
-        savepath[sizeof(savepath) - 1] = '\0';
+    const char *argv0 = (argc > 0 && argv[0] != NULL) ? argv[0] : "host:/";
 
-        char *slash = strrchr(savepath, '/');
-        if (!slash)
-        {
-            slash = strrchr(savepath, '\\');
-        }
-
-        if (slash != NULL)
-        {
-            *(slash + 1) = '\0'; 
-        }
-        else
-        {
-            strcpy(savepath, "host:/");
-        }
-    } 
-    else 
-    {
-        // Fallback if argv is completely missing
-        strcpy(savepath, "host:/");
-    }
-
-    init();
+    init(argv0);
     
     strcpy((char*)PORTABLE_ADDRESS, savepath);    
 
@@ -275,14 +305,14 @@ int main(int argc, char **argv)
     audsrv_stop_audio();
     audsrv_set_volume(0);
 
+//    SifExitIopHeap();
+    SifLoadFileExit();
+
     *(volatile u32 *)(SIGNATURE_SPACE) = SIGNATURE;
     *(volatile u8 *)(HAS_TO_BE_TRUE) = 0x01;
 
     ExecPS2((void*)LOADER_BASE, NULL, 0, NULL);
 	
 	return 0;
-	
-	
-	
 }
 

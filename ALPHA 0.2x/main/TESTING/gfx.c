@@ -21,7 +21,7 @@ void gfx_init(void)
 
     gsGlobal = gsKit_init_global();
 
-    gsGlobal->Mode = GS_MODE_PAL;
+    if ( *(volatile u8 *) (PAL_NTSC) ) { gsGlobal->Mode = GS_MODE_NTSC; } else { gsGlobal->Mode = GS_MODE_PAL; }
     gsGlobal->Interlace = GS_INTERLACED;
     gsGlobal->Field = GS_FIELD;
     gsGlobal->Width = 640;
