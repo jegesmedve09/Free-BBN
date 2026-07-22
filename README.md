@@ -110,7 +110,7 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 | USB Mass (Single Drive + Multiple Partitions) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 | USB Mass (Multiple Drives + Single Partition) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 | USB Mass (Multiple Drives + Multiple Partitions) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
-| PS2 HDD (only FAT consoles) | ![Unsupported](https://img.shields.io/badge/Unsupported-red) |
+| PS2 HDD (only FAT consoles) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) thou, not fully, loading ELF files are working from "+freebbn" partition |
 
 ### Intellectual Property & Assets
 The "Curse" wallpaper/artwork featured in the free hobbyist version of this software is the property of **@shadydaone** on Instagram.
