@@ -74,7 +74,7 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 | SCPH-75000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
 | SCPH-77000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
 | SCHP-7900x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
-| SCPH-9000x          | ![Partially Supported](https://img.shields.io/badge/Partially%20Supported-orange)  |
+| SCPH-9000x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB/Tuna |
 
 #### PSX models
 | Platform            | Status                                                                       |
@@ -90,8 +90,8 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 #### PS2 TV models
 | Platform            | Status                                                                       |
 |---------------------|------------------------------------------------------------------------------|
-| PX300          | ![Unsupported](https://img.shields.io/badge/Unsupported-red)             |
-| PX300-1        | ![Unsupported](https://img.shields.io/badge/Unsupported-red)             |
+| PX300               | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via Tuna    |
+| PX300-1             | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via Tuna    |
 
 ### Storage Support
 |Device           | Status                 |
@@ -110,7 +110,7 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 | USB Mass (Single Drive + Multiple Partitions) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 | USB Mass (Multiple Drives + Single Partition) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 | USB Mass (Multiple Drives + Multiple Partitions) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
-| PS2 HDD (only FAT consoles) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) thou, not fully, loading ELF files are working from "+freebbn" partition |
+| PS2 HDD (only FAT consoles) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 
 ### Intellectual Property & Assets
 The "Curse" wallpaper/artwork featured in the free hobbyist version of this software is the property of **@shadydaone** on Instagram.
