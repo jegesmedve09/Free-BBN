@@ -35,7 +35,7 @@ WARNING: Some files contain Eastereggs
 This is **not** a patch of the original Sony binary.  
 It's a complete from-scratch homebrew recreation, **source-available from day one**.
 
-# Current Status (January 2026)
+# Current Status (July 2026)
 
 - ✓ Actual Music streaming and sound effects working
 - ✓ Partial FMV playback
