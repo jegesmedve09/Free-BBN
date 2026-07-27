@@ -2,7 +2,7 @@
   <h1>Free-BBN</h1>
   
   <p>
-    <strong>Open-source recreation of the PlayStation Broadband Navigator (PSBBN) dashboard</strong><br>
+    <strong>Source Avaivable recreation of the PlayStation Broadband Navigator (PSBBN) dashboard</strong><br>
     built from scratch with <code>ps2sdk</code> + <code>gsKit</code>
   </p>
 
