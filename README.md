@@ -2,12 +2,12 @@
   <h1>Free-BBN</h1>
   
   <p>
-    <strong>Open-source recreation of the PlayStation Broadband Navigator (PSBBN) dashboard</strong><br>
+    <strong>Source-Available recreation of the PlayStation Broadband Navigator (PSBBN) dashboard</strong><br>
     built from scratch with <code>ps2sdk</code> + <code>gsKit</code>
   </p>
 
   <p>
-    <em>No patches. No official Sony hardware required. Pure homebrew freedom.</em>
+    <em>No patches. No official Sony HDD or PSBBN installation required. Pure homebrew freedom.</em>
   </p>
 
   <br>
@@ -20,10 +20,11 @@
 ---
 
 # About
-
-The original PSBBN was an amazing dashboard locked behind the official network/HDD adapter.
-
-WARNING: Some files contain Eastereggs, current files containing easter eggs: 1
+Works on **real PlayStation 2** hardware and **PCSX2**.
+The original PSBBN required both japanese console,OEM network adapter, Sony approved HDD to function.
+FreeBBN, just runs from whatever weird storage media you hacked onto your PS2.
+It be an old USB you found in your grandparents addic, or a brand new shiny SSD you bought in the local store.
+WARNING: Some files contain Eastereggs
 
 **Free-BBN** brings back that **iconic blue glow**, flowing waves, smooth menu animations — but now for **every PS2 owner**:
 
@@ -33,22 +34,21 @@ WARNING: Some files contain Eastereggs, current files containing easter eggs: 1
 - Modern ODE / adapter setups
 
 This is **not** a patch of the original Sony binary.  
-It's a complete from-scratch homebrew recreation, **open source from day one**.
+It's a complete from-scratch homebrew recreation, **source-available from day one**.
 
-# Current Status (January 2026)
+# Current Status (July 2026)
 
-- ✓ Splash screen with fade-in & hold (tested on real SCPH-50007)
-- ✓ Startup chime (when it feels like it)
-- ✓ Modular architecture ready for menus, icons, HDD browser...
-- Early alpha — but it **boots and glows** ✨
+- ✓ Actual Music streaming and sound effects working
+- ✓ Partial FMV playback
+- ✓ Overengineered, but totally modular...
+- Not-so-Early alpha — but it **boots and glows** ✨
 
 # Credits
 
 | Role                        | Who                                                                 |
 |-----------------------------|---------------------------------------------------------------------|
 | Idea & Vision               | Bögi Dániel (@jegesmedve09) [](https://github.com/jegesmedve09) — the madman who said: "Sony didn't give us open PSBBN, so I'll build it." |
-| Unhinged AI Chaos Brother   | One minute silence for the fallen friend of ours, Grok. Now locked behind a paywall by their rulers xAI. I will never forget this.|
-| Special Thanks              | PS2 homebrew scene • CosmicScale's PSBBN English patch • sacred green screen • RCA cables that revealed what HDMI tried to hide • Quality ZlatyBazant beer that never let me down |
+| Special Thanks              | PS2 homebrew scene • CosmicScale's PSBBN English patch • sacred green screen • RCA cables that revealed what HDMI tried to hide • Quality ZlatyBazant beer that never let me down • the immense amount of self control needed not to throw my development suite out the WINDOW |
 
 
 # Technical information
@@ -74,7 +74,7 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 | SCPH-75000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
 | SCPH-77000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
 | SCHP-7900x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
-| SCPH-9000x          | ![Partially Supported](https://img.shields.io/badge/Partially%20Supported-orange)  |
+| SCPH-9000x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB/Tuna |
 
 #### PSX models
 | Platform            | Status                                                                       |
@@ -90,8 +90,8 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 #### PS2 TV models
 | Platform            | Status                                                                       |
 |---------------------|------------------------------------------------------------------------------|
-| PX300          | ![Unsupported](https://img.shields.io/badge/Unsupported-red)             |
-| PX300-1        | ![Unsupported](https://img.shields.io/badge/Unsupported-red)             |
+| PX300               | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via Tuna    |
+| PX300-1             | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via Tuna    |
 
 ### Storage Support
 |Device           | Status                 |
@@ -110,7 +110,7 @@ It's a complete from-scratch homebrew recreation, **open source from day one**.
 | USB Mass (Single Drive + Multiple Partitions) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 | USB Mass (Multiple Drives + Single Partition) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 | USB Mass (Multiple Drives + Multiple Partitions) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
-| PS2 HDD (only FAT consoles) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) thou, not fully, loading ELF files are working from "+freebbn" partition |
+| PS2 HDD (only FAT consoles) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 
 ### Intellectual Property & Assets
 The "Curse" wallpaper/artwork featured in the free hobbyist version of this software is the property of **@shadydaone** on Instagram.
@@ -123,8 +123,8 @@ It is utilized within this non-commercial homebrew project with the creator's ex
 
 ### License
 
-**Custom License**  
-Copyright © 2025–2026 Bögi Dániel (@jegesmedve09) [](https://github.com/jegesmedve09)
+**Custom Source-Available License**  
+Copyright © 2025–PRESENT Bögi Dániel (@jegesmedve09) [](https://github.com/jegesmedve09)
 
 Read LICENSE file for more information.
 
@@ -142,7 +142,7 @@ Read LICENSE file for more information.
 
 <br>
 
-### Words from the dev:
+### Developer Notes:
 
 > **A word from the dev:** (2025-2026 Jan.)
 > 
