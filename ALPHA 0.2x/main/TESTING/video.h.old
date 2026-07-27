@@ -1,0 +1,30 @@
+#ifndef VIDEO_H
+#define VIDEO_H
+
+// Call once at startup, before any other video_* call.
+// Sets up DMA channels and the GS screen for video playback.
+void video_init(void);
+
+// Starts playing a raw MPEG1/2 elementary stream (.m2v) from `path`.
+// Stops any currently playing video first. Returns 0 on success, -1 on failure.
+int video_play(const char *path);
+
+// Pauses decoding. video_update() becomes a no-op until resumed.
+void video_pause(void);
+
+// Resumes a paused video.
+void video_resume(void);
+
+// Call once per frame from your main loop while a video is active.
+// Decodes and draws the next picture. No-ops if stopped/paused.
+// Returns 0 while playing, 1 when the video has reached end-of-stream
+// (state auto-resets to stopped when this happens).
+int video_update(void);
+
+// Stops playback and frees decoder resources. Safe to call even if
+// nothing is playing.
+void video_exit(void);
+
+int video_is_playing(void);
+
+#endif

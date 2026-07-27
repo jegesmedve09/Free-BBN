@@ -19,4 +19,5 @@ void FuckAroundSilently(int frames);
 void FuckAroundSilentlyMs(int milliseconds);
 int get_random_in_range(int from, int to);
 char *path_portableinator(const char *path);
+unsigned int read_count(void);
 #endif

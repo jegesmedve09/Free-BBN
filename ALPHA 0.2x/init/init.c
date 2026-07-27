@@ -175,7 +175,7 @@ void init(const char *argv0)
     if (strncmp(argv0, "hdd", 3) == 0) {
         int r = mount_hdd_from_argv(argv0, savepath, sizeof(savepath));
         *GS_BGCOLOR = (r > 0) ? 0x0000FF : 0xFF0000; // blue = mounted ok, red = mount failed
-        FuckAroundSilentlyMs(3000); // hold it so you can actually see it
+        //FuckAroundSilentlyMs(3000); // hold it so you can actually see it
     }
     else
     {
@@ -188,14 +188,14 @@ void init(const char *argv0)
         if (slash != NULL) *(slash + 1) = '\0';
         else strcpy(savepath, "host:/");
     }
-    FuckAroundSilentlyMs(5000);
+    //FuckAroundSilentlyMs(5000);
     *GS_BGCOLOR = 0x00FF7F; // spring green - about to call read_config
 	char **fd;
 	char *settingsBuffer = NULL;    
 
 	fd = read_config("init.gs.config", &settingsBuffer);
     *GS_BGCOLOR = 0xFF69B4; // pink - read_config returned
-    FuckAroundSilentlyMs(5000);
+    //FuckAroundSilentlyMs(5000);
 	//graphics
     GSGLOBAL *gsGlobal;
     dmaKit_init(D_CTRL_RELE_OFF, D_CTRL_MFD_OFF, D_CTRL_STS_UNSPEC,

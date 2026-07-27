@@ -28,7 +28,7 @@ void gfx_init(void)
     gsGlobal->Height = 480;
     gsGlobal->DoubleBuffering = GS_SETTING_OFF;
     gsGlobal->ZBuffering = GS_SETTING_OFF;
-    gsGlobal->PrimAlphaEnable = GS_SETTING_ON;
+    gsGlobal->PrimAlphaEnable = GS_SETTING_OFF;
 
     gsKit_init_screen(gsGlobal);
     gsKit_mode_switch(gsGlobal, GS_ONESHOT);

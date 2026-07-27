@@ -57,7 +57,7 @@ echo Compiling INIT OK
 #echo Compiling TEST MAIN OK
 
 echo Compiling SETUP MAIN...
-cd main/setup
+cd main/TESTING
 make
 cd ../..
 echo Compiling SETUP MAIN OK

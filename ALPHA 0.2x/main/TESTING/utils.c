@@ -110,4 +110,9 @@ char *path_portableinator(const char *path)
     result[sizeof(result) - 1] = '\0';
     return result;
 }
-
+unsigned int read_count(void)
+{
+    unsigned int c;
+    __asm__ volatile("mfc0 %0, $9" : "=r"(c));
+    return c;
+}

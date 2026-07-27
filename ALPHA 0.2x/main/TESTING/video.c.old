@@ -1,0 +1,202 @@
+#include "video.h"
+#include "gfx.h"
+#include "libmpeg.h"
+#include "debug.h"
+#include "utils.h"
+
+#include <dma_tags.h>
+#include <gif_tags.h>
+#include <gs_psm.h>
+#include <gs_gp.h>
+
+#include <kernel.h>
+#include <dma.h>
+#include <fcntl.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <malloc.h>
+#include <string.h>
+#include <gsKit.h>
+
+#include <stdio.h>
+
+#define CHUNK_SIZE 2048
+
+typedef enum { V_STOPPED, V_PLAYING, V_PAUSED } VideoState;
+
+typedef struct {
+    MPEGSequenceInfo *m_pInfo;
+    void *m_pData; // RGBA32 decode target, system RAM
+} InitCBParam;
+
+static VideoState s_state = V_STOPPED;
+static int s_fd = -1;
+static s64 s_curPTS;
+static InitCBParam s_cb;
+static GSTEXTURE s_tex;
+static int s_dmaReady = 0;
+
+static unsigned char s_chunk[CHUNK_SIZE] __attribute__((aligned(64)));
+
+static int SetDMA(void *apUserData);
+static void *InitCB(void *apParam, MPEGSequenceInfo *apInfo);
+
+static int s_isPAL = 0;
+void video_init(void)
+{
+    if (s_dmaReady) return;
+    dma_channel_initialize(DMA_CHANNEL_toIPU, NULL, 0);
+    memset(&s_tex, 0, sizeof(s_tex));
+    s_isPAL = !(*(volatile u8*)PAL_NTSC);
+    s_dmaReady = 1;
+}
+
+int video_play(const char *path)
+{
+    video_exit();
+    s_fd = open(path, O_RDONLY);
+    dbg_log("video_play: open('%s') = %d\n", path, s_fd);
+    if (s_fd < 0) return -1;
+
+    memset(&s_cb, 0, sizeof(s_cb));
+    MPEG_Initialize(SetDMA, NULL, InitCB, &s_cb, &s_curPTS);
+
+    s_state = V_PLAYING;
+    return 0;
+}
+
+void video_pause(void)  { if (s_state == V_PLAYING) s_state = V_PAUSED; }
+void video_resume(void) { if (s_state == V_PAUSED)  s_state = V_PLAYING; }
+
+static u8 *s_rasterBuf = NULL;
+static int s_accum = 0;
+#define SRC_FPS 60
+
+int video_update(void)
+{
+    if (s_state != V_PLAYING) return 0;
+    int target = s_isPAL ? 50 : 60;
+    s_accum += target;
+    int present = (s_accum >= SRC_FPS);
+    if (present) s_accum -= SRC_FPS;
+
+    s64 pts;
+    int ok = MPEG_Picture(s_cb.m_pData, &pts);
+    static int once = 0;
+    if (!once++) dbg_log("video: first MPEG_Picture() = %d\n", ok);
+    if (!ok) { video_exit(); return 1; }
+
+    if (!present) return 0;
+
+    unsigned int t0 = read_count();
+
+    int mbw = s_tex.Width  >> 4;
+    int mbh = s_tex.Height >> 4;
+    if (!s_rasterBuf)
+        s_rasterBuf = memalign(64, s_tex.Width * s_tex.Height * 4);
+
+    u8 *src = (u8*)s_cb.m_pData;
+    for (int by = 0; by < mbh; by++) {
+        u8 *dstRowBase = s_rasterBuf + (by*16) * s_tex.Width * 4;
+        for (int bx = 0; bx < mbw; bx++) {
+            u8 *dst = dstRowBase + bx*16*4;
+            for (int row = 0; row < 16; row++) {
+                memcpy(dst, src, 64);
+                dst += s_tex.Width * 4;
+                src += 64;
+            }
+        }
+    }
+
+    unsigned int t1 = read_count();
+
+    SyncDCache(s_rasterBuf, s_rasterBuf + s_tex.Width * s_tex.Height * 4);
+    s_tex.Mem = (u32*)s_rasterBuf;
+    gsKit_texture_upload(gsGlobal, &s_tex);
+
+    unsigned int t2 = read_count();
+
+    gsGlobal->PrimAlphaEnable = GS_SETTING_OFF;
+    gsKit_prim_sprite_texture(gsGlobal, &s_tex,
+        0, 0, 0, 0,
+        gsGlobal->Width, gsGlobal->Height,
+        s_tex.Width, s_tex.Height,
+        1, 0x80808080);
+    gsGlobal->PrimAlphaEnable = GS_SETTING_ON;
+
+
+    unsigned int t3 = read_count();
+
+    static int n = 0;
+    if (n++ < 10) {
+        unsigned int untile_us = (t1 - t0) * 1000 / 147456;
+        unsigned int upload_us = (t2 - t1) * 1000 / 147456;
+        unsigned int draw_us   = (t3 - t2) * 1000 / 147456;
+        dbg_log("video: untile=%uus upload=%uus draw=%uus\n", untile_us, upload_us, draw_us);
+    }
+    return 0;
+}
+void video_exit(void)
+{
+    if (s_state == V_STOPPED && s_fd < 0) return;
+
+    MPEG_Destroy();
+
+    if (s_tex.Vram) {
+        //gsKit_vram_free(gsGlobal, s_tex.Vram);
+        s_tex.Vram = 0;
+    }
+    if (s_cb.m_pData) {
+        free(s_cb.m_pData);
+        s_cb.m_pData = NULL;
+    }
+
+    if (s_fd >= 0) { close(s_fd); s_fd = -1; }
+    s_state = V_STOPPED;
+}
+
+int video_is_playing(void) { return s_state == V_PLAYING; }
+
+static int SetDMA(void *apUserData)
+{
+    (void)apUserData;
+    int n = read(s_fd, s_chunk, CHUNK_SIZE);
+
+
+    static int calls = 0;
+    if (calls < 5) dbg_log("SetDMA: call %d, read %d bytes\n", calls, n);
+    calls++;
+
+    if (n <= 0) return 0;
+
+    // ADD THIS: Flush the CPU cache to physical RAM so DMA can see it
+    SyncDCache(s_chunk, s_chunk + CHUNK_SIZE);
+
+    dma_channel_wait(DMA_CHANNEL_toIPU, 0);
+    dma_channel_send_normal(DMA_CHANNEL_toIPU, s_chunk, CHUNK_SIZE >> 4, 0, 0);
+    return 1;
+}
+
+static void *InitCB(void *apParam, MPEGSequenceInfo *apInfo)
+{
+    dbg_log("InitCB: sequence found %dx%d\n", apInfo->m_Width, apInfo->m_Height);
+    InitCBParam *lp = (InitCBParam *)apParam;
+
+    int lDataSize = apInfo->m_Width * apInfo->m_Height * 4;
+    char *retVal  = (char *)memalign(64, lDataSize);
+
+    lp->m_pData = retVal;
+    lp->m_pInfo = apInfo;
+    SyncDCache(retVal, retVal + lDataSize);
+
+    s_tex.Width  = apInfo->m_Width;
+    s_tex.Height = apInfo->m_Height;
+    s_tex.PSM    = GS_PSM_32;
+    s_tex.Filter = GS_FILTER_NEAREST;
+    s_tex.Mem    = (u32 *)retVal;
+    s_tex.Vram = gsKit_vram_alloc(gsGlobal,
+                    gsKit_texture_size(s_tex.Width, s_tex.Height, s_tex.PSM),
+                    GSKIT_ALLOC_USERBUFFER);
+    dbg_log("InitCB: vram_alloc = 0x%08x\n", s_tex.Vram);
+    return retVal;
+}

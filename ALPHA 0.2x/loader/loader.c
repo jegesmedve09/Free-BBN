@@ -52,7 +52,7 @@ int main(int argc, char **argv)
     SifInitRpc(0);
     SifLoadFileInit();
     
-    FuckAroundSilentlyMs(1000);    
+    //FuckAroundSilentlyMs(1000);    
 
     if (*(volatile u32*)SIGNATURE_SPACE != SIGNATURE)
     {
@@ -88,7 +88,7 @@ int main(int argc, char **argv)
     }
     else
     {
-        FuckAroundSilentlyMs(3000);
+        //FuckAroundSilentlyMs(3000);
 
         asm volatile("sync.l");
         FlushCache(0);
