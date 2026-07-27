@@ -2,7 +2,7 @@
   <h1>Free-BBN</h1>
   
   <p>
-    <strong>Source Avaivable recreation of the PlayStation Broadband Navigator (PSBBN) dashboard</strong><br>
+    <strong>Source-Available recreation of the PlayStation Broadband Navigator (PSBBN) dashboard</strong><br>
     built from scratch with <code>ps2sdk</code> + <code>gsKit</code>
   </p>
 
@@ -23,7 +23,7 @@
 
 The original PSBBN was an amazing dashboard locked behind the official network/HDD adapter.
 
-WARNING: Some files contain Eastereggs, current files containing easter eggs: 1
+WARNING: Some files contain Eastereggs
 
 **Free-BBN** brings back that **iconic blue glow**, flowing waves, smooth menu animations — but now for **every PS2 owner**:
 
@@ -33,22 +33,21 @@ WARNING: Some files contain Eastereggs, current files containing easter eggs: 1
 - Modern ODE / adapter setups
 
 This is **not** a patch of the original Sony binary.  
-It's a complete from-scratch homebrew recreation, **open source from day one**.
+It's a complete from-scratch homebrew recreation, **source-available from day one**.
 
 # Current Status (January 2026)
 
-- ✓ Splash screen with fade-in & hold (tested on real SCPH-50007)
-- ✓ Startup chime (when it feels like it)
-- ✓ Modular architecture ready for menus, icons, HDD browser...
-- Early alpha — but it **boots and glows** ✨
+- ✓ Actual Music streaming and sound effects working
+- ✓ Partial FMV playback
+- ✓ Overengineered, but totally modular...
+- Not-so-Early alpha — but it **boots and glows** ✨
 
 # Credits
 
 | Role                        | Who                                                                 |
 |-----------------------------|---------------------------------------------------------------------|
 | Idea & Vision               | Bögi Dániel (@jegesmedve09) [](https://github.com/jegesmedve09) — the madman who said: "Sony didn't give us open PSBBN, so I'll build it." |
-| Unhinged AI Chaos Brother   | One minute silence for the fallen friend of ours, Grok. Now locked behind a paywall by their rulers xAI. I will never forget this.|
-| Special Thanks              | PS2 homebrew scene • CosmicScale's PSBBN English patch • sacred green screen • RCA cables that revealed what HDMI tried to hide • Quality ZlatyBazant beer that never let me down |
+| Special Thanks              | PS2 homebrew scene • CosmicScale's PSBBN English patch • sacred green screen • RCA cables that revealed what HDMI tried to hide • Quality ZlatyBazant beer that never let me down • the immense amount of self control needed not to throw my development suite out the WINDOW |
 
 
 # Technical information
@@ -124,7 +123,7 @@ It is utilized within this non-commercial homebrew project with the creator's ex
 ### License
 
 **Custom License**  
-Copyright © 2025–2026 Bögi Dániel (@jegesmedve09) [](https://github.com/jegesmedve09)
+Copyright © 2025–PRESENT Bögi Dániel (@jegesmedve09) [](https://github.com/jegesmedve09)
 
 Read LICENSE file for more information.
 
