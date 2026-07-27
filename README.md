@@ -7,7 +7,7 @@
   </p>
 
   <p>
-    <em>No patches. No official Sony hardware required. Pure homebrew freedom.</em>
+    <em>No patches. No official Sony HDD or PSBBN installation required. Pure homebrew freedom.</em>
   </p>
 
   <br>
@@ -20,9 +20,10 @@
 ---
 
 # About
-
-The original PSBBN was an amazing dashboard locked behind the official network/HDD adapter.
-
+Works on **real PlayStation 2** hardware and **PCSX2**.
+The original PSBBN required both japanese console,OEM network adapter, Sony approved HDD to function.
+FreeBBN, just runs from whatever weird storage media you hacked onto your PS2.
+It be an old USB you found in your grandparents addic, or a brand new shiny SSD you bought in the local store.
 WARNING: Some files contain Eastereggs
 
 **Free-BBN** brings back that **iconic blue glow**, flowing waves, smooth menu animations — but now for **every PS2 owner**:
@@ -122,7 +123,7 @@ It is utilized within this non-commercial homebrew project with the creator's ex
 
 ### License
 
-**Custom License**  
+**Custom Source-Available License**  
 Copyright © 2025–PRESENT Bögi Dániel (@jegesmedve09) [](https://github.com/jegesmedve09)
 
 Read LICENSE file for more information.
@@ -141,7 +142,7 @@ Read LICENSE file for more information.
 
 <br>
 
-### Words from the dev:
+### Developer Notes:
 
 > **A word from the dev:** (2025-2026 Jan.)
 > 
