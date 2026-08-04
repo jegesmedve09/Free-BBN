@@ -1,69 +1,95 @@
+#!/usr/bin/env bash
+set -e # Exit immediately if any command fails
+
 default_path=$(pwd)
-echo Default Path: $default_path
+echo "Default Path: $default_path"
 
 if [ "$1" = "help" ]; then
     echo "use $0 clean to clean only"
     echo "use $0 to clean and build"
-    exit
+    exit 0
 fi
 
-echo Cleaning up...
+echo "Cleaning up..."
 
-echo Cleaning INIT
-cd init
-make clean
-cd ..
-echo Cleaning INIT OK
-
-echo Cleaning loader...
-cd loader
-make clean
-cd ..
-echo Cleaning loader OK
-
-echo Cleaning BUILD...
-cd BUILD
-rm -r *
-cd ..
-echo Cleaning BUILD OK
-
-
-if [ $1 = "clean" ]; then
-    echo Cleaning OK
-    exit
+if [ -d "init" ]; then
+    echo "Cleaning INIT..."
+    (cd init && make clean)
+    echo "Cleaning INIT OK"
 fi
 
+if [ -d "loader" ]; then
+    echo "Cleaning loader..."
+    (cd loader && make clean)
+    echo "Cleaning loader OK"
+fi
 
-echo Compiling Loader...
-cd loader
-make
-cd ..
-echo Compiling Loader OK
+if [ -d "main" ]; then
+    echo "Cleaning MAIN..."
+    (cd main && make clean)
+    echo "Cleaning MAIN OK"
+fi
 
-echo Compiling INIT...
-cp loader/loader_bin.c init/loader_bin.c
-cd init
-make
-cd ..
-echo Compiling INIT OK
+echo "Cleaning BUILD..."
+if [ -d "BUILD" ]; then
+    rm -rf BUILD/*
+    echo "Cleaning BUILD OK"
+else
+    echo "BUILD directory not found, creating it..."
+    mkdir -p BUILD
+fi
 
+if [ "$1" = "clean" ]; then
+    echo "Cleaning complete."
+    exit 0
+fi
 
+echo "Compiling Loader..."
+if [ -d "loader" ]; then
+    (cd loader && make)
+    echo "Compiling Loader OK"
+else
+    echo "Error: loader directory missing!"
+    exit 1
+fi
 
+echo "Compiling INIT..."
+if [ -f "loader/loader_bin.c" ]; then
+    cp loader/loader_bin.c init/loader_bin.c
+else
+    echo "Warning: loader/loader_bin.c not found!"
+fi
 
-#echo Compiling TEST MAIN...
-#cd main/TESTING
-#make
-#cd ../..
-#echo Compiling TEST MAIN OK
+if [ -d "init" ]; then
+    (cd init && make)
+    echo "Compiling INIT OK"
+else
+    echo "Error: init directory missing!"
+    exit 1
+fi
 
-echo Compiling SETUP MAIN...
-cd main/TESTING
-make
-cd ../..
-echo Compiling SETUP MAIN OK
+echo "Compiling MAIN..."
+if [ -d "main" ]; then
+    (cd main && make)
+    echo "Compiling MAIN OK"
+else
+    echo "Error: main directory missing!"
+    exit 1
+fi
 
-echo Generating Build
-cp init/init.elf BUILD/init.elf
-cp main/TESTING/main.elf BUILD/main.elf
-cp -r ASSETS/* BUILD/
-echo Generating Build OK
+echo "Generating Build..."
+mkdir -p BUILD
+
+if [ -f "./init/init.elf" ]; then
+    cp ./init/init.elf ./BUILD/init.elf
+fi
+
+if [ -f "./main/main.elf" ]; then
+    cp ./main/main.elf ./BUILD/main.elf
+fi
+
+if [ -d "ASSETS" ]; then
+    cp -r ASSETS/* BUILD/
+fi
+
+echo "Generating Build OK"

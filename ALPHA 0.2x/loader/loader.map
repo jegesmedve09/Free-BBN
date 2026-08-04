@@ -160,9 +160,9 @@ Discarded input sections
  .reginfo       0x00000000       0x18 loader.o
  .MIPS.abiflags
                 0x00000000       0x18 loader.o
- .reginfo       0x00000000       0x18 /tmp/ccTL2nAt.ltrans0.ltrans.o
+ .reginfo       0x00000000       0x18 /tmp/ccGvplc4.ltrans0.ltrans.o
  .MIPS.abiflags
-                0x00000000       0x18 /tmp/ccTL2nAt.ltrans0.ltrans.o
+                0x00000000       0x18 /tmp/ccGvplc4.ltrans0.ltrans.o
  .reginfo       0x00000000       0x18 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
  .MIPS.abiflags
                 0x00000000       0x18 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
@@ -402,8 +402,8 @@ Linker script and memory map
 LOAD crt0.o
 LOAD loader.o
 START GROUP
-LOAD /tmp/ccTL2nAt.ltrans0.ltrans.o
-LOAD /tmp/cc4jLLev.debug.temp.o
+LOAD /tmp/ccGvplc4.ltrans0.ltrans.o
+LOAD /tmp/ccLIwGV3.debug.temp.o
 LOAD /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a
 LOAD /usr/local/ps2dev/ps2sdk/ee/lib/libcdvd.a
 LOAD /usr/local/ps2dev/ps2sdk/ee/lib/libcglue.a
@@ -427,7 +427,7 @@ END GROUP
                 0x01f00090                _exit
  .text.startup  0x01f00098      0x1d0 loader.o
                 0x01f00098                main
- .text          0x01f00268       0xd8 /tmp/ccTL2nAt.ltrans0.ltrans.o
+ .text          0x01f00268       0xd8 /tmp/ccGvplc4.ltrans0.ltrans.o
                 0x01f00268                InitAlarm
  .text          0x01f00340       0xc8 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
                 0x01f00340                strncpy
@@ -589,7 +589,7 @@ END GROUP
                 0x01f024a0       0x19 loader.o
                                   0x8 (size before relaxing)
  *fill*         0x01f024b9        0x7 
- .rodata        0x01f024c0       0x40 /tmp/ccTL2nAt.ltrans0.ltrans.o
+ .rodata        0x01f024c0       0x40 /tmp/ccGvplc4.ltrans0.ltrans.o
  .rodata.str1.8
                 0x01f02500        0x0 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(_thread_internals.o)
                                  0x10 (size before relaxing)
@@ -606,7 +606,7 @@ END GROUP
  *(.data*)
  .data          0x01f02800        0x0 crt0.o
  .data          0x01f02800        0x8 loader.o
- .data          0x01f02808        0x0 /tmp/ccTL2nAt.ltrans0.ltrans.o
+ .data          0x01f02808        0x0 /tmp/ccGvplc4.ltrans0.ltrans.o
  .data          0x01f02808        0x0 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
  .data          0x01f02808        0x0 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strlen.o)
  .data          0x01f02808        0x0 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncat.o)
@@ -704,7 +704,7 @@ END GROUP
  *(.bss*)
  .bss           0x01f03940        0x0 crt0.o
  .bss           0x01f03940        0x0 loader.o
- .bss           0x01f03940        0x0 /tmp/ccTL2nAt.ltrans0.ltrans.o
+ .bss           0x01f03940        0x0 /tmp/ccGvplc4.ltrans0.ltrans.o
  .bss           0x01f03940        0x0 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
  .bss           0x01f03940        0x0 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strlen.o)
  .bss           0x01f03940        0x0 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncat.o)
@@ -806,7 +806,7 @@ OUTPUT(loader.elf elf32-littlemips)
 .pdr            0x00000000      0xac0
  .pdr           0x00000000        0x0 crt0.o
  .pdr           0x00000000       0x60 loader.o
- .pdr           0x00000060       0x20 /tmp/ccTL2nAt.ltrans0.ltrans.o
+ .pdr           0x00000060       0x20 /tmp/ccGvplc4.ltrans0.ltrans.o
  .pdr           0x00000080       0x20 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
  .pdr           0x000000a0       0x20 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strlen.o)
  .pdr           0x000000c0       0x20 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncat.o)
@@ -891,7 +891,7 @@ OUTPUT(loader.elf elf32-littlemips)
  .gnu.attributes
                 0x00000010       0x10 loader.o
  .gnu.attributes
-                0x00000020       0x10 /tmp/ccTL2nAt.ltrans0.ltrans.o
+                0x00000020       0x10 /tmp/ccGvplc4.ltrans0.ltrans.o
  .gnu.attributes
                 0x00000030       0x10 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
  .gnu.attributes
@@ -1049,7 +1049,7 @@ OUTPUT(loader.elf elf32-littlemips)
  .mdebug.abiN32
                 0x00000000        0x0 loader.o
  .mdebug.abiN32
-                0x00000000        0x0 /tmp/ccTL2nAt.ltrans0.ltrans.o
+                0x00000000        0x0 /tmp/ccGvplc4.ltrans0.ltrans.o
  .mdebug.abiN32
                 0x00000000        0x0 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
  .mdebug.abiN32
@@ -1138,9 +1138,9 @@ OUTPUT(loader.elf elf32-littlemips)
 .comment        0x00000000       0x12
  .comment       0x00000000       0x12 loader.o
                                  0x13 (size before relaxing)
- .comment       0x00000012        0x0 /tmp/ccTL2nAt.ltrans0.ltrans.o
+ .comment       0x00000012        0x0 /tmp/ccGvplc4.ltrans0.ltrans.o
                                  0x13 (size before relaxing)
- .comment       0x00000012        0x0 /tmp/cc4jLLev.debug.temp.o
+ .comment       0x00000012        0x0 /tmp/ccLIwGV3.debug.temp.o
                                  0x13 (size before relaxing)
  .comment       0x00000012        0x0 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
                                  0x13 (size before relaxing)
@@ -1228,8 +1228,8 @@ OUTPUT(loader.elf elf32-littlemips)
                                  0x13 (size before relaxing)
 
 .debug_info     0x00000000     0x7ca4
- .debug_info    0x00000000      0x132 /tmp/ccTL2nAt.ltrans0.ltrans.o
- .debug_info    0x00000132      0x1d4 /tmp/cc4jLLev.debug.temp.o
+ .debug_info    0x00000000      0x132 /tmp/ccGvplc4.ltrans0.ltrans.o
+ .debug_info    0x00000132      0x1d4 /tmp/ccLIwGV3.debug.temp.o
                 0x00000132                alarm.c.bc100763
  .debug_info    0x00000306      0x153 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
  .debug_info    0x00000459       0xf2 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strlen.o)
@@ -1309,8 +1309,8 @@ OUTPUT(loader.elf elf32-littlemips)
  .debug_info    0x00007c6f       0x35 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifWriteBackDCache.o)
 
 .debug_abbrev   0x00000000     0x32df
- .debug_abbrev  0x00000000       0x81 /tmp/ccTL2nAt.ltrans0.ltrans.o
- .debug_abbrev  0x00000081      0x104 /tmp/cc4jLLev.debug.temp.o
+ .debug_abbrev  0x00000000       0x81 /tmp/ccGvplc4.ltrans0.ltrans.o
+ .debug_abbrev  0x00000081      0x104 /tmp/ccLIwGV3.debug.temp.o
  .debug_abbrev  0x00000185       0xa3 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
  .debug_abbrev  0x00000228       0x8f /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strlen.o)
  .debug_abbrev  0x000002b7       0xac /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncat.o)
@@ -1391,11 +1391,11 @@ OUTPUT(loader.elf elf32-littlemips)
 .debug_loclists
                 0x00000000       0x17
  .debug_loclists
-                0x00000000       0x17 /tmp/ccTL2nAt.ltrans0.ltrans.o
+                0x00000000       0x17 /tmp/ccGvplc4.ltrans0.ltrans.o
 
 .debug_aranges  0x00000000      0x970
  .debug_aranges
-                0x00000000       0x20 /tmp/ccTL2nAt.ltrans0.ltrans.o
+                0x00000000       0x20 /tmp/ccGvplc4.ltrans0.ltrans.o
  .debug_aranges
                 0x00000020       0x20 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
  .debug_aranges
@@ -1552,11 +1552,11 @@ OUTPUT(loader.elf elf32-littlemips)
 .debug_rnglists
                 0x00000000       0x17
  .debug_rnglists
-                0x00000000       0x17 /tmp/ccTL2nAt.ltrans0.ltrans.o
+                0x00000000       0x17 /tmp/ccGvplc4.ltrans0.ltrans.o
 
 .debug_line     0x00000000     0x374e
- .debug_line    0x00000000       0xf7 /tmp/ccTL2nAt.ltrans0.ltrans.o
- .debug_line    0x000000f7       0x7d /tmp/cc4jLLev.debug.temp.o
+ .debug_line    0x00000000       0xf7 /tmp/ccGvplc4.ltrans0.ltrans.o
+ .debug_line    0x000000f7       0x7d /tmp/ccLIwGV3.debug.temp.o
  .debug_line    0x00000174      0x1d4 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
  .debug_line    0x00000348      0x17c /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strlen.o)
  .debug_line    0x000004c4      0x1d2 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncat.o)
@@ -1635,9 +1635,9 @@ OUTPUT(loader.elf elf32-littlemips)
  .debug_line    0x000036ea       0x64 /usr/local/ps2dev/ps2sdk/ee/lib/libkernel.a(sceSifWriteBackDCache.o)
 
 .debug_str      0x00000000     0x14c0
- .debug_str     0x00000000        0x0 /tmp/ccTL2nAt.ltrans0.ltrans.o
+ .debug_str     0x00000000        0x0 /tmp/ccGvplc4.ltrans0.ltrans.o
                                 0x102 (size before relaxing)
- .debug_str     0x00000000        0x0 /tmp/cc4jLLev.debug.temp.o
+ .debug_str     0x00000000        0x0 /tmp/ccLIwGV3.debug.temp.o
                                 0x1ed (size before relaxing)
  .debug_str     0x00000000     0x14c0 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
                                 0x1ec (size before relaxing)
@@ -1793,7 +1793,7 @@ OUTPUT(loader.elf elf32-littlemips)
                                  0x5b (size before relaxing)
 
 .debug_frame    0x00000000      0x7f8
- .debug_frame   0x00000000       0x34 /tmp/ccTL2nAt.ltrans0.ltrans.o
+ .debug_frame   0x00000000       0x34 /tmp/ccGvplc4.ltrans0.ltrans.o
  .debug_frame   0x00000034       0x20 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncpy.o)
  .debug_frame   0x00000054       0x20 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strlen.o)
  .debug_frame   0x00000074       0x20 /usr/local/ps2dev/ee/mips64r5900el-ps2-elf/lib/libc.a(libc_a-strncat.o)

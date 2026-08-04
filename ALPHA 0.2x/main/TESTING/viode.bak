@@ -19,7 +19,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <gsKit.h>
-#include <packet.h>
+
 #define CHUNK_SIZE (2048 * 32) // 64KB, keep whatever you last tuned this to
 #define SRC_FPS 60
 
@@ -35,10 +35,6 @@ typedef struct {
     MPEGSequenceInfo *m_pInfo;
     void *m_pData;
 } InitCBParam;
-
-#include <draw.h>   // for draw_log2
-
-static packet_t *s_drawPck = NULL;
 
 static VideoState s_state = V_STOPPED;
 static int s_fd = -1;
@@ -62,9 +58,6 @@ static int s_vramReady  = 0;
 static int SetDMA(void *apUserData);
 static void *InitCB(void *apParam, MPEGSequenceInfo *apInfo);
 static void restart_stream(void);
-
-static packet_t *s_xferPck = NULL;
-static int s_texVramShifted = 0;
 
 // --- buffered logging: collect in RAM, write once, so logging itself
 //     never adds I/O contention while we're trying to measure timing ---
@@ -156,55 +149,85 @@ int  video_is_playing(void) { return s_state == V_PLAYING; }
 int video_update(void)
 {
     if (s_state != V_PLAYING) return 0;
+
     int target = s_isPAL ? 50 : 60;
     s_accum += SRC_FPS;
 
     int decoded_any = 0;
     while (s_accum >= target) {
+        unsigned int td0 = read_count();
         s64 pts;
         int ok = MPEG_Picture(s_cb.m_pData, &pts);
+        unsigned int td1 = read_count();
+
+        static int dn = 0;
+        if (dn < 30) {
+            buffered_log("decode=%uus\n", (td1 - td0) * 1000 / 147456);
+            dn++;
+        }
+
         s_accum -= target;
+
         if (!ok) {
-            if (s_loop) { restart_stream(); s_accum = 0; return 0; }
+            if (s_loop) { restart_stream(); s_accum = 0; flush_log(); return 0; }
             video_exit();
+            flush_log();
             return 1;
         }
         decoded_any = 1;
     }
-    if (!decoded_any) return 0;
 
-    SyncDCache(s_decodeBuf, s_decodeBuf + VID_MAX_BYTES);
+    if (!decoded_any) return 0;
 
     unsigned int t0 = read_count();
 
-    dma_channel_send_chain(DMA_CHANNEL_GIF, s_xferPck->data, s_xferPck->qwc, 0, 0);
+    int mbw = ROUND_UP_16(s_tex.Width)  >> 4;
+    int mbh = ROUND_UP_16(s_tex.Height) >> 4;
+
+    u8 *src = (u8*)s_cb.m_pData;
+    for (int by = 0; by < mbh; by++) {
+        u8 *dstRowBase = s_rasterBuf + (by*16) * s_tex.Width * 4;
+        for (int bx = 0; bx < mbw; bx++) {
+            u8 *dst = dstRowBase + bx*16*4;
+            for (int row = 0; row < 16; row++) {
+                memcpy(dst, src, 64);
+                dst += s_tex.Width * 4;
+                src += 64;
+            }
+        }
+    }
 
     unsigned int t1 = read_count();
 
-    dma_channel_wait(DMA_CHANNEL_GIF, 0);
+    SyncDCache(s_rasterBuf, s_rasterBuf + s_tex.Width * s_tex.Height * 4);
+    s_tex.Mem = (u32*)s_rasterBuf;
+    gsKit_texture_upload(gsGlobal, &s_tex);
 
     unsigned int t2 = read_count();
 
-dma_channel_send_normal(DMA_CHANNEL_GIF, s_drawPck->data, s_drawPck->qwc, 0, 0);
-
-    //gsGlobal->PrimAlphaEnable = GS_SETTING_OFF;
-    //gsKit_prim_sprite_texture(gsGlobal, &s_tex,
-    //    0, 0, 0, 0,
-    //    gsGlobal->Width, gsGlobal->Height,
-    //    s_tex.Width, s_tex.Height,
-    //    1, 0x80808080);
-    //gsGlobal->PrimAlphaEnable = GS_SETTING_ON;
+    gsGlobal->PrimAlphaEnable = GS_SETTING_OFF;
+    gsKit_prim_sprite_texture(gsGlobal, &s_tex,
+        0, 0, 0, 0,
+        gsGlobal->Width, gsGlobal->Height,
+        s_tex.Width, s_tex.Height,
+        1, 0x80808080);
+    gsGlobal->PrimAlphaEnable = GS_SETTING_ON;
 
     unsigned int t3 = read_count();
+    unsigned int total_us = (t3 - t0) * 1000 / 147456;
 
+    // visual budget indicator - green if under NTSC budget, red if over
+    *(volatile u64*)0x120000e0 = (total_us < 16700) ? 0x00FF00 : 0xFF0000;
     static int n = 0;
-    if ((n++ & 0xFF) == 0) {
-        unsigned int send_us = (t1 - t0) * 1000 / 147456;
-        unsigned int wait_us = (t2 - t1) * 1000 / 147456;
-        unsigned int draw_us = (t3 - t2) * 1000 / 147456;
-        buffered_log("send=%uus wait=%uus draw=%uus\n", send_us, wait_us, draw_us);
-        flush_log();
+    if (n < 30) {
+        unsigned int untile_us = (t1 - t0) * 1000 / 147456;
+        unsigned int upload_us = (t2 - t1) * 1000 / 147456;
+        unsigned int draw_us   = (t3 - t2) * 1000 / 147456;
+        dbg_log("untile=%uus upload=%uus draw=%uus\n", untile_us, upload_us, draw_us);
+        n++;
+        if (n == 30) flush_log(); // dump everything once we've got a good sample
     }
+
     return 0;
 }
 
@@ -241,68 +264,24 @@ static void *InitCB(void *apParam, MPEGSequenceInfo *apInfo)
     int codedH = ROUND_UP_16(apInfo->m_Height);
 
     if (codedW > VID_MAX_W || codedH > VID_MAX_H) {
-        buffered_log("InitCB: REFUSED %dx%d (coded %dx%d)\n",
-                      apInfo->m_Width, apInfo->m_Height, codedW, codedH);
+        buffered_log("InitCB: REFUSED %dx%d (coded %dx%d) > max %dx%d\n",
+                      apInfo->m_Width, apInfo->m_Height, codedW, codedH, VID_MAX_W, VID_MAX_H);
     }
+
+    buffered_log("InitCB: sequence %dx%d (coded %dx%d)\n",
+                  apInfo->m_Width, apInfo->m_Height, codedW, codedH);
 
     lp->m_pData = s_decodeBuf;
     lp->m_pInfo = apInfo;
     SyncDCache(s_decodeBuf, s_decodeBuf + VID_MAX_BYTES);
 
-    s_tex.Width  = apInfo->m_Width;
+    s_tex.Width  = apInfo->m_Width;   // display size, unchanged - what gets shown
     s_tex.Height = apInfo->m_Height;
     s_tex.PSM    = GS_PSM_32;
     s_tex.Filter = GS_FILTER_NEAREST;
     s_tex.Mem    = (u32 *)s_decodeBuf;
-    s_tex.Vram   = s_texVram;              // untouched, gsKit's own draw call uses this raw
-
-    s_texVramShifted = s_texVram >> 6;     // separate copy, only for the manual BITBLTBUF below
-
-    int mbw = codedW >> 4;
-    int mbh = codedH >> 4;
-    int tbw = (codedW + 63) >> 6;
-    s_tex.TBW = tbw;
-
-    if (s_xferPck) { /* rebuild only, no free() available */ }
-    s_xferPck = packet_init((10 + 12 * mbw * mbh) >> 1, PACKET_NORMAL);
-
-    qword_t *q = s_xferPck->data;
-    char *lpImg = s_decodeBuf;
-
-    DMATAG_CNT(q, 3, 0, 0, 0); q++;
-    PACK_GIFTAG(q, GIF_SET_TAG(2, 0, 0, 0, 0, 1), GIF_REG_AD); q++;
-    PACK_GIFTAG(q, GS_SET_TRXREG(16, 16), GS_REG_TRXREG); q++;
-    PACK_GIFTAG(q, GS_SET_BITBLTBUF(0, 0, 0, s_texVramShifted, tbw, GS_PSM_32), GS_REG_BITBLTBUF); q++;
-
-
-    int lTW = draw_log2(codedW);
-    int lTH = draw_log2(codedH);
-
-    if (s_drawPck) { /* no free() available - only rebuilt on resolution change */ }
-    s_drawPck = packet_init(7, PACKET_NORMAL);
-    qword_t *dq = s_drawPck->data;
-
-    PACK_GIFTAG(dq, GIF_SET_TAG(6, 1, 0, 0, 0, 1), GIF_REG_AD); dq++;
-    PACK_GIFTAG(dq, GS_SET_TEX0(s_texVramShifted, tbw, GS_PSM_32, lTW, lTH, 1, 1, 0, 0, 0, 0, 0), GS_REG_TEX0_1); dq++;
-    PACK_GIFTAG(dq, GS_SET_PRIM(6, 0, 1, 0, 0, 0, 1, 0, 0), GS_REG_PRIM); dq++;
-    PACK_GIFTAG(dq, GS_SET_UV(0, 0), GS_REG_UV); dq++;
-    PACK_GIFTAG(dq, GS_SET_XYZ((2048 << 4), (2048 << 4), 0), GS_REG_XYZ2); dq++;
-    PACK_GIFTAG(dq, GS_SET_UV(apInfo->m_Width << 4, apInfo->m_Height << 4), GS_REG_UV); dq++;
-    PACK_GIFTAG(dq, GS_SET_XYZ((gsGlobal->Width << 4) + (2048 << 4), (gsGlobal->Height << 4) + (2048 << 4), 0), GS_REG_XYZ2); dq++;
-
-    s_drawPck->qwc = dq - s_drawPck->data;
-    for (int lY = 0; lY < codedH; lY += 16) {
-        for (int lX = 0; lX < codedW; lX += 16, lpImg += 1024) {
-            DMATAG_CNT(q, 4, 0, 0, 0); q++;
-            PACK_GIFTAG(q, GIF_SET_TAG(2, 0, 0, 0, 0, 1), GIF_REG_AD); q++;
-            PACK_GIFTAG(q, GS_SET_TRXPOS(0, 0, lX, lY, 0), GS_REG_TRXPOS); q++;
-            PACK_GIFTAG(q, GS_SET_TRXDIR(0), GS_REG_TRXDIR); q++;
-            PACK_GIFTAG(q, GIF_SET_TAG(64, 1, 0, 0, 2, 0), 0); q++;
-            DMATAG_REF(q, 64, (unsigned)lpImg, 0, 0, 0); q++;
-        }
-    }
-
-    s_xferPck->qwc = q - s_xferPck->data;
+    s_tex.Vram   = s_texVram;
 
     return s_decodeBuf;
 }
+```[cite: 1]
