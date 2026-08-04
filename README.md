@@ -57,41 +57,41 @@ It's a complete from-scratch homebrew recreation, **source-available from day on
 #### FAT models
 | Platform            | Status                                                                       |
 |---------------------|------------------------------------------------------------------------------|
-| SCPH-10000-00   JPN | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
-| SCPH-15000-00   JPN | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
-| SCPH-18000-00   JPN | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
-| SCHP-3000x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
-| SCPH-3500x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
-| SCPH-3700x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
-| SCPH-3900x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
-| SCPH-500xx          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
-| SCPH-5500x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+| SCPH-10000-00   JPN | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB ![Untested](https://img.shields.io/badge/Untested-orange)   |
+| SCPH-15000-00   JPN | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB ![Untested](https://img.shields.io/badge/Untested-orange)   |
+| SCPH-18000-00   JPN | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB ![Untested](https://img.shields.io/badge/Untested-orange)   |
+| SCHP-3000x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB ![Untested](https://img.shields.io/badge/Untested-orange)   |
+| SCPH-3500x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB ![Untested](https://img.shields.io/badge/Untested-orange)   |
+| SCPH-3700x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB ![Untested](https://img.shields.io/badge/Untested-orange)   |
+| SCPH-3900x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB ![Untested](https://img.shields.io/badge/Untested-orange)   |
+| SCPH-500xx          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB Tested on 50004   |
+| SCPH-5500x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB ![Untested](https://img.shields.io/badge/Untested-orange)   |
 
 #### SLIM models
 | Platform            | Status                                                                       |
 |---------------------|------------------------------------------------------------------------------|
-| SCPH-70000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
-| SCPH-75000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
-| SCPH-77000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
-| SCHP-7900x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
-| SCPH-9000x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB/Tuna |
+| SCPH-70000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB ![Untested](https://img.shields.io/badge/Untested-orange)   |
+| SCPH-75000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB ![Untested](https://img.shields.io/badge/Untested-orange)   |
+| SCPH-77000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB ![Untested](https://img.shields.io/badge/Untested-orange)   |
+| SCHP-7900x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB ![Untested](https://img.shields.io/badge/Untested-orange)   |
+| SCPH-9000x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB/Tuna ![Untested](https://img.shields.io/badge/Untested-orange) |
 
 #### PSX models
 | Platform            | Status                                                                       |
 |---------------------|------------------------------------------------------------------------------|
-| DESR-50000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
-| DESR-51000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
-| DESR-57000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
-| DESR-7000x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
-| DESR-7100x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
-| DESR-7500x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
-| DESR-7700x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB    |
+| DESR-50000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB ![Untested](https://img.shields.io/badge/Untested-orange)   |
+| DESR-51000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB ![Untested](https://img.shields.io/badge/Untested-orange)   |
+| DESR-57000          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB ![Untested](https://img.shields.io/badge/Untested-orange)   |
+| DESR-7000x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB ![Untested](https://img.shields.io/badge/Untested-orange)  |
+| DESR-7100x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB ![Untested](https://img.shields.io/badge/Untested-orange)   |
+| DESR-7500x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB ![Untested](https://img.shields.io/badge/Untested-orange)   |
+| DESR-7700x          | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via FMCB ![Untested](https://img.shields.io/badge/Untested-orange)   |
 
 #### PS2 TV models
 | Platform            | Status                                                                       |
 |---------------------|------------------------------------------------------------------------------|
-| PX300               | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via Tuna    |
-| PX300-1             | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via Tuna    |
+| PX300               | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via Tuna ![Untested](https://img.shields.io/badge/Untested-orange)   |
+| PX300-1             | ![Supported](https://img.shields.io/badge/Supported-brightgreen) via Tuna ![Untested](https://img.shields.io/badge/Untested-orange)   |
 
 ### Storage Support
 |Device           | Status                 |
