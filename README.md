@@ -48,7 +48,7 @@ It's a complete from-scratch homebrew recreation, **source-available from day on
 | Role                        | Who                                                                 |
 |-----------------------------|---------------------------------------------------------------------|
 | Idea & Vision               | Bögi Dániel (@jegesmedve09) [](https://github.com/jegesmedve09) — the madman who said: "Sony didn't give us open PSBBN, so I'll build it." |
-| Special Thanks              | PS2 homebrew scene • CosmicScale's PSBBN English patch • sacred green screen • RCA cables that revealed what HDMI tried to hide • Quality ZlatyBazant beer that never let me down • the immense amount of self control needed not to throw my development suite out the WINDOW |
+| Special Thanks              | PS2 homebrew scene • CosmicScale's PSBBN English patch • sacred green screen • RCA cables that revealed what HDMI tried to hide • Quality ZlatyBazant beer that never let me down • the immense amount of self control needed not to throw my development suite out the WINDOW • food |
 
 
 # Technical information
@@ -111,6 +111,7 @@ It's a complete from-scratch homebrew recreation, **source-available from day on
 | USB Mass (Multiple Drives + Single Partition) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 | USB Mass (Multiple Drives + Multiple Partitions) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
 | PS2 HDD (only FAT consoles) | ![Supported](https://img.shields.io/badge/Supported-brightgreen) |
+| MX4SIO | ![Unsupported](https://img.shields.io/badge/unspported-orange) |
 
 ### Intellectual Property & Assets
 The "Curse" wallpaper/artwork featured in the free hobbyist version of this software is the property of **@shadydaone** on Instagram.
@@ -154,7 +155,7 @@ Read LICENSE file for more information.
 > to fix mistakes while we actually **understand** the code...  
 > **that's not shit. That's smart load-sharing.**
 > 
-> don't cancel me on X pls... nor Grok. Grok did nothing wrong.
+> don't cancel me on X pls... I don´t even have X...
 
 <br><br>
 
