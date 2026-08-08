@@ -4,6 +4,7 @@
 #include <audsrv.h>
 #include <string.h>
 #include <malloc.h>
+#include <stdio.h>
 
 #include "utils.h"
 
@@ -157,17 +158,18 @@ int audio_voice_open(int index, const char *path, int loop)
 
 void audio_voice_play(int index)
 {
-	if (index < 0 || index >= MAX_VOICES) return;
-	AudioVoice *v = &voices[index];
-	if (!v->in_use) return;
+    if (index < 0 || index >= MAX_VOICES) return;
+    AudioVoice *v = &voices[index];
+    if (!v->in_use) return;
 
-	if (index == MUSIC_VOICE) {
-		fseek(v->f, v->data_start, SEEK_SET);
-		v->bytes_read = 0;
-	} else {
-		sfx_pos[index] = 0;
-	}
-	v->active = 1;
+    if (index == MUSIC_VOICE) {
+        fseek(v->f, v->data_start, SEEK_SET);
+        clearerr(v->f);          // <-- add this too
+        v->bytes_read = 0;
+    } else {
+        sfx_pos[index] = 0;
+    }
+    v->active = 1;
 }
 
 void audio_voice_stop(int index)
@@ -224,12 +226,11 @@ void audio_mixer_update(void)
             if (v->loop) {
                 if (i == MUSIC_VOICE) {
                     fseek(v->f, v->data_start, SEEK_SET);
+                    clearerr(v->f);          // <-- add this
                     v->bytes_read = 0;
                 } else {
                     sfx_pos[i] = 0;
                 }
-            } else {
-                v->active = 0;
             }
         }
     }

@@ -1,0 +1,4 @@
+video_init: chunk=0x3d0ec0 decodeBuf=0x3e0f00 rasterBuf=0x520f40 vram=0x0012c000 ready=1 isPAL=1
+video_play: open('host:/DATA/PROJECT/Free-BBN/ALPHA 0.2x/BUILD/Debug.txt') = -1, loop=1
+video_init: chunk=0x3d0ec0 decodeBuf=0x3e0f00 rasterBuf=0x520f40 vram=0x0012c000 ready=1 isPAL=1
+video_play: open('host:/DATA/PROJECT/Free-BBN/ALPHA 0.2x/BUILD/Debug.txt') = -1, loop=1
