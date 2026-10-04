@@ -17,6 +17,11 @@
   </p>
 </div>
 
+Status: Archived / Proof-of-Concept
+This project is currently paused. The core execution engine, memory routines, and UI rendering are implemented and functional as a proof-of-concept.
+
+
+
 ---
 
 # About
